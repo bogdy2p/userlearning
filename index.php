@@ -23,7 +23,6 @@ $user[$i]->create($vasile[$i]);
 echo "<pre>";
 print_r($user);
 
-//print_r($user2);
 //var_dump($user);
 $user[3]->delete($vasile[3]);
 
