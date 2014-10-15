@@ -36,6 +36,7 @@ $user->create($user_params2);
 //$user->create($user_params3);
 
 $userData = $user->getUserData('1');
+$userData2 = $user->getUserData('2');
 
 
 $group->create(array('id' => '11', 'name'=> 'Group 1', 'special_key' => 'asdfsfd'));
@@ -43,21 +44,25 @@ $group->create(array('id' => '12', 'name'=> 'Group 2', 'special_key' => 'zzzeeef
 $group->create(array('id' => '13', 'name'=> 'Group 3', 'special_key' => 'zzzeefdsfdsefffaaa'));
 
 $groupDetails = $group->getGroupDetails('11');
+$group_12_details = $group->getGroupDetails('12');
 $group->setUserGroup($groupDetails['id'], $userData['id']);
 //$userDetails2 = $user->getUserData('1');
 
+
+//Set USER 2 to have group 12
+$group->setUserGroup($group_12_details['id'], $userData2['id']);
  
 $asd = $group->getGroupDetails('11');
-
 //Set group13 name to something else
 $group->setGroupName('13','ThisIsGroupThirteen');
 
-$group->delete('group','12');
+//$group->delete('group','12');
 
 
-print_r($user->getAllUsers());
-print_r($group->getAllGroups());
+//print_r($user->getAllUsers());
+//print_r($group->getAllGroups());
 
+print_r($group->getAllUsersFromGroup('12'));
 
 
 session_destroy();

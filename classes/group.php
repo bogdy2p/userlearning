@@ -24,14 +24,24 @@ class Group extends Crud {
 	}
 	function getAllUsersFromGroup($gid){
 
+		$users = User::getAllUsers();
+			$users_in_group = array();
+		foreach ($users as $user) {
+			if (isset($user['group_id']) && ($user['group_id'] == $gid)){
+				$users_in_group[] = $user;
+			}
+
+			//$users_in_group['id'][] = $user['id'];
+			//$users_in_group['Uname'][] = $user['username'];
+			//$users_in_group['pass'][] = $user['password'];
+
+		}
 		// for each user in system , if user[group_id ] = $gid , users array[] = user['username']
 
 
 		//return parent::read('group',$uid);
 		//$users = parent::read('user')
-		foreach ($variable as $key => $value) {
-			# code...
-		}
+		return $users_in_group;
 
 	}
 
