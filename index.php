@@ -33,11 +33,11 @@ $user->create($user_params);
 //Creating the second user
 $user->create($user_params2);
 //Creating the third user
-//$user->create($user_params3);
+$user->create($user_params3);
 
 $userData = $user->getUserData('1');
 $userData2 = $user->getUserData('2');
-
+$userData3 = $user->getUserData('3');
 
 $group->create(array('id' => '11', 'name'=> 'Group 1', 'special_key' => 'asdfsfd'));
 $group->create(array('id' => '12', 'name'=> 'Group 2', 'special_key' => 'zzzeeefffaaa'));
@@ -45,12 +45,17 @@ $group->create(array('id' => '13', 'name'=> 'Group 3', 'special_key' => 'zzzeefd
 
 $groupDetails = $group->getGroupDetails('11');
 $group_12_details = $group->getGroupDetails('12');
+$group_13_details = $group->getGroupDetails('13');
+
+
 $group->setUserGroup($groupDetails['id'], $userData['id']);
 //$userDetails2 = $user->getUserData('1');
 
 
 //Set USER 2 to have group 12
 $group->setUserGroup($group_12_details['id'], $userData2['id']);
+//Set USER 3 to have group 12
+$group->setUserGroup($group_12_details['id'], $userData3['id']);
  
 $asd = $group->getGroupDetails('11');
 //Set group13 name to something else
