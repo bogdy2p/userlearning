@@ -5,7 +5,7 @@ class User extends Crud {
 	function __construct(){
 		parent::__construct('user');
 	}
-	
+
 	public function create($array) {
 		if(isset($array['password']) && !empty($array['password'])) {
 			$tempPass = $array['password'];
@@ -38,6 +38,11 @@ class User extends Crud {
 	function getUserGroup($uid){
 		return parent::read('user',$uid)['group_id'];
 	}
+
+	function getAllUsers() {
+		return $_SESSION['user'];
+	}
+	
 }
 
 ?>

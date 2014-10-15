@@ -18,18 +18,18 @@ abstract class Crud {
 		$_SESSION[$this->obj][$this->id] = $array;
 	}
 
-	protected function read($obj, $id){
+	function read($obj, $id){
 		return $_SESSION[$obj][$id];
 	 }
-	 
-	 protected function update($obj, $id, $params){
+
+	function update($obj, $id, $params){
 	 	if(isset($_SESSION[$obj][$id]) && !empty($params)) {
 	 		foreach($params as $key=>$val) {
 	 			$_SESSION[$obj][$id][$key] = $val;
 	 		} 
 	 	}
 	 }
-	 protected function delete($obj, $id){
+	 function delete($obj, $id){
 	 	unset($_SESSION[$obj][$id]);
 	 }
 

@@ -22,8 +22,17 @@ class Group extends Crud {
 	function getGroupDetails($gid){
         return parent::read('group',$gid);
 	}
-	function getAllUsersFromGroup($group_id){
+	function getAllUsersFromGroup($gid){
+
+		// for each user in system , if user[group_id ] = $gid , users array[] = user['username']
+
+
 		//return parent::read('group',$uid);
+		//$users = parent::read('user')
+		foreach ($variable as $key => $value) {
+			# code...
+		}
+
 	}
 
 
@@ -34,7 +43,9 @@ class Group extends Crud {
 	function getGroupName($gid){
 		return parent::read('group',$gid)['name'];
 	}
-
+	function getAllGroups(){
+		return $_SESSION['group'];
+	}
 
 
 }
