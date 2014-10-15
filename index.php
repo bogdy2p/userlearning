@@ -1,5 +1,47 @@
 <?php
+require_once 'database.php';
+
+
+
+$db = new Database();
+$db->connect();
+$db->select('user_groups');
+$results[] = $db->select('users','*');
+print_r($results);
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Starting the session
+
+
+//Create a new connection to the database
+//$con=mysqli_connect("localhost","root","123456","user_groups");
+
+// Check to see if connection works
+// if (mysqli_connect_errno()) {
+//   echo "Connection FAILeD !!" . mysqli_connect_error();
+// }
+
+// $test = mysqli_query($con,"INSERT INTO USERS (id, uid, username, password, details, group_id)
+// VALUES ('1', 1,'username1','password1','details1',NULL)");
+
+// if($test){
+// 	echo 'succeded';
+// }else{
+// 	echo 'FAILED';
+// }
+
+
 session_start();
 echo "<pre>";
 //Including/requireing necessary files.
@@ -66,15 +108,15 @@ $group->setGroupName('13','ThisIsGroupThirteen');
 
 
 
-//Printing all the users associated to the group with id "12"
-print_r("\t\t\t All users from group 12 are : <br /> <br />");
-print_r($group->getAllUsersFromGroup('12'));
-//Printing all the users associated to the group with id "11"
-print_r("\t\t\t All users from group 11 are : <br /> <br />");
-print_r($group->getAllUsersFromGroup('11'));
-//Printing all the users associated to the group with id "11"
-print_r("\t\t\t All users from group 13 are : <br /> <br />");
-print_r($group->getAllUsersFromGroup('13'));
+			// //Printing all the users associated to the group with id "12"
+			// print_r("\t\t\t All users from group 12 are : <br /> <br />");
+			// print_r($group->getAllUsersFromGroup('12'));
+			// //Printing all the users associated to the group with id "11"
+			// print_r("\t\t\t All users from group 11 are : <br /> <br />");
+			// print_r($group->getAllUsersFromGroup('11'));
+			// //Printing all the users associated to the group with id "11"
+			// print_r("\t\t\t All users from group 13 are : <br /> <br />");
+			// print_r($group->getAllUsersFromGroup('13'));
 
 session_destroy();
 die('---');
