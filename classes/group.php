@@ -2,26 +2,30 @@
 
 class Group extends Crud {
 
-
-
 	function __construct(){
 		parent::__construct('group');
 	}
-	public function Create($array) {
-        //$this->new($array);
+	function __destruct(){
+		parent::__destruct('group');
+	}
+	
+	public function create($array) {
+        //$this->
     }
-    public function Read($array) {
+    public function read($array) {
         return NULL;
     }
-    public function Update($array) {
+    public function update($array) {
         return NULL;
     }
-    public function Delete($array) {
+    public function delete($array) {
         return NULL;
     }
 
 	function setUserGroup($user_id, $group_id){
-		
+		// if ($this->uid == $user_id){
+		// $this->group = $group_id;
+		// } 
 	}
 	function getUserGroups($user_id){
         //

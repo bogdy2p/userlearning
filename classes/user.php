@@ -9,58 +9,57 @@ class User extends Crud {
 		parent::__destruct('user');
 	}
 
-	public function Create($array) {
-		$this->id = $array['id'];
+	public function create($array) {
+		$this->uid = NULL;//$array['id'];
+		$this->username = NULL;//$array['username'];
+		$this->password = NULL;//$array['password'];
+		$this->details = NULL;//$array['details'];
+		$this->group = NULL;
+    }
+    public function read($array) {
+    	return $this->obj;
+    }
+    public function update($array) {
+    	$this->uid = $array['uid'];
 		$this->username = $array['username'];
 		$this->password = $array['password'];
 		$this->details = $array['details'];
+		$this->group = $array['group'];	
     }
-    public function Read($array) {
-    	return $this->obj;
-        //return NULL;
-    }
-    public function Update($array) {
-
-        //return NULL;
-    }
-    public function Delete($array) {
+    public function delete($array) {
     	$this->__destruct();
     }
 
-	function setUsername($id, $username){
+	function setUsername($username, $id = NULL){
 		$this->username = $username;
 	}
 
-	function setPassword($id, $password){
+	function setPassword($password, $id = NULL){
 		$this->password = $password;
 	}
 
-	function setDetails($id, $details){
+	function setDetails($details, $id = NULL){
 		$this->details = $details;
 	}
 
-	function getUsername($id){
-		return $obj[$id]->username;
+	function getUsername(){
+		return $this->username;
 	}
-
-	function getUserPassword($id){
-		return $obj[$id]->password;
+	function getUserPassword(){
+		return $this->password;
 	}
-	function getUserDetails($id){
-		return $obj[$id]->details;
+	function getUserDetails(){
+		return $this->details;
 	}
-
-	function getUserData($id){
-
-		$user['username'] = getUsername($id);
-		$user['password'] = getUserPassword($id);
-		$user['details'] = getUserDetails($id);
-		$user['group'] = getUserGroup($id);
+	function getUserData(){
+		$user['username'] = $this->getUsername($id);
+		$user['password'] = $this->getUserPassword($id);
+		$user['details'] = $this->getUserDetails($id);
+		$user['group'] = $this->getUserGroup($id);
 		return $user;
-		//will return an array of the user's data
 	}
 	function getUserGroup($id){
-		return $obj[$id]->group;
+		return $this->group;
 	}
 }
 
