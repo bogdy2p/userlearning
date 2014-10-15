@@ -5,98 +5,39 @@ class User extends Crud {
 	function __construct(){
 		parent::__construct('user');
 	}
-	function __destruct(){
-		parent::__destruct('user');
-	}
-
+	
 	public function create($array) {
-		$this->uid = NULL;//$array['id'];
-		$this->username = NULL;//$array['username'];
-		$this->password = NULL;//$array['password'];
-		$this->details = NULL;//$array['details'];
-		$this->group = NULL;
+		if(isset($array['password']) && !empty($array['password'])) {
+			$tempPass = $array['password'];
+			unset($array['password']);
+			$array['password'] = md5($tempPass);
+		}
+		parent::create($array);
     }
-    public function read($array) {
-    	return $this->obj;
-    }
-    public function update($array) {
-    	$this->uid = $array['uid'];
-		$this->username = $array['username'];
-		$this->password = $array['password'];
-		$this->details = $array['details'];
-		$this->group = $array['group'];	
-    }
-    public function delete($array) {
-    	$this->__destruct();
-    }
-
-	function setUsername($username, $id = NULL){
-		$this->username = $username;
+ 	function setUsername($uid , $username){
+		parent::update('user', $uid, array('username'=>$username));
 	}
-
-	function setPassword($password, $id = NULL){
-		$this->password = $password;
+	function setPassword($uid, $password){
+		parent::update('user', $uid, array('password'=>md5($password)));
 	}
-
-	function setDetails($details, $id = NULL){
-		$this->details = $details;
+	function setDetails($uid, $details){
+		parent::update('user', $uid, array('details'=>$details));
 	}
-
-	function getUsername(){
-		return $this->username;
+	function getUsername($uid){
+		return parent::read('user',$uid)['username'];
 	}
-	function getUserPassword(){
-		return $this->password;
+	function getUserPassword($uid){
+		return parent::read('user',$uid)['password'];
 	}
-	function getUserDetails(){
-		return $this->details;
+	function getUserDetails($uid){
+		return parent::read('user',$uid)['details'];
 	}
-	function getUserData(){
-		$user['username'] = $this->getUsername($id);
-		$user['password'] = $this->getUserPassword($id);
-		$user['details'] = $this->getUserDetails($id);
-		$user['group'] = $this->getUserGroup($id);
-		return $user;
+	function getUserData($uid){
+		return parent::read('user',$uid);
 	}
-	function getUserGroup($id){
-		return $this->group;
+	function getUserGroup($uid){
+		return parent::read('user',$uid)['group_id'];
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>

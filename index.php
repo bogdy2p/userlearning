@@ -1,58 +1,45 @@
 <?php
+session_start();
 echo "<pre>";
 require_once 'classes/crud.php';
 require_once 'classes/user.php';
 require_once 'classes/group.php';
 
-
-for ($i=1;$i<=4;$i++){
-
-$user_array[$i] = array(
-	'uid' => $i,
-	'username' => 'vasileusername'.$i,
-	'password' => 'vasilepassword'.$i,
-	'details' => 'vasiledetails'.$i,
-	'group' => NULL,
-	);
 $user = new User();
-$user->create($user_array[$i]);
+$params = array(
+	'id' => '1',
+	'username' => 'User 1',
+	'password' => '123456',
+	'details' => array('det1', 'det2'),
+	);
 
-}
+$user->create($params);
+$userData = $user->getUserData('1');
 
-//print_r($user);
-for ($i=1;$i<=4;$i++){
-$user->update($user_array[$i]);
-print_r($user);
-}
+$group = new Group();
+$group->create(array('id' => '11', 'name'=> 'Group 1', 'special_key' => 'asdfsfd'));
 
-$grup = new Group();
+$groupDetails = $group->getGroupDetails('11');
+$group->setUserGroup($groupDetails['id'], $userData['id']);
+//WORKS. $user->setPassword('1','vasile');
+$userDetails2 = $user->getUserData('1');
 
-$azd = $grup->setUserGroup('4','grupu');
+print_r($userDetails2);
+ 
+$asd = $group->getGroupDetails('11');
+ 
+//WORKS. $group->setGroupName('11','unshpe');
 
-print_r($azd);
-
-
-
-
-
-
-
-
+$aaa = $group->getGroupDetails('11');
+print_r($aaa);
 
 
 
 
-//var_dump($user);
-//$user[3]->delete($vasile);
-//$user[4]->setUsername('ion');
-//$user[4]->setPassword('aaaa');
-//$user[4]->setDetails('blah');
-//print_r($user->read($vasile));
-//$asd = $user[5]->getUserPassword(5);
-//$efg = $user[5]->getUserData(5);
-//print_r($efg);
-//print_r($user->read($vasile));
 
-//echo $user->getUserPassword();
+
+
+//session_destroy();
+die('---');
 
 ?>

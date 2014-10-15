@@ -2,19 +2,36 @@
 
 abstract class Crud {
 
-public $obj = '';
-
-	abstract protected function create($array);
-	abstract protected function read($array);
-	abstract protected function update($array);
-	abstract protected function delete($array);
+	public $obj = '';
+	private $id = 0;
 
 	public function __construct($obj){
 		$this->obj = $obj;
 	}
 
-	public function __destruct(){
-		unset($this->obj);
+	function create($array){
+		if(isset($array['id'])) {
+			$this->id = $array['id'];
+		}else{
+			$this->id = 0;
+		}
+		$_SESSION[$this->obj][$this->id] = $array;
 	}
+
+	protected function read($obj, $id){
+		return $_SESSION[$obj][$id];
+	 }
+	 
+	 protected function update($obj, $id, $params){
+	 	if(isset($_SESSION[$obj][$id]) && !empty($params)) {
+	 		foreach($params as $key=>$val) {
+	 			$_SESSION[$obj][$id][$key] = $val;
+	 		} 
+	 	}
+	 }
+	 protected function delete($obj, $id){
+	 	unset($_SESSION[$obj][$id]);
+	 }
+
 }
  ?>
