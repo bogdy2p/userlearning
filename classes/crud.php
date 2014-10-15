@@ -17,7 +17,7 @@ abstract class Crud {
 		}
 		$_SESSION[$this->obj][$this->id] = $array;
 	}
-
+	
 	function read($obj, $id){
 		return $_SESSION[$obj][$id];
 	 }

@@ -1,14 +1,16 @@
 <?php
+//Starting the session
 session_start();
 echo "<pre>";
+//Including/requireing necessary files.
 require_once 'classes/crud.php';
 require_once 'classes/user.php';
 require_once 'classes/group.php';
 
+//Instantiating classes
 $user = new User();
 $group = new Group();
-
-
+//Defining parameter arrays for 3 users.
 $user_params = array(
 	'id' => '1',
 	'username' => 'User 1',
@@ -35,40 +37,44 @@ $user->create($user_params2);
 //Creating the third user
 $user->create($user_params3);
 
+//Grabbing user objects data after creating them
 $userData = $user->getUserData('1');
 $userData2 = $user->getUserData('2');
 $userData3 = $user->getUserData('3');
 
+//Creating 3 groups
 $group->create(array('id' => '11', 'name'=> 'Group 1', 'special_key' => 'asdfsfd'));
 $group->create(array('id' => '12', 'name'=> 'Group 2', 'special_key' => 'zzzeeefffaaa'));
 $group->create(array('id' => '13', 'name'=> 'Group 3', 'special_key' => 'zzzeefdsfdsefffaaa'));
-
-$groupDetails = $group->getGroupDetails('11');
+//Grabbing group objects data after creating them
+$group_11_Details = $group->getGroupDetails('11');
 $group_12_details = $group->getGroupDetails('12');
 $group_13_details = $group->getGroupDetails('13');
 
-
-$group->setUserGroup($groupDetails['id'], $userData['id']);
-//$userDetails2 = $user->getUserData('1');
-
-
+//Set User 1 to have group 11
+$group->setUserGroup($group_11_Details['id'], $userData['id']);
 //Set USER 2 to have group 12
 $group->setUserGroup($group_12_details['id'], $userData2['id']);
 //Set USER 3 to have group 12
 $group->setUserGroup($group_12_details['id'], $userData3['id']);
- 
-$asd = $group->getGroupDetails('11');
-//Set group13 name to something else
+//Change Group thirteen's name ;)
 $group->setGroupName('13','ThisIsGroupThirteen');
 
 //$group->delete('group','12');
-
-
 //print_r($user->getAllUsers());
 //print_r($group->getAllGroups());
 
-print_r($group->getAllUsersFromGroup('12'));
 
+
+//Printing all the users associated to the group with id "12"
+print_r("\t\t\t All users from group 12 are : <br /> <br />");
+print_r($group->getAllUsersFromGroup('12'));
+//Printing all the users associated to the group with id "11"
+print_r("\t\t\t All users from group 11 are : <br /> <br />");
+print_r($group->getAllUsersFromGroup('11'));
+//Printing all the users associated to the group with id "11"
+print_r("\t\t\t All users from group 13 are : <br /> <br />");
+print_r($group->getAllUsersFromGroup('13'));
 
 session_destroy();
 die('---');
