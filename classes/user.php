@@ -70,7 +70,7 @@ class User extends Crud {
 	function getAllUsers() {
 		return $_SESSION['user'];
 	}
-	
+
 	function verify_user_existence($id, $username){
 		return parent::verify_existence($id,$username);
 	}
@@ -79,10 +79,16 @@ class User extends Crud {
 		return parent::verify_object_exists($object_id,$table_name);
 	}
 
-	function insert_user_into_db($array){
-		return parent::create_empty_user_object($array);
+	function insert_user_into_db($array,$table = 'users'){
+		return parent::create_db_empty_object($array,$table);
 	}
 
+	function user_db_update($id, $table = 'users', $update_params_array){
+		return parent::db_update($id, $table, $update_params_array);
+	}
+	function user_db_delete($id, $table = 'users'){
+		return parent::db_delete($id, $table);
+	}
 }
 
 ?>

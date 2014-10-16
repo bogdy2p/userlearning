@@ -50,7 +50,9 @@ class Group extends Crud {
 	function getAllGroups(){
 		return $_SESSION['group'];
 	}
-
+	function insert_group_into_db($array,$table = 'groups'){
+		return parent::create_db_empty_object($array,$table);
+	}
 }
 
 ?>
