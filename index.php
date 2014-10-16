@@ -8,10 +8,41 @@ require_once 'classes/group.php';
 require_once 'classes/database.php';
 
 
-$db_id = '1';
-$db_username = '1';
-$object = new User();
-$object->read2($db_id,$db_username);
+$object_id = '2';
+$table_name = 'users';
+$user = new User();
+
+//Verify user existence (uid)
+//$exists = $user->verify_user_existence('2','22');
+
+// $exists2 = $user->verify_object_exists($object_id,$table_name);
+
+// if($exists2){
+// 	echo "Object with id = " .$object_id ." exists in table " . $table_name ." ! ";
+// }else{
+// 	echo "THERE IS NO Object with id = " .$object_id ." in table named : " . $table_name ." ! ";
+// }
+//var_dump($exists2);
+
+$user_params6 = array(
+	'id' => '121',
+	'username' => 'User 14',
+	'password' => '123456',
+	'details' => array('det1', 'det2'),
+	);
+
+/// Add a new object if not exists already in database.
+
+$test = $user->insert_user_into_db($user_params6);
+
+
+
+
+
+
+
+
+
 
 
 
@@ -31,18 +62,14 @@ $object->read2($db_id,$db_username);
 // }
 //Starting the session
 
-
 //Create a new connection to the database
 //$con=mysqli_connect("localhost","root","123456","user_groups");
-
 // Check to see if connection works
 // if (mysqli_connect_errno()) {
 //   echo "Connection FAILeD !!" . mysqli_connect_error();
 // }
-
 // $test = mysqli_query($con,"INSERT INTO USERS (id, uid, username, password, details, group_id)
 // VALUES ('1', 1,'username1','password1','details1',NULL)");
-
 // if($test){
 // 	echo 'succeded';
 // }else{
@@ -108,8 +135,6 @@ $group->setGroupName('13','ThisIsGroupThirteen');
 //print_r($user->getAllUsers());
 //print_r($group->getAllGroups());
 
-
-
 			// //Printing all the users associated to the group with id "12"
 			// print_r("\t\t\t All users from group 12 are : <br /> <br />");
 			// print_r($group->getAllUsersFromGroup('12'));
@@ -121,6 +146,7 @@ $group->setGroupName('13','ThisIsGroupThirteen');
 			// print_r($group->getAllUsersFromGroup('13'));
 
 session_destroy();
+echo "<br />";
 die('---');
 
 ?>

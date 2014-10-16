@@ -1,15 +1,10 @@
 <?php 
 
 class User extends Crud {
-
-	
-
-
 	//Constructor function for class user.
 	function __construct(){
 		parent::__construct('user');
 	}
-
 	/*
 	* Alter parent function Crud::create.??
 	*/
@@ -75,11 +70,19 @@ class User extends Crud {
 	function getAllUsers() {
 		return $_SESSION['user'];
 	}
-
-	function read2($id, $username){
-		return parent::read2($id,$username);
-		}
 	
+	function verify_user_existence($id, $username){
+		return parent::verify_existence($id,$username);
+	}
+
+	function verify_user_exists($object_id, $table_name){
+		return parent::verify_object_exists($object_id,$table_name);
+	}
+
+	function insert_user_into_db($array){
+		return parent::create_empty_user_object($array);
+	}
+
 }
 
 ?>

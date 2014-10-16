@@ -1,7 +1,6 @@
 <?php
 require_once 'database.php';
 
-
 abstract class Crud {
 
 	public $obj = '';
@@ -23,29 +22,62 @@ abstract class Crud {
 		}
 		$_SESSION[$this->obj][$this->id] = $array;
 	}
+	///////////////////////////////////////////
+	/////////DATABASE INSERT OBJECT (USER / GROUP)
+	///////////////////////////////////////////
+	function create_empty_user_object($array){
 
-	function read2($id, $username){
-		if(!empty($id) && !empty($username)){
-			$st = $this->db->prepare("select * from users where id=? and username=?");
-			$st->bindParam(1, $id);
+		if(isset($array['id'])){
+			$exists = Crud::verify_object_exists($array['id'],'users');
+				if(!$exists){
+			$object_id = $array['id'];
+		$sql = $this->db->prepare("insert into users (uid) VALUES (:object_id)");
+		$sql->execute(array(':object_id' => $object_id));
+				echo "A new user with uid ". $object_id ." has been succesfully initiated / inserted into db..";
+			}
+			else {
+				die("ERROR . A object with uid = ". $array['id'] ." allready exists in table USERS");
+			}
+		}
+	}
+
+	function verify_existence($uid, $username){
+		if(!empty($uid) && !empty($username)){
+			$st = $this->db->prepare("select * from users where uid=? and username=?");
+			$st->bindParam(1, $uid);
 			$st->bindParam(2, $username);
 			$st->execute();
 
 			if($st->rowCount() >= 1){
-				echo "At least one user object with that parameters exists. ";
+				return true;
+				//echo "At least one user object with that parameters exists. ";
 			}else{
-				echo "No users object exist with that user id and username";
+				return false;
+				//echo "No users object exist with that user id and username";
 			}
-
 		}else{
-			echo "Error. username and password empty";
+			die("Error. username and password empty");
+		}
+	}
+	//Function takes parameters : id of the object , name of the table.
+	//Function that returns true if there already is an object with that id in the table , or false.
+	function verify_object_exists($object_id,$table_name){
+		if(!empty($object_id) && !empty($table_name)){
+			$statement = $this->db->prepare("SELECT * FROM ". $table_name . " WHERE uid=?");
+			$statement->bindParam(1, $object_id);
+			$statement->execute();
+			if($statement->rowCount() >= 1){
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			echo "parameters error";
+			die();
 		}
 	}
 
-
 	function read($obj, $id){
-		
-
 		return $_SESSION[$obj][$id];
 	 }
 
