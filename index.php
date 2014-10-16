@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 echo "<pre>";
 //Including/requireing necessary files.
 require_once 'classes/crud.php';
@@ -9,7 +9,7 @@ require_once 'classes/database.php';
 
 
 //$object_id = '2';
-$table_name = 'users';
+
 $user = new User();
 $testgrp = new Group();
 
@@ -49,39 +49,8 @@ $params_array = array(
 	);
 
 
-$user->db_delete('1','users');
+$user->db_delete('59','users');
 //$test_update = $user->user_db_update($params_array['id'],'users',$params_array);
-
-// try{
-// $dbh = new PDO('mysql:host=localhost;dbname=user_groups', 'root', '123456');
-// $stmt = $dbh->prepare("SELECT * FROM users");
-// if ($stmt->execute()) {
-//   while ($row = $stmt->fetch()) {
-//     print_r($row);
-//   }
-// }
-// //print_r($asd);
-//      $dbh = null;
-// } catch (PDOException $e) {
-// 	print "Error " . $e->getMessage() . "<br />";
-// 	die();
-// }
-//Starting the session
-
-//Create a new connection to the database
-//$con=mysqli_connect("localhost","root","123456","user_groups");
-// Check to see if connection works
-// if (mysqli_connect_errno()) {
-//   echo "Connection FAILeD !!" . mysqli_connect_error();
-// }
-// $test = mysqli_query($con,"INSERT INTO USERS (id, uid, username, password, details, group_id)
-// VALUES ('1', 1,'username1','password1','details1',NULL)");
-// if($test){
-// 	echo 'succeded';
-// }else{
-// 	echo 'FAILED';
-// }
-
 
 
 //Instantiating classes
