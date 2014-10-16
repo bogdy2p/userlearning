@@ -1,11 +1,17 @@
 <?php
+require_once 'database.php';
+
 
 abstract class Crud {
 
 	public $obj = '';
 	private $id = 0;
+	private $db;
+
 
 	public function __construct($obj){
+		$this->db = new Database();
+		$this->db = $this->db->dbConnect();
 		$this->obj = $obj;
 	}
 
@@ -17,6 +23,25 @@ abstract class Crud {
 		}
 		$_SESSION[$this->obj][$this->id] = $array;
 	}
+
+	function read2($id, $username){
+		if(!empty($id) && !empty($username)){
+			$st = $this->db->prepare("select * from users where id=? and username=?");
+			$st->bindParam(1, $id);
+			$st->bindParam(2, $username);
+			$st->execute();
+
+			if($st->rowCount() >= 1){
+				echo "At least one user object with that parameters exists. ";
+			}else{
+				echo "No users object exist with that user id and username";
+			}
+
+		}else{
+			echo "Error. username and password empty";
+		}
+	}
+
 
 	function read($obj, $id){
 		

@@ -1,26 +1,34 @@
 <?php
-require_once 'database.php';
+session_start();
+echo "<pre>";
+//Including/requireing necessary files.
+require_once 'classes/crud.php';
+require_once 'classes/user.php';
+require_once 'classes/group.php';
+require_once 'classes/database.php';
+
+
+$db_id = '1';
+$db_username = '1';
+$object = new User();
+$object->read2($db_id,$db_username);
 
 
 
-$db = new Database();
-$db->connect();
-$db->select('user_groups');
-$results[] = $db->select('users','*');
-print_r($results);
-
-
-
-
-
-
-
-
-
-
-
-
-
+// try{
+// $dbh = new PDO('mysql:host=localhost;dbname=user_groups', 'root', '123456');
+// $stmt = $dbh->prepare("SELECT * FROM users");
+// if ($stmt->execute()) {
+//   while ($row = $stmt->fetch()) {
+//     print_r($row);
+//   }
+// }
+// //print_r($asd);
+//      $dbh = null;
+// } catch (PDOException $e) {
+// 	print "Error " . $e->getMessage() . "<br />";
+// 	die();
+// }
 //Starting the session
 
 
@@ -42,12 +50,6 @@ print_r($results);
 // }
 
 
-session_start();
-echo "<pre>";
-//Including/requireing necessary files.
-require_once 'classes/crud.php';
-require_once 'classes/user.php';
-require_once 'classes/group.php';
 
 //Instantiating classes
 $user = new User();

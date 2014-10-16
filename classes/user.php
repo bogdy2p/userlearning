@@ -1,6 +1,10 @@
 <?php 
 
 class User extends Crud {
+
+	
+
+
 	//Constructor function for class user.
 	function __construct(){
 		parent::__construct('user');
@@ -71,6 +75,11 @@ class User extends Crud {
 	function getAllUsers() {
 		return $_SESSION['user'];
 	}
+
+	function read2($id, $username){
+		return parent::read2($id,$username);
+		}
+	
 }
 
 ?>
