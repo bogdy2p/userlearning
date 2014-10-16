@@ -14,7 +14,7 @@ abstract class Crud {
 	}
 
 	/// Add an empty row to the database specified table (only with the id of the object)
-	function create_db_empty_object($array,$table){
+	function create($array,$table){
 		if(isset($array['id'])){
 			$exists = Crud::verify_object_exists($array['id'],$table);
 				if(!$exists){

@@ -15,8 +15,8 @@ class User extends Crud {
 		return parent::verify_object_exists($object_id,$table_name);
 	}
 
-	function insert_user_into_db($array,$table = 'users'){
-		return parent::create_db_empty_object($array,$table);
+	function create($array,$table = 'users'){
+		return parent::create($array,$table);
 	}
 
 	function user_db_update($id, $table = 'users', $update_params_array){

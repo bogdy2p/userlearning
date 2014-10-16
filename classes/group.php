@@ -11,7 +11,7 @@ class Group extends Crud {
 	*/
 	
 	function create($array,$table = 'groups'){
-		return parent::create_db_empty_object($array,$table);
+		return parent::create($array,$table);
 	}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////

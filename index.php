@@ -1,3 +1,40 @@
+<!DOCTYPE html>
+
+
+<head>
+	<title>UserLearning Pbc Project</title>
+</head>
+
+<body>
+
+	<div class ="content">
+		<div class ="user-list">
+			
+			<form class="form" action="create.php" method="get"> <!--CHANGE METHOD TO POST !-->
+				
+				<input name="id" type="text"  placeholder="enter an id here !"> <br />
+				<input name="name" type="text"  placeholder="Username/Groupname"><br />
+				<button type="submit" class="button">Create</button>
+
+			</form>
+
+
+
+		</div>
+		<div class ="group-list">
+
+<br /><br /><br />
+		groupz
+
+		</div>
+ 	</div>
+
+
+</body>
+
+</html>
+
+
 <?php
 
 echo "<pre>";
@@ -8,39 +45,22 @@ require_once 'classes/group.php';
 require_once 'classes/database.php';
 
 
-//$object_id = '2';
 
 $user = new User();
 $testgrp = new Group();
 
-//Verify user existence (uid)
-//$exists = $user->verify_user_existence('2','22');
-
-// $exists2 = $user->verify_object_exists($object_id,$table_name);
-
-// if($exists2){
-// 	echo "Object with id = " .$object_id ." exists in table " . $table_name ." ! ";
-// }else{
-// 	echo "THERE IS NO Object with id = " .$object_id ." in table named : " . $table_name ." ! ";
-// }
-//var_dump($exists2);
-
-$user_params6 = array(
+$user_params = array(
 	'id' => '1211',
 	'username' => 'User 14',
 	'password' => '123456',
 	'details' => array('det1', 'det2'),
 	);
-/// Add a new object if not exists already in database.
-//$test = $user->insert_user_into_db($user_params6);
 $group_params = array(
 	'id' => '13',
 	'name'=> 'Group 3',
 	'special_key' => 'zzzeefdsfdsefffaaa',
 	);
-//$azd = $testgrp->insert_group_into_db($group_params);
-
-$params_array = array(
+$update_params_ = array(
 	'id' => '60',
  	'username' => 'User 4324234231',
  	'password' => '123442342342356',
@@ -49,8 +69,30 @@ $params_array = array(
 	);
 
 
-$user->db_delete('59','users');
+$user->db_delete('1211','users');
+//$user->create($user_params);
+
+
+//Verify user existence (uid)
+//$exists = $user->verify_user_existence('2','22');
+
+// $exists2 = $user->verify_object_exists($object_id,$table_name);
+
+/// Add a new object if not exists already in database.
+//$test = $user->insert_user_into_db($user_params);
+//$azd = $testgrp->insert_group_into_db($group_params);
+
+
 //$test_update = $user->user_db_update($params_array['id'],'users',$params_array);
+
+
+
+
+
+
+
+
+
 
 
 //Instantiating classes
