@@ -5,29 +5,21 @@
 ?>
 <!DOCTYPE html>
 <head>
-	<title>UserLearning Pbc Project</title>
+	<title>Create a new Object - UserLearning Pbc Project</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css"> 
 </head>
-
 <body>
-
 	<div class ="content">
 		<a href="/user"><h4 align="center">Go back.</h4></a>		
-			<form class="form" id="asd" action="create.php" method="post"> <!--CHANGE METHOD TO POST !-->
-				<!-- http://www.startutorial.com/articles/view/php-crud-tutorial-part-2/ -->
+			<form class="form" id="asd" action="create.php" method="post">
 				<input name="id" type="text"  placeholder="enter an id here !"> <br />
-				
 				<select name="name" form="asd">
  					 <option value="users">User</option>
  					 <option value="groups">Group</option>
-				</select>
-				
+				</select>	
 				<button type="submit" class="button">Create</button>
-
 			</form>
  	</div>
-
-
 </body>
 
 </html>
@@ -36,8 +28,6 @@
     if(isset($_POST['id']) && isset($_POST['name'])){
 	    $object_id_from_form = $_POST['id'];
     	$name_from_form = $_POST['name'];
-    	//echo $object_id_from_form;
-    	//echo $name_from_form;
     	$testdata = array(
     		'id' => $object_id_from_form);
     	$newuser = new User();

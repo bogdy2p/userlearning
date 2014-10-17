@@ -35,9 +35,8 @@ require_once('classes/group.php');
 <?php 
 
 		if(isset($_POST['id']) && ($_POST['id'] > 0)){
-
 		$group = new Group();
-		$group->list_groupdata_by_id($_POST['id']);
+		$group->grab_groupdata_table_by_id($_POST['id']);
 
 		}
 	

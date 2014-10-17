@@ -122,7 +122,7 @@ abstract class Crud {
 	 	return $statement;
 	 }
 
-	function read_by_id($id, $table_name){
+	function grab_by_id($id, $table_name){
 		$statement = $this->db->prepare("SELECT * FROM ". $table_name ." WHERE id=?");
 		$statement->bindParam(1,$id);
 		$statement->execute();
@@ -134,5 +134,11 @@ abstract class Crud {
 		$statement->execute();
 		return $statement;
 	}
+
+
+
+
+
+
 }
  ?>

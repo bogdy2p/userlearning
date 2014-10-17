@@ -5,7 +5,7 @@ class Group extends Crud {
 	function __construct(){
 		parent::__construct('group');
 	}
-	//GROUP CREATE
+	//GROUP CREATE`
 	function create($array,$table = 'groups'){
 		return parent::create($array,$table);
 	}
@@ -41,9 +41,18 @@ class Group extends Crud {
 		}
 		return $return;
 	}
-
-	function list_groupdata_by_id($id, $table_name= 'groups'){
-		$statement = parent::read_by_id($id,$table_name);
+	function grab_group_object_by_id($id, $table_name = 'groups'){
+		$statement = parent::grab_by_id($id,$table_name);
+		foreach ($statement as $row){
+			$this->id = $row['id'];
+			$this->name = $row['name'];
+			$this->special_key = $row['special_key'];
+		}
+		return $this;
+	}
+//	grab_userdata_table_by_id
+	function grab_groupdata_table_by_id($id, $table_name = 'groups'){
+		$statement = parent::grab_by_id($id,$table_name);
 		foreach ($statement as $row){
 			echo '<table class="default_css_table">';
 				

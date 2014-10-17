@@ -15,7 +15,7 @@
    <a href="view_user.php"><h4 align="center">View a unique USER by it's id</h4></a>
    <a href="view_group.php"><h4 align="center">View a unique Group by it's id - not yet impl.</h4></a>
    <h4 align="center">Edit a unique object (User or Grp) - not yet impl.</h4>
-   <h3 align="center">Assign a user to a group!  - not yet impl.</h3>
+   <a href="assign.php"><h3 align="center">Assign a user to a group!  - not yet impl.</h3></a>
 </body>
 
 </html>

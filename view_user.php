@@ -17,7 +17,6 @@ require_once('classes/group.php');
 
 
 	<form class="form" id="viewuser" action="view_user.php" method="post"><br /><br />
-
 	<select name="id" id="id" form="viewuser">
 					 <?php 
 					 	$users = new User();
@@ -28,21 +27,14 @@ require_once('classes/group.php');
 					 ?>
 	</select>
 
-		
 		<button type="submit" class="button">View User's Data</button>
 	</form>
 
 <?php 
-
 		if(isset($_POST['id']) && ($_POST['id'] > 0)){
-
 		$user = new User();
-		$user->list_userdata_by_id($_POST['id']);
-
+		$user->grab_userdata_table_by_id($_POST['id']);
 		}
-	
-
-
 ?>
 </div>
 </body>

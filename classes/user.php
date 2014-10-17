@@ -37,11 +37,23 @@ class User extends Crud {
 		}
 		return $return;
 	}
-	function list_userdata_by_id($id, $table_name= 'users'){
-		$statement = parent::read_by_id($id,$table_name);
+	function get_user_object_by_id($id, $table_name = 'users'){
+		$statement = parent::grab_by_id($id,$table_name);
+		foreach ($statement as $row){
+  			$this->id = $row['id'];
+            $this->username = $row['username'];
+            $this->password = $row['password'];
+            $this->details = $row['details'];
+            $this->group_id = $row['group_id'];
+       	    }
+        return $this;
+	}
+
+
+	function grab_userdata_table_by_id($id, $table_name= 'users'){
+		$statement = parent::grab_by_id($id,$table_name);
 		foreach ($statement as $row){
 			echo '<table class="default_css_table">';
-				
 				echo '<th>ID</th>';
 				echo '<th>Username</th>';
 				echo '<th>Password</th>';
@@ -71,6 +83,11 @@ class User extends Crud {
 	}
 	function verify_user_exists($object_id, $table_name){
 		return parent::verify_object_exists($object_id,$table_name);
+	}
+	function update_user_group_id($user_id,$group_id){
+
+
+
 	}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
