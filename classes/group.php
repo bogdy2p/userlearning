@@ -5,12 +5,10 @@ class Group extends Crud {
 	function __construct(){
 		parent::__construct('group');
 	}
-	
-	
+
 	function create($array,$table = 'groups'){
 		return parent::create($array,$table);
 	}
-
 
 	function list_all_groups($table_name = 'groups'){
 		$statement = parent::read_db($table_name);

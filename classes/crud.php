@@ -64,7 +64,6 @@ abstract class Crud {
 	 	}else{
 	 		print_r("There is no such entry in the whole database. Nothing to delete.");
 	 	}
-	 	
 	 }
 
 	 //Return type : BOOLEAN or DIE(error);

@@ -2,8 +2,11 @@
 background: black;
 text-align: center;
 }
-.default_css_table tr {
-	background: white;
-	width: 100px;
+.default_css_table th {
+	background: yellow;
+	min-width: 100px;
 }
 
+.default_css_table td {
+	background: white;
+}
