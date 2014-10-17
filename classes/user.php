@@ -5,6 +5,40 @@ class User extends Crud {
 	function __construct(){
 		parent::__construct('user');
 	}
+	//USER CREATE
+	function create($array,$table = 'users'){
+		return parent::create($array,$table);
+	}
+	//USER READ
+	function list_all_users($table_name = 'users'){
+		$statement = parent::read_db($table_name);
+					echo '<table class="default_css_table">';
+					echo '<th>ID</th>';
+					echo '<th>Username</th>';
+					echo '<th>Password</th>';
+					echo '<th>Details</th>';
+					echo '<th>Group Id</th>';
+		foreach ($statement as $row) {
+                     echo '<tr>';
+                     echo '<td>'. $row['id'] . '</td>';
+					 echo '<td>'. $row['username'] . '</td>';
+					 echo '<td>'. $row['password'] . '</td>';
+					 echo '<td>'. $row['details'] . '</td>';
+					 echo '<td>'. $row['group_id'] . '</td>';	
+                     echo '</tr>';
+           }
+           			echo '</table>';
+	}
+	//USER UPDATE
+	function user_db_update($id, $table = 'users', $update_params_array){
+		return parent::db_update($id, $table, $update_params_array);
+	}
+	//USER DELETE
+	function user_db_delete($id, $table = 'users'){
+		return parent::db_delete($id, $table);
+	}
+
+		
 	
 
 	function verify_user_existence($id, $username){
@@ -13,17 +47,6 @@ class User extends Crud {
 
 	function verify_user_exists($object_id, $table_name){
 		return parent::verify_object_exists($object_id,$table_name);
-	}
-
-	function create($array,$table = 'users'){
-		return parent::create($array,$table);
-	}
-
-	function user_db_update($id, $table = 'users', $update_params_array){
-		return parent::db_update($id, $table, $update_params_array);
-	}
-	function user_db_delete($id, $table = 'users'){
-		return parent::db_delete($id, $table);
 	}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////

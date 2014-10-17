@@ -104,6 +104,13 @@ abstract class Crud {
 	function read($obj, $id){
 		return $_SESSION[$obj][$id];
 	 }
+
+	 function read_db($table_name){
+	 	$statement = $this->db->prepare("SELECT * FROM ". $table_name);
+	 	$statement->execute();
+	 	return $statement;
+	 }
+
 	//DEPRECATED | DELETE
 	 function delete($obj, $id){
 	 	unset($_SESSION[$obj][$id]);

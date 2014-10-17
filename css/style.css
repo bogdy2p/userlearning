@@ -1,0 +1,9 @@
+.default_css_table{
+background: black;
+text-align: center;
+}
+.default_css_table tr {
+	background: white;
+	width: 100px;
+}
+

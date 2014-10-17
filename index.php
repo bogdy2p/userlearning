@@ -3,6 +3,7 @@
 
 <head>
 	<title>UserLearning Pbc Project</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css"> 
 </head>
 
 <body>
@@ -71,7 +72,9 @@ $update_params_ = array(
 
 $user->db_delete('1211','users');
 //$user->create($user_params);
-
+$user->list_all_users();
+echo "<br />";
+$testgrp->list_all_groups();
 
 //Verify user existence (uid)
 //$exists = $user->verify_user_existence('2','22');

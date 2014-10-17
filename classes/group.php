@@ -5,14 +5,38 @@ class Group extends Crud {
 	function __construct(){
 		parent::__construct('group');
 	}
-	/*
-	* @params : gid= Group Id , uid = User Id
-	* Update user object , add groupID (Map user with group?)
-	*/
+	
 	
 	function create($array,$table = 'groups'){
 		return parent::create($array,$table);
 	}
+
+
+	function list_all_groups($table_name = 'groups'){
+		$statement = parent::read_db($table_name);
+					echo '<table class="default_css_table">';
+					echo '<th>ID</th>';
+					echo '<th>Group Name</th>';
+					echo '<th>Special Key</th>';
+		foreach ($statement as $row) {
+                     echo '<tr>';
+                     echo '<td>'. $row['id'] . '</td>';
+					 echo '<td>'. $row['name'] . '</td>';
+					 echo '<td>'. $row['special_key'] . '</td>';
+                     echo '</tr>';
+           }
+           			echo '</table>';
+	}
+
+
+
+
+
+
+
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////
