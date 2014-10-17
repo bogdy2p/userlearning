@@ -1,6 +1,8 @@
 .default_css_table{
+margin: 0px auto;
 background: black;
 text-align: center;
+
 }
 .default_css_table th {
 	background: yellow;
@@ -9,4 +11,9 @@ text-align: center;
 
 .default_css_table td {
 	background: white;
+}
+
+.content{
+	margin:0px auto;
+	text-align: center;
 }

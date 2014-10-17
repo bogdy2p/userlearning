@@ -12,7 +12,7 @@
 <body>
 
 	<div class ="content">
-		
+		<a href="/user"><h4 align="center">Go back.</h4></a>		
 			<form class="form" id="asd" action="create.php" method="post"> <!--CHANGE METHOD TO POST !-->
 				<!-- http://www.startutorial.com/articles/view/php-crud-tutorial-part-2/ -->
 				<input name="id" type="text"  placeholder="enter an id here !"> <br />

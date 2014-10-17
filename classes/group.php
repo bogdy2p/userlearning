@@ -11,7 +11,7 @@ class Group extends Crud {
 	}
 	//GROUP READ
 	function list_all_groups($table_name = 'groups'){
-		$statement = parent::read_db($table_name);
+		$statement = parent::read($table_name);
 					echo '<table class="default_css_table">';
 					echo '<th>ID</th>';
 					echo '<th>Group Name</th>';
@@ -33,16 +33,14 @@ class Group extends Crud {
 	function delete($id, $table = 'groups'){
 		return parent::delete($id, $table);
 	}
-
-
-
-
-
-
-
-
-
-
+	function grab_all_group_ids($table_name ='groups') {
+		$statement = parent::grab_all_ids($table_name);
+		$return = array();
+		foreach ($statement as $row) {
+				$return[] = $row['id'];
+		}
+		return $return;
+	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////DEPRECATED FUNCTIONS FOR WHEN IT WAS WITH SESSION//////////////////////////

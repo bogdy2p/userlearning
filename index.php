@@ -7,27 +7,14 @@
 </head>
 
 <body>
+   <h1 align="center">Users-Groups</h1>
 
-	<div class ="content">
-		<div class ="user-list">
-			
-			<form class="form" action="create.php" method="get"> <!--CHANGE METHOD TO POST !-->
-				<!-- http://www.startutorial.com/articles/view/php-crud-tutorial-part-2/ -->
-				<input name="id" type="text"  placeholder="enter an id here !"> <br />
-				<input name="name" type="text"  placeholder="Username/Groupname"><br />
-				<button type="submit" class="button">Create</button>
-			</form>
-
-		</div>
-		<div class ="group-list">
-
-<br /><br /><br />
-		groupz
-
-		</div>
- 	</div>
-
-
+   <br /><br /><br />
+   <a href="list.php"><h4 align="center">List Users and Group Tables</h4></a>
+   <a href="create.php"><h4 align="center">Create a new object (User or Group)</h4></a>
+   <h4 align="center">View a unique object (User or Grp) - not yet impl.</h4>
+   <h4 align="center">Edit a unique object (User or Grp) - not yet impl.</h4>
+   <h4 align="center"></h4>
 </body>
 
 </html>
@@ -64,18 +51,22 @@ $update_params_ = array(
  	'group_id' => '141',
 	);
 
-
+//$asd = $user->list_userdata_by_id(1);
+$asd = $user->grab_all_user_ids();
+$asd2 = $testgrp->grab_all_group_ids();
+print_r($asd);
+print_r($asd2);
 //$test_update = $user->update($update_params_['id'],'users',$update_params_);
- for ($i=0;$i<10;$i++){
+ //for ($i=0;$i<10;$i++){
 //$test_group_update = $testgrp->update($group_params['id'],'groups',$group_params);
- $groupz[$i] = array(
-	'id' => '2'.$i,
- 	'name'=> 'Group 2'.$i,
- 	'special_key' => rand($i, $i * $i).rand(1,1000),
- 	);
- $test_group_update = $testgrp->update($groupz[$i]['id'],'groups',$groupz[$i]);
+ // $groupz[$i] = array(
+	// 'id' => '2'.$i,
+ // 	'name'=> 'Group 2'.$i,
+ // 	'special_key' => rand($i, $i * $i).rand(1,1000),
+ // 	);
+ //$test_group_update = $testgrp->update($groupz[$i]['id'],'groups',$groupz[$i]);
 // $testgrp->create($groupz[$i]);
- }
+ //}
 // for ($i=0;$i<10;$i++){
 // $users_parameters[$i] = array(
 // 	'id' => '1'.$i,
@@ -207,6 +198,6 @@ $update_params_ = array(
 
 //session_destroy();
 echo "<br />";
-die('---');
+//die('---');
 
 ?>

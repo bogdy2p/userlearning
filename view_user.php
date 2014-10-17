@@ -6,7 +6,6 @@ require_once('classes/group.php');
 ?>
 
 <!DOCTYPE html>
-
 <head>
 	<title>UserLearning Pbc Project</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css"> 
@@ -17,13 +16,12 @@ require_once('classes/group.php');
 <a href="/user"><h4 align="center">Go back.</h4></a>
 <?php 
 $user = new User();
-$group = new Group();
 
 echo "<h4>All users : </h4>";
-$user->list_all_users();
+$user->list_userdata_by_id(1);
 echo "<br />";
-echo "<h4>All groups :</h4>";
-$group->list_all_groups();
+
+
 ?>
 </div>
 </body>

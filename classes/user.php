@@ -11,7 +11,7 @@ class User extends Crud {
 	}
 	//USER READ
 	function list_all_users($table_name = 'users'){
-		$statement = parent::read_db($table_name);
+		$statement = parent::read($table_name);
 					echo '<table class="default_css_table">';
 					echo '<th>ID</th>';
 					echo '<th>Username</th>';
@@ -29,6 +29,27 @@ class User extends Crud {
            }
            			echo '</table>';
 	}
+	function grab_all_user_ids($table_name ='users') {
+		$statement = parent::grab_all_ids($table_name);
+		$return = array();
+		foreach ($statement as $row) {
+				$return[] = $row['id'];
+		}
+		return $return;
+	}
+	function list_userdata_by_id($id, $table_name= 'users'){
+		$statement = parent::read_by_id($id,$table_name);
+		foreach ($statement as $row){
+					echo '<tr>';
+                     echo '<td>'. $row['id'] . '</td>';
+					 echo '<td>'. $row['username'] . '</td>';
+					 echo '<td>'. $row['password'] . '</td>';
+					 echo '<td>'. $row['details'] . '</td>';
+					 echo '<td>'. $row['group_id'] . '</td>';	
+                     echo '</tr>';
+        }
+	}
+
 	//USER UPDATE
 	function update($id, $table = 'users', $update_params_array){
 		return parent::update($id, $table, $update_params_array);
@@ -37,7 +58,6 @@ class User extends Crud {
 	function delete($id, $table = 'users'){
 		return parent::delete($id, $table);
 	}
-
 	function verify_user_existence($id, $username){
 		return parent::verify_existence($id,$username);
 	}
@@ -51,6 +71,14 @@ class User extends Crud {
 //////////////////////////////SHOULD BE ALL IMPLEMENTED WITH THE DB//////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////	
 	
+	/* Return a specified user's username.
+	*/
+	// function getUsername($uid){
+	// 	return parent::read('user',$uid)['username'];
+	// }
+	/*
+
+
 	/*
 	* Alter parent function Crud::create.??
 	*/

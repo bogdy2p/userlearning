@@ -116,22 +116,23 @@ abstract class Crud {
 			echo("Parameters error | @verify_object_exists <br />");
 		}
 	}
-
-	//DEPRECATED | DELETE
-	function read($obj, $id){
-		return $_SESSION[$obj][$id];
-	 }
-
-	 function read_db($table_name){
+	function read($table_name){
 	 	$statement = $this->db->prepare("SELECT * FROM ". $table_name);
 	 	$statement->execute();
 	 	return $statement;
 	 }
 
-	//DEPRECATED | DELETE
-	 // function delete($obj, $id){
-	 // 	unset($_SESSION[$obj][$id]);
-	 // }
+	function read_by_id($id, $table_name){
+		$statement = $this->db->prepare("SELECT * FROM ". $table_name ." WHERE id=?");
+		$statement->bindParam(1,$id);
+		$statement->execute();
+		return $statement;
+	}
 
+	function grab_all_ids($table_name){
+		$statement = $this->db->prepare("SELECT id FROM ". $table_name);
+		$statement->execute();
+		return $statement;
+	}
 }
  ?>
