@@ -28,7 +28,7 @@ abstract class Crud {
 						die("we only have 2 tables momentarely!");
 					}
 				$sql->execute(array(':object_id' => $this->id));		
-				echo "A new object ( ". $this->id ."  ) succesfully inserted into table ". $table;
+				echo "A new object ( ". $this->id ."  ) succesfully inserted into table <br />". $table;
 				}
 			else {
 				die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table);
@@ -53,7 +53,7 @@ abstract class Crud {
 			echo "Object doesnt exist in db or params array is empty";
 		}
 	 }
-	 function db_delete($id, $table){
+	 function delete($id, $table){
 	 	//Verify that an object with that id exists in the table
 	 	$exists = Crud::verify_object_exists($id,$table);
 	 	if($exists){
@@ -111,9 +111,9 @@ abstract class Crud {
 	 }
 
 	//DEPRECATED | DELETE
-	 function delete($obj, $id){
-	 	unset($_SESSION[$obj][$id]);
-	 }
+	 // function delete($obj, $id){
+	 // 	unset($_SESSION[$obj][$id]);
+	 // }
 
 }
  ?>

@@ -5,7 +5,6 @@ require_once('classes/user.php');
 require_once('classes/group.php');
 ?>
 
-
 <!DOCTYPE html>
 
 <head>

@@ -5,11 +5,11 @@ class Group extends Crud {
 	function __construct(){
 		parent::__construct('group');
 	}
-
+	//GROUP CREATE
 	function create($array,$table = 'groups'){
 		return parent::create($array,$table);
 	}
-
+	//GROUP READ
 	function list_all_groups($table_name = 'groups'){
 		$statement = parent::read_db($table_name);
 					echo '<table class="default_css_table">';
@@ -25,7 +25,13 @@ class Group extends Crud {
            }
            			echo '</table>';
 	}
+	//GROUP UPDATE
 
+	//GROUP DELETE
+
+	function delete($id, $table = 'group'){
+		return parent::delete($id, $table);
+	}
 
 
 

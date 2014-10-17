@@ -45,8 +45,6 @@ require_once 'classes/user.php';
 require_once 'classes/group.php';
 require_once 'classes/database.php';
 
-
-
 $user = new User();
 $testgrp = new Group();
 
@@ -69,12 +67,30 @@ $update_params_ = array(
  	'group_id' => '141',
 	);
 
+// for ($i=0;$i<10;$i++){
 
-$user->db_delete('1211','users');
+// $groupz[$i] = array(
+// 	'id' => '3'.$i,
+// 	'name'=> 'Group '.$i,
+// 	'special_key' => $i * $i,
+// 	);
+// $testgrp->create($groupz[$i]);
+// }
+for ($i=0;$i<10;$i++){
+$users_parameters[$i] = array(
+	'id' => '1'.$i,
+	'username' => 'User'.$i,
+	'password' => '123456'.$i,
+	'details' => array('detail'.$i, 'detail'.($i+1)),
+	'group_id' => NULL,
+	);
+
+//$user->create($users_parameters[$i]);
+$user->user_db_update('1'.$i, 'users', $users_parameters[$i]);
+}
+//$user->db_delete('1211','users');
 //$user->create($user_params);
-$user->list_all_users();
-echo "<br />";
-$testgrp->list_all_groups();
+
 
 //Verify user existence (uid)
 //$exists = $user->verify_user_existence('2','22');

@@ -35,7 +35,7 @@ class User extends Crud {
 	}
 	//USER DELETE
 	function user_db_delete($id, $table = 'users'){
-		return parent::db_delete($id, $table);
+		return parent::delete($id, $table);
 	}
 
 	function verify_user_existence($id, $username){
