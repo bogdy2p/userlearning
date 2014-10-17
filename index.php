@@ -12,9 +12,10 @@
    <br /><br /><br />
    <a href="list.php"><h4 align="center">List Users and Group Tables</h4></a>
    <a href="create.php"><h4 align="center">Create a new object (User or Group)</h4></a>
-   <h4 align="center">View a unique object (User or Grp) - not yet impl.</h4>
+   <a href="view_user.php"><h4 align="center">View a unique USER by it's id</h4></a>
+   <a href="view_group.php"><h4 align="center">View a unique Group by it's id - not yet impl.</h4></a>
    <h4 align="center">Edit a unique object (User or Grp) - not yet impl.</h4>
-   <h4 align="center"></h4>
+   <h3 align="center">Assign a user to a group!  - not yet impl.</h3>
 </body>
 
 </html>
@@ -52,10 +53,10 @@ $update_params_ = array(
 	);
 
 //$asd = $user->list_userdata_by_id(1);
-$asd = $user->grab_all_user_ids();
-$asd2 = $testgrp->grab_all_group_ids();
-print_r($asd);
-print_r($asd2);
+//$asd = $user->grab_all_user_ids();
+//$asd2 = $testgrp->delete('4234230','groups');
+//print_r($asd);
+//print_r($asd2);
 //$test_update = $user->update($update_params_['id'],'users',$update_params_);
  //for ($i=0;$i<10;$i++){
 //$test_group_update = $testgrp->update($group_params['id'],'groups',$group_params);

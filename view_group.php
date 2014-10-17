@@ -16,12 +16,12 @@ require_once('classes/group.php');
 <a href="/user"><h4 align="center">Go back.</h4></a>
 
 
-	<form class="form" id="viewuser" action="view_user.php" method="post"><br /><br />
+	<form class="form" id="viewgroup" action="view_group.php" method="post"><br /><br />
 
-	<select name="id" id="id" form="viewuser">
+	<select name="id" id="id" form="viewgroup">
 					 <?php 
-					 	$users = new User();
-					 	$id_array = $users->grab_all_user_ids();
+					 	$groups = new Group();
+					 	$id_array = $groups->grab_all_group_ids();
 					 	foreach ($id_array as $id => $value) {
 					 		echo "<option value=\"{$value}\">{$value}</option>";
 					 	}
@@ -29,15 +29,15 @@ require_once('classes/group.php');
 	</select>
 
 		
-		<button type="submit" class="button">View User's Data</button>
+		<button type="submit" class="button">View Group's Data</button>
 	</form>
 
 <?php 
 
 		if(isset($_POST['id']) && ($_POST['id'] > 0)){
 
-		$user = new User();
-		$user->list_userdata_by_id($_POST['id']);
+		$group = new Group();
+		$group->list_groupdata_by_id($_POST['id']);
 
 		}
 	

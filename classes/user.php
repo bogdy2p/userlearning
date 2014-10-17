@@ -40,13 +40,21 @@ class User extends Crud {
 	function list_userdata_by_id($id, $table_name= 'users'){
 		$statement = parent::read_by_id($id,$table_name);
 		foreach ($statement as $row){
-					echo '<tr>';
-                     echo '<td>'. $row['id'] . '</td>';
-					 echo '<td>'. $row['username'] . '</td>';
-					 echo '<td>'. $row['password'] . '</td>';
-					 echo '<td>'. $row['details'] . '</td>';
-					 echo '<td>'. $row['group_id'] . '</td>';	
-                     echo '</tr>';
+			echo '<table class="default_css_table">';
+				
+				echo '<th>ID</th>';
+				echo '<th>Username</th>';
+				echo '<th>Password</th>';
+				echo '<th>Details</th>';
+				echo '<th>Group Id</th>';
+				echo '<tr>';
+                echo '<td>'. $row['id'] . '</td>';
+				echo '<td>'. $row['username'] . '</td>';
+				echo '<td>'. $row['password'] . '</td>';
+				echo '<td>'. $row['details'] . '</td>';
+				echo '<td>'. $row['group_id'] . '</td>';	
+                echo '</tr>';
+            echo '</table>';
         }
 	}
 

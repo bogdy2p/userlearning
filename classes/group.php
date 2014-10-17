@@ -41,6 +41,23 @@ class Group extends Crud {
 		}
 		return $return;
 	}
+
+	function list_groupdata_by_id($id, $table_name= 'groups'){
+		$statement = parent::read_by_id($id,$table_name);
+		foreach ($statement as $row){
+			echo '<table class="default_css_table">';
+				
+				echo '<th>ID</th>';
+				echo '<th>Name</th>';
+				echo '<th>Special Key</th>';
+				echo '<tr>';
+                echo '<td>'. $row['id'] . '</td>';
+				echo '<td>'. $row['name'] . '</td>';
+				echo '<td>'. $row['special_key'] . '</td>';
+                echo '</tr>';
+            echo '</table>';
+        }
+	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////DEPRECATED FUNCTIONS FOR WHEN IT WAS WITH SESSION//////////////////////////
