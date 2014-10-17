@@ -13,10 +13,15 @@
 
 	<div class ="content">
 		
-			<form class="form" action="create.php" method="get"> <!--CHANGE METHOD TO POST !-->
+			<form class="form" id="asd" action="create.php" method="post"> <!--CHANGE METHOD TO POST !-->
 				<!-- http://www.startutorial.com/articles/view/php-crud-tutorial-part-2/ -->
 				<input name="id" type="text"  placeholder="enter an id here !"> <br />
-				<input name="name" type="text"  placeholder="Username/Groupname"><br />
+				
+				<select name="name" form="asd">
+ 					 <option value="users">User</option>
+ 					 <option value="groups">Group</option>
+				</select>
+				
 				<button type="submit" class="button">Create</button>
 
 			</form>
@@ -28,6 +33,15 @@
 </html>
 
 <?php 
-	
+    if(isset($_POST['id']) && isset($_POST['name'])){
+	    $object_id_from_form = $_POST['id'];
+    	$name_from_form = $_POST['name'];
+    	//echo $object_id_from_form;
+    	//echo $name_from_form;
+    	$testdata = array(
+    		'id' => $object_id_from_form);
+    	$newuser = new User();
+    	$newuser->create($testdata, $name_from_form);
+    }
 
 ?>

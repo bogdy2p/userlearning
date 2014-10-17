@@ -63,16 +63,19 @@ $update_params_ = array(
  	'details' => array('det33231', 'det332'),
  	'group_id' => '141',
 	);
-$test_update = $user->update($update_params_['id'],'users',$update_params_);
-// for ($i=0;$i<10;$i++){
-$test_group_update = $testgrp->update($group_params['id'],'groups',$group_params);
-// $groupz[$i] = array(
-// 	'id' => '3'.$i,
-// 	'name'=> 'Group '.$i,
-// 	'special_key' => $i * $i,
-// 	);
+
+
+//$test_update = $user->update($update_params_['id'],'users',$update_params_);
+ for ($i=0;$i<10;$i++){
+//$test_group_update = $testgrp->update($group_params['id'],'groups',$group_params);
+ $groupz[$i] = array(
+	'id' => '2'.$i,
+ 	'name'=> 'Group 2'.$i,
+ 	'special_key' => rand($i, $i * $i).rand(1,1000),
+ 	);
+ $test_group_update = $testgrp->update($groupz[$i]['id'],'groups',$groupz[$i]);
 // $testgrp->create($groupz[$i]);
-// }
+ }
 // for ($i=0;$i<10;$i++){
 // $users_parameters[$i] = array(
 // 	'id' => '1'.$i,

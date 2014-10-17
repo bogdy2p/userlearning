@@ -30,7 +30,7 @@ class Group extends Crud {
 		return parent::update($id, $table, $update_params_array);
 	}
 	//GROUP DELETE
-	function delete($id, $table = 'group'){
+	function delete($id, $table = 'groups'){
 		return parent::delete($id, $table);
 	}
 

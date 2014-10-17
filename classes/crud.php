@@ -15,7 +15,7 @@ abstract class Crud {
 
 	/// Add an empty row to the database specified table (only with the id of the object)
 	function create($array,$table){
-		if(isset($array['id'])){
+		if(isset($array['id']) && ($array['id'] != 0)){
 			$exists = Crud::verify_object_exists($array['id'],$table);
 				if(!$exists){
 				$object_id = $array['id'];
@@ -66,16 +66,18 @@ abstract class Crud {
 					}
 			$statement->execute(); // this should be called inside the child class !?!?!
 		}else{
-			die("Object doesnt exist in db , table is incorrect , or params array is empty");
+			echo("Object id {$id} doesnt exist in db , table is incorrect , or params array is empty <br />");
 		}
 	 }
 	 function delete($id, $table){
 	 	//Verify that an object with that id exists in the table
 	 	$exists = Crud::verify_object_exists($id,$table);
+	 	print_r($exists);
 	 	if($exists){
 	 		$statement = $this->db->prepare("DELETE FROM user_groups." . $table . " WHERE ".$table.".id=?");
 	 		$statement->bindParam(1, $id);
 	 		$statement->execute();
+	 		print_r($statement);
 	 		print_r("Removed object with id {$id} from {$table}");
 	 	}else{
 	 		print_r("There is no such entry in the whole database. Nothing to delete.");
@@ -111,7 +113,7 @@ abstract class Crud {
 				return false;
 			}
 		}else{
-			die("Parameters error");
+			echo("Parameters error | @verify_object_exists <br />");
 		}
 	}
 

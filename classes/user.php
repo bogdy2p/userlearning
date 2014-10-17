@@ -34,14 +34,13 @@ class User extends Crud {
 		return parent::update($id, $table, $update_params_array);
 	}
 	//USER DELETE
-	function user_db_delete($id, $table = 'users'){
+	function delete($id, $table = 'users'){
 		return parent::delete($id, $table);
 	}
 
 	function verify_user_existence($id, $username){
 		return parent::verify_existence($id,$username);
 	}
-
 	function verify_user_exists($object_id, $table_name){
 		return parent::verify_object_exists($object_id,$table_name);
 	}
