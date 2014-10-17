@@ -7,15 +7,19 @@
 </head>
 
 <body>
-   <h1 align="center">Users-Groups</h1>
+	<div class="content_index">
+	   <h1 align="center">Users-Groups</h1>
 
-   <br /><br /><br />
-   <a href="list.php"><h4 align="center">List Users and Group Tables</h4></a>
-   <a href="create.php"><h4 align="center">Create a new object (User or Group)</h4></a>
-   <a href="view_user.php"><h4 align="center">View a unique USER by it's id</h4></a>
-   <a href="view_group.php"><h4 align="center">View a unique Group by it's id - not yet impl.</h4></a>
-   <h4 align="center">Edit a unique object (User or Grp) - not yet impl.</h4>
-   <a href="assign.php"><h3 align="center">Assign a user to a group!  - not yet impl.</h3></a>
+	   <br /><br />
+	   <ol>
+	   <li><a href="list.php"><h4>List Users and Group Tables</h4></a></li>
+	   <li><a href="create.php"><h4>Create a new object (User or Group)</h4></a></li>
+	   <li><a href="view_user.php"><h4>View a unique USER by it's id</h4></a></li>
+	   <li><a href="view_group.php"><h4>View a unique Group by it's id </h4></a></li>
+	   <li>					<h4>Edit a unique object (User or Grp) - not yet impl.</h4></li>
+	   <li><a href="assign.php"><h3>Assign a user to a group!</h3></a></li>
+	   </ol>
+   </div>
 </body>
 
 </html>
@@ -83,31 +87,6 @@ $update_params_ = array(
 
 //$user->db_delete('1211','users');
 //$user->create($user_params);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Verify user existence (uid)
 //$exists = $user->verify_user_existence('2','22');
 
@@ -116,20 +95,6 @@ $update_params_ = array(
 /// Add a new object if not exists already in database.
 //$test = $user->insert_user_into_db($user_params);
 //$azd = $testgrp->insert_group_into_db($group_params);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Instantiating classes
 // $user = new User();
 // $group = new Group();
@@ -196,9 +161,4 @@ $update_params_ = array(
 			// //Printing all the users associated to the group with id "11"
 			// print_r("\t\t\t All users from group 13 are : <br /> <br />");
 			// print_r($group->getAllUsersFromGroup('13'));
-
-//session_destroy();
-echo "<br />";
-//die('---');
-
 ?>

@@ -41,7 +41,7 @@ class Group extends Crud {
 		}
 		return $return;
 	}
-	function grab_group_object_by_id($id, $table_name = 'groups'){
+	function get_group_object_by_id($id, $table_name = 'groups'){
 		$statement = parent::grab_by_id($id,$table_name);
 		foreach ($statement as $row){
 			$this->id = $row['id'];
@@ -50,7 +50,8 @@ class Group extends Crud {
 		}
 		return $this;
 	}
-//	grab_userdata_table_by_id
+	//	grab_userdata_table_by_id
+	//SHOULD DEPRECATE THIS FUNCTION , THE FUNCTION OVER IT IS BETTER
 	function grab_groupdata_table_by_id($id, $table_name = 'groups'){
 		$statement = parent::grab_by_id($id,$table_name);
 		foreach ($statement as $row){

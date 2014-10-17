@@ -17,3 +17,15 @@ text-align: center;
 	margin:0px auto;
 	text-align: center;
 }
+
+.content_index{
+	background-color: #FFFF99;
+	margin:0px auto;
+	width:700px;
+	text-align: left;
+}
+.content_index a{
+	font-weight: bold;
+	text-decoration: none;
+	color:red;
+}

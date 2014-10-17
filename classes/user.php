@@ -9,7 +9,13 @@ class User extends Crud {
 	function create($array,$table = 'users'){
 		return parent::create($array,$table);
 	}
-	//USER READ
+
+	function list_users($table_name = 'users'){
+		return parent::read($table_name);
+	}
+
+	//USER READ SHOULD BE REPLACED WITH THE FUNCTION FROM TOP because this is a MODEL not a VIEW
+	//DELETABLE ALLREADY
 	function list_all_users($table_name = 'users'){
 		$statement = parent::read($table_name);
 					echo '<table class="default_css_table">';
@@ -48,8 +54,7 @@ class User extends Crud {
        	    }
         return $this;
 	}
-
-
+	//THIS FUNCTION SHOULD BE REMOVED ! IT SHOULD BE USED INTO VIEW NOT INTO CONTROLLER
 	function grab_userdata_table_by_id($id, $table_name= 'users'){
 		$statement = parent::grab_by_id($id,$table_name);
 		foreach ($statement as $row){

@@ -33,7 +33,23 @@ require_once('classes/group.php');
 <?php 
 		if(isset($_POST['id']) && ($_POST['id'] > 0)){
 		$user = new User();
-		$user->grab_userdata_table_by_id($_POST['id']);
+		$user->get_user_object_by_id($_POST['id']);
+
+		// DISPLAY (this is practically the VIEW //
+				echo '<table class="default_css_table">';
+				echo '<th>ID</th>';
+				echo '<th>Username</th>';
+				echo '<th>Password</th>';
+				echo '<th>Details</th>';
+				echo '<th>Group Id</th>';
+				echo '<tr>';
+                echo '<td>'. $user->id .'</td>';
+				echo '<td>'. $user->username . '</td>';
+				echo '<td>'. $user->password . '</td>';
+				echo '<td>'. $user->details . '</td>';
+				echo '<td>'. $user->group_id . '</td>';	
+                echo '</tr>';
+            	echo '</table>';
 		}
 ?>
 </div>

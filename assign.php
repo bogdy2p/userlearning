@@ -50,7 +50,6 @@ require_once('classes/group.php');
 
 <!--.............................FUNCTIONALITY..................................... -->
 
-
 <?php
 	echo "<pre>";
 	if (isset($_POST['user']) && isset($_POST['group']) ) {

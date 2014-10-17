@@ -36,8 +36,18 @@ require_once('classes/group.php');
 
 		if(isset($_POST['id']) && ($_POST['id'] > 0)){
 		$group = new Group();
-		$group->grab_groupdata_table_by_id($_POST['id']);
-
+		$group->get_group_object_by_id($_POST['id']);
+		// DISPLAY (this is practically the VIEW //
+				echo '<table class="default_css_table">';
+				echo '<th>ID</th>';
+				echo '<th>Name</th>';
+				echo '<th>Special Key</th>';
+				echo '<tr>';
+                echo '<td>'. $group->id .'</td>';
+				echo '<td>'. $group->name . '</td>';
+				echo '<td>'. $group->special_key . '</td>';
+                echo '</tr>';
+            	echo '</table>';
 		}
 	
 
