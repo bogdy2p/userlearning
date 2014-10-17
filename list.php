@@ -34,22 +34,43 @@ $users = $user->list_users();
 					echo '<th>Group Id</th>';
 					echo '<th>Edit Link</th>';
 					echo '<th>Delete Link</th>';
+					//echo '<th>Delete Button</th>';
 		foreach ($users as $individual_user) {
+					$type = 'users';
                      echo '<tr>';
                      echo '<td>'. $individual_user['id'] . '</td>';
                      echo '<td>'. $individual_user['username'] . '</td>';
                      echo '<td>'. $individual_user['password'] . '</td>';
                      echo '<td>'. $individual_user['details'] . '</td>';
                      echo '<td>'. $individual_user['group_id'] . '</td>';
-                     echo "<td><a href=\"edit.php/{$individual_user['id']}\">Edit</td>";
-                     echo "<td><a href=\"delete.php/{$individual_user['id']}\">Delete</td>";
+                     echo "<td><a href=\"edit.php/?id={$individual_user['id']}&type={$type}\">Edit</td>";
+                     echo "<td><a href=\"delete.php/?id={$individual_user['id']}&type={$type}\">Delete</td>";
+                     //echo "<td><button></button></td>";
                      echo '</tr>';
            }
            			echo '</table>';
 
 echo "<br />";
 echo "<h3>All groups :</h3>";
-$group->list_all_groups();
+//$group->list_all_groups();
+$groups = $group->list_groups();
+				echo '<table class="default_css_table">';
+				echo '<th>Id</th>';
+				echo '<th>Group Name</th>';
+				echo '<th>Special Key</th>';
+				echo '<th>Edit Link</th>';
+				echo '<th>Delete Link</th>';
+		foreach ($groups as $individual_group) {
+			$type = 'groups';
+				echo '<tr>';
+                echo '<td>'. $individual_group['id'] . '</td>';
+                echo '<td>'. $individual_group['name'] . '</td>';
+                echo '<td>'. $individual_group['special_key'] . '</td>';
+                echo "<td><a href=\"edit.php/?id={$individual_group['id']}&type={$type}\">Edit</td>";
+                echo "<td><a href=\"delete.php/?id={$individual_group['id']}&type={$type}\">Delete</td>";
+                echo '</tr>';
+		}
+				echo '</table>';
 ?>
 </div>
 </body>

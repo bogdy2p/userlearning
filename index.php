@@ -12,7 +12,7 @@
 
 	   <br /><br />
 	   <ol>
-	   <li><a href="list.php"><h4>List Users and Group Tables</h4></a></li>
+	   <li><a href="list.php"><h4>List Users Table and Options / List Groups Table and Options</h4></a></li>
 	   <li><a href="create.php"><h4>Create a new object (User or Group)</h4></a></li>
 	   <li><a href="view_user.php"><h4>View a unique USER by it's id</h4></a></li>
 	   <li><a href="view_group.php"><h4>View a unique Group by it's id </h4></a></li>

@@ -9,6 +9,9 @@ class Group extends Crud {
 	function create($array,$table = 'groups'){
 		return parent::create($array,$table);
 	}
+	function list_groups($table_name = 'groups'){
+		return parent::read($table_name);
+	}
 	//GROUP READ
 	function list_all_groups($table_name = 'groups'){
 		$statement = parent::read($table_name);

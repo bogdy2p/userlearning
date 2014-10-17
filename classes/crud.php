@@ -72,15 +72,15 @@ abstract class Crud {
 	 function delete($id, $table){
 	 	//Verify that an object with that id exists in the table
 	 	$exists = Crud::verify_object_exists($id,$table);
-	 	print_r($exists);
+	 	//print_r($exists);
 	 	if($exists){
 	 		$statement = $this->db->prepare("DELETE FROM user_groups." . $table . " WHERE ".$table.".id=?");
 	 		$statement->bindParam(1, $id);
 	 		$statement->execute();
-	 		print_r($statement);
-	 		print_r("Removed object with id {$id} from {$table}");
+	 		//print_r($statement);
+	 		//print_r("Removed object with id {$id} from {$table}");	 		
 	 	}else{
-	 		print_r("There is no such entry in the whole database. Nothing to delete.");
+	 		//print_r("There is no such entry in the whole database. Nothing to delete.");
 	 	}
 	 }
 

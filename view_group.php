@@ -17,7 +17,6 @@ require_once('classes/group.php');
 
 
 	<form class="form" id="viewgroup" action="view_group.php" method="post"><br /><br />
-
 	<select name="id" id="id" form="viewgroup">
 					 <?php 
 					 	$groups = new Group();
@@ -49,9 +48,6 @@ require_once('classes/group.php');
                 echo '</tr>';
             	echo '</table>';
 		}
-	
-
-
 ?>
 </div>
 </body>

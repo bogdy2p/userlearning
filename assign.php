@@ -49,7 +49,6 @@ require_once('classes/group.php');
 </html>
 
 <!--.............................FUNCTIONALITY..................................... -->
-
 <?php
 	echo "<pre>";
 	if (isset($_POST['user']) && isset($_POST['group']) ) {
@@ -88,7 +87,6 @@ require_once('classes/group.php');
 			echo "ONE OF THE SELECT VALUES IS EMPTY";
 			}
 	}
-	
 	else{
 		echo "Please select both dropdown values!";
 		} 
