@@ -59,15 +59,12 @@ require_once('classes/group.php');
 			$user_data = array();
 			$user_id = $_POST['user'];
 			$group_id = $_POST['group'];
-			/// GRAB USERDATA BY ID 
+			// GRAB USERDATA BY ID 
 			$asd = $user->get_user_object_by_id($_POST['user']);
-			print_r($asd);
-			/// UNSET THE GROUP_ID VALUE
+			// UNSET THE GROUP_ID VALUE
 			unset($asd->group_id);
-			print_r($asd);
-			/// SET THE NEW GROUP ID VALUE
+			// SET THE NEW GROUP ID VALUE
 			$asd->group_id = $_POST['group'];
-			print_r($asd);
 			//CREATE THE ARRAY FOR THE UPDATE DATA;
 			$update_params_array = array(
 				'id' => $asd->id,
@@ -76,16 +73,26 @@ require_once('classes/group.php');
 				'details' => array($asd->details,),
 				'group_id' => $asd->group_id,
 				);
-
-			/// UPDATE THE USER TO THE DB
-			$user->update($_POST['user'], $table = 'users',$update_params_array);
-
-		}else{
-			echo "ONE OF THE SELECT VALUES IS EMPTY";
+			// UPDATE THE USER TO THE DB + DISPLAY A MESSAGE 
+				$test = $user->update($_POST['user'], $table = 'users',$update_params_array);
+				switch (isset($asd->username) && !empty($asd->username)){
+				case true:
+					echo "User " . $asd->id . " ( " . $asd->username . " ) " . " now belongs to group " . $asd->group_id;
+					break;
+				case false:
+					echo "User " . $asd->id . "   (no_name_value_for_object)  now belongs to group " . $asd->group_id;
+					break;		
+				}
 		}
-	}else{
-		echo "THE SELECT IS NOT SET!";
-	} 
+		else
+			{
+			echo "ONE OF THE SELECT VALUES IS EMPTY";
+			}
+	}
+	
+	else{
+		echo "Please select both dropdown values!";
+		} 
 	
 	
 

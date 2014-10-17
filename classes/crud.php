@@ -28,7 +28,7 @@ abstract class Crud {
 						die("we only have 2 tables momentarely!");
 					}
 				$sql->execute(array(':object_id' => $this->id));		
-				echo "A new object ( ". $this->id ."  ) succesfully inserted into table <br />". $table;
+				echo "A new ". $table . " object ( ". $this->id ."  ) succesfully created. <br />";
 				}
 			else {
 				die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table);
