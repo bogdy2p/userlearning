@@ -16,10 +16,7 @@
 				<input name="id" type="text"  placeholder="enter an id here !"> <br />
 				<input name="name" type="text"  placeholder="Username/Groupname"><br />
 				<button type="submit" class="button">Create</button>
-
 			</form>
-
-
 
 		</div>
 		<div class ="group-list">
@@ -56,19 +53,19 @@ $user_params = array(
 	);
 $group_params = array(
 	'id' => '13',
-	'name'=> 'Group 3',
+	'name'=> 'Group z3',
 	'special_key' => 'zzzeefdsfdsefffaaa',
 	);
 $update_params_ = array(
 	'id' => '60',
- 	'username' => 'User 4324234231',
+ 	'username' => 'User Update WORKS',
  	'password' => '123442342342356',
  	'details' => array('det33231', 'det332'),
  	'group_id' => '141',
 	);
-
+$test_update = $user->update($update_params_['id'],'users',$update_params_);
 // for ($i=0;$i<10;$i++){
-
+$test_group_update = $testgrp->update($group_params['id'],'groups',$group_params);
 // $groupz[$i] = array(
 // 	'id' => '3'.$i,
 // 	'name'=> 'Group '.$i,
@@ -76,20 +73,44 @@ $update_params_ = array(
 // 	);
 // $testgrp->create($groupz[$i]);
 // }
-for ($i=0;$i<10;$i++){
-$users_parameters[$i] = array(
-	'id' => '1'.$i,
-	'username' => 'User'.$i,
-	'password' => '123456'.$i,
-	'details' => array('detail'.$i, 'detail'.($i+1)),
-	'group_id' => NULL,
-	);
+// for ($i=0;$i<10;$i++){
+// $users_parameters[$i] = array(
+// 	'id' => '1'.$i,
+// 	'username' => 'User'.$i,
+// 	'password' => '123456'.$i,
+// 	'details' => array('detail'.$i, 'detail'.($i+1)),
+// 	'group_id' => NULL,
+// 	);
 
-//$user->create($users_parameters[$i]);
-$user->user_db_update('1'.$i, 'users', $users_parameters[$i]);
-}
+// //$user->create($users_parameters[$i]);
+// $user->user_db_update('1'.$i, 'users', $users_parameters[$i]);
+// }
+
 //$user->db_delete('1211','users');
 //$user->create($user_params);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Verify user existence (uid)
@@ -102,7 +123,7 @@ $user->user_db_update('1'.$i, 'users', $users_parameters[$i]);
 //$azd = $testgrp->insert_group_into_db($group_params);
 
 
-//$test_update = $user->user_db_update($params_array['id'],'users',$params_array);
+
 
 
 

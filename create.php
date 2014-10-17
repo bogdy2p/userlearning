@@ -13,7 +13,6 @@
 
 	<div class ="content">
 		
-			
 			<form class="form" action="create.php" method="get"> <!--CHANGE METHOD TO POST !-->
 				<!-- http://www.startutorial.com/articles/view/php-crud-tutorial-part-2/ -->
 				<input name="id" type="text"  placeholder="enter an id here !"> <br />
@@ -29,6 +28,6 @@
 </html>
 
 <?php 
-
+	
 
 ?>

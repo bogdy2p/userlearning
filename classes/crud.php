@@ -36,21 +36,37 @@ abstract class Crud {
 		}
 	}
 	//db_update verifies the object for existence , then if it exists ,
-	// it updates it with the new values specified.
-	function db_update($id, $table, $update_params_array){
+	// it updates it with the new values specified. // UPDATE MUST BE MODIFIED TO BE ABLE TO UPDATE BOTH USERS AND GROUPS
+	///
+	/// 09:50 AM TO DO !!!!
+	function update($id, $table, $update_params_array){
 		$exists = Crud::verify_object_exists($id,$table);
 		if(($exists) && (!empty($update_params_array))) {
-			$statement = $this->db->prepare("UPDATE users SET username=?, password=?, details=?, group_id=? WHERE id=?");
-			$statement->bindParam(1, $update_params_array['username']);
-			$statement->bindParam(2, $update_params_array['password']);
-			//Implode =  Un fel de toString.
-			$statement->bindParam(3, implode(";",$update_params_array['details']));
-			$statement->bindParam(4, $update_params_array['group_id']);
-			$statement->bindParam(5, $id);
-			$statement->execute();			
-			//print_r($statement);
+
+				if ($table == 'users'){
+							$statement = $this->db->prepare("UPDATE users SET username=?, password=?, details=?, group_id=? WHERE id=?");
+							$statement->bindParam(1, $update_params_array['username']);
+							$statement->bindParam(2, $update_params_array['password']);
+							//Implode =  Un fel de toString.
+							$statement->bindParam(3, implode(";",$update_params_array['details']));
+							$statement->bindParam(4, $update_params_array['group_id']);
+							$statement->bindParam(5, $id);
+							//print_r("EXECUTED UPDATE USERS SQL. <br />");
+							//print_r($statement);
+									  }
+				elseif ($table == 'groups'){
+
+				$statement = $this->db->prepare("UPDATE groups SET id=?, name=?, special_key=? WHERE id=? ");
+				$statement->bindParam(1, $update_params_array['id']);
+				$statement->bindParam(2, $update_params_array['name']);
+				$statement->bindParam(3, $update_params_array['special_key']);
+				$statement->bindParam(4, $id);
+				//print_r("EXECUTED UPDATE GROUPS SQL. <br />");
+				//print_r($statement);
+					}
+			$statement->execute(); // this should be called inside the child class !?!?!
 		}else{
-			echo "Object doesnt exist in db or params array is empty";
+			die("Object doesnt exist in db , table is incorrect , or params array is empty");
 		}
 	 }
 	 function delete($id, $table){

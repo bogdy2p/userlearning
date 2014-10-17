@@ -30,8 +30,8 @@ class User extends Crud {
            			echo '</table>';
 	}
 	//USER UPDATE
-	function user_db_update($id, $table = 'users', $update_params_array){
-		return parent::db_update($id, $table, $update_params_array);
+	function update($id, $table = 'users', $update_params_array){
+		return parent::update($id, $table, $update_params_array);
 	}
 	//USER DELETE
 	function user_db_delete($id, $table = 'users'){
