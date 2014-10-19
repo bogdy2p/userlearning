@@ -11,7 +11,7 @@
 <body>
 	<div class ="content">
 		<a href="/user"><h4 align="center">Go back.</h4></a>		
-			<form class="form" id="asd" action="create.php" method="post">
+			<form class="form" id="asd" action="create_object.php" method="post">
 				<input name="id" type="text"  placeholder="enter an id here !"> <br />
 				<select name="name" form="asd">
  					 <option value="users">User</option>
