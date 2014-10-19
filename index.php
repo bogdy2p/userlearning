@@ -3,23 +3,23 @@
 
 <head>
 	<title>UserLearning Pbc Project</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css"> 
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
 </head>
 
 <body>
 	<div class="content_index">
 	   <h1 align="center">Users-Groups</h1>
-
+	   
 	   <br /><br />
 	   <ol>
-	   <li><a href="list.php"><h4>List <span2>Users Table</span2> and Options / List <span2>Groups Table</span2> and Options</h4></a></li>
-	   <li><a href="create_user.php"><h4>New <span2>User</span2> - <span> NOT YET FULLY IMPLEMENTED. </span></h4></a></li>
-	   <li><a href="create_group.php"><h4>New <span2>Group</span2>> - <span> NOT YET FULLY IMPLEMENTED.</span></h4></a></li>
-	   <li><a href="create_object.php"><h4>Create a new <span2>EMPTY</span2> object (User or Group)</h4></a></li>
-	   <li><a href="view_user.php"><h4><span2>View</span2> a unique <span2>USER</span2> by it's id</h4></a></li>
-	   <li><a href="view_group.php"><h4><span2>View</span2> a unique <span2>Group</span2> by it's id </h4></a></li>
-	   <li><a href="edit.php"><h4>Edit a unique object (User or Grp) - <span> NOT YET FULLY IMPLEMENTED.</span></h4></a></li>
-	   <li><a href="assign.php"><h3>Assign a user to a group!</h3></a></li>
+	   <li><a href="views/list.php"><h4>List <span2>Users Table</span2> and Options / List <span2>Groups Table</span2> and Options</h4></a></li>
+	   <li><a href="views/create_user.php"><h4>New <span2>User</span2> - <span> NOT YET FULLY IMPLEMENTED. </span></h4></a></li>
+	   <li><a href="views/create_group.php"><h4>New <span2>Group</span2>> - <span> NOT YET FULLY IMPLEMENTED.</span></h4></a></li>
+	   <li><a href="views/create_object.php"><h4>Create a new <span2>EMPTY</span2> object (User or Group)</h4></a></li>
+	   <li><a href="views/view_user.php"><h4><span2>View</span2> a unique <span2>USER</span2> by it's id</h4></a></li>
+	   <li><a href="views/view_group.php"><h4><span2>View</span2> a unique <span2>Group</span2> by it's id </h4></a></li>
+	   <li><a href="models/edit.php"><h4>Edit a unique object (User or Grp) - <span> NOT YET FULLY IMPLEMENTED.</span></h4></a></li>
+	   <li><a href="views/assign.php"><h3>Assign a user to a group!</h3></a></li>
 	   </ol>
    </div>
 </body>

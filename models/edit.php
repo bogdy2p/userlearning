@@ -1,8 +1,8 @@
 <?php
-require_once('classes/database.php');
-require_once 'classes/crud.php';
-require_once('classes/user.php');
-require_once('classes/group.php');
+require_once('../controllers/database.php');
+require_once '../controllers/crud.php';
+require_once('../controllers/user.php');
+require_once('../controllers/group.php');
 ?>
 <!DOCTYPE html>
 

@@ -1,12 +1,12 @@
 <?php
- require_once('classes/crud.php');
- require_once('classes/user.php');
- require_once('classes/group.php');
+ require_once('../controllers/crud.php');
+ require_once('../controllers/user.php');
+ require_once('../controllers/group.php');
 ?>
 <!DOCTYPE html>
 <head>
 	<title>Create a new Object - UserLearning Pbc Project</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css"> 
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
 </head>
 <body>
 	<div class ="content">
