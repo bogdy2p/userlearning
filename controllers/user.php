@@ -20,14 +20,14 @@ class User extends Crud {
 		$statement = parent::read($table_name);
 					echo '<table class="default_css_table">';
 					echo '<th>ID</th>';
-					echo '<th>Username</th>';
+					echo '<th>Name</th>';
 					echo '<th>Password</th>';
 					echo '<th>Details</th>';
 					echo '<th>Group Id</th>';
 		foreach ($statement as $row) {
                      echo '<tr>';
                      echo '<td>'. $row['id'] . '</td>';
-					 echo '<td>'. $row['username'] . '</td>';
+					 echo '<td>'. $row['name'] . '</td>';
 					 echo '<td>'. $row['password'] . '</td>';
 					 echo '<td>'. $row['details'] . '</td>';
 					 echo '<td>'. $row['group_id'] . '</td>';	
@@ -47,7 +47,7 @@ class User extends Crud {
 		$statement = parent::grab_by_id($id,$table_name);
 		foreach ($statement as $row){
   			$this->id = $row['id'];
-            $this->username = $row['username'];
+            $this->name = $row['name'];
             $this->password = $row['password'];
             $this->details = $row['details'];
             $this->group_id = $row['group_id'];
@@ -60,13 +60,13 @@ class User extends Crud {
 		foreach ($statement as $row){
 			echo '<table class="default_css_table">';
 				echo '<th>ID</th>';
-				echo '<th>Username</th>';
+				echo '<th>Name</th>';
 				echo '<th>Password</th>';
 				echo '<th>Details</th>';
 				echo '<th>Group Id</th>';
 				echo '<tr>';
                 echo '<td>'. $row['id'] . '</td>';
-				echo '<td>'. $row['username'] . '</td>';
+				echo '<td>'. $row['name'] . '</td>';
 				echo '<td>'. $row['password'] . '</td>';
 				echo '<td>'. $row['details'] . '</td>';
 				echo '<td>'. $row['group_id'] . '</td>';	
@@ -83,104 +83,31 @@ class User extends Crud {
 	function delete($id, $table = 'users'){
 		return parent::delete($id, $table);
 	}
-	function verify_user_existence($id, $username){
-		return parent::verify_existence($id,$username);
+	function verify_user_existence($id, $name){
+		return parent::verify_existence($id,$name);
 	}
 	function verify_user_exists($object_id, $table_name){
 		return parent::verify_object_exists($object_id,$table_name);
 	}
 	function update_user_group_id($user_id,$group_id){
 
-
-
+	}
+	function grab_latest_user_id($table_name = 'users'){
+		$latest_id = '0';
+		$statement = parent::grab_all_ids($table_name);
+		foreach ($statement as $id) {
+			if ($id > $latest_id){
+				$latest_id = $id['id'];
+			}else{
+				return $latest_id;
+			}	
+		}
+		return $latest_id;
 	}
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////DEPRECATED FUNCTIONS FOR WHEN IT WAS WITH SESSION//////////////////////////
-//////////////////////////////SHOULD BE ALL IMPLEMENTED WITH THE DB//////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////	
-	
-	/* Return a specified user's username.
-	*/
-	// function getUsername($uid){
-	// 	return parent::read('user',$uid)['username'];
-	// }
-	/*
-
-
-	/*
-	* Alter parent function Crud::create.??
-	*/
-	// public function create($array) {
-	// 	if(isset($array['password']) && !empty($array['password'])) {
-	// 		$tempPass = $array['password'];
-	// 		unset($array['password']);
-	// 		$array['password'] = md5($tempPass);
-	// 	}
-	// 	parent::create($array);
- //    }
-    
-	/*
-	* Update / add username to a specified user object (by id);
-	*/
- // 	function setUsername($uid , $username){
-	// 	parent::update('user', $uid, array('username'=>$username));
-	// }
-	/*
-	* Update / add password to a specified user object (by id);
-	*/
-	// function setPassword($uid, $password){
-	// 	parent::update('user', $uid, array('password'=>md5($password)));
-	// }
-	/*
-	* Update / add details to a specified user object (by id);
-	*/
-	// function setDetails($uid, $details){
-	// 	parent::update('user', $uid, array('details'=>$details));
-	// }
-	/*
-	* Return a specified user's username.
-	*/
-	// function getUsername($uid){
-	// 	return parent::read('user',$uid)['username'];
-	// }
-	/*
-	* Return a specified user's password.
-	* //DEPRECATED
-	*/
-	// function getUserPassword($uid){
-	// 	return parent::read('user',$uid)['password'];
-	// }
-	/*
-	* Return a specified user's details.
-	* //DEPRECATED
-	*/
-	// function getUserDetails($uid){
-	// 	return parent::read('user',$uid)['details'];
-	// }
-	/*
-	* Return all the data of a specified user (returns the user object...)
-	* //DEPRECATED
-	*/
-	// function getUserData($uid){
-	// 	return parent::read('user',$uid);
-	// }
-	 /*
-	* Return the group of a specified user (by the user id).
-	* //DEPRECATED
-	*/
-	// function getUserGroup($uid){
-	// 	return parent::read('user',$uid)['group_id'];
-	// }
-	/*
-	* Return all the user objects stored in the current SESSION.
-	* //DEPRECATED
-	*/
-	// function getAllUsers() {
-	// 	return $_SESSION['user'];
-	// }
-
+	function verify_username_exists_in_table($name, $table_name ='users'){
+		return parent::verify_name_exists_in_table($name,$table_name);
+	}
 }
 
 ?>

@@ -13,7 +13,7 @@
 	<div class ="content">
 		<a href="/user"><h4 align="center">Go back.</h4></a>	
 
-			<form class="form" id="asd" action="create.php" method="post">
+			<form class="form" id="asd" action="create_group.php" method="post">
 <!--
 				<select name="name" form="asd">
  					 <option value="users">User</option>
@@ -21,10 +21,10 @@
 				</select>	-->
 				<!--FOR THE ID , WE SHOULD GRAB THE LAST ID FROM THE DATABASE , AND INCREMENT IT WITH 1 (form should be hidden i think) -->
 				<label>id</label><br />
-				<input name="id" 		type="text"  placeholder="group id"> <br />
-				<label>username</label><br />
+				<input name="id" 		type="text"  placeholder="WILL DEPRECATE"> <br />
+				<label>group name</label><br />
 				<input name="name"  type="text"  placeholder="group name"> <br />
-				<label>password</label><br />
+				<label>special key</label><br />
 				<input name="special key"  type="text"  placeholder="special key"> <br />
 				
 				<button type="submit" class="button">Create</button>
@@ -37,11 +37,7 @@
 
 
 
-
-
 <!-- FUNCTIONALITY -->
-
-
 
 
 <?php 

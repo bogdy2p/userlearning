@@ -38,13 +38,13 @@ require_once('../controllers/group.php');
 		// DISPLAY (this is practically the VIEW //
 				echo '<table class="default_css_table">';
 				echo '<th>ID</th>';
-				echo '<th>Username</th>';
+				echo '<th>Name</th>';
 				echo '<th>Password</th>';
 				echo '<th>Details</th>';
 				echo '<th>Group Id</th>';
 				echo '<tr>';
                 echo '<td>'. $user->id .'</td>';
-				echo '<td>'. $user->username . '</td>';
+				echo '<td>'. $user->Name . '</td>';
 				echo '<td>'. $user->password . '</td>';
 				echo '<td>'. $user->details . '</td>';
 				echo '<td>'. $user->group_id . '</td>';	

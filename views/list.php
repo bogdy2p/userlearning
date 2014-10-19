@@ -39,16 +39,17 @@ $users = $user->list_users();
 					$type = 'users';
                      echo '<tr>';
                      echo '<td>'. $individual_user['id'] . '</td>';
-                     echo '<td>'. $individual_user['username'] . '</td>';
+                     echo '<td>'. $individual_user['name'] . '</td>';
                      echo '<td>'. $individual_user['password'] . '</td>';
                      echo '<td>'. $individual_user['details'] . '</td>';
                      echo '<td>'. $individual_user['group_id'] . '</td>';
-                     echo "<td><a href=\"edit.php/?id={$individual_user['id']}&type={$type}\">Edit</td>";
-                     echo "<td><a href=\"delete.php/?id={$individual_user['id']}&type={$type}\">Delete</td>";
+                     echo "<td><a href=\"../models/edit.php/?id={$individual_user['id']}&type={$type}\">Edit</td>";
+                     echo "<td><a href=\"../models/delete.php/?id={$individual_user['id']}&type={$type}\">Delete</td>";
                      //echo "<td><button></button></td>";
                      echo '</tr>';
            }
            			echo '</table>';
+
 
 echo "<br />";
 echo "<h3>All groups :</h3>";
@@ -66,11 +67,12 @@ $groups = $group->list_groups();
                 echo '<td>'. $individual_group['id'] . '</td>';
                 echo '<td>'. $individual_group['name'] . '</td>';
                 echo '<td>'. $individual_group['special_key'] . '</td>';
-                echo "<td><a href=\"edit.php/?id={$individual_group['id']}&type={$type}\">Edit</td>";
-                echo "<td><a href=\"delete.php/?id={$individual_group['id']}&type={$type}\">Delete</td>";
+                echo "<td><a href=\"../models/edit.php/?id={$individual_group['id']}&type={$type}\">Edit</td>";
+                echo "<td><a href=\"../models/delete.php/?id={$individual_group['id']}&type={$type}\">Delete</td>";
                 echo '</tr>';
 		}
 				echo '</table>';
+
 ?>
 </div>
 </body>

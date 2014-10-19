@@ -17,35 +17,45 @@ abstract class Crud {
 	function create($array,$table){
 		if(isset($array['id']) && ($array['id'] != 0)){
 			$exists = Crud::verify_object_exists($array['id'],$table);
+			$already_exists = Crud::verify_name_exists_in_table($array['name'],$table);
+			
+			////IF THERE IS NO OBJECT WITH THAT ID ALREADY
 				if(!$exists){
-				$object_id = $array['id'];
-				$this->id = $array['id'];
-					if ($table == 'users'){
-						$sql = $this->db->prepare("insert into users (id) VALUES (:object_id)");
-					}elseif ($table == 'groups'){
-						$sql = $this->db->prepare("insert into groups (id) VALUES (:object_id)");
-					}else{
-						die("we only have 2 tables momentarely!");
-					}
-				$sql->execute(array(':object_id' => $this->id));		
+					// IF THERE IS NO OBJECT WITH THAT USERNAME ALREADY
+					if(!$already_exists){
+
+							$object_id = $array['id'];
+							$this->id = $array['id'];
+											if ($table == 'users'){
+												$sql = $this->db->prepare("insert into users (id) VALUES (:object_id)");
+											}elseif ($table == 'groups'){
+												$sql = $this->db->prepare("insert into groups (id) VALUES (:object_id)");
+											}else{
+												die("we only have 2 tables momentarely!");
+											}
+											$sql->execute(array(':object_id' => $this->id));
+	
+										}
+							else {
+								
+								die("There already is a user called {$array['name']}");
+								 }		
 				echo "A new ". $table . " object ( ". $this->id ."  ) succesfully created. <br />";
-				}
+						}
 			else {
 				die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table);
 			}
 		}
 	}
-	//db_update verifies the object for existence , then if it exists ,
-	// it updates it with the new values specified. // UPDATE MUST BE MODIFIED TO BE ABLE TO UPDATE BOTH USERS AND GROUPS
-	///
-	/// 09:50 AM TO DO !!!!
+	
+	
 	function update($id, $table, $update_params_array){
 		$exists = Crud::verify_object_exists($id,$table);
 		if(($exists) && (!empty($update_params_array))) {
 
 				if ($table == 'users'){
-							$statement = $this->db->prepare("UPDATE users SET username=?, password=?, details=?, group_id=? WHERE id=?");
-							$statement->bindParam(1, $update_params_array['username']);
+							$statement = $this->db->prepare("UPDATE users SET name=?, password=?, details=?, group_id=? WHERE id=?");
+							$statement->bindParam(1, $update_params_array['name']);
 							$statement->bindParam(2, $update_params_array['password']);
 							//Implode =  Un fel de toString.
 							$statement->bindParam(3, implode(";",$update_params_array['details']));
@@ -69,7 +79,8 @@ abstract class Crud {
 			echo("Object id {$id} doesnt exist in db , table is incorrect , or params array is empty <br />");
 		}
 	 }
-	 function delete($id, $table){
+
+	 function delete($id, $table) {
 	 	//Verify that an object with that id exists in the table
 	 	$exists = Crud::verify_object_exists($id,$table);
 	 	//print_r($exists);
@@ -85,11 +96,11 @@ abstract class Crud {
 	 }
 
 	 //Return type : BOOLEAN or DIE(error);
-	function verify_existence($uid, $username){
-		if(!empty($uid) && !empty($username)){
-			$st = $this->db->prepare("select * from users where id=? and username=?");
+	function verify_existence($uid, $name){
+		if(!empty($uid) && !empty($name)){
+			$st = $this->db->prepare("select * from users where id=? and name=?");
 			$st->bindParam(1, $uid);
-			$st->bindParam(2, $username);
+			$st->bindParam(2, $name);
 			$st->execute();
 			if($st->rowCount() >= 1){
 				return true;
@@ -116,6 +127,18 @@ abstract class Crud {
 			echo("Parameters error | @verify_object_exists <br />");
 		}
 	}
+	//Verify that a name exists in the name column of each table.
+	function verify_name_exists_in_table($name,$table_name){
+		$statement = $this->db->prepare("SELECT name FROM ". $table_name . " WHERE name=?");
+		$statement->bindParam(1,$name);
+		$statement->execute();
+		if($statement->rowCount() >= 1){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 	function read($table_name){
 	 	$statement = $this->db->prepare("SELECT * FROM ". $table_name);
 	 	$statement->execute();
@@ -134,10 +157,6 @@ abstract class Crud {
 		$statement->execute();
 		return $statement;
 	}
-
-
-
-
 
 
 }
