@@ -14,14 +14,7 @@
 		<a href="/user"><h4 align="center">Go back.</h4></a>	
 
 			<form class="form" id="asd" action="create_user.php" method="post">
-<!--
-				<select name="name" form="asd">
- 					 <option value="users">User</option>
- 					 <option value="groups">Group</option>
-				</select>	-->
-				<!--FOR THE ID , WE SHOULD GRAB THE LAST ID FROM THE DATABASE , AND INCREMENT IT WITH 1 (form should be hidden i think) -->
-				<!-- <label>id</label><br />
-				<input name="id" 		type="text"  placeholder="enter an id here !" value="<?php //echo $_POST['id'];?>"> <br /> -->
+
 				<label>name</label><br />
 				<input name="name"  type="text"  placeholder="enter desired name" value="<?php echo $_POST['name'];?>"> <br />
 				<label>password</label><br />
@@ -30,8 +23,7 @@
 				<input name="pass_conf" type="text"  placeholder="confirm password" value=""> <br />
 				<label>details array</label><br />
 				<input name="details"   type="text"  placeholder="enter details" value="<?php echo $_POST['details'];?>"> <br />
-				<!-- <label>group assigned to</label><br />
-				<input name="group_id"  type="text"  placeholder="enter group id here" value="<?php echo $_POST['group_id'];?>"> <br /> -->
+				
 				
 				<button type="submit" class="button">Create</button>
 
@@ -57,9 +49,10 @@
 		if(isset($_POST['password'])){ $user['password'] = $_POST['password']; }else{ $user['password'] = NULL; }
 		if(isset($_POST['pass_conf'])){ $user['pass_conf'] = $_POST['pass_conf']; }else{ $user['pass_conf'] = NULL; }
 		if(isset($_POST['details'])){ $user['details'][] = $_POST['details']; }else{ $user['details'] = NULL; }
-		if(isset($_POST['group_id'])){ $user['group_id'] = $_POST['group_id']; }else{ $user['group_id'] = 9999; }
 
-				
+		//removed when we removed from the table the group id.
+		//if(isset($_POST['group_id'])){ $user['group_id'] = $_POST['group_id']; }else{ $user['group_id'] = 9999; }
+
 		if(isset($user['id']) && isset($user['name']) && isset($user['password']) && isset($user['details'])) {
 			// VERIFY PASSWORD MATCHING
 			if($_POST['password'] === $_POST['pass_conf']){
@@ -69,8 +62,11 @@
 				$user['password'] = $enc_pass;
 				$update_params_array = $user;
 					
-				$users->create($user);
-				$users->update($user['id'],'users',$update_params_array);
+				$asd = $users->create($user);
+				//print_r($user);
+				//print_r($asd);
+				$asd2 = $users->update($user['id'],'users',$update_params_array);
+				//print_r($asd2);
 				header("Location: /user/views/list.php");
 				die();
 			}

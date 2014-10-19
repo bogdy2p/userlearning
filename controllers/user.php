@@ -23,14 +23,14 @@ class User extends Crud {
 					echo '<th>Name</th>';
 					echo '<th>Password</th>';
 					echo '<th>Details</th>';
-					echo '<th>Group Id</th>';
+					echo '<th>Groups of Belonging</th>';
 		foreach ($statement as $row) {
                      echo '<tr>';
                      echo '<td>'. $row['id'] . '</td>';
 					 echo '<td>'. $row['name'] . '</td>';
 					 echo '<td>'. $row['password'] . '</td>';
 					 echo '<td>'. $row['details'] . '</td>';
-					 echo '<td>'. $row['group_id'] . '</td>';	
+					 echo '<td>ADD GROUP BELONGING HERE</td>';	
                      echo '</tr>';
            }
            			echo '</table>';
@@ -50,7 +50,7 @@ class User extends Crud {
             $this->name = $row['name'];
             $this->password = $row['password'];
             $this->details = $row['details'];
-            $this->group_id = $row['group_id'];
+     
        	    }
         return $this;
 	}
@@ -63,13 +63,11 @@ class User extends Crud {
 				echo '<th>Name</th>';
 				echo '<th>Password</th>';
 				echo '<th>Details</th>';
-				echo '<th>Group Id</th>';
 				echo '<tr>';
                 echo '<td>'. $row['id'] . '</td>';
 				echo '<td>'. $row['name'] . '</td>';
 				echo '<td>'. $row['password'] . '</td>';
 				echo '<td>'. $row['details'] . '</td>';
-				echo '<td>'. $row['group_id'] . '</td>';	
                 echo '</tr>';
             echo '</table>';
         }

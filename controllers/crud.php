@@ -34,17 +34,15 @@ abstract class Crud {
 												die("we only have 2 tables momentarely!");
 											}
 											$sql->execute(array(':object_id' => $this->id));
-	
 										}
-							else {
-								
-								die("There already is a user called {$array['name']}");
-								 }		
+
+							else { 	die("There already is a user called {$array['name']}"); 
+								 }
+
 				echo "A new ". $table . " object ( ". $this->id ."  ) succesfully created. <br />";
 						}
-			else {
-				die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table);
-			}
+			else { die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table); 
+				 }
 		}
 	}
 	
@@ -54,15 +52,12 @@ abstract class Crud {
 		if(($exists) && (!empty($update_params_array))) {
 
 				if ($table == 'users'){
-							$statement = $this->db->prepare("UPDATE users SET name=?, password=?, details=?, group_id=? WHERE id=?");
+							$statement = $this->db->prepare("UPDATE users SET name=?, password=?, details=? WHERE id=?");
 							$statement->bindParam(1, $update_params_array['name']);
 							$statement->bindParam(2, $update_params_array['password']);
 							//Implode =  Un fel de toString.
 							$statement->bindParam(3, implode(";",$update_params_array['details']));
-							$statement->bindParam(4, $update_params_array['group_id']);
-							$statement->bindParam(5, $id);
-							//print_r("EXECUTED UPDATE USERS SQL. <br />");
-							//print_r($statement);
+							$statement->bindParam(4, $id);
 									  }
 				elseif ($table == 'groups'){
 
@@ -81,16 +76,13 @@ abstract class Crud {
 	 }
 
 	 function delete($id, $table) {
-	 	//Verify that an object with that id exists in the table
+	 	
 	 	$exists = Crud::verify_object_exists($id,$table);
-	 	//print_r($exists);
-	 	if($exists){
+	 	 	if($exists){
 	 		$statement = $this->db->prepare("DELETE FROM user_groups." . $table . " WHERE ".$table.".id=?");
 	 		$statement->bindParam(1, $id);
 	 		$statement->execute();
-	 		//print_r($statement);
-	 		//print_r("Removed object with id {$id} from {$table}");	 		
-	 	}else{
+	 	 	}else{
 	 		//print_r("There is no such entry in the whole database. Nothing to delete.");
 	 	}
 	 }

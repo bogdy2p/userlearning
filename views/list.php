@@ -20,10 +20,9 @@ $user = new User();
 $group = new Group();
 
 echo "<h3>All users : </h3>";
-///$user->list_all_users();
 $users = $user->list_users();
 
-//print_r($users);
+
 /////////////////////DISPLAY USERS TABLE AND EDIT / DELETE NEAR IT/////////////////////
 
 					echo '<table class="default_css_table">';
@@ -31,7 +30,7 @@ $users = $user->list_users();
 					echo '<th>Username</th>';
 					echo '<th>Password</th>';
 					echo '<th>Details</th>';
-					echo '<th>Group Id</th>';
+					echo '<th>Groups of Belonging</th>';
 					echo '<th>Edit Link</th>';
 					echo '<th>Delete Link</th>';
 					//echo '<th>Delete Button</th>';
@@ -42,10 +41,9 @@ $users = $user->list_users();
                      echo '<td>'. $individual_user['name'] . '</td>';
                      echo '<td>'. $individual_user['password'] . '</td>';
                      echo '<td>'. $individual_user['details'] . '</td>';
-                     echo '<td>'. $individual_user['group_id'] . '</td>';
+                     echo '<td> Group Name By ID / or ID </td>';
                      echo "<td><a href=\"../models/edit.php/?id={$individual_user['id']}&type={$type}\">Edit</td>";
                      echo "<td><a href=\"../models/delete.php/?id={$individual_user['id']}&type={$type}\">Delete</td>";
-                     //echo "<td><button></button></td>";
                      echo '</tr>';
            }
            			echo '</table>';
@@ -53,7 +51,6 @@ $users = $user->list_users();
 
 echo "<br />";
 echo "<h3>All groups :</h3>";
-//$group->list_all_groups();
 $groups = $group->list_groups();
 				echo '<table class="default_css_table">';
 				echo '<th>Id</th>';

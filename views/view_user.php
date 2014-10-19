@@ -40,14 +40,14 @@ require_once('../controllers/group.php');
 				echo '<th>ID</th>';
 				echo '<th>Name</th>';
 				echo '<th>Password</th>';
-				echo '<th>Details</th>';
-				echo '<th>Group Id</th>';
+				echo '<th>Details Array</th>';
+				echo '<th>Group Id Array</th>';
 				echo '<tr>';
                 echo '<td>'. $user->id .'</td>';
-				echo '<td>'. $user->Name . '</td>';
+				echo '<td>'. $user->name . '</td>';
 				echo '<td>'. $user->password . '</td>';
 				echo '<td>'. $user->details . '</td>';
-				echo '<td>'. $user->group_id . '</td>';	
+				echo '<td>add groups belongings</td>';	
                 echo '</tr>';
             	echo '</table>';
 		}
