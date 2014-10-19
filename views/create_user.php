@@ -48,20 +48,18 @@
 		/// Call create user // STORE THE ID into an variable , then call UPDATE USER for that id.
 		$users = new User();
 		$user = array();
-		$most_recent_id = $users->grab_latest_user_id();
-
-		$_POST['id'] = $most_recent_id + 1;
-
+		$most_recent_user_id = $users->grab_latest_user_id();
+		$_POST['id'] = $most_recent_user_id + 1;
 		$user['id'] = $_POST['id'];
-		
+
+		// IF isset , if not , set them to null !
 		if(isset($_POST['name'])){ $user['name'] = $_POST['name']; }else{ $user['name'] = NULL; }
 		if(isset($_POST['password'])){ $user['password'] = $_POST['password']; }else{ $user['password'] = NULL; }
 		if(isset($_POST['pass_conf'])){ $user['pass_conf'] = $_POST['pass_conf']; }else{ $user['pass_conf'] = NULL; }
 		if(isset($_POST['details'])){ $user['details'][] = $_POST['details']; }else{ $user['details'] = NULL; }
-		// if(isset($_POST['group_id'])){ $user['group_id'] = $_POST['group_id']; }else{ $user['group_id'] = NULL; }
+		if(isset($_POST['group_id'])){ $user['group_id'] = $_POST['group_id']; }else{ $user['group_id'] = 9999; }
 
-		// TO ADD : VERIFY THAT THE GROUP ID IS INTEGER TYPE... :)
-		
+				
 		if(isset($user['id']) && isset($user['name']) && isset($user['password']) && isset($user['details'])) {
 			// VERIFY PASSWORD MATCHING
 			if($_POST['password'] === $_POST['pass_conf']){
@@ -71,18 +69,18 @@
 				$user['password'] = $enc_pass;
 				$update_params_array = $user;
 					
-				//print_r($update_params_array);
 				$users->create($user);
 				$users->update($user['id'],'users',$update_params_array);
-				//echo "User succesfully created and updated.";
-				//REDIRECT TO USER LISTING AFTER ADD USER.			
-				//header("Location: /user/views/list.php");
-				//die();
+				header("Location: /user/views/list.php");
+				die();
 			}
 			else{
 				echo "ERROR : Passwords do not match ! Please re-enter !";
 			}
 		}
+		 else{
+		 	//die ("Some Last strange error into create_user.php");
+		 }
 	
 
 

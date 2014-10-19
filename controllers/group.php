@@ -71,6 +71,22 @@ class Group extends Crud {
             echo '</table>';
         }
 	}
+	function grab_latest_group_id($table_name = 'groups'){
+		$latest_id = '0';
+		$statement = parent::grab_all_ids($table_name);
+		foreach ($statement as $id) {
+			if ($id > $latest_id){
+				$latest_id = $id['id'];
+			}else{
+				return $latest_id;
+			}	
+		}
+		return $latest_id;
+	}
+
+	function verify_groupname_exists_in_table($name, $table_name ='groups'){
+		return parent::verify_name_exists_in_table($name,$table_name);
+	}
 
 }
 

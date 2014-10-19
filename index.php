@@ -57,12 +57,5 @@ $update_params_ = array(
  	'group_id' => '141',
 	);
 
-//$asd = $user->verify_name_exists_in_table('asd');
-//var_dump($asd);
-$ddd = new  User();
 
-$a = $ddd->verify_username_exists_in_table('asd');
-
-print_r($a);
-var_dump($a);
 ?>
