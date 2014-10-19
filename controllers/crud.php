@@ -36,7 +36,7 @@ abstract class Crud {
 											$sql->execute(array(':object_id' => $this->id));
 										}
 
-							else { 	die("There already is a user called {$array['name']}"); 
+							else { 	die("There already is a object called {$array['name']} into table {$table}"); 
 								 }
 
 				echo "A new ". $table . " object ( ". $this->id ."  ) succesfully created. <br />";
@@ -150,6 +150,34 @@ abstract class Crud {
 		return $statement;
 	}
 
+	function assign_user_to_group($user_id,$group_id){
+		$mapping_exists = Crud::verify_existing_mapping($user_id,$group_id);
+		if(!$mapping_exists){
+			Crud::map_user_group($user_id,$group_id);
+		}else{
+			die("This mapping already exists !");
+		}
+	}
 
+	function map_user_group($uid,$gid){
+		$statement = $this->db->prepare("INSERT INTO usergroups (user_id,group_id) VALUES ('$uid','$gid')");
+		$statement->execute();
+		print_r("Mapped user {$uid} to group {$gid}. ");
+		return $statement;
+	}
+
+	function verify_existing_mapping($uid,$gid){
+		$statement = $this->db->prepare("SELECT * FROM usergroups WHERE user_id=? AND group_id=?");
+		$statement->bindParam(1, $uid);
+		$statement->bindParam(2, $gid);
+		$statement->execute();
+		if($statement->rowCount() >= 1){
+				return true;
+			}else{
+				return false;
+			}
+	}
 }
  ?>
+
+

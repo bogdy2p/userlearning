@@ -40,7 +40,7 @@
 		$_POST['id'] = $most_recent_group_id + 1;		
 		$group['id'] = $_POST['id'];
 		
-		
+		// IF isset , if not , set them to null !
 		if(isset($_POST['name'])){ $group['name'] = $_POST['name']; }else{ $group['name'] = NULL; }
 		if(isset($_POST['special_key'])){ $group['special_key'] = $_POST['special_key']; }else{ $group['special_key'] = NULL; }
 

@@ -51,46 +51,33 @@ require_once('../controllers/group.php');
 
 <!--.............................FUNCTIONALITY..................................... -->
 <?php
+	$user = new User();
+
 	echo "<pre>";
 	if (isset($_POST['user']) && isset($_POST['group']) ) {
 		if(!empty($_POST['user']) && !empty($_POST['group'])) {
-			$user = new User();		
-			$user_data = array();
-			$user_id = $_POST['user'];
-			$group_id = $_POST['group'];
-			// GRAB USERDATA BY ID 
-			$asd = $user->get_user_object_by_id($_POST['user']);
-			// UNSET THE GROUP_ID VALUE
-			unset($asd->group_id);
-			// SET THE NEW GROUP ID VALUE
-			$asd->group_id = $_POST['group'];
-			//CREATE THE ARRAY FOR THE UPDATE DATA;
-			$update_params_array = array(
-				'id' => $asd->id,
-				'username' => $asd->username,
-				'password' => $asd->password,
-				'details' => array($asd->details,),
-				'group_id' => $asd->group_id,
-				);
-			// UPDATE THE USER TO THE DB + DISPLAY A MESSAGE 
-				$test = $user->update($_POST['user'], $table = 'users',$update_params_array);
-				switch (isset($asd->username) && !empty($asd->username)){
-				case true:
-					echo "User " . $asd->id . " ( " . $asd->username . " ) " . " now belongs to group " . $asd->group_id;
-					break;
-				case false:
-					echo "User " . $asd->id . "   (no_name_value_for_object)  now belongs to group " . $asd->group_id;
-					break;		
-				}
-		}
-		else
-			{
+		
+		
+
+		$uid = $_POST['user'];
+		$gid = $_POST['group'];
+
+		$user->assign_user_to_group($uid,$gid);
+
+
+		$test = $user->verify_existing_mapping($uid,$gid);
+		if($test){echo "Mapping Succeded.";}else{echo "Failed to add mapping.";}
+
+
+
+		}else{
 			echo "ONE OF THE SELECT VALUES IS EMPTY";
 			}
-	}
-	else{
+	}else{
 		echo "Please select both dropdown values!";
 		} 
+
+	// Verify it's been added and display a message.
 	
 	
 
