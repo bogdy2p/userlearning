@@ -42,7 +42,7 @@ $users = $user->list_users();
                      echo '<td>'. $individual_user['password'] . '</td>';
                      echo '<td>'. $individual_user['details'] . '</td>';
                      echo '<td> Group Name By ID / or ID </td>';
-                     echo "<td><a href=\"../models/edit.php/?id={$individual_user['id']}&type={$type}\">Edit</td>";
+                     echo "<td><a href=\"../views/edit_user.php?id={$individual_user['id']}&type={$type}\">Edit</td>";
                      echo "<td><a href=\"../models/delete.php/?id={$individual_user['id']}&type={$type}\">Delete</td>";
                      echo '</tr>';
            }
