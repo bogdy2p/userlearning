@@ -44,11 +44,6 @@
 		$user['id'] = $_POST['id'];
 		
 
-		
-		
-
-
-
 		// IF isset , if not , set them to null !
 		if(isset($_POST['name'])){ $user['name'] = $_POST['name']; }else{ $user['name'] = NULL; }
 		if(isset($_POST['password'])){ $user['password'] = $_POST['password']; }else{ $user['password'] = NULL; }
@@ -72,17 +67,17 @@
 						if(isset($_POST['details'])){
 							$details = $_POST['details'];
 							$detail = explode(";", $details);
-							print_r($detail);
+							//print_r($detail);
 							foreach ($detail as $key => $value) {
+								//if(!is_null($value)){
 								$users->add_user_detail($user['id'],$value);
+								//}
 							}
 						}
-				//print_r($user);
-				//print_r($asd);
 				$asd2 = $users->update($user['id'],'users',$update_params_array);
 				//print_r($asd2);
-				//header("Location: /user/views/list.php");
-				//die();
+				header("Location: /user/views/list.php");
+				die();
 			}
 			else{
 				echo "ERROR : Passwords do not match ! Please re-enter !";

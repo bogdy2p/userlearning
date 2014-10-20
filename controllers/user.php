@@ -115,6 +115,7 @@ class User extends Crud {
 		return parent::delete_mapping($id,$type);
 	}
 
+	
 }
 
 ?>

@@ -35,11 +35,32 @@ $users = $user->list_users();
 		foreach ($users as $individual_user) {
 					$type = 'users';
 					$groups_array = $user->get_number_of_groups_for_a_user($individual_user['id']);
+					$details_array = $user->get_user_details($individual_user['id']);
+					$details_array_ids = array();
+					
                      echo '<tr>';
                      echo '<td>'. $individual_user['id'] . '</td>';
                      echo '<td>'. $individual_user['name'] . '</td>';
                      echo '<td>'. $individual_user['password'] . '</td>';
+                     //echo '<td>';
+
+                     //DISPLAY HERE THE VALUES FROM user_details TABLE NOT FROM users table 
+                     //DISPLAY HERE THE VALUES FROM user_details TABLE NOT FROM users table 
+                     //DISPLAY HERE THE VALUES FROM user_details TABLE NOT FROM users table 
+                     /////////////////////////////////////////////////////////////////////////////////////////////////
+                     /////////////////////////////////////////////////////////////////////////////////////////////////
+                     /////////////////////////////////////////////////////////////////////////////////////////////////
+     				//  foreach ($details_array as $key => $value) {
+					// 	$details_array_ids[$key] = $value;
+					// 	$printit = $user->get_detail_by_detail_id(91);
+					// 	//echo $printit->detail;
+					// 	var_dump($printit);
+					// 	$stringtest = $details_array_ids[$key]['id'] .";";
+					// 	//echo $printit;
+					// }
+					//echo '</td>';
                      echo '<td>'. $individual_user['details'] . '</td>';
+                     //echo '<td>'. implode(";",$details_array_ids) . '</td>';
                      echo'<td>'.  implode(" / ",$groups_array) . '</td>';
                      echo "<td><a href=\"../views/edit_user.php?id={$individual_user['id']}&type={$type}\">Edit</td>";
                      echo "<td><a href=\"../models/delete.php/?id={$individual_user['id']}&type={$type}\">Delete</td>";

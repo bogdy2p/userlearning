@@ -38,6 +38,7 @@ require_once 'controllers/database.php';
 $user = new User();
 $testgrp = new Group();
 
+$asd = $user->get_detail_by_detail_id('91');
 //$asd = $user->check_detail_exists('detail1','2');
 //$e = $user->add_user_detail('2','detaliu');
 //var_dump($asd);

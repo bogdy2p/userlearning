@@ -258,13 +258,27 @@ abstract class Crud {
 	function add_user_detail($user_id,$detail){
 		// check if this detail already exists
 		$detail_exists = Crud::check_detail_exists($detail,$user_id);
-		if(!$detail_exists){
+		if((!$detail_exists) && (!is_null($detail)) && ($detail != ' ')){
 			$statement = $this->db->prepare("INSERT INTO user_details (user_id,detail) VALUES ('$user_id','$detail')");
 			$statement->execute();
 			return $statement;
 		}else{
-			echo "Unable to add more : This detail already exists for this user!";
+			echo "Unable to add {$detail} : This detail already exists for this user / Is null !";
 			}
+	}
+
+	function get_user_details($user_id){
+		$statement = $this->db->prepare("SELECT id FROM user_details WHERE user_id = ?");
+		$statement->bindParam(1,$user_id);
+		$statement->execute();
+		return $statement;
+	}
+
+	function get_detail_by_detail_id($detail_id){
+		$statement = $this->db->prepare("SELECT detail FROM user_details WHERE id = ?");
+		$statement->bindParam(1,$detail_id);
+		$statement->execute();
+		return $statement;
 	}
 
 
