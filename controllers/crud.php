@@ -267,20 +267,25 @@ abstract class Crud {
 			}
 	}
 
-	function get_user_details($user_id){
+	function get_user_details_array($user_id){
 		$statement = $this->db->prepare("SELECT id FROM user_details WHERE user_id = ?");
 		$statement->bindParam(1,$user_id);
 		$statement->execute();
-		return $statement;
+		$user_details_array = array();
+		foreach ($statement as $detail) {
+			$user_details_array[] = Crud::get_detail_by_detail_id($detail['id']);
+		}
+		return $user_details_array;
 	}
 
 	function get_detail_by_detail_id($detail_id){
 		$statement = $this->db->prepare("SELECT detail FROM user_details WHERE id = ?");
 		$statement->bindParam(1,$detail_id);
 		$statement->execute();
-		return $statement;
+		foreach ($statement as $row) {
+			return $row['detail'];
+		}
 	}
-
 
 }
  ?>

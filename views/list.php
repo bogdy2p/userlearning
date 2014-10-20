@@ -34,10 +34,16 @@ $users = $user->list_users();
 					echo '<th>Delete User</th>';
 		foreach ($users as $individual_user) {
 					$type = 'users';
-					$groups_array = $user->get_number_of_groups_for_a_user($individual_user['id']);
-					$details_array = $user->get_user_details($individual_user['id']);
-					$details_array_ids = array();
+					$userid = $individual_user['id'];
+					print_r($userid);
+					$groups_array = $user->get_number_of_groups_for_a_user($userid);
+					$details_array = $user->get_user_details_array($userid);
+					//$details_array_ids = array();
+					//$details_array_ids[$userid] = $details_array;
+
 					
+					print_r($details_array);
+
                      echo '<tr>';
                      echo '<td>'. $individual_user['id'] . '</td>';
                      echo '<td>'. $individual_user['name'] . '</td>';
@@ -59,9 +65,9 @@ $users = $user->list_users();
 					// 	//echo $printit;
 					// }
 					//echo '</td>';
-                     echo '<td>'. $individual_user['details'] . '</td>';
-                     //echo '<td>'. implode(";",$details_array_ids) . '</td>';
-                     echo'<td>'.  implode(" / ",$groups_array) . '</td>';
+                     //echo '<td>'. $individual_user['details'] . '</td>';
+                     echo '<td>'. implode(";",$details_array) . '</td>';
+                     echo '<td>'.  implode(" / ",$groups_array) . '</td>';
                      echo "<td><a href=\"../views/edit_user.php?id={$individual_user['id']}&type={$type}\">Edit</td>";
                      echo "<td><a href=\"../models/delete.php/?id={$individual_user['id']}&type={$type}\">Delete</td>";
                      echo '</tr>';
