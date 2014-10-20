@@ -91,7 +91,11 @@ class Group extends Crud {
 	function get_name_by_id($id,$table_name = 'groups'){
 		return parent::get_name_by_id($id,$table_name);
 	}
-
+	function delete_group_mapping($id, $type = 'group_id'){
+		print_r($id);
+		print_r($type);
+		return parent::delete_mapping($id,$type);
+	}
 }
 
 ?>
