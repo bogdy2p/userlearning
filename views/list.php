@@ -19,7 +19,7 @@ require_once('../controllers/group.php');
 $user = new User();
 $group = new Group();
 
-echo "<h3>All users : </h3>";
+echo "<h3>ALL USERS : </h3>";
 $users = $user->list_users();
 
 
@@ -50,7 +50,7 @@ $users = $user->list_users();
 
 
 echo "<br />";
-echo "<h3>All groups :</h3>";
+echo "<h3>ALL GROUPS :</h3>";
 $groups = $group->list_groups();
 				echo '<table class="default_css_table">';
 				echo '<th>Id</th>';
@@ -69,6 +69,12 @@ $groups = $group->list_groups();
                 echo '</tr>';
 		}
 				echo '</table>';
+
+echo "<br />";
+echo "<h3>MAPPING TABLE :</h3>";
+
+
+
 
 ?>
 </div>

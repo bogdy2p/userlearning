@@ -18,6 +18,9 @@ require_once('../controllers/group.php');
 <!-- FUNCTIONALITY HERE !-->
 <?php 
 		echo "<h4> This has been marked as not working yet.</h4><hr>";
+		if(isset($_GET['id']) && isset($_GET['type'])){
+			
+		
 		$received_value = $_GET['id'];
 		$type = $_GET['type'];
 		echo "<h1>";
@@ -30,7 +33,7 @@ require_once('../controllers/group.php');
 			break;
 		}
 		echo "</h1>";
-
+		}
 		//echo "Received id: &nbsp;&nbsp;&nbsp;&nbsp;  ".$received_value . " &nbsp;&nbsp;&nbsp;&nbsp;Received type:&nbsp;&nbsp;&nbsp;&nbsp;   " .$type; 
 
 

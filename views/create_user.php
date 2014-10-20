@@ -16,13 +16,13 @@
 			<form class="form" id="asd" action="create_user.php" method="post">
 
 				<label>name</label><br />
-				<input name="name"  type="text"  placeholder="enter desired name" value="<?php echo $_POST['name'];?>"> <br />
+				<input name="name"  type="text"  placeholder="enter desired name" value="<?php if(isset($_POST['name'])) echo $_POST['name'];?>"> <br />
 				<label>password</label><br />
 				<input name="password"  type="text"  placeholder="enter password" value=""> <br />
 				<label>confirm password</label><br />
 				<input name="pass_conf" type="text"  placeholder="confirm password" value=""> <br />
 				<label>details array</label><br />
-				<input name="details"   type="text"  placeholder="enter details" value="<?php echo $_POST['details'];?>"> <br />
+				<input name="details"   type="text"  placeholder="enter details" value="<?php if(isset($_POST['details'])) echo $_POST['details'];?>"> <br />
 				
 				
 				<button type="submit" class="button">Create</button>
