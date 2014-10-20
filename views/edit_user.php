@@ -12,12 +12,7 @@
 			$user->get_user_object_by_id($_GET['id']);
 			
 		$_POST['id'] = $_GET['id'];
-		$_POST['name'] = $user->name;
-		//echo "<pre>";
-		//print_r($user->name);echo "<br />";
-		//print_r($user->password);echo "<br />";
-		//print_r($user->details);
-
+		$old_name = $user->name;
 		$old_details = $user->details;
 		$the_old_pass = $user->password;
 		$the_user_id = $_GET['id'];
@@ -46,15 +41,10 @@
 				}
 		}
 	}
-
-
 ?>
 
 
-
 <!DOCTYPE html>
-
-
 <head>
 	<title>Edit User</title>
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
@@ -67,7 +57,7 @@
 			<form class="form" id="edituser" action="edit_user.php?id=<?php echo $the_user_id;?>&type=users" method="post">
 
 				<label>Name</label><br />
-				<input name="name"  type="text"  placeholder="User Name" value="<?php if(isset($_POST['name'])) echo $_POST['name'];?>"> <br />
+				<input name="name"  type="text"  placeholder="User Name" value="<?php if(isset($old_name)) echo $old_name;?>"> <br />
 				<label>Enter OLD Password</label><br />
 				<input name="old_password"  type="text"  placeholder="Old Password" value=""><br />
 				<label>New Password</label><br />
@@ -77,12 +67,11 @@
 				<label>Details Array</label><br />
 				<input name="details"   type="text"  placeholder="Details Array" value="<?php if(isset($old_details)) echo $old_details;?>"> <br/>
 				
-				<button type="submit" class="button">Save</button>
+				<button type="submit" class="button">Save User</button>
 			</form>
 
 	</div>
 </body>
-
 
 </html>
 

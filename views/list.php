@@ -64,7 +64,7 @@ $groups = $group->list_groups();
                 echo '<td>'. $individual_group['id'] . '</td>';
                 echo '<td>'. $individual_group['name'] . '</td>';
                 echo '<td>'. $individual_group['special_key'] . '</td>';
-                echo "<td><a href=\"../models/edit.php/?id={$individual_group['id']}&type={$type}\">Edit</td>";
+                echo "<td><a href=\"../views/edit_group.php?id={$individual_group['id']}&type={$type}\">Edit</td>";
                 echo "<td><a href=\"../models/delete.php/?id={$individual_group['id']}&type={$type}\">Delete</td>";
                 echo '</tr>';
 		}
