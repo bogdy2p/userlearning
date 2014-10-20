@@ -40,12 +40,12 @@ $testgrp = new Group();
 
 
 
-//$dd = $user->assign('2','1');
-//print_r($dd);
 
 
 ?>
 <!--
+
+
 // $user_params = array(
 // 	'id' => '1211',
 // 	'name' => 'User 14',

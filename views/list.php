@@ -72,7 +72,21 @@ $groups = $group->list_groups();
 
 echo "<br />";
 echo "<h3>MAPPING TABLE :</h3>";
+echo "<pre>";
+$mapping_table = $user->get_mapping_table_data();
 
+				echo '<table class="default_css_table">';
+				echo '<th>Id</th>';
+				echo '<th>User ID</th>';
+				echo '<th>Group ID</th>';
+foreach ($mapping_table as $table) {
+	echo '<tr>';
+	echo '<td>'.$table['id'].'</td>';
+	echo '<td>' . $table['user_id'] . ' - ' . $user->get_name_by_id($table['user_id']) .'</td>';
+	echo '<td>' . $table['group_id'] . ' - ' . $group->get_name_by_id($table['group_id']) .'</td>';
+	echo '</tr>';
+	
+}
 
 
 

@@ -177,6 +177,23 @@ abstract class Crud {
 				return false;
 			}
 	}
+
+	function get_mapping_table_data(){
+		$statement = $this->db->prepare("SELECT * FROM usergroups");
+		$statement->execute();
+		return $statement;
+	}
+	function get_name_by_id($id,$table_name){
+		$statement = $this->db->prepare("SELECT name FROM ".$table_name. " WHERE id=?");
+		$statement->bindParam(1,$id);
+		$statement->execute();
+//		print_r($statement);
+		foreach ($statement as $row) {
+			return $row['name'];
+		}
+
+	}
+
 }
  ?>
 

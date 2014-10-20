@@ -23,9 +23,9 @@ require_once('../controllers/group.php');
 					 <?php 
 					 	$users = new User();
 					 	$id_array = $users->grab_all_user_ids();
-
+					 				// . $user->get_name_by_id($table['user_id']) .
 					 	foreach ($id_array as $id => $value) {
-					 		echo "<option value=\"{$value}\">{$value}</option>";
+					 		echo "<option value=\"{$value}\">{$users->get_name_by_id($value)}</option>";
 					 	}
 					 ?>
 		</select>
@@ -36,7 +36,7 @@ require_once('../controllers/group.php');
 					 	$groups = new Group();
 					 	$id_array = $groups->grab_all_group_ids();
 					 	foreach ($id_array as $id => $value) {
-					 		echo "<option value=\"{$value}\">{$value}</option>";
+					 		echo "<option value=\"{$value}\">{$groups->get_name_by_id($value)}</option>";
 					 	}
 					 ?>
 		</select>

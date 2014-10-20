@@ -88,6 +88,10 @@ class Group extends Crud {
 		return parent::verify_name_exists_in_table($name,$table_name);
 	}
 
+	function get_name_by_id($id,$table_name = 'groups'){
+		return parent::get_name_by_id($id,$table_name);
+	}
+
 }
 
 ?>
