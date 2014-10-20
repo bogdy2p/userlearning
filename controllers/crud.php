@@ -242,6 +242,32 @@ abstract class Crud {
 		}
 		return $users_array;
 	}
+
+	function check_detail_exists($detail,$user_id){
+		$statement = $this->db->prepare("SELECT id FROM user_details WHERE detail = ? AND user_id = ?");
+		$statement->bindParam(1,$detail);
+		$statement->bindParam(2,$user_id);
+		$statement->execute();
+		if($statement->rowCount() >= 1){
+				return true;
+			}else{
+				return false;
+			}
+	}
+
+	function add_user_detail($user_id,$detail){
+		// check if this detail already exists
+		$detail_exists = Crud::check_detail_exists($detail,$user_id);
+		if(!$detail_exists){
+			$statement = $this->db->prepare("INSERT INTO user_details (user_id,detail) VALUES ('$user_id','$detail')");
+			$statement->execute();
+			return $statement;
+		}else{
+			echo "Unable to add more : This detail already exists for this user!";
+			}
+	}
+
+
 }
  ?>
 

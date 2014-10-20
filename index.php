@@ -17,8 +17,8 @@
 	   <li><a href="views/create_group.php"><h4>Add New <span2>Group</span2> - <span> Tested. Working </span></h4></a></li>
 	   <li><a href="views/view_user.php"><h4><span2>View USER</span2> by  id</h4></a></li>
 	   <li><a href="views/view_group.php"><h4><span2>View Group</span2> by  id </h4></a></li>
-	   <li><a href="models/404.php"><h4>Edit a unique object (User or Grp) - <span> REPLACED WITH EDIT BY ID </span></h4></a></li>
-	   <li><a href="views/assign.php"><h3><span2>Assign a user to a group!</span2> (needs testing) and implementation of select by name </h3></a></li>
+	   <!--<li><a href="models/404.php"><h4>Edit a unique object (User or Grp) - <span> REPLACED WITH EDIT BY ID </span></h4></a></li>-->
+	   <li><a href="views/assign.php"><h3><span2>Assign a user to a group!</span2> </h3></a></li>
 	   <!--<li><a href="views/create_object.php"><h4><span2>WILL DEPRECATE !!</span2> Create a new <span2>EMPTY</span2> object (User or Group) </h4></a></li>-->
 	   </ol>
    </div>
@@ -29,7 +29,7 @@
 
 <?php
 echo "<pre>";
-//Including/requireing necessary files.
+
 require_once 'controllers/crud.php';
 require_once 'controllers/user.php';
 require_once 'controllers/group.php';
@@ -38,6 +38,9 @@ require_once 'controllers/database.php';
 $user = new User();
 $testgrp = new Group();
 
+//$asd = $user->check_detail_exists('detail1','2');
+//$e = $user->add_user_detail('2','detaliu');
+//var_dump($asd);
 
 ?>
 <!--
