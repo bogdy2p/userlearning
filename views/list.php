@@ -40,7 +40,7 @@ $users = $user->list_users();
                      echo '<td>'. $individual_user['name'] . '</td>';
                      echo '<td>'. $individual_user['password'] . '</td>';
                      echo '<td>'. $individual_user['details'] . '</td>';
-                     echo'<td>'.  implode(";",$groups_array) . '</td>';
+                     echo'<td>'.  implode(" / ",$groups_array) . '</td>';
                      echo "<td><a href=\"../views/edit_user.php?id={$individual_user['id']}&type={$type}\">Edit</td>";
                      echo "<td><a href=\"../models/delete.php/?id={$individual_user['id']}&type={$type}\">Delete</td>";
                      echo '</tr>';
@@ -87,6 +87,31 @@ foreach ($mapping_table as $table) {
 	echo '<td>' . $table['group_id'] . ' - ' . $group->get_name_by_id($table['group_id']) .'</td>';
 	echo "<td><a href=\"../models/delete.php/?id={$map_id}&type={$type}\">Delete</td>";
 	echo '</tr>';
+
+}
+
+echo "</table>";
+
+echo "<h3>Group's Users.</h3>";
+
+
+$groups = $group->list_groups();
+foreach ($groups as $group) {
+	$groupname = $group['name'];
+	$group_id = $group['id'];
+	echo '<h3>'.$groupname. '\'s </h3>';
+	echo '<table class="default_css_table" name="'.$groupname.' group">';
+	
+	$userids_from_group = $user->get_userids_for_a_group($group_id);	
+		echo "<th>username</th>";
+		echo "<th>user_id</th>";
+	foreach ($userids_from_group as $key => $value) {
+		echo "<tr>";
+		print_r("<td>".$user->get_name_by_id($value)."</td>");
+		print_r("<td>".$value."</td>");
+		echo "</tr>";
+	}
+	echo "</table>";
 }
 
 

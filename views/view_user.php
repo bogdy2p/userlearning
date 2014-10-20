@@ -22,7 +22,7 @@ require_once('../controllers/group.php');
 					 	$users = new User();
 					 	$id_array = $users->grab_all_user_ids();
 					 	foreach ($id_array as $id => $value) {
-					 		echo "<option value=\"{$value}\">{$value}</option>";
+					 		echo "<option value=\"{$value}\">{$value} - {$users->get_name_by_id($value)}</option>";
 					 	}
 					 ?>
 	</select>
@@ -34,7 +34,7 @@ require_once('../controllers/group.php');
 		if(isset($_POST['id']) && ($_POST['id'] > 0)){
 		$user = new User();
 		$user->get_user_object_by_id($_POST['id']);
-
+		$groups_array = $user->get_number_of_groups_for_a_user($_POST['id']);
 		// DISPLAY (this is practically the VIEW //
 				echo '<table class="default_css_table">';
 				echo '<th>ID</th>';
@@ -47,7 +47,7 @@ require_once('../controllers/group.php');
 				echo '<td>'. $user->name . '</td>';
 				echo '<td>'. $user->password . '</td>';
 				echo '<td>'. $user->details . '</td>';
-				echo '<td>add groups belongings</td>';	
+				echo'<td>'.  implode(" / ",$groups_array) . '</td>';	
                 echo '</tr>';
             	echo '</table>';
 		}

@@ -22,7 +22,7 @@ require_once('../controllers/group.php');
 					 	$groups = new Group();
 					 	$id_array = $groups->grab_all_group_ids();
 					 	foreach ($id_array as $id => $value) {
-					 		echo "<option value=\"{$value}\">{$value}</option>";
+					 		echo "<option value=\"{$value}\">{$value} - {$groups->get_name_by_id($value)}</option>";
 					 	}
 					 ?>
 	</select>

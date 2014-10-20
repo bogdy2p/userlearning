@@ -38,10 +38,6 @@ require_once 'controllers/database.php';
 $user = new User();
 $testgrp = new Group();
 
-$asd = $user->get_number_of_groups_for_a_user(3);
-print_r($asd);
-
-
 
 ?>
 <!--

@@ -87,9 +87,7 @@ class User extends Crud {
 	function verify_user_exists($object_id, $table_name){
 		return parent::verify_object_exists($object_id,$table_name);
 	}
-	function update_user_group_id($user_id,$group_id){
 
-	}
 	function grab_latest_user_id($table_name = 'users'){
 		$latest_id = '0';
 		$statement = parent::grab_all_ids($table_name);
@@ -116,7 +114,7 @@ class User extends Crud {
 		print_r($type);
 		return parent::delete_mapping($id,$type);
 	}
-		//DELETE FROM `user_groups`.`usergroups` WHERE `usergroups`.`user_id` = 1;
+
 }
 
 ?>

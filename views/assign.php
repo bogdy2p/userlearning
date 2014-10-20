@@ -66,8 +66,12 @@ require_once('../controllers/group.php');
 
 
 		$test = $user->verify_existing_mapping($uid,$gid);
-		if($test){echo "Mapping Succeded.";}else{echo "Failed to add mapping.";}
-
+		if($test){
+			echo "Mapping Succeded.";
+			header("Location: /user/views/list.php");
+			die();
+		}else{echo "Failed to add mapping.";}
+		
 
 
 		}else{

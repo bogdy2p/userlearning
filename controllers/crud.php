@@ -35,7 +35,7 @@ abstract class Crud {
 											}
 											$sql->execute(array(':object_id' => $this->id));
 										}
-										
+
 							else { 	die("There already is a object called {$array['name']} into table {$table}"); 
 								 }
 
@@ -215,12 +215,24 @@ abstract class Crud {
 		$statement->execute();
 		$groups_array = array();
 		foreach ($statement as $group) {
-			$groups_array[] = $group['group_id'];
+			//$groups_array[] = $group['group_id'];
+			$groups_array[] = Crud::get_name_by_id($group['group_id'],'groups');
+
 		}
 		return $groups_array;
 	}
 
-	function get_number_of_users_for_a_group($id){
+	function get_usernames_for_a_group($id){
+		$statement = $this->db->prepare("SELECT user_id FROM usergroups WHERE group_id = ?");
+		$statement->bindParam(1,$id);
+		$statement->execute();
+		$users_array = array();
+		foreach ($statement as $user) {
+			$users_array[] = Crud::get_name_by_id($user['user_id'],'users');
+		}
+		return $users_array;
+	}
+	function get_userids_for_a_group($id){
 		$statement = $this->db->prepare("SELECT user_id FROM usergroups WHERE group_id = ?");
 		$statement->bindParam(1,$id);
 		$statement->execute();
