@@ -24,6 +24,13 @@ if ($type_of_object == 'users'){
 		//REDIRECT BACK TO LIST HERE;
 		header("Location: /user/views/list.php");
 		die();
+} elseif ($type_of_object == 'usergroups'){
+	$user = new User();
+	$user->delete_map_by_id($_GET['id']);
+	echo '<a href="/user"><h4 align="center">Go back.</h4></a>';
+	header("Location: /user/views/list.php");
+	die();
+
 }else {
 	echo "Something went wrong while trying to delete.";
 	echo '<a href="/user"><h4 align="center">Go back.</h4></a>';

@@ -155,7 +155,9 @@ abstract class Crud {
 		if(!$mapping_exists){
 			Crud::map_user_group($user_id,$group_id);
 		}else{
-			die("This mapping already exists !");
+			$username = Crud::get_name_by_id($user_id,'users');
+			$groupname = Crud::get_name_by_id($user_id,'groups');
+			die("'".$username."' is already into the '" .$groupname. "' Group!");
 		}
 	}
 
@@ -183,11 +185,11 @@ abstract class Crud {
 		$statement->execute();
 		return $statement;
 	}
+
 	function get_name_by_id($id,$table_name){
 		$statement = $this->db->prepare("SELECT name FROM ".$table_name. " WHERE id=?");
 		$statement->bindParam(1,$id);
 		$statement->execute();
-//		print_r($statement);
 		foreach ($statement as $row) {
 			return $row['name'];
 		}
@@ -197,10 +199,15 @@ abstract class Crud {
 		$statement = $this->db->prepare("DELETE FROM usergroups WHERE {$type} = ?");
 		$statement->bindParam(1,$id);
 		$statement->execute();
-		print_r($statement);
 		return $statement;
 	}
 
+	function delete_map_by_id($id){
+		$statement = $this->db->prepare("DELETE FROM usergroups WHERE id = ?");
+		$statement->bindParam(1,$id);
+		$statement->execute();
+		return $statement;
+	}
 }
  ?>
 

@@ -18,7 +18,7 @@ require_once('../controllers/group.php');
 <?php 
 $user = new User();
 $group = new Group();
-
+echo "<pre>";
 echo "<h3>ALL USERS : </h3>";
 $users = $user->list_users();
 
@@ -32,7 +32,7 @@ $users = $user->list_users();
 					echo '<th>Details</th>';
 					echo '<th>Groups of Belonging</th>';
 					echo '<th>Edit Link</th>';
-					echo '<th>Delete Link</th>';
+					echo '<th>Delete User</th>';
 					//echo '<th>Delete Button</th>';
 		foreach ($users as $individual_user) {
 					$type = 'users';
@@ -48,7 +48,6 @@ $users = $user->list_users();
            }
            			echo '</table>';
 
-
 echo "<br />";
 echo "<h3>ALL GROUPS :</h3>";
 $groups = $group->list_groups();
@@ -57,7 +56,7 @@ $groups = $group->list_groups();
 				echo '<th>Group Name</th>';
 				echo '<th>Special Key</th>';
 				echo '<th>Edit Link</th>';
-				echo '<th>Delete Link</th>';
+				echo '<th>Delete Group</th>';
 		foreach ($groups as $individual_group) {
 			$type = 'groups';
 				echo '<tr>';
@@ -72,18 +71,23 @@ $groups = $group->list_groups();
 
 echo "<br />";
 echo "<h3>MAPPING TABLE :</h3>";
-echo "<pre>";
+
 $mapping_table = $user->get_mapping_table_data();
+
 
 				echo '<table class="default_css_table">';
 				echo '<th>Id</th>';
 				echo '<th>User ID</th>';
 				echo '<th>Group ID</th>';
+				echo '<th>Delete Mapping</th>';
 foreach ($mapping_table as $table) {
+	$map_id = $table['id'];
+	$type='usergroups';
 	echo '<tr>';
 	echo '<td>'.$table['id'].'</td>';
 	echo '<td>' . $table['user_id'] . ' - ' . $user->get_name_by_id($table['user_id']) .'</td>';
 	echo '<td>' . $table['group_id'] . ' - ' . $group->get_name_by_id($table['group_id']) .'</td>';
+	echo "<td><a href=\"../models/delete.php/?id={$map_id}&type={$type}\">Delete</td>";
 	echo '</tr>';
 	
 }
