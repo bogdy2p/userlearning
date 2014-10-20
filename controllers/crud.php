@@ -191,7 +191,14 @@ abstract class Crud {
 		foreach ($statement as $row) {
 			return $row['name'];
 		}
+	}
 
+	function delete_mapping($id,$type){
+		$statement = $this->db->prepare("DELETE FROM usergroups WHERE {$type} = ?");
+		$statement->bindParam(1,$id);
+		$statement->execute();
+		print_r($statement);
+		return $statement;
 	}
 
 }
