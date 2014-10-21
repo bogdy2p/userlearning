@@ -26,7 +26,7 @@
 								'id' => $_POST['id'],
 								'name' => $_POST['name'],
 								'password' => $newpass,
-								'details' => array($_POST['details'],),
+								//'details' => array($_POST['details'],),
 								);
 
 							$update = $user->update($user_update_details['id'],'users',$user_update_details);
@@ -55,6 +55,9 @@
 	<?php print_sitewide_menu();?>
 		<a href="/user"><h4 align="center">Go back.</h4></a>	
 
+
+			<!-- <h1> ASSIGN GROUPS BY CHECKBOX in EDIT USER</h1> -->
+
 			<form class="form" id="edituser" action="edit_user.php?id=<?php echo $the_user_id;?>&type=users" method="post">
 
 				<label>Name</label><br />
@@ -65,11 +68,54 @@
 				<input name="password"  type="text"  placeholder="New Password" value=""><br />
 				<label>Confirm New Password</label><br />
 				<input name="pass_conf" type="text"  placeholder="Confirm New Password" value=""><br />
-				<label>Details Array</label><br />
-				<input name="details"   type="text"  placeholder="Details Array" value="<?php if(isset($old_details)) echo $old_details;?>"> <br/>
+
 				
+				
+			<?php 
+				$user = new User();
+				$groups_array = $user->get_all_groups_in_db();
+				//print_r($groups_array['name']);
+				
+
+				$group_names = $groups_array['name'];
+				$group_ids = $groups_array['id'];
+
+				$user_is_a_member_of_this_group = false;
+
+				foreach ($group_names as $group_name) {
+
+					echo '<label>'.$group_name.'</label>';
+
+					if ($user_is_a_member_of_this_group){
+						echo '<input name="'.$group_name.'" type="checkbox" value="'.$group_name.'" checked><br />';
+					}else{
+						echo '<input name="'.$group_name.'" type="checkbox" value="'.$group_name.'"><br />';
+					}
+
+				}
+				
+
+				echo "<pre>";
+
+				echo '<h2>Dynamically add selects with all the groups in the db.</h2>';
+				echo '<h2>For the groups this user already is a member , mark the checkboxes.</h2>';
+				echo '<h2>When saving , add functionality to map the user with the groups that are selected in the form</h2>';
+				echo '<h2></h2>';
+				echo '<h2></h2>';
+				echo '<h2></h2>';
+
+
+			?>
+
+
+
 				<button type="submit" class="button">Save User</button>
 			</form>
+
+
+
+
+
 
 	</div>
 	<?php include_page_footer_content(); ?>

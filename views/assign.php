@@ -14,7 +14,7 @@ require_once('../controllers/group.php');
 <div class ="content">
 <?php print_sitewide_menu();?>
 
-
+	
 
 	<form class="form" id="assign" action="assign.php" method="post"><br /><br />
 

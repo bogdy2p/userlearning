@@ -17,8 +17,6 @@ class Database{ // DEPRECATED !?!??! try with PDO .. ?  http://www.startutorial.
 	echo '<link rel="stylesheet" type="text/css" href="../assets/css/style.css"> ';
     echo '<link href="assets/css/bootstrap.min.css" rel="stylesheet">';
 	echo '<link href="../assets/css/bootstrap.min.css" rel="stylesheet">'; 
-
-	
 	// INCLUDE BOOTSTRAP FILES ETC
 }
 
@@ -35,13 +33,14 @@ function print_sitewide_menu(){
                 <br />
             </div>
             <div class="row">
-                <div class="col-xs-2 col-md-2"></div>
-                <div class="col-xs-8 col-md-8">
+                <div class="col-xs-1 col-md-1"></div>
+                <div class="col-xs-9 col-md-9">
                 <a class ="btn btn-primary" href="/user">Home</a>
                 <a class ="btn btn-primary" href="/user/views/view_list.php">View Tables</a>
                 <a class ="btn btn-primary" href="/user/views/create_user.php">Add User</a>
                 <a class ="btn btn-primary" href="/user/views/create_group.php">Add Group</a>
                 <a class ="btn btn-primary" href="/user/views/assign.php">Map User</a>
+                <a class ="btn btn-primary" href="/user/views/edit.php">Edit User ( disabled )</a>
                 <a class ="btn btn-primary" href="/user/views/view_user.php">View User</a>
                 <a class ="btn btn-primary" href="/user/views/view_group.php">View Group</a>
                 </div>

@@ -371,6 +371,23 @@ abstract class Crud {
 			echo "Unable to add {$user_detail_type} as a detail type : This detail type already exists for this user / Is null !";
 		}
 	}
+
+
+	/**
+		*********************************************************************
+		*********************************************************************
+	*/
+		function get_all_groups_in_db(){
+		$statement = $this->db->prepare("SELECT * FROM groups");
+		$statement->execute();
+		$groups_array = array();
+		foreach ($statement as $row) {
+			$groups_array['id'][] = $row['id'];
+			$groups_array['name'][] = $row['name'];
+		}
+		return $groups_array;
+	}
+
 }
 ?>
 
