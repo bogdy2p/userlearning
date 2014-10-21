@@ -243,7 +243,6 @@ abstract class Crud {
 		$statement->bindParam(1,$detail);
 		$statement->bindParam(2,$user_id);
 		$statement->execute();
-		//print_r($statement);
 		if($statement->rowCount() >= 1){
 				return true;
 			}else{
@@ -265,19 +264,15 @@ abstract class Crud {
 	//This function should get 3 parameters : the user id , the detail type , and the detail value
 	//It should return a BOOLEAN value if there exists a detail value for the user id 
 	//, and if that row also has the specified detail type
-	//
+	// (this was problematic)
 	//
 	function check_detail_exists_of_type($user_id,$detail_type,$detail){
 		$exists = Crud::check_detail_exists($user_id,$detail);
-		//echo "Exists ? ";
-		//var_dump($exists); // THIS IS TRUE if we check for check_detail_exists('1','1234');
 		if($exists){
 			$already_set_details = Crud::get_detail_types_set_for_user($user_id);
 			if(in_array($detail_type, $already_set_details)){
-				//print_r("IT IS IN ARRAY");
 				return true;
 			}else{
-				//print_r("DOES NOT EXIST");
 				return false;
 			}
 		}else{
@@ -318,24 +313,11 @@ abstract class Crud {
 		$statement->execute();
 		$user_details_array = array();
 		foreach ($statement as $detail) {
-			//$user_details_array[] = Crud::get_detail_by_detail_id($detail['id']);
 			$user_details_array[] = $detail['id'];
 		}
 		return $user_details_array;
 	}
-	// function get_user_details_pair($detail_id){
-	// 	$statement = $this->db->prepare("SELECT (detail_type,detail) FROM user_details WHERE id = ?");
-	// 	$statement->bindParam(1,$detail_id);
-	// 	$statement->execute();
-	// 	$return = array();
-	// 	foreach ($statement as $detail) {
-	// 		# code...
-	// 		print_r($detail);
-			
-	// 		$return[] = $detail;
-	// 	}
-	// 	return $return;
-	// }
+	
 	function get_detail_data_by_detail_id($detail_id){
 		$statement = $this->db->prepare("SELECT detail,detail_type FROM user_details WHERE id = ?");
 		$statement->bindParam(1,$detail_id);
@@ -344,7 +326,6 @@ abstract class Crud {
 		foreach ($statement as $row) {
 			$return['type'] = $row['detail_type'];
 			$return['value'] = $row['detail'];
-			//return $row['detail_type'];
 		}
 		return $return;
 	}	
@@ -368,9 +349,6 @@ abstract class Crud {
 		return $detail_types_array;
 	}
 
-	// function get_user_availlable_detail_types(){
-	// 	$statement = $this->db->prepare("SELECT ")
-	// }
 	function check_detail_type_exists($user_detail_type){
 		$statement = $this->db->prepare("SELECT id FROM user_detail_types WHERE name = ?");
 		$statement->bindParam(1,$user_detail_type);
