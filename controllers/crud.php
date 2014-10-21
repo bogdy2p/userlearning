@@ -250,20 +250,34 @@ abstract class Crud {
 				return false;
 			}
 	}
+	//Returns an array of the already set detail types disponible for the specified user.
+	function get_detail_types_set_for_user($user_id){
+		$statement = $this->db->prepare("SELECT detail_type FROM user_details WHERE user_id = ?");
+		$statement->bindParam(1,$user_id);
+		$statement->execute();
+		$return = array();
+		foreach ($statement as $row) {
+			$return[] = $row['detail_type'];
+		}
+		return $return;
 
+	}
+	//This function should get 3 parameters : the user id , the detail type , and the detail value
+	//It should return a BOOLEAN value if there exists a detail value for the user id 
+	//, and if that row also has the specified detail type
+	//
+	//
 	function check_detail_exists_of_type($user_id,$detail_type,$detail){
 		$exists = Crud::check_detail_exists($user_id,$detail);
-		echo "Exists ? ";
-		var_dump($exists);
+		//echo "Exists ? ";
+		//var_dump($exists); // THIS IS TRUE if we check for check_detail_exists('1','1234');
 		if($exists){
-			
-			$statement = $this->db->prepare("SELECT detail_type FROM user_detail WHERE user_id = ?");
-			$statement->bindParam(1,$user_id);
-			$statement->execute();
-			print_r($statement);
-			if($statement->rowCount() >= 1){
+			$already_set_details = Crud::get_detail_types_set_for_user($user_id);
+			if(in_array($detail_type, $already_set_details)){
+				//print_r("IT IS IN ARRAY");
 				return true;
 			}else{
+				//print_r("DOES NOT EXIST");
 				return false;
 			}
 		}else{
@@ -281,20 +295,8 @@ abstract class Crud {
 		return $return;
 	}
 
-	// function add_user_detail($user_id,$detail){
-	// 	// check if this detail already exists
-	// 	$detail_exists = Crud::check_detail_exists($detail,$user_id);
-	// 	if((!$detail_exists) && (!is_null($detail)) && ($detail != ' ')){
-	// 		$statement = $this->db->prepare("INSERT INTO user_details (user_id,detail) VALUES ('$user_id','$detail')");
-	// 		$statement->execute();
-	// 		return $statement;
-	// 	}else{
-	// 		echo "Unable to add {$detail} : This detail already exists for this user / Is null !";
-	// 		}
-	// }
-
 	function add_user_detail_with_type($user_id,$detail_type,$detail){
-		$detail_exists = Crud::check_detail_exists($user_id,$detail);
+		$detail_exists = Crud::check_detail_exists_of_type($user_id,$detail_type,$detail);
 		$detail_type_exists = Crud::check_detail_type_exists($detail_type);
 
 		if((!$detail_exists) && (!(is_null($detail))) && ($detail != ' ') && ($detail != '')){

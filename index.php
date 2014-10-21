@@ -44,19 +44,13 @@ require_once 'controllers/database.php';
   		$user = new User();
   		$group = new Group();
           //function check_detail_exists($user_id,$detail_type,$detail){
-      //ADRESS DOESNT MATTEER
-
+      //ADRESS DOESNT MATTEE
       //check_detail_exists_of_type($user_id,$detail_type,$detail)
-      $test = $user->check_detail_exists_of_type('1','adress','1243');
-      
+      $test = $user->check_detail_exists_of_type('1','phone','1243');
+
+      echo "<pre>";
       var_dump($test);
-
-
-  		echo "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
-
-
-
-
+      echo "</pre>";
 
   		//PRINT ALL DETAILS ARRAY
   		echo "<pre>";
