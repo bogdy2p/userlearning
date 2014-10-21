@@ -12,7 +12,7 @@ require_once('../controllers/group.php');
 </head>
 
 <body>
-<div class ="content">
+<div class ="container">
 <?php print_sitewide_menu();?>
 
 	<form class="form" id="viewuser" action="view_user.php" method="post"><br /><br />
@@ -23,7 +23,6 @@ require_once('../controllers/group.php');
 					 	foreach ($id_array as $id => $value) {
 					 		echo "<option value=\"{$value}\">{$value} - {$users->get_name_by_id($value)}</option>";
 					 	}
-
 					 ?>
 	</select>
 
@@ -36,7 +35,7 @@ require_once('../controllers/group.php');
 		if(isset($_GET['id']) && ($_GET['id'] > 0)){
 			$_POST['id'] = $_GET['id'];
 		}
-
+		
 		if(isset($_POST['id']) && ($_POST['id'] > 0)){
 		$user = new User();
 		$user->get_user_object_by_id($_POST['id']);

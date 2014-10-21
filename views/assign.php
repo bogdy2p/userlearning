@@ -11,8 +11,8 @@ require_once('../controllers/group.php');
 </head>
 
 <body>
-<div class ="content">
-<?php print_sitewide_menu();?>
+<div class ="container">
+	<div class="row"><?php print_sitewide_menu();?></div>
 
 	
 

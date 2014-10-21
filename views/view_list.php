@@ -13,28 +13,30 @@ require_once('../models/mapping_list.php');
 <head>
 	<title>UserLearning Pbc Project</title>
 	<?php include_page_header_content();?>
-
 </head>
 
 <body>
-	<div class ="content">
-		<div class="row">
-				<?php print_sitewide_menu();?>
-		</div>
+	<div class ="container">
+		<div class="row"><?php print_sitewide_menu(); ?></div>
 
 	<?php 
 
-	//Include the users table into list display;
-	generate_users_table();
-	//Include the groups table into list display;
-	generate_groups_table();
-	//Include the mapping table into list display;
-	generate_mapping_table();
-	//Include users_by_group table into list display;
-	generate_groups_users_table();
+		//Include the users table into list display;
+		generate_users_table();
+		//Include the groups table into list display;
+
+		generate_groups_table();
+		//Include the mapping table into list display;
+		generate_mapping_table();
+		//Include users_by_group table into list display;
+
+		
 
 	?>
 
+		<div class="row">
+			<?php generate_groups_users_table(); ?>
+		</div>
 	</div>
 
 <?php include_page_footer_content(); ?>

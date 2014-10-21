@@ -8,14 +8,18 @@ require_once 'controllers/database.php';
 <head>
 	<title>UserLearning Pbc Project</title>
 	<?php include_page_header_content();?>
+	<!-- <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
 </head>
 
 <body>
 	<div class="container">
 
-		<div class="row">
-		<?php print_sitewide_menu();?>
-		</div>		
+		<div class="row"><?php print_sitewide_menu();?></div>
+
 		<div class="row">
 			 <div class="col-xs-4 col-md-4"></div>
   			 <div class="col-xs-4 col-md-4"><h1>Users-Groups</h1></div>
@@ -43,38 +47,10 @@ require_once 'controllers/database.php';
 	  	
 	  	</div>
 
-  		<?php 
-  		$user = new User();
-  		$group = new Group();
-      
-
-
-  		$test = $user->get_all_groups_in_db();
-  		//echo "<pre>g id's ";
-  		//print_r($test['id']);
-
-		//echo "<br /><br /><br /><br />g names ";
-  		//print_r($test['name']);
-
-
-
-
-
-
-
-      
-
-
-  		?>
-
+  		
 	  	
 	  
    </div>
    <?php include_page_footer_content(); ?>
 </body>
 </html>
-
-<?php
-$user = new User();
-$testgrp = new Group();
-?>

@@ -12,23 +12,20 @@ require_once('../controllers/group.php');
 </head>
 
 <body>
-<div class ="content">
-<?php print_sitewide_menu();?>
+<div class ="container">
+	<div class="row"><?php print_sitewide_menu();?></div>
 
 
+	<div class="row">
 
 	<form class="form" id="viewgroup" action="view_group.php" method="post"><br /><br />
 	<select name="id" id="id" form="viewgroup">
 					 <?php 
 					 	$groups = new Group();
 					 	$id_array = $groups->grab_all_group_ids();
-					 	foreach ($id_array as $id => $value) {
-					 		echo "<option value=\"{$value}\">{$value} - {$groups->get_name_by_id($value)}</option>";
-					 	}
+					 	foreach ($id_array as $id => $value) { echo "<option value=\"{$value}\">{$value} - {$groups->get_name_by_id($value)}</option>";}
 					 ?>
 	</select>
-
-		
 		<button type="submit" class="button">View Group's Data</button>
 	</form>
 
@@ -50,6 +47,7 @@ require_once('../controllers/group.php');
             	echo '</table>';
 		}
 ?>
+	</div>
 </div>
 <?php include_page_footer_content(); ?>
 </body>

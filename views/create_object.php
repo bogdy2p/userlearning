@@ -9,7 +9,7 @@
 	<?php include_page_header_content();?>
 </head>
 <body>
-	<div class ="content">
+	<div class ="container">
 	<?php print_sitewide_menu();?>
 				
 			<form class="form" id="asd" action="create_object.php" method="post">

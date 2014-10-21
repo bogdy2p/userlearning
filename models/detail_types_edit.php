@@ -1,6 +1,6 @@
 <?php 
 
-echo "Included EDIT DETAIL TYPES <br />";
+//echo "Included EDIT DETAIL TYPES <br />";
 
 
 ?>
