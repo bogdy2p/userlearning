@@ -34,11 +34,12 @@
 <!DOCTYPE html>
 <head>
 	<title>Edit Group</title>
-	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+	<?php include_page_header_content();?>
 </head>
 
 <body>
 	<div class ="content">
+	<?php print_sitewide_menu();?>
 		<a href="/user"><h4 align="center">Go back.</h4></a>	
 
 			<form class="form" id="editgroup" action="edit_group.php?id=<?php echo $group_id;?>&type=groups" method="post">
@@ -52,6 +53,7 @@
 			</form>
 
 	</div>
+	<?php include_page_footer_content(); ?>
 </body>
 
 </html>

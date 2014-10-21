@@ -12,6 +12,7 @@ require_once('../controllers/group.php');
 
 
 </form>
+<?php include_page_footer_content(); ?>
 </body>
 
 </html>

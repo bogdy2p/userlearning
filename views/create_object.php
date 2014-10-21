@@ -6,11 +6,12 @@
 <!DOCTYPE html>
 <head>
 	<title>Create a new Object - UserLearning Pbc Project</title>
-	<link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+	<?php include_page_header_content();?>
 </head>
 <body>
 	<div class ="content">
-		<a href="/user"><h4 align="center">Go back.</h4></a>		
+	<?php print_sitewide_menu();?>
+				
 			<form class="form" id="asd" action="create_object.php" method="post">
 				<input name="id" type="text"  placeholder="enter an id here !"> <br />
 				<select name="name" form="asd">
@@ -20,6 +21,7 @@
 				<button type="submit" class="button">Create</button>
 			</form>
  	</div>
+ 	<?php include_page_footer_content(); ?>
 </body>
 
 </html>

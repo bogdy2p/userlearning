@@ -7,10 +7,11 @@
 <!DOCTYPE html>
 <head>
 	<title>Create  - UserLearning Pbc Project</title>
-	<link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+	<?php include_page_header_content();?>
 </head>
 <body>
 	<div class ="content">
+	<?php print_sitewide_menu();?>
 		<a href="/user"><h4 align="center">Go back.</h4></a>	
 
 			<form class="form" id="asd" action="create_group.php" method="post">
@@ -25,6 +26,7 @@
 
 			</form>
  	</div>
+ 	<?php include_page_footer_content(); ?>
 </body>
 
 </html>

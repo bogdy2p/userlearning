@@ -7,13 +7,13 @@ require_once('../controllers/group.php');
 <!DOCTYPE html>
 <head>
 	<title>Assign a user to a group - UserLearning Pbc Project</title>
-
-	<link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+	<?php include_page_header_content();?>
 </head>
 
 <body>
 <div class ="content">
-<a href="/user"><h4 align="center">Go back.</h4></a>
+<?php print_sitewide_menu();?>
+
 
 
 	<form class="form" id="assign" action="assign.php" method="post"><br /><br />
@@ -46,6 +46,7 @@ require_once('../controllers/group.php');
 
 
 </div>
+<?php include_page_footer_content(); ?>
 </body>
 </html>
 

@@ -9,11 +9,15 @@ require_once('../controllers/group.php');
 
 <head>
 	<title>UserLearning Pbc Project</title>
-	<link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+	<?php include_page_header_content();?>
+
 </head>
 
 <body>
 <div class ="content">
+<div class="row">
+		<?php print_sitewide_menu();?>
+		</div>
 <a href="/user"><h4 align="center">Go back.</h4></a>
 <?php 
 $user = new User();
@@ -43,8 +47,8 @@ $users = $user->list_users();
                      echo '<td>'. $individual_user['password'] . '</td>';
                      echo '<td>'. implode(";",$details_array) . '</td>';
                      echo '<td>'.  implode(" / ",$groups_array) . '</td>';
-                     echo "<td><a href=\"../views/edit_user.php?id={$individual_user['id']}&type={$type}\">Edit</td>";
-                     echo "<td><a href=\"../models/delete.php/?id={$individual_user['id']}&type={$type}\">Delete</td>";
+                     echo "<td><a class=\"btn btn-primary\" href=\"../views/edit_user.php?id={$individual_user['id']}&type={$type}\">Edit</td>";
+                     echo "<td><a class=\"btn btn-danger\" href=\"../models/delete.php/?id={$individual_user['id']}&type={$type}\">Delete</td>";
                      echo '</tr>';
            }
            			echo '</table>';
@@ -64,8 +68,8 @@ $groups = $group->list_groups();
                 echo '<td>'. $individual_group['id'] . '</td>';
                 echo '<td>'. $individual_group['name'] . '</td>';
                 echo '<td>'. $individual_group['special_key'] . '</td>';
-                echo "<td><a href=\"../views/edit_group.php?id={$individual_group['id']}&type={$type}\">Edit</td>";
-                echo "<td><a href=\"../models/delete.php/?id={$individual_group['id']}&type={$type}\">Delete</td>";
+                echo "<td><a class=\"btn btn-primary\" href=\"../views/edit_group.php?id={$individual_group['id']}&type={$type}\">Edit</td>";
+                echo "<td><a class=\"btn btn-danger\" href=\"../models/delete.php/?id={$individual_group['id']}&type={$type}\">Delete</td>";
                 echo '</tr>';
 		}
 				echo '</table>';
@@ -87,7 +91,7 @@ foreach ($mapping_table as $table) {
 	echo '<td>'.$table['id'].'</td>';
 	echo '<td>' . $table['user_id'] . ' - ' . $user->get_name_by_id($table['user_id']) .'</td>';
 	echo '<td>' . $table['group_id'] . ' - ' . $group->get_name_by_id($table['group_id']) .'</td>';
-	echo "<td><a href=\"../models/delete.php/?id={$map_id}&type={$type}\">Delete</td>";
+	echo "<td><a class=\"btn btn-danger\" href=\"../models/delete.php/?id={$map_id}&type={$type}\">Delete</td>";
 	echo '</tr>';
 
 }
@@ -119,6 +123,7 @@ foreach ($groups as $group) {
 
 ?>
 </div>
+<?php include_page_footer_content(); ?>
 </body>
 
 <html>
