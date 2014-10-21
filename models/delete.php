@@ -14,7 +14,7 @@ if ($type_of_object == 'users'){
 	$user->delete_user_mapping($_GET['id']);
 		echo '<a href="/user"><h4 align="center">Go back.</h4></a>';
 		//REDIRECT BACK TO LIST HERE;
-		header("Location: /user/views/list.php");
+		header("Location: /user/views/view_list.php");
 		die();
 } elseif ($type_of_object == 'groups'){
 	$group = new Group();
@@ -22,13 +22,13 @@ if ($type_of_object == 'users'){
 	$group->delete_group_mapping($_GET['id']);
 		echo '<a href="/user"><h4 align="center">Go back.</h4></a>';
 		//REDIRECT BACK TO LIST HERE;
-		header("Location: /user/views/list.php");
+		header("Location: /user/views/view_list.php");
 		die();
 } elseif ($type_of_object == 'usergroups'){
 	$user = new User();
 	$user->delete_map_by_id($_GET['id']);
 	echo '<a href="/user"><h4 align="center">Go back.</h4></a>';
-	header("Location: /user/views/list.php");
+	header("Location: /user/views/view_list.php");
 	die();
 
 }else {

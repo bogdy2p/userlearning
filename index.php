@@ -46,31 +46,19 @@ require_once 'controllers/database.php';
           //function check_detail_exists($user_id,$detail_type,$detail){
       //ADRESS DOESNT MATTEE
       //check_detail_exists_of_type($user_id,$detail_type,$detail)
-      $test = $user->check_detail_exists_of_type('1','phone','1243');
+      //$test = $user->check_detail_exists_of_type('1','phone','1243');
 
-      echo "<pre>";
-      var_dump($test);
-      echo "</pre>";
+      // echo "<pre>";
+      // var_dump($test);
+      // echo "</pre>";
 
   		//PRINT ALL DETAILS ARRAY
-  		echo "<pre>";
-  		echo "all details array :<br />";
-  		$asd = $user->get_all_user_details();
-  		print_r($asd);
-  		echo "</pre>";
+  		// echo "<pre>";
+  		// echo "all details array :<br />";
+  		// $asd = $user->get_all_user_details();
+  		// print_r($asd);
+  		// echo "</pre>";
 
-
-  		//$asd = $user->add_user_detail_with_type('155','0753215432','phone');
-
-  		//$user->add_user_detail_type('testdetaiaal');
-  		//
-  		// $asd = $user->check_user_detail_type_already_exists('phone');
-  		// var_dump($asd);
-
-
-  		//DISPLAY ALL USER DETAILS AVAILLABLE IN THE DB
-  		//$asd = $user->get_all_user_detail_types();
-  		//print_r($asd);
 
   		?>
 

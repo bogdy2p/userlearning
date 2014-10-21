@@ -21,6 +21,7 @@ function generate_users_table(){
 					echo '<th>Username</th>';
 					echo '<th>Password</th>';
 					echo '<th>Groups of Belonging</th>';
+					echo '<th>View User</th>';
 					echo '<th>Edit Link</th>';
 					echo '<th>Delete User</th>';
 		foreach ($users as $individual_user) {
@@ -32,6 +33,7 @@ function generate_users_table(){
                      echo '<td>'. $individual_user['name'] . '</td>';
                      echo '<td>'. $individual_user['password'] . '</td>';
                      echo '<td>'.  implode(" / ",$groups_array) . '</td>';
+                     echo "<td><a class=\"btn btn-success\" href=\"../views/view_user.php?id={$individual_user['id']}\">View</td>";
                      echo "<td><a class=\"btn btn-primary\" href=\"../views/edit_user.php?id={$individual_user['id']}&type={$type}\">Edit</td>";
                      echo "<td><a class=\"btn btn-danger\" href=\"../models/delete.php/?id={$individual_user['id']}&type={$type}\">Delete</td>";
                      echo '</tr>';

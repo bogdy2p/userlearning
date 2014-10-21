@@ -13,7 +13,7 @@
 			
 		$_POST['id'] = $_GET['id'];
 		$old_name = $user->name;
-		$old_details = $user->details;
+		//$old_details = $user->details;
 		$the_old_pass = $user->password;
 		$the_user_id = $_GET['id'];
 		//VERIFY OLD PASSWORD 

@@ -32,6 +32,11 @@ require_once('../controllers/group.php');
 	</form>
 
 <?php 
+
+		if(isset($_GET['id']) && ($_GET['id'] > 0)){
+			$_POST['id'] = $_GET['id'];
+		}
+
 		if(isset($_POST['id']) && ($_POST['id'] > 0)){
 		$user = new User();
 		$user->get_user_object_by_id($_POST['id']);
