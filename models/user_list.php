@@ -17,19 +17,19 @@ function generate_users_table(){
 	$users = $user->list_users();
 /////////////////////DISPLAY USERS TABLE AND EDIT / DELETE NEAR IT/////////////////////
 					echo '<table class="table table-bordered">';
-					echo '<th>ID</th>';
-					echo '<th>Username</th>';
-					echo '<th>Password</th>';
-					echo '<th>Groups of Belonging</th>';
-					echo '<th>View User</th>';
-					echo '<th>Edit Link</th>';
-					echo '<th>Delete User</th>';
+					echo '<th class="danger">ID</th>';
+					echo '<th class="danger">Username</th>';
+					echo '<th class="danger">Password</th>';
+					echo '<th class="danger">Groups of Belonging</th>';
+					echo '<th class="danger">View User</th>';
+					echo '<th class="danger">Edit User</th>';
+					echo '<th class="danger">Delete User</th>';
 		foreach ($users as $individual_user) {
 					$type = 'users';
 					$userid = $individual_user['id'];
 					$groups_array = $user->get_number_of_groups_for_a_user($userid);
                      echo '<tr>';
-                     echo '<td>'. $individual_user['id'] . '</td>';
+                     echo '<td class="success">'. $individual_user['id'] . '</td>';
                      echo '<td>'. $individual_user['name'] . '</td>';
                      echo '<td>'. $individual_user['password'] . '</td>';
                      echo '<td>'.  implode(" / ",$groups_array) . '</td>';

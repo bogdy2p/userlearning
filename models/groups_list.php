@@ -13,15 +13,15 @@ function generate_groups_table(){
 	echo "<h3>ALL GROUPS :</h3>";
 	$groups = $group->list_groups();
 				echo '<table class="table table-bordered">';
-				echo '<th>Id</th>';
-				echo '<th>Group Name</th>';
-				echo '<th>Special Key</th>';
-				echo '<th>Edit Link</th>';
-				echo '<th>Delete Group</th>';
+				echo '<th class="success">Id</th>';
+				echo '<th class="success">Group Name</th>';
+				echo '<th class="success">Special Key</th>';
+				echo '<th class="success">Edit Group</th>';
+				echo '<th class="success">Delete Group</th>';
 		foreach ($groups as $individual_group) {
 			$type = 'groups';
 				echo '<tr>';
-                echo '<td>'. $individual_group['id'] . '</td>';
+                echo '<td class="warning">'. $individual_group['id'] . '</td>';
                 echo '<td>'. $individual_group['name'] . '</td>';
                 echo '<td>'. $individual_group['special_key'] . '</td>';
                 echo "<td><a class=\"btn btn-primary\" href=\"../views/edit_group.php?id={$individual_group['id']}&type={$type}\">Edit</td>";
@@ -49,8 +49,8 @@ foreach ($groups as $group) {
 	echo '<table class="table table-bordered" name="'.$groupname.' group">';
 		
 	$userids_from_group = $user->get_userids_for_a_group($group_id);	
-		echo "<th>{$groupname}'s</th>";
-		echo "<th>corresponding id</th>";
+		echo '<th class="info">'.$groupname.'\'s</th>';
+		echo '<th class="info">corresponding id</th>';
 	foreach ($userids_from_group as $key => $value) {
 		echo "<tr>";
 		print_r("<td>".$user->get_name_by_id($value)."</td>");
