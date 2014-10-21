@@ -14,27 +14,7 @@ class User extends Crud {
 		return parent::read($table_name);
 	}
 
-	//USER READ SHOULD BE REPLACED WITH THE FUNCTION FROM TOP because this is a MODEL not a VIEW
-	//DELETABLE ALLREADY
-	function list_all_users($table_name = 'users'){
-		$statement = parent::read($table_name);
-					echo '<table class="default_css_table">';
-					echo '<th>ID</th>';
-					echo '<th>Name</th>';
-					echo '<th>Password</th>';
-					echo '<th>Details</th>';
-					echo '<th>Groups of Belonging</th>';
-		foreach ($statement as $row) {
-                     echo '<tr>';
-                     echo '<td>'. $row['id'] . '</td>';
-					 echo '<td>'. $row['name'] . '</td>';
-					 echo '<td>'. $row['password'] . '</td>';
-					 echo '<td>'. $row['details'] . '</td>';
-					 echo '<td>ADD GROUP BELONGING HERE</td>';	
-                     echo '</tr>';
-           }
-           			echo '</table>';
-	}
+	
 	function grab_all_user_ids($table_name ='users') {
 		$statement = parent::grab_all_ids($table_name);
 		$return = array();
@@ -49,30 +29,11 @@ class User extends Crud {
   			$this->id = $row['id'];
             $this->name = $row['name'];
             $this->password = $row['password'];
-            $this->details = $row['details'];
      
        	    }
         return $this;
 	}
-	//THIS FUNCTION SHOULD BE REMOVED ! IT SHOULD BE USED INTO VIEW NOT INTO CONTROLLER
-	function grab_userdata_table_by_id($id, $table_name= 'users'){
-		$statement = parent::grab_by_id($id,$table_name);
-		foreach ($statement as $row){
-			echo '<table class="default_css_table">';
-				echo '<th>ID</th>';
-				echo '<th>Name</th>';
-				echo '<th>Password</th>';
-				echo '<th>Details</th>';
-				echo '<tr>';
-                echo '<td>'. $row['id'] . '</td>';
-				echo '<td>'. $row['name'] . '</td>';
-				echo '<td>'. $row['password'] . '</td>';
-				echo '<td>'. $row['details'] . '</td>';
-                echo '</tr>';
-            echo '</table>';
-        }
-	}
-
+	
 	//USER UPDATE
 	function update($id, $table = 'users', $update_params_array){
 		return parent::update($id, $table, $update_params_array);
@@ -117,30 +78,14 @@ class User extends Crud {
 
 
 	function add_dynamic_user_detail_form_inputs(){
-		
 		$detail_types = parent::get_all_user_detail_types();
-		//print_r($detail_types);
 		foreach ($detail_types as $detail_type) {
 			echo '<label>'.$detail_type.'</label><br />';
 			echo '<input name="'.$detail_type.'" type="text" placeholder="enter '.$detail_type.'"';
-				if(isset($_POST[$detail_type])){
-					echo 'value="'. $_POST[$detail_type] .'"> <br />';
-					//echo "<h1>ISSEDETTE</h1>";
-				}
-				else{
-					echo 'value=""> <br />';
-				}
-
-			 //value="'. $_POST[$detail_type].'"> <br />';
-
+				if(isset($_POST[$detail_type])){ echo 'value="'. $_POST[$detail_type] .'"> <br />'; }
+				else{ echo 'value=""> <br />'; }
 		}
-
-
-		//<label>details array</label><br />
-		//<input name="details"   type="text"  placeholder="enter details" value="<?php 
-		/*if(isset($_POST['details'])) echo $_POST['details'];?>"> <br />*/
-	}
-	
+	}	
 }
 
 ?>

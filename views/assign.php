@@ -54,12 +54,9 @@ require_once('../controllers/group.php');
 <?php
 	$user = new User();
 
-	echo "<pre>";
 	if (isset($_POST['user']) && isset($_POST['group']) ) {
 		if(!empty($_POST['user']) && !empty($_POST['group'])) {
 		
-		
-
 		$uid = $_POST['user'];
 		$gid = $_POST['group'];
 
@@ -67,23 +64,18 @@ require_once('../controllers/group.php');
 
 
 		$test = $user->verify_existing_mapping($uid,$gid);
-		if($test){
-			echo "Mapping Succeded.";
-			header("Location: /user/views/list.php");
-			die();
-		}else{echo "Failed to add mapping.";}
-		
-
-
-		}else{
+			if($test){
+				echo "Mapping Succeded.";
+				header("Location: /user/views/view_list.php");
+				die();
+			}else{echo "Failed to add mapping.";}
+	
+		}else
+			{
 			echo "ONE OF THE SELECT VALUES IS EMPTY";
 			}
 	}else{
 		echo "Please select both dropdown values!";
-		} 
-
-	// Verify it's been added and display a message.
-	
-	
+		 } 
 
 ?>

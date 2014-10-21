@@ -7,8 +7,6 @@
 
 	if(isset($_GET['id'])){
 		$group = new Group();
-	//FETCH THE GROUP OBJECT FROM THE DATABASE
-
 		$group->get_group_object_by_id($_GET['id']);
 		$group_id = $group->id; 
 		$old_name = $group->name;
@@ -24,7 +22,7 @@
 					);
 			
 			$update = $group->update($group_update_details['id'],'groups',$group_update_details);
-			header("Location: /user/views/list.php");
+			header("Location: /user/views/view_list.php");
 			die();						
 			}
 	}

@@ -31,7 +31,7 @@
 
 							$update = $user->update($user_update_details['id'],'users',$user_update_details);
 							
-							header("Location: /user/views/list.php");		
+							header("Location: /user/views/view_list.php");		
 							die();						
 						}else{
 							print_r("The passwords you entered do not match.");

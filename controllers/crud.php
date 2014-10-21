@@ -52,12 +52,10 @@ abstract class Crud {
 		if(($exists) && (!empty($update_params_array))) {
 
 				if ($table == 'users'){
-							$statement = $this->db->prepare("UPDATE users SET name=?, password=?, details=? WHERE id=?");
+							$statement = $this->db->prepare("UPDATE users SET name=?, password=? WHERE id=?");
 							$statement->bindParam(1, $update_params_array['name']);
 							$statement->bindParam(2, $update_params_array['password']);
-							//Implode =  Un fel de toString.
-							$statement->bindParam(3, implode(";",$update_params_array['details']));
-							$statement->bindParam(4, $id);
+							$statement->bindParam(3, $id);
 									  }
 				elseif ($table == 'groups'){
 
@@ -66,10 +64,8 @@ abstract class Crud {
 				$statement->bindParam(2, $update_params_array['name']);
 				$statement->bindParam(3, $update_params_array['special_key']);
 				$statement->bindParam(4, $id);
-				//print_r("EXECUTED UPDATE GROUPS SQL. <br />");
-				//print_r($statement);
 					}
-			$statement->execute(); // this should be called inside the child class !?!?!
+			$statement->execute();
 		}else{
 			echo("Object id {$id} doesnt exist in db , table is incorrect , or params array is empty <br />");
 		}

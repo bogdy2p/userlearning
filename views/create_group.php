@@ -52,7 +52,7 @@
 			$groups->create($group);
 			$groups->update($group['id'],'groups',$update_params_array);
 			echo "Group succesfully created and updated.";
-			header("Location: /user/views/list.php");
+			header("Location: /user/views/view_list.php");
 			die();
 		}
 	
