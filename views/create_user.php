@@ -15,7 +15,10 @@
 			
 
 			<form class="form" id="asd" action="create_user.php" method="post">
-
+				<?php
+				 $_POST['phone'] = 'HAHAHAHA';
+				 $_POST['adress'] = 'hardcodedadress';
+				?>
 				<label>name</label><br />
 				<input name="name"  type="text"  placeholder="enter desired name" value="<?php if(isset($_POST['name'])) echo $_POST['name'];?>"> <br />
 				<label>password</label><br />
@@ -24,7 +27,15 @@
 				<input name="pass_conf" type="text"  placeholder="confirm password" value=""> <br />
 				<label>details array</label><br />
 				<input name="details"   type="text"  placeholder="enter details" value="<?php if(isset($_POST['details'])) echo $_POST['details'];?>"> <br />
-				
+				<?php 
+				$user = new User();
+				$user->add_dynamic_user_detail_form_inputs();
+				//DINAMICALLY ADD A INPUT FOR EACH DETAIL TYPE IN USER_DETAIL_TYPES ARRAY
+
+
+
+				?>
+
 				<br />
 				<button type="submit" class="btn btn-success">Create User</button>
 

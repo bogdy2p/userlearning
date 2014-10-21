@@ -22,30 +22,7 @@ require_once 'controllers/database.php';
   			 <div class="col-xs-4 col-md-4"></div>
   		</div>
 
-
-  		<?php 
-
-  		$user = new User();
-  		$group = new Group();
-
-
-
-  		$asd = $user->add_user_detail_with_type('155','0753215432','phone');
-  		print_r($asd);
-
-  		//$user->add_user_detail_type('testdetaiaal');
-  		//
-  		// $asd = $user->check_user_detail_type_already_exists('phone');
-  		// var_dump($asd);
-
-
-  		//DISPLAY ALL USER DETAILS AVAILLABLE IN THE DB
-  		//$asd = $user->get_all_user_detail_types();
-  		//print_r($asd);
-
-  		?>
-
-	  	<div class="row">	
+		<div class="row">	
 
 	  	<h3>todo:</h3>
 
@@ -62,6 +39,42 @@ require_once 'controllers/database.php';
 
 	  	
 	  	</div>
+
+  		<?php 
+  		$user = new User();
+  		$group = new Group();
+
+
+
+  		echo "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+
+
+
+
+
+  		//PRINT ALL DETAILS ARRAY
+  		echo "<pre>";
+  		echo "all details array :<br />";
+  		$asd = $user->get_all_user_details();
+  		print_r($asd);
+  		echo "</pre>";
+
+
+  		//$asd = $user->add_user_detail_with_type('155','0753215432','phone');
+
+  		//$user->add_user_detail_type('testdetaiaal');
+  		//
+  		// $asd = $user->check_user_detail_type_already_exists('phone');
+  		// var_dump($asd);
+
+
+  		//DISPLAY ALL USER DETAILS AVAILLABLE IN THE DB
+  		//$asd = $user->get_all_user_detail_types();
+  		//print_r($asd);
+
+  		?>
+
+	  	
 	  
    </div>
    <?php include_page_footer_content(); ?>

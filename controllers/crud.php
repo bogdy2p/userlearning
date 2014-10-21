@@ -255,6 +255,16 @@ abstract class Crud {
 			}
 	}
 
+	function get_all_user_details(){
+		$statement = $this->db->prepare("SELECT * FROM user_details");
+		$statement->execute();
+		$return = array();
+		foreach ($statement as $detail) {
+			$return[] = $detail['detail'];
+		}
+		return $return;
+	}
+
 	function add_user_detail($user_id,$detail){
 		// check if this detail already exists
 		$detail_exists = Crud::check_detail_exists($detail,$user_id);

@@ -115,6 +115,31 @@ class User extends Crud {
 		return parent::delete_mapping($id,$type);
 	}
 
+
+	function add_dynamic_user_detail_form_inputs(){
+		
+		$detail_types = parent::get_all_user_detail_types();
+		//print_r($detail_types);
+		foreach ($detail_types as $detail_type) {
+			echo '<label>'.$detail_type.'</label><br />';
+			echo '<input name="'.$detail_type.'" type="text" placeholder="enter '.$detail_type.'"';
+				if(isset($_POST[$detail_type])){
+					echo 'value="'. $_POST[$detail_type] .'"> <br />';
+					//echo "<h1>ISSEDETTE</h1>";
+				}
+				else{
+					echo 'value=""> <br />';
+				}
+
+			 //value="'. $_POST[$detail_type].'"> <br />';
+
+		}
+
+
+		//<label>details array</label><br />
+		//<input name="details"   type="text"  placeholder="enter details" value="<?php 
+		/*if(isset($_POST['details'])) echo $_POST['details'];?>"> <br />*/
+	}
 	
 }
 
