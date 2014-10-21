@@ -23,7 +23,7 @@ require_once 'controllers/database.php';
   		</div>
 
 		<div class="row">	
-
+		<h2>CHECK SETTINGS IF NOTHING APPEARS</h2>
 	  	<h3>todo:</h3>
 
 	  	<h5>AJAX / Jquery @ editing user </h5>
