@@ -277,10 +277,11 @@ abstract class Crud {
 			}
 	}
 
-	function add_user_detail_with_type($user_id,$detail,$detail_type){
+	function add_user_detail_with_type($user_id,$detail_type,$detail){
 		$detail_exists = Crud::check_detail_exists($detail,$user_id);
 		$detail_type_exists = Crud::check_detail_type_exists($detail_type);
-		if((!$detail_exists) && (!is_null($detail)) && ($detail != ' ')){
+
+		if((!$detail_exists) && (!(is_null($detail))) && ($detail != ' ') && ($detail != '')){
 			if($detail_type_exists){
 				$statement = $this->db->prepare("INSERT INTO user_details (user_id,detail_type,detail) VALUES ('$user_id','$detail_type','$detail')");
 				$statement->execute();
@@ -289,7 +290,7 @@ abstract class Crud {
 				echo "You cannot enter a detail which hasn't been predefined in the db";
 			}
 		}else{
-			echo "Unable to add {$detail} : This detail already exists for this user / Is null !";
+			//echo "Unable to add {$detail} : This detail already exists for this user / Is null !";
 		}
 	}
 

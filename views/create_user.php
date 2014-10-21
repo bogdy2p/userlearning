@@ -15,10 +15,7 @@
 			
 
 			<form class="form" id="asd" action="create_user.php" method="post">
-				<?php
-				 $_POST['phone'] = 'HAHAHAHA';
-				 $_POST['adress'] = 'hardcodedadress';
-				?>
+				
 				<label>name</label><br />
 				<input name="name"  type="text"  placeholder="enter desired name" value="<?php if(isset($_POST['name'])) echo $_POST['name'];?>"> <br />
 				<label>password</label><br />
@@ -31,8 +28,6 @@
 				$user = new User();
 				$user->add_dynamic_user_detail_form_inputs();
 				//DINAMICALLY ADD A INPUT FOR EACH DETAIL TYPE IN USER_DETAIL_TYPES ARRAY
-
-
 
 				?>
 
@@ -75,23 +70,35 @@
 				$enc_pass = md5($_POST['password']);
 				$user['password'] = $enc_pass;
 				$update_params_array = $user;
-					
+				
+				//Create the user in the users table
 				$asd = $users->create($user);
-						//INSERT DETAILS INTO SEPARATE TABLE
-						if(isset($_POST['details'])){
-							$details = $_POST['details'];
-							$detail = explode(";", $details);
-							//print_r($detail);
-							foreach ($detail as $key => $value) {
-								//if(!is_null($value)){
-								$users->add_user_detail($user['id'],$value);
-								//}
-							}
+				//INSERT DETAILS INTO SEPARATE TABLE
+						//Grab detail Types
+						$detail_types = $users->get_all_user_detail_types();
+						//For each detail type , check if POST is set , and if it's set , try setting the detail in the detail table.
+						foreach ($detail_types as $detail_type) {
+								if(isset($_POST[$detail_type])){
+									$users->add_user_detail_with_type($user['id'],$detail_type,$_POST[$detail_type]);
+								}
 						}
+
+
+
+						// if(isset($_POST['details'])){
+						// 	$details = $_POST['details'];
+						// 	$detail = explode(";", $details);
+						// 	//print_r($detail);
+						// 	foreach ($detail as $key => $value) {
+						// 		//if(!is_null($value)){
+						// 		//$users->add_user_detail($user['id'],$value);
+						// 		//}
+						// 	}
+						// }
 				$asd2 = $users->update($user['id'],'users',$update_params_array);
 				//print_r($asd2);
-				header("Location: /user/views/list.php");
-				die();
+				//header("Location: /user/views/list.php");
+				//die();
 			}
 			else{
 				echo "ERROR : Passwords do not match ! Please re-enter !";
