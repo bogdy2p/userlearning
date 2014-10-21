@@ -15,8 +15,6 @@ require_once('../controllers/group.php');
 <div class ="content">
 <?php print_sitewide_menu();?>
 
-
-
 	<form class="form" id="viewuser" action="view_user.php" method="post"><br /><br />
 	<select name="id" id="id" form="viewuser">
 					 <?php 

@@ -30,17 +30,22 @@ function include_page_footer_content(){
 }
 
 function print_sitewide_menu(){
-    echo'
-            <div class="col-xs-2 col-md-2"></div>
-            <div class="col-xs-8 col-md-8">
-            <a class ="btn btn-primary" href="/user">Home</a>
-            <a class ="btn btn-primary" href="/user/views/list.php">View Tables</a>
-            <a class ="btn btn-primary" href="/user/views/create_user.php">Add User</a>
-            <a class ="btn btn-primary" href="/user/views/create_group.php">Add Group</a>
-            <a class ="btn btn-primary" href="/user/views/assign.php">Map User</a>
-            <a class ="btn btn-primary" href="/user/views/view_user.php">View User</a>
-            <a class ="btn btn-primary" href="/user/views/view_group.php">View Group</a>
+    echo'   
+            <div class="row">
+                <br />
             </div>
-            <div class="col-xs-2 col-md-2"></div>
-            <br /><br /><br /><br />';
+            <div class="row">
+                <div class="col-xs-2 col-md-2"></div>
+                <div class="col-xs-8 col-md-8">
+                <a class ="btn btn-primary" href="/user">Home</a>
+                <a class ="btn btn-primary" href="/user/views/view_list.php">View Tables</a>
+                <a class ="btn btn-primary" href="/user/views/create_user.php">Add User</a>
+                <a class ="btn btn-primary" href="/user/views/create_group.php">Add Group</a>
+                <a class ="btn btn-primary" href="/user/views/assign.php">Map User</a>
+                <a class ="btn btn-primary" href="/user/views/view_user.php">View User</a>
+                <a class ="btn btn-primary" href="/user/views/view_group.php">View Group</a>
+                </div>
+                <div class="col-xs-2 col-md-2"></div>
+            </div>
+            <br /><br /><br />';
 }

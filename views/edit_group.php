@@ -40,7 +40,7 @@
 <body>
 	<div class ="content">
 	<?php print_sitewide_menu();?>
-		<a href="/user"><h4 align="center">Go back.</h4></a>	
+		
 
 			<form class="form" id="editgroup" action="edit_group.php?id=<?php echo $group_id;?>&type=groups" method="post">
 

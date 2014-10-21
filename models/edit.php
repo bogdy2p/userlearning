@@ -35,9 +35,6 @@ require_once('../controllers/group.php');
 		}
 		echo "</h1>";
 		}
-		//echo "Received id: &nbsp;&nbsp;&nbsp;&nbsp;  ".$received_value . " &nbsp;&nbsp;&nbsp;&nbsp;Received type:&nbsp;&nbsp;&nbsp;&nbsp;   " .$type; 
-
-
 
 
 

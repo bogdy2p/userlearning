@@ -12,7 +12,7 @@
 <body>
 	<div class ="content">
 	<?php print_sitewide_menu();?>
-		<a href="/user"><h4 align="center">Go back.</h4></a>	
+		
 
 			<form class="form" id="asd" action="create_group.php" method="post">
 
@@ -22,7 +22,8 @@
 				<label>special key</label><br />
 				<input name="special key"  type="text"  placeholder="special key"> <br />
 				
-				<button type="submit" class="button">Create</button>
+				<br />
+				<button type="submit" class="btn btn-success">Create Group</button>
 
 			</form>
  	</div>

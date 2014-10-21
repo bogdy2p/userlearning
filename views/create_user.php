@@ -25,7 +25,8 @@
 				<label>details array</label><br />
 				<input name="details"   type="text"  placeholder="enter details" value="<?php if(isset($_POST['details'])) echo $_POST['details'];?>"> <br />
 				
-				<button type="submit" class="button">Create</button>
+				<br />
+				<button type="submit" class="btn btn-success">Create User</button>
 
 			</form>
  	</div>
