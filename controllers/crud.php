@@ -267,6 +267,22 @@ abstract class Crud {
 			}
 	}
 
+	function add_user_detail_with_type($user_id,$detail,$detail_type){
+		$detail_exists = Crud::check_detail_exists($detail,$user_id);
+		$detail_type_exists = Crud::check_detail_type_exists($detail_type);
+		if((!$detail_exists) && (!is_null($detail)) && ($detail != ' ')){
+			if($detail_type_exists){
+				$statement = $this->db->prepare("INSERT INTO user_details (user_id,detail_type,detail) VALUES ('$user_id','$detail_type','$detail')");
+				$statement->execute();
+				return $statement;
+			}else{
+				echo "You cannot enter a detail which hasn't been predefined in the db";
+			}
+		}else{
+			echo "Unable to add {$detail} : This detail already exists for this user / Is null !";
+		}
+	}
+
 	function get_user_details_array($user_id){
 		$statement = $this->db->prepare("SELECT id FROM user_details WHERE user_id = ?");
 		$statement->bindParam(1,$user_id);
@@ -286,6 +302,41 @@ abstract class Crud {
 			return $row['detail'];
 		}
 	}
+
+	function get_all_user_detail_types(){
+		$statement = $this->db->prepare("SELECT * FROM user_detail_types");
+		$statement->execute();
+		$detail_types_array = array();
+		foreach ($statement as $row) {
+			$detail_types_array[] = $row['name'];
+		}
+		return $detail_types_array;
+	}
+
+	function check_detail_type_exists($user_detail_type){
+		$statement = $this->db->prepare("SELECT id FROM user_detail_types WHERE name = ?");
+		$statement->bindParam(1,$user_detail_type);
+		$statement->execute();
+		if($statement->rowCount() >= 1){
+				return true;
+			}else{
+				return false;
+			}
+	}
+
+	function add_user_detail_type($user_detail_type){
+		$detail_type_exists = Crud::check_detail_type_exists($user_detail_type);
+		if((!$detail_type_exists) && (!is_null($user_detail_type)) && ($user_detail_type != ' ')){
+			$statement = $this->db->prepare("INSERT INTO user_detail_types (id,name) VALUES ('','$user_detail_type')");
+			$statement->execute();
+			return $statement;
+		}
+		else{
+			echo "Unable to add {$user_detail_type} as a detail type : This detail type already exists for this user / Is null !";
+		}
+	}
+
+
 
 }
  ?>
