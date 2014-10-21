@@ -38,8 +38,8 @@ require_once 'controllers/database.php';
 $user = new User();
 $testgrp = new Group();
 
-$asd = $user->get_user_details_array('1');
-print_r($asd);
+//$asd = $user->get_user_details_array('1');
+//print_r($asd);
 
 
 //$asd = $user->get_detail_by_detail_id('91');
