@@ -74,8 +74,8 @@
 						}
 				$asd2 = $users->update($user['id'],'users',$update_params_array);
 				
-				header("Location: /user/views/view_list.php");
-				die();
+				//header("Location: /user/views/view_list.php");
+				//die();
 			}
 			else{
 				echo "ERROR : Passwords do not match ! Please re-enter !";

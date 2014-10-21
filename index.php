@@ -36,14 +36,20 @@ require_once 'controllers/database.php';
 	  	<h5>Print "last created user";</h5>
 	  	<h5>Print User with most details entered</h5>
 
-
+<br /><br /><br />
 	  	
 	  	</div>
 
   		<?php 
   		$user = new User();
   		$group = new Group();
+          //function check_detail_exists($user_id,$detail_type,$detail){
+      //ADRESS DOESNT MATTEER
 
+      //check_detail_exists_of_type($user_id,$detail_type,$detail)
+      $test = $user->check_detail_exists_of_type('1','adress','1243');
+      
+      var_dump($test);
 
 
   		echo "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";

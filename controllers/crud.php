@@ -211,7 +211,6 @@ abstract class Crud {
 		$statement->execute();
 		$groups_array = array();
 		foreach ($statement as $group) {
-			//$groups_array[] = $group['group_id'];
 			$groups_array[] = Crud::get_name_by_id($group['group_id'],'groups');
 
 		}
@@ -239,16 +238,37 @@ abstract class Crud {
 		return $users_array;
 	}
 
-	function check_detail_exists($detail,$user_id){
+	function check_detail_exists($user_id,$detail){
 		$statement = $this->db->prepare("SELECT id FROM user_details WHERE detail = ? AND user_id = ?");
 		$statement->bindParam(1,$detail);
 		$statement->bindParam(2,$user_id);
 		$statement->execute();
+		//print_r($statement);
 		if($statement->rowCount() >= 1){
 				return true;
 			}else{
 				return false;
 			}
+	}
+
+	function check_detail_exists_of_type($user_id,$detail_type,$detail){
+		$exists = Crud::check_detail_exists($user_id,$detail);
+		echo "Exists ? ";
+		var_dump($exists);
+		if($exists){
+			
+			$statement = $this->db->prepare("SELECT detail_type FROM user_detail WHERE user_id = ?");
+			$statement->bindParam(1,$user_id);
+			$statement->execute();
+			print_r($statement);
+			if($statement->rowCount() >= 1){
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
 	}
 
 	function get_all_user_details(){
@@ -261,20 +281,20 @@ abstract class Crud {
 		return $return;
 	}
 
-	function add_user_detail($user_id,$detail){
-		// check if this detail already exists
-		$detail_exists = Crud::check_detail_exists($detail,$user_id);
-		if((!$detail_exists) && (!is_null($detail)) && ($detail != ' ')){
-			$statement = $this->db->prepare("INSERT INTO user_details (user_id,detail) VALUES ('$user_id','$detail')");
-			$statement->execute();
-			return $statement;
-		}else{
-			echo "Unable to add {$detail} : This detail already exists for this user / Is null !";
-			}
-	}
+	// function add_user_detail($user_id,$detail){
+	// 	// check if this detail already exists
+	// 	$detail_exists = Crud::check_detail_exists($detail,$user_id);
+	// 	if((!$detail_exists) && (!is_null($detail)) && ($detail != ' ')){
+	// 		$statement = $this->db->prepare("INSERT INTO user_details (user_id,detail) VALUES ('$user_id','$detail')");
+	// 		$statement->execute();
+	// 		return $statement;
+	// 	}else{
+	// 		echo "Unable to add {$detail} : This detail already exists for this user / Is null !";
+	// 		}
+	// }
 
 	function add_user_detail_with_type($user_id,$detail_type,$detail){
-		$detail_exists = Crud::check_detail_exists($detail,$user_id);
+		$detail_exists = Crud::check_detail_exists($user_id,$detail);
 		$detail_type_exists = Crud::check_detail_type_exists($detail_type);
 
 		if((!$detail_exists) && (!(is_null($detail))) && ($detail != ' ') && ($detail != '')){
@@ -286,7 +306,7 @@ abstract class Crud {
 				echo "You cannot enter a detail which hasn't been predefined in the db";
 			}
 		}else{
-			//echo "Unable to add {$detail} : This detail already exists for this user / Is null !";
+			echo "Unable to add {$detail} : This detail already exists for this user / Is null !";
 		}
 	}
 
@@ -296,12 +316,38 @@ abstract class Crud {
 		$statement->execute();
 		$user_details_array = array();
 		foreach ($statement as $detail) {
-			$user_details_array[] = Crud::get_detail_by_detail_id($detail['id']);
+			//$user_details_array[] = Crud::get_detail_by_detail_id($detail['id']);
+			$user_details_array[] = $detail['id'];
 		}
 		return $user_details_array;
 	}
+	// function get_user_details_pair($detail_id){
+	// 	$statement = $this->db->prepare("SELECT (detail_type,detail) FROM user_details WHERE id = ?");
+	// 	$statement->bindParam(1,$detail_id);
+	// 	$statement->execute();
+	// 	$return = array();
+	// 	foreach ($statement as $detail) {
+	// 		# code...
+	// 		print_r($detail);
+			
+	// 		$return[] = $detail;
+	// 	}
+	// 	return $return;
+	// }
+	function get_detail_data_by_detail_id($detail_id){
+		$statement = $this->db->prepare("SELECT detail,detail_type FROM user_details WHERE id = ?");
+		$statement->bindParam(1,$detail_id);
+		$statement->execute();
+		$return = array();
+		foreach ($statement as $row) {
+			$return['type'] = $row['detail_type'];
+			$return['value'] = $row['detail'];
+			//return $row['detail_type'];
+		}
+		return $return;
+	}	
 
-	function get_detail_by_detail_id($detail_id){
+	function get_detail_value_by_detail_id($detail_id){
 		$statement = $this->db->prepare("SELECT detail FROM user_details WHERE id = ?");
 		$statement->bindParam(1,$detail_id);
 		$statement->execute();
@@ -320,6 +366,9 @@ abstract class Crud {
 		return $detail_types_array;
 	}
 
+	// function get_user_availlable_detail_types(){
+	// 	$statement = $this->db->prepare("SELECT ")
+	// }
 	function check_detail_type_exists($user_detail_type){
 		$statement = $this->db->prepare("SELECT id FROM user_detail_types WHERE name = ?");
 		$statement->bindParam(1,$user_detail_type);
@@ -342,10 +391,7 @@ abstract class Crud {
 			echo "Unable to add {$user_detail_type} as a detail type : This detail type already exists for this user / Is null !";
 		}
 	}
-
-
-
 }
- ?>
+?>
 
 
