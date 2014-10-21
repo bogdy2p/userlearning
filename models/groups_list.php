@@ -39,16 +39,16 @@ function generate_groups_users_table(){
 	$group = new Group();
 	$users = $user->list_users();
 	$groups = $group->list_groups();
-
+	echo '<div class="col-xs-12 col-md-12">';
 	
+	echo '<div class="row">';
 foreach ($groups as $group) {
-	//echo '<div class="row">';
+	
 	$groupname = $group['name'];
 	$group_id = $group['id'];
 	$userids_from_group = $user->get_userids_for_a_group($group_id);	
 
-	
-		echo '<div class="col-xs-4 col-md-4"><h3>'.$groupname.'\'s</h3>';
+		echo '<div class="col-xs-3 col-md-3"><h3>'.$groupname.'\'s (must remove from here)</h3>';
 		echo '<table class="table table-bordered" name="'.$groupname.' group">';
 		echo '<th class="info">username</th>';
 		echo '<th class="info">corresponding id</th>';
@@ -58,12 +58,13 @@ foreach ($groups as $group) {
 										print_r("<td>".$value."</td>");
 								echo "</tr>";
 							}
-		echo "</table>";
+		echo "</table><br /><br /><br />";
 		echo '</div>';
-		//echo '</div> <!-- end of div class row-->';
+		
 	}
-	
-	
+	echo '</div> <!-- end of div class row-->';
+
+	echo '</div><!-- end of div class COLUMN-->';
 }
 
 ?>
