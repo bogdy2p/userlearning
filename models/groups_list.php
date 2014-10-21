@@ -30,7 +30,7 @@ function generate_groups_table(){
 		}
 				echo '</table>';
 echo '</div>';
-//echo "</div>";
+
 
 }
 

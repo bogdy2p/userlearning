@@ -40,7 +40,7 @@ function print_sitewide_menu(){
                 <a class ="btn btn-primary" href="/user/views/create_user.php">Add User</a>
                 <a class ="btn btn-primary" href="/user/views/create_group.php">Add Group</a>
                 <a class ="btn btn-primary" href="/user/views/assign.php">Map User</a>
-                <a class ="btn btn-primary" href="/user/views/edit.php">Edit User ( disabled )</a>
+                <a class ="btn btn-primary" href="/user/views/view_detail_types.php">User Details Types</a>
                 <a class ="btn btn-primary" href="/user/views/view_user.php">View User</a>
                 <a class ="btn btn-primary" href="/user/views/view_group.php">View Group</a>
                 </div>

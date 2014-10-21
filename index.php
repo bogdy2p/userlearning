@@ -24,15 +24,18 @@ require_once 'controllers/database.php';
 
 		<div class="row">	
 		<h2>CHECK SETTINGS IF NOTHING APPEARS</h2>
-	  	<h3>todo:</h3>
+	  	<h2>todo:</h2>
 
+
+	  	<h3><span2>Groups by "checkbox... ?"</span2></h3>
+	  	<h4><span2>When creating a new user , save the user's account CREATION TIME. (into new table... LOG ?)</span2></h4>
 	  	<h5>AJAX / Jquery @ editing user </h5>
-	  	<h5>Groups by "checkbox... ?"</h5>
+	  	
 	  	<h5></h5>
 	  	<h5></h5>
 	  	<h5></h5>
 	  	<h5>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</h5>	
-	  	<h5>When creating a new user , save the user's account CREATION TIME.</h5>
+	  	
 	  	<h5>Print "last created user";</h5>
 	  	<h5>Print User with most details entered</h5>
 
@@ -47,11 +50,11 @@ require_once 'controllers/database.php';
 
 
   		$test = $user->get_all_groups_in_db();
-  		echo "<pre>g id's ";
-  		print_r($test['id']);
+  		//echo "<pre>g id's ";
+  		//print_r($test['id']);
 
-		echo "<br /><br /><br /><br />g names ";
-  		print_r($test['name']);
+		//echo "<br /><br /><br /><br />g names ";
+  		//print_r($test['name']);
 
 
 
