@@ -7,8 +7,8 @@ require_once('../controllers/group.php');
 
 <?php 	
 
-
-verification($_GET); //CALL THE VERIFICATION FUNCTION
+//CALL THE VERIFICATION FUNCTION
+verification($_GET);
 
 function verification($get) {
 	
@@ -19,7 +19,6 @@ function verification($get) {
 			$old_pass = $user->password; // Grab the old password from the object
 			$old_name = $user->name;			
 			$_POST['id'] = $get['id'];
-						
 					if(isset($_POST['old_password'])) { 
 							if(!empty($_POST['old_password'])) {
 									if(md5($_POST['old_password']) == $old_pass){
@@ -51,24 +50,16 @@ function verification($get) {
 							 		foreach ($group_ids_checked_array as $group_id_checked) {$user->assign_user_to_group($get['id'],$group_id_checked);}
 							 		header("Location: /user/views/view_list.php");
 								 	die();
-								 	//echo " <br />error. Aici vine functionalitatea in caz ca post de old password e empty. <br />";
 									}
 
-					}else /*$_POST['old_password'] is not set*/{
-						//echo "form not submitted ZZZyet / post old password not set ";
-						//die();
-						//IF $_POST['old_password'] is not set / is empty / is null / is anything but completed!
-						////////////////////////////////////////// FLOW :///////////////////////////////////////
-						// grab user id from the GET
-						// Delete current mapping for this user
-						// Get an array of checked groups in the form
-						// Apply new mapping using the new values from the form
-						// Redirect to view_list.php
-						// Then die();
-					}
-		}else{
-			die("There is no get. Or it's NULL // 404 Redirect Here !");
-			 }
+					}else 	{
+							echo "";
+							//If $_POST does not exists (@ the first page load , before submit)
+							}
+		}
+	else{
+		die("There is no get. Or it's NULL // 404 Redirect Here !");
+		}
 } //end Verification
 	
 
@@ -137,9 +128,7 @@ function print_userdata_inputs(){
 		<input name="password"  type="password"  placeholder="New Password" value=""><br />
 		<label>Confirm New Password</label><br />
 		<input name="pass_conf" type="password"  placeholder="Confirm New Password" value=""><br />
-		
     ';
 	}
 }
-
 ?>
