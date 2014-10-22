@@ -16,9 +16,9 @@ require_once 'controllers/database.php';
 		<div class="row"><?php print_sitewide_menu();?></div>
 
 		<div class="row">
-			 <div class="col-xs-4 col-md-4"></div>
-  			 <div class="col-xs-4 col-md-4"><h1>Users-Groups</h1></div>
-  			 <div class="col-xs-4 col-md-4"></div>
+			 <div class="col-xs-3 col-md-3"></div>
+  			 <div class="col-xs-6 col-md-6"><h1>Users-Groups Administration</h1></div>
+  			 <div class="col-xs-3 col-md-3"></div>
   		</div>
 
 		<div class="row">

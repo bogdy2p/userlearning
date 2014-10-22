@@ -19,7 +19,6 @@
 								'id' => $_POST['id'],
 								'name' => $_POST['name'],
 								'password' => $newpass,
-								//'details' => array($_POST['details'],),
 								);
 
 							$update = $user->update($user_update_details['id'],'users',$user_update_details);
