@@ -28,7 +28,7 @@ require_once 'controllers/database.php';
 			 </div>
 			 <div class="col-xs-6 col-md-6">
 			  	
-				  	<h3><span2>Groups by "checkbox... ?"</span2></h3>
+				  	<h3><span2>Groups by "checkbox... ? [FIXED]"</span2></h3>
 				  	<h4><span2>When creating a new user , save the user's account CREATION TIME. (into new table... LOG ?)</span2></h4>
 				  	<h5>AJAX / Jquery @ editing user </h5>
 			 	
