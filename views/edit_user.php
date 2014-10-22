@@ -44,13 +44,6 @@
 			</form>
 		</div> <!--END OF ROW -->
 
-				
-			
-		
-				
-				
-					
-			
 		
 	</div>
 			

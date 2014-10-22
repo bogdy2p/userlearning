@@ -5,7 +5,8 @@ require_once('../controllers/user.php');
 require_once('../controllers/group.php');
 ?>
 
-<?php 
+<?php 	
+	
 		if(isset($_GET['id'])){
 			$user = new User(); //Call User Class
 			$user->get_user_object_by_id($_GET['id']); //Fetch the user object from the database
@@ -13,6 +14,10 @@ require_once('../controllers/group.php');
 		$_POST['id'] = $_GET['id'];
 		$old_name = $user->name;
 		
+		echo '<br />get_groups_checked_in_form:';
+		$xxx = get_groups_checked_in_form();
+
+
 		$the_old_pass = $user->password;
 		$the_user_id = $_GET['id'];
 		if(isset($_POST['old_password'])){
@@ -29,10 +34,20 @@ require_once('../controllers/group.php');
 							$delete_current_mapping = $user->delete_all_mapping_for_user($_GET['id']);
 							var_dump($delete_current_mapping);
 							
-							//Groups UPDATE should delete all mappings from the db
-							//Should Insert new mappings from the form.
-							//GROUPS UPDATE SHOULD BE DONE HERE TOO
-							//After update , redirect to the list.
+							// GET THE GROUPS CHECKED IN THE FORM SOMEHOW then apply and this is it !
+							
+							
+							
+							echo $xxx;
+							$uid = $_GET['id'];
+
+							$DELETEgroups_checked_in_form = array('1','3');
+							foreach ($DELETEgroups_checked_in_form as $group_id_checked) {
+								$user->assign_user_to_group($uid,$group_id_checked);
+							}
+							
+							//Groups UPDATE should delete all mappings from the db//Should Insert new mappings from the form.
+							//GROUPS UPDATE SHOULD BE DONE HERE TOO	//After update , redirect to the list.
 							//header("Location: /user/views/view_list.php");		
 							die();						
 						}else{
@@ -44,13 +59,20 @@ require_once('../controllers/group.php');
 		}
 }
 
-
+function get_groups_checked_in_form(){
+	$user = new User();
+	//$group_names = $user->get_all_groups_in_db()['name'];
+	$bifate = $user->get_all_groups_for_user($_GET['id']);
+	print_r($bifate);
+	return $bifate;
+}
 
 
 
 function print_group_checkboxes_inputs(){
 				$user = new User();
 				$array_of_current_groups = $user->get_all_groups_for_user($_GET['id']);
+				var_dump($array_of_current_groups);
 				$groups_array = $user->get_all_groups_in_db();				
 				$group_names = $groups_array['name'];
 				$group_ids = $groups_array['id'];
