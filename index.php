@@ -31,9 +31,7 @@ require_once 'controllers/database.php';
 				  	<h3><span2>Groups by "checkbox... ? [FIXED]"</span2></h3>
 				  	<h4><span2>When creating a new user , save the user's account CREATION TIME. (into new table... LOG ?)</span2></h4>
 				  	<h5>AJAX / Jquery @ editing user </h5>
-			 	
 				  	<h5>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</h5>	
-				  	
 				  	<h5>Print "last created user";</h5>
 				  	<h5>Print User with most details entered</h5>
 

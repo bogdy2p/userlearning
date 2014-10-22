@@ -15,8 +15,7 @@ class Database{
     echo '<link rel="stylesheet" type="text/css" href="assets/css/style.css">';
     echo '<link rel="stylesheet" type="text/css" href="../assets/css/style.css">';
     echo '<link href="../assets/css/bootstrap.min.css" rel="stylesheet">';
-    echo '<link href="assets/css/bootstrap.min.css" rel="stylesheet">';
-	 
+    echo '<link href="assets/css/bootstrap.min.css" rel="stylesheet">'; 
 	
 }
 

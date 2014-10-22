@@ -31,7 +31,6 @@ function generate_groups_table(){
 				echo '</table>';
 echo '</div>';
 
-
 }
 
 function generate_groups_users_table(){
