@@ -15,14 +15,14 @@
 	<div class ="container">
 	<?php print_sitewide_menu();?>
 		<div class="row">
-
 			<div class="col-xs-4 col-md-4"></div>
 			<div class="col-xs-4 col-md-4"><h3>Edit User <?php echo $_GET['id'];?></h3></div>
 			<div class="col-xs-4 col-md-4"></div>
-			
 		</div>
+
+
 		<div class="row">
-			<!-- <div class="col-xs-12 col-md-12"> -->
+		
 				<br /><br /><br />
 				<h3>Userdata : </h3>
 			<form class="form" id="edituser" action="edit_user.php?id=<?php echo $the_user_id;?>&type=users" method="post">
@@ -36,17 +36,17 @@
 					<label>Confirm New Password</label><br />
 					<input name="pass_conf" type="text"  placeholder="Confirm New Password" value="">
 
-					<br /><br /><br /><br /><br />
+					
 
 				</div>
 				<div class="col-xs-6 col-md-6">
-<!-- CHECKBOXES FUNCTIONALITY -->
+
  
 			<?php
+			 
 
 			 $groups_for_curent_user = $user->get_all_groups_for_user($_GET['id']);
 			 print_all_group_checkboxes($groups_for_curent_user);
-
 			 ?>
 
 				</div>
@@ -62,14 +62,9 @@
 				</div>
 					
 			</form>
-
-		<!-- </div> End of div column12 before form  -->
+		
 		</div>
-			<br /><br /><br /><br />
-				
-				<h3>Dynamically add selects with all the groups in the db.</h3>
-				<h6>For the groups this user already is a member , mark the checkboxes.</h6>
-				<h6>When saving , add functionality to map the user with the groups that are selected in the form</h6>
+			
 	</div>
 	<?php include_page_footer_content(); ?>
 </body>
