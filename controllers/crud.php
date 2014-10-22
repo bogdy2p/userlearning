@@ -399,6 +399,15 @@ abstract class Crud {
 			$statement->execute();
 			return $statement;
 		}
+
+		function get_groupid_by_groupname($groupname){
+			$statement = $this->db->prepare("SELECT id FROM groups WHERE name = ?");
+			$statement->bindParam(1,$groupname);
+			$statement->execute();
+			foreach ($statement as $row) {
+				return $row['id'];
+			}
+		}
 }
 ?>
 
