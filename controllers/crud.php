@@ -390,7 +390,6 @@ abstract class Crud {
 
 		function get_all_groups_for_user($user_id) {
 		$group_ids_array = Crud::get_number_of_groups_for_a_user($user_id);
-		print_r($group_ids_array);
 		return $group_ids_array;
 		}
 

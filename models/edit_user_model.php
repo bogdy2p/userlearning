@@ -6,18 +6,22 @@ require_once('../controllers/group.php');
 ?>
 
 <?php 	
-	
+
+		//var_dump($edituser);
 		if(isset($_GET['id'])){
 			$user = new User(); //Call User Class
 			$user->get_user_object_by_id($_GET['id']); //Fetch the user object from the database
 			
+		echo '<h1><pre>THIS IS THE POST BEFORE:';
+			print_r($_POST);
+		echo '</h1></pre>';
+
+
+
 		$_POST['id'] = $_GET['id'];
 		$old_name = $user->name;
-		
-		echo '<br />get_groups_checked_in_form:';
-		$xxx = get_groups_checked_in_form();
-
-
+		// $asd = get_groups_checked_in_form();
+		// 					var_dump($asd);
 		$the_old_pass = $user->password;
 		$the_user_id = $_GET['id'];
 		if(isset($_POST['old_password'])){
@@ -29,25 +33,33 @@ require_once('../controllers/group.php');
 								'name' => $_POST['name'],
 								'password' => $newpass,
 								);
-
+							//Update the user details correspondingly
 							$update = $user->update($user_update_details['id'],'users',$user_update_details);
-							$delete_current_mapping = $user->delete_all_mapping_for_user($_GET['id']);
-							var_dump($delete_current_mapping);
-							
-							// GET THE GROUPS CHECKED IN THE FORM SOMEHOW then apply and this is it !
+							//Delete all the mapping for this user
 							
 							
+							//$delete_current_mapping = $user->delete_all_mapping_for_user($_GET['id']);
+							//var_dump($delete_current_mapping);
 							
-							echo $xxx;
-							$uid = $_GET['id'];
+							$name_of_groups_checked_in_form = get_groups_checked_in_form();
 
-							$DELETEgroups_checked_in_form = array('1','3');
-							foreach ($DELETEgroups_checked_in_form as $group_id_checked) {
-								$user->assign_user_to_group($uid,$group_id_checked);
-							}
+
+							$groups_checked_in_form = array(1,2,3,);
+
+							var_dump($groups_checked_in_form);
+							//Grab the groups currently selected in the form !!!!!
+							// GET THE GROUPS CHECKED IN THE FORM SOMEHOW then apply and this is it !
+							/////////////////
+							/////////////////
 							
-							//Groups UPDATE should delete all mappings from the db//Should Insert new mappings from the form.
-							//GROUPS UPDATE SHOULD BE DONE HERE TOO	//After update , redirect to the list.
+							//Apply new mapping using the new values from the form !!!!
+							//$groups_checked_in_form = array('2',);
+							foreach ($groups_checked_in_form as $group_id_checked) {
+								$user->assign_user_to_group($_GET['id'],$group_id_checked);
+								// echo '<h1><pre>THIS IS THE POST BEFORE:';
+								// 	print_r($_POST);
+								// echo '</h1></pre>';
+							}
 							//header("Location: /user/views/view_list.php");		
 							die();						
 						}else{
@@ -61,13 +73,23 @@ require_once('../controllers/group.php');
 
 function get_groups_checked_in_form(){
 	$user = new User();
-	//$group_names = $user->get_all_groups_in_db()['name'];
-	$bifate = $user->get_all_groups_for_user($_GET['id']);
-	print_r($bifate);
-	return $bifate;
+	//Grab an the array of all groups ind the db.
+	$groups_from_db = $user->get_all_groups_in_db($_GET['id']);
+	$names_of_groups_from_db = $groups_from_db['name'];
+	$groups_selected = array();
+	echo 'all groups:<br /> ';
+	foreach ($names_of_groups_from_db as $group_name) {
+			echo "<br /> name :".$group_name." ";
+		if (isset($_POST[$group_name])){
+			echo "<h1> {$group_name} is bifat</h1>";
+			$groups_selected = $group_name;
+		}
+	}
+	//$_POST['groups_selected'] = $groups_for_user;
+	return $groups_selected;
 }
 
-
+//TREBUIE CAUTAT $_POST['groupname'];
 
 function print_group_checkboxes_inputs(){
 				$user = new User();
@@ -82,6 +104,7 @@ function print_group_checkboxes_inputs(){
 					if (in_array($group_name, $array_of_current_groups)){
 						echo '<input name="'.$group_name.'" type="checkbox" value="'.$group_name.'" checked>&nbsp;';
 						echo '<label>'.$group_name.'\'s</label><br />';
+						//$_POST['groups_selected'] = $group_name;
 					}else{
 						echo '<input name="'.$group_name.'" type="checkbox" value="'.$group_name.'">&nbsp;';
 						echo '<label>'.$group_name.'</label><br />';
