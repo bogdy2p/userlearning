@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-12">	
 				
-			<form class="form" id="edituser" action="../models/edit_user_model.php?id=<?php echo $the_user_id;?>&type=users" method="post">
+			<form class="form" id="edituser" action="../models/edit_user_model.php?id=<?php echo $_GET['id'];?>&type=users" method="post">
 				<div class="row">
 
 					<div class="col-xs-1 col-md-1"></div>

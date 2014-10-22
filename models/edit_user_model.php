@@ -6,74 +6,129 @@ require_once('../controllers/group.php');
 ?>
 
 <?php 	
+verification($_GET);
+//FLOW DIAGRAM//
+//
+//	verificam daca este setat get-ul.
+//	
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-	if(isset($_GET['id']))
-		{ //CONDITIE ABSOLUT NECESARA PENTRU A ACCESA PAGINA ?!
+function create_user_update_details_array($post_array){
+	$user_update_details = array(
+		'id' => $post_array['id'],
+		'name' => $post_array['name'],
+		'password' => md5($post_array['password']),
+		);
+		return $user_update_details;
+}
 
+
+
+
+
+
+function verification($get) {
+	
+	if(isset($get) && ($get != NULL)) //CONDITIE ABSOLUT NECESARA PENTRU A ACCESA PAGINA ?!
+		{ 
+			//$_GET['id'] = $get['id'];	// Remove this ! 		
 			$user = new User(); //Call User Class
-			$user->get_user_object_by_id($_GET['id']); //Fetch the user object from the database
-			$_POST['password'] = 0;
+			$user->get_user_object_by_id($get['id']); //Fetch the user object from the database by the ID !!
+			$old_pass = $user->password; // Grab the old password from the object
+//			var_dump($the_old_pass);
 			$old_name = $user->name;
-			$the_old_pass = $user->password;
-			$the_user_id = $_GET['id'];
 
-			if(isset($_POST['password']) && !(is_null($_POST['password']))){
-					$_POST['id'] = $_GET['id'];
-					if(isset($_POST['old_password'])){
-						if(md5($_POST['old_password']) == $the_old_pass){
-								if($_POST['password'] === $_POST['pass_conf']) { //aici trebuie schimbat
-									$newpass = md5($_POST['password']);
-									$user_update_details = array(
-										'id' => $_POST['id'],
-										'name' => $_POST['name'],
-										'password' => $newpass,
-										);
+			//Setam Post de id sa corespunda cu get de id.
+			$_POST['id'] = $get['id'];
+						
+					//DACA EXISTA POST[OLD PASSWORD]
+					if(isset($_POST['old_password'])) { 
+						//Daca post de old password e cel din database 
+						if(md5($_POST['old_password']) == $old_pass){
+							// daca post de noua parola e egal cu post de confirmare noua parola
+
+								if($_POST['password'] == $_POST['pass_conf']) {
+
+									//Create the update details array using the post data.																		
+									$user_update_details = create_user_update_details_array($_POST);
 									//Update the user details correspondingly
 									$update = $user->update($user_update_details['id'],'users',$user_update_details);
 									//Delete all the mapping for this user			
-									$delete_current_mapping = $user->delete_all_mapping_for_user($_GET['id']);
+									$delete_current_mapping = $user->delete_all_mapping_for_user($get['id']);
+									
+									//****************************************************************************************//
+
 									//Get an array of checked groups in the form
 									$name_of_groups_checked_in_form = get_groups_checked_in_form();
 									//Create an array of the id's we need to assign !
+									//THIS SHOULD BE A SEPARATE FUNCTION THAT RETURNS THE GROUP_IDS_CHECKED_IN_FORM
+
 									$group_ids_checked_in_form = array();
-									foreach ($name_of_groups_checked_in_form as $key => $value) {
-										echo $key;
-										$group_ids_checked_in_form[] = $user->get_groupid_by_groupname($value);	
-									}
+									echo 'Untill here';
+									 foreach ($name_of_groups_checked_in_form as $key => $value) {
+									// 	//echo $key;
+									 	$group_ids_checked_in_form[] = $user->get_groupid_by_groupname($value);	
+									 }
+									echo 'Untill here2';
+									$group_ids_checked_array = $group_ids_checked_in_form;
+									//$group_ids_checked_array = array(0,1);
+									print_r($group_ids_checked_array);
+									//**************************************************************************************////
 									//Apply new mapping using the new values from the form !!!!
-									foreach ($group_ids_checked_in_form as $group_id_checked) {
-										$user->assign_user_to_group($_GET['id'],$group_id_checked);
+									foreach ($group_ids_checked_array as $group_id_checked) {
+										$user->assign_user_to_group($get['id'],$group_id_checked);
 									}
+									echo 'Untill here3';
 									header("Location: /user/views/view_list.php");		
-									die();						
+									//die();						
+								
 								}else{
 									print_r("The passwords you entered do not match.");
 								}
-						} else  {
-							print_r("The old password you entered is incorrect.");
+						} //if(md5($_POST['old_password']) == $the_old_pass)
+						 else  {
+						 	echo " <br />error. <br />";
+							print_r($old_pass." <= the old pass |||| ".$_POST['old_password']." <= post de old pass <br />");
+							print_r("<br />".$old_pass." <= the old pass |||| ".md5($_POST['old_password'])." <= md5 de post de old pass <br />");
 								}
-			}
-
-			}elseif (empty($_POST['password'])){
-			echo "POST IS NOT SET <br /> implementation for changin user without changing password should be added here";
-			die('<br />---');
-			}
-			else{
-				echo 'PENULTIMUL ELSE Post de password IS EMPTY';
-				}
+					}
+					//DACA NU EXISTA POST[OLD PASSWORD]
+					else{
+						echo "form not submitted yet / post old password not set ";
+					}
+		}else
+		//DACA EXISTA GET-UL (accesare link fara id)
+		{
+			die("There is no get. Or it's NULL // 404 Redirect Here !");
+		}
+} // SFARSIT FUNCTIE verification
 		
-	}else{
-	die('Unauthorized Access. GetiD undefined . Please contact Administrator.');
-	}
-
-
-
-
-
-
-
-
-
+// function get_group_ids_checked_in_form(){
+// 	$name_of_groups_checked_in_form = get_groups_checked_in_form();
+// 	//print_r($name_of_groups_checked_in_form);
+// 	$array_of_group_ids_checked_in_form = array();
+// 		foreach ($name_of_groups_checked_in_form as $key => $value) {
+// 			$array_of_group_ids_checked_in_form[] = $user->get_groupid_by_groupname($value);	
+// 			print_r($value);
+// 		}
+// 	return $array_of_group_ids_checked_in_form;
+// }
 
 
 function get_groups_checked_in_form(){
@@ -113,7 +168,6 @@ function print_userdata_inputs(){
 		if(isset($_GET['id'])){
 			$user = new User(); //Call User Class
 			$user->get_user_object_by_id($_GET['id']); //Fetch the user object from the database
-
 	echo '
 		<label>Name</label><br />
 		<input name="name"  type="text"  placeholder="User Name" value="'.$user->name.'"> <br />
