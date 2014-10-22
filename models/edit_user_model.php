@@ -7,10 +7,12 @@ require_once('../controllers/group.php');
 
 <?php 	
 
-		if(isset($_GET['id'])){
+	if(isset($_GET['id']))
+		{ //CONDITIE ABSOLUT NECESARA PENTRU A ACCESA PAGINA ?!
+
 			$user = new User(); //Call User Class
 			$user->get_user_object_by_id($_GET['id']); //Fetch the user object from the database
-		
+			$_POST['password'] = 0;
 			$old_name = $user->name;
 			$the_old_pass = $user->password;
 			$the_user_id = $_GET['id'];
@@ -19,7 +21,7 @@ require_once('../controllers/group.php');
 					$_POST['id'] = $_GET['id'];
 					if(isset($_POST['old_password'])){
 						if(md5($_POST['old_password']) == $the_old_pass){
-								if($_POST['password'] === $_POST['pass_conf']) {
+								if($_POST['password'] === $_POST['pass_conf']) { //aici trebuie schimbat
 									$newpass = md5($_POST['password']);
 									$user_update_details = array(
 										'id' => $_POST['id'],
@@ -52,18 +54,17 @@ require_once('../controllers/group.php');
 								}
 			}
 
-			}elseif (!isset($_POST['password'])){
+			}elseif (empty($_POST['password'])){
 			echo "POST IS NOT SET <br /> implementation for changin user without changing password should be added here";
-
 			die('<br />---');
-
-			}else{
-				echo 'a';
+			}
+			else{
+				echo 'PENULTIMUL ELSE Post de password IS EMPTY';
 				}
 		
 	}else{
-	die('Unauthorized Access. GetIDerror. Please contact Administrator.');
-}
+	die('Unauthorized Access. GetiD undefined . Please contact Administrator.');
+	}
 
 
 

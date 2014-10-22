@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 <head>
-	<title>Create  - UserLearning Pbc Project</title>
+	<title>Create - UserLearning Pbc Project</title>
 	<?php include_page_header_content();?>
 </head>
 <body>
