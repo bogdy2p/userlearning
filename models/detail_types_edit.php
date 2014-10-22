@@ -1,4 +1,12 @@
 <?php 
 
-//echo "Included EDIT DETAIL TYPES <br />";
+
+function test(){
+
+echo "Included EDIT DETAIL TYPES <br />";
+}
+
+
+
+
 ?>

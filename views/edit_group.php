@@ -36,7 +36,7 @@
 </head>
 
 <body>
-	<div class ="content">
+	<div class ="container">
 	<?php print_sitewide_menu();?>
 		
 
