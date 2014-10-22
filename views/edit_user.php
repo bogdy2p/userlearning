@@ -1,7 +1,4 @@
 <?php
- require_once('../controllers/crud.php');
- require_once('../controllers/user.php');
- require_once('../controllers/group.php');
  require_once('../models/edit_user_model.php');
 ?>
 
@@ -23,28 +20,26 @@
 
 		<div class="row">
 		
-				<br /><br /><br />
+				
 				<h3>Userdata : </h3>
-			<form class="form" id="edituser" action="edit_user.php?id=<?php echo $the_user_id;?>&type=users" method="post">
+			<form class="form" id="edituser" action="../models/edit_user_model.php?id=<?php echo $the_user_id;?>&type=users" method="post">
 				<div class="col-xs-6 col-md-6">
-					<label>Name</label><br />
+					<?php print_userdata_inputs(); ?>
+					
+					<!-- <label>Name</label><br />
 					<input name="name"  type="text"  placeholder="User Name" value="<?php if(isset($old_name)) echo $old_name;?>"> <br />
 					<label>Enter OLD Password</label><br />
-					<input name="old_password"  type="text"  placeholder="Old Password" value=""><br />
+					<input name="old_password"  type="password"  placeholder="Old Password" value=""><br />
 					<label>New Password</label><br />
-					<input name="password"  type="text"  placeholder="New Password" value=""><br />
+					<input name="password"  type="password"  placeholder="New Password" value=""><br />
 					<label>Confirm New Password</label><br />
-					<input name="pass_conf" type="text"  placeholder="Confirm New Password" value="">
-
-					
-
+					<input name="pass_conf" type="password"  placeholder="Confirm New Password" value="">
+ -->
 				</div>
 				<div class="col-xs-6 col-md-6">
-
  
 			<?php
-			 
-
+			
 			 $groups_for_curent_user = $user->get_all_groups_for_user($_GET['id']);
 			 print_all_group_checkboxes($groups_for_curent_user);
 			 ?>

@@ -1,4 +1,11 @@
 <?php 
+require_once('../controllers/database.php');
+require_once '../controllers/crud.php';
+require_once('../controllers/user.php');
+require_once('../controllers/group.php');
+?>
+
+<?php 
 		if(isset($_GET['id'])){
 			$user = new User();
 			//FETCH THE USER FROM THE DATABASE
@@ -33,13 +40,10 @@
 		}
 	}
 
- 
-// This function should get an array of the curent user's groups , and check the groups the user already is memberr of
-// A function that returns all the current groups of an user should be implemented.
+
+		// ECHO THE CHECKBOXES BASED ON THE RECEIVED ARRAY OF ALREADY MEMBER GROUPS
 	function print_all_group_checkboxes($array_of_current_groups){
 				$user = new User();
-				//echo"<pre> Received array <br />";
-				//print_r($array_of_current_groups);
 				$groups_array = $user->get_all_groups_in_db();				
 				$group_names = $groups_array['name'];
 				$group_ids = $groups_array['id'];
@@ -63,4 +67,17 @@
 	}
 	
 
+	function print_userdata_inputs(){
+		
+echo '
+		<label>Name</label><br />
+		<input name="name"  type="text"  placeholder="User Name" value=""> <br />
+		<label>New Password</label><br />
+		<input name="password"  type="password"  placeholder="New Password" value=""><br />
+		<label>Confirm New Password</label><br />
+		<input name="pass_conf" type="password"  placeholder="Confirm New Password" value=""><br />
+		<label>Enter current Password</label><br />
+		<input name="old_password"  type="password"  placeholder="Old Password" value=""><br />
+    ';
+	}
 ?>

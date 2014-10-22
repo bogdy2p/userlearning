@@ -307,7 +307,7 @@ abstract class Crud {
 		}
 	}
 
-	function get_user_details_array($user_id){
+	function get_user_details_array($user_id) {
 		$statement = $this->db->prepare("SELECT id FROM user_details WHERE user_id = ?");
 		$statement->bindParam(1,$user_id);
 		$statement->execute();
@@ -318,7 +318,7 @@ abstract class Crud {
 		return $user_details_array;
 	}
 	
-	function get_detail_data_by_detail_id($detail_id){
+	function get_detail_data_by_detail_id($detail_id) {
 		$statement = $this->db->prepare("SELECT detail,detail_type FROM user_details WHERE id = ?");
 		$statement->bindParam(1,$detail_id);
 		$statement->execute();
@@ -330,7 +330,7 @@ abstract class Crud {
 		return $return;
 	}	
 
-	function get_detail_value_by_detail_id($detail_id){
+	function get_detail_value_by_detail_id($detail_id) {
 		$statement = $this->db->prepare("SELECT detail FROM user_details WHERE id = ?");
 		$statement->bindParam(1,$detail_id);
 		$statement->execute();
@@ -339,7 +339,7 @@ abstract class Crud {
 		}
 	}
 
-	function get_all_user_detail_types(){
+	function get_all_user_detail_types() {
 		$statement = $this->db->prepare("SELECT * FROM user_detail_types");
 		$statement->execute();
 		$detail_types_array = array();
@@ -349,7 +349,7 @@ abstract class Crud {
 		return $detail_types_array;
 	}
 
-	function check_detail_type_exists($user_detail_type){
+	function check_detail_type_exists($user_detail_type) {
 		$statement = $this->db->prepare("SELECT id FROM user_detail_types WHERE name = ?");
 		$statement->bindParam(1,$user_detail_type);
 		$statement->execute();
@@ -360,7 +360,7 @@ abstract class Crud {
 			}
 	}
 
-	function add_user_detail_type($user_detail_type){
+	function add_user_detail_type($user_detail_type) {
 		$detail_type_exists = Crud::check_detail_type_exists($user_detail_type);
 		if((!$detail_type_exists) && (!is_null($user_detail_type)) && ($user_detail_type != ' ')){
 			$statement = $this->db->prepare("INSERT INTO user_detail_types (id,name) VALUES ('','$user_detail_type')");
@@ -377,7 +377,7 @@ abstract class Crud {
 		*********************************************************************
 		*********************************************************************
 	*/
-		function get_all_groups_in_db(){
+		function get_all_groups_in_db() {
 		$statement = $this->db->prepare("SELECT * FROM groups");
 		$statement->execute();
 		$groups_array = array();
@@ -388,12 +388,10 @@ abstract class Crud {
 		return $groups_array;
 	}
 
-		function get_all_groups_for_user($user_id){
-		$groupids = Crud::get_number_of_groups_for_a_user($user_id);
-		//var_dump($groupids);
-		return $groupids;
+		function get_all_groups_for_user($user_id) {
+		$group_ids_array = Crud::get_number_of_groups_for_a_user($user_id);
+		return $group_ids_array;
 		}
-
 }
 ?>
 
