@@ -42,8 +42,13 @@ require_once('../controllers/group.php');
 
 
 		// ECHO THE CHECKBOXES BASED ON THE RECEIVED ARRAY OF ALREADY MEMBER GROUPS
-	function print_all_group_checkboxes($array_of_current_groups){
+
+	//$groups_for_curent_user = $user->get_all_groups_for_user($_GET['id']);
+
+
+function print_group_checkboxes_inputs(){
 				$user = new User();
+				$array_of_current_groups = $user->get_all_groups_for_user($_GET['id']);
 				$groups_array = $user->get_all_groups_in_db();				
 				$group_names = $groups_array['name'];
 				$group_ids = $groups_array['id'];
@@ -60,16 +65,9 @@ require_once('../controllers/group.php');
 				} //end foreach
 	}
 
-	function asddd(){
-		$id = $_GET['id'];
-		$groups_for_curent_user = $user->get_all_groups_for_user($id);
-		print_all_group_checkboxes($groups_for_curent_user);	
-	}
-	
+function print_userdata_inputs(){
 
-	function print_userdata_inputs(){
-		
-echo '
+	echo '
 		<label>Name</label><br />
 		<input name="name"  type="text"  placeholder="User Name" value=""> <br />
 		<label>New Password</label><br />
