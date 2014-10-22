@@ -7,17 +7,15 @@ require_once('../controllers/group.php');
 
 <?php 
 		if(isset($_GET['id'])){
-			$user = new User();
-			//FETCH THE USER FROM THE DATABASE
-			$user->get_user_object_by_id($_GET['id']);
+			$user = new User(); //Call User Class
+			$user->get_user_object_by_id($_GET['id']); //Fetch the user object from the database
 			
 		$_POST['id'] = $_GET['id'];
 		$old_name = $user->name;
 		
 		$the_old_pass = $user->password;
 		$the_user_id = $_GET['id'];
-		if(isset($_POST['old_password'])){ 
-				
+		if(isset($_POST['old_password'])){
 				if(md5($_POST['old_password']) == $the_old_pass){
 						if($_POST['password'] === $_POST['pass_conf']) {
 							$newpass = md5($_POST['password']);
@@ -28,8 +26,14 @@ require_once('../controllers/group.php');
 								);
 
 							$update = $user->update($user_update_details['id'],'users',$user_update_details);
+							$delete_current_mapping = $user->delete_all_mapping_for_user($_GET['id']);
+							var_dump($delete_current_mapping);
+							
+							//Groups UPDATE should delete all mappings from the db
+							//Should Insert new mappings from the form.
+							//GROUPS UPDATE SHOULD BE DONE HERE TOO
 							//After update , redirect to the list.
-							header("Location: /user/views/view_list.php");		
+							//header("Location: /user/views/view_list.php");		
 							die();						
 						}else{
 							print_r("The passwords you entered do not match.");
@@ -38,12 +42,10 @@ require_once('../controllers/group.php');
 					print_r("The old password you entered is incorrect.");
 				}
 		}
-	}
+}
 
 
-		// ECHO THE CHECKBOXES BASED ON THE RECEIVED ARRAY OF ALREADY MEMBER GROUPS
 
-	//$groups_for_curent_user = $user->get_all_groups_for_user($_GET['id']);
 
 
 function print_group_checkboxes_inputs(){
@@ -66,10 +68,13 @@ function print_group_checkboxes_inputs(){
 	}
 
 function print_userdata_inputs(){
+		if(isset($_GET['id'])){
+			$user = new User(); //Call User Class
+			$user->get_user_object_by_id($_GET['id']); //Fetch the user object from the database
 
 	echo '
 		<label>Name</label><br />
-		<input name="name"  type="text"  placeholder="User Name" value=""> <br />
+		<input name="name"  type="text"  placeholder="User Name" value="'.$user->name.'"> <br />
 		<label>New Password</label><br />
 		<input name="password"  type="password"  placeholder="New Password" value=""><br />
 		<label>Confirm New Password</label><br />
@@ -78,4 +83,5 @@ function print_userdata_inputs(){
 		<input name="old_password"  type="password"  placeholder="Old Password" value=""><br />
     ';
 	}
+}
 ?>

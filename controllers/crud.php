@@ -392,6 +392,13 @@ abstract class Crud {
 		$group_ids_array = Crud::get_number_of_groups_for_a_user($user_id);
 		return $group_ids_array;
 		}
+
+		function delete_all_mapping_for_user($user_id){
+			$statement = $this->db->prepare("DELETE FROM user_groups.usergroups WHERE usergroups.user_id = ?");
+			$statement->bindParam(1,$user_id);
+			$statement->execute();
+			return $statement;
+		}
 }
 ?>
 
