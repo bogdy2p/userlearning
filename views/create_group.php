@@ -13,19 +13,37 @@
 	<div class ="container">
 	<?php print_sitewide_menu();?>
 		
+			<div class="row">
+					<div class="col-xs-4 col-md-4"></div>
+					<div class="col-xs-4 col-md-4">
 
-			<form class="form" id="asd" action="create_group.php" method="post">
+						<br /><br />
+						<form class="form" id="asd" action="create_group.php" method="post">
 
-				
-				<label>group name</label><br />
-				<input name="name"  type="text"  placeholder="group name"> <br />
-				<label>special key</label><br />
-				<input name="special key"  type="text"  placeholder="special key"> <br />
-				
-				<br />
-				<button type="submit" class="btn btn-success">Create Group</button>
+							
+							<label>group name</label><br />
+							<input name="name"  type="text"  placeholder="group name"> <br />
+							<label>special key</label><br />
+							<input name="special key"  type="text"  placeholder="special key"> <br />
+							
+							<br />
+							<button type="submit" class="btn btn-success">Create Group</button>
 
-			</form>
+						</form>
+
+					</div>
+					<div class="col-xs-4 col-md-4"></div>
+			</div>
+
+
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+
+
+
  	</div>
  	<?php include_page_footer_content(); ?>
 </body>

@@ -13,24 +13,37 @@
 	<div class ="container">
 	<?php print_sitewide_menu();?>
 			
-			<form class="form" id="asd" action="create_user.php" method="post">
-				
-				<label>name</label><br />
-				<input name="name"  type="text"  placeholder="enter desired name" value="<?php if(isset($_POST['name'])) echo $_POST['name'];?>"> <br />
-				<label>password</label><br />
-				<input name="password"  type="text"  placeholder="enter password" value=""> <br />
-				<label>confirm password</label><br />
-				<input name="pass_conf" type="text"  placeholder="confirm password" value=""> <br />
-				<?php 
-				$user = new User();
-				$user->add_dynamic_user_detail_form_inputs();
-				//DINAMICALLY ADD A INPUT FOR EACH DETAIL TYPE IN USER_DETAIL_TYPES ARRAY
-				?>
 
-				<br />
-				<button type="submit" class="btn btn-success">Create User</button>
+			<div class="row">
+				<div class="col-xs-4 col-md-4"></div>
+				<div class="col-xs-4 col-md-4">
+					<br /><br />
+					<form class="form" id="asd" action="create_user.php" method="post">
+						<label>name</label><br />
+						<input name="name"  type="text"  placeholder="enter desired name" value="<?php if(isset($_POST['name'])) echo $_POST['name'];?>"> <br />
+						<label>password</label><br />
+						<input name="password"  type="text"  placeholder="enter password" value=""> <br />
+						<label>confirm password</label><br />
+						<input name="pass_conf" type="text"  placeholder="confirm password" value=""> <br />
+						<?php 
+						$user = new User();
+						$user->add_dynamic_user_detail_form_inputs();
+						?>
+						<br />
+						<button type="submit" class="btn btn-success">Create User</button>
+					</form>
 
-			</form>
+				</div>
+				<div class="col-xs-4 col-md-4"></div>
+			
+			</div> <!-- <div class="row"> -->
+
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			
  	</div>
  	<?php include_page_footer_content(); ?>
 </body>

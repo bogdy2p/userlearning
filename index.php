@@ -8,11 +8,6 @@ require_once 'controllers/database.php';
 <head>
 	<title>UserLearning Pbc Project</title>
 	<?php include_page_header_content();?>
-	<!-- <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
 </head>
 
 <body>
@@ -26,30 +21,27 @@ require_once 'controllers/database.php';
   			 <div class="col-xs-4 col-md-4"></div>
   		</div>
 
-		<div class="row">	
-		<h2>CHECK SETTINGS IF NOTHING APPEARS</h2>
-	  	<h2>todo:</h2>
+		<div class="row">
+		<br /><br /><br /><br />
+			 <div class="col-xs-3 col-md-3">
+			 		<h2>todo:</h2>
+			 </div>
+			 <div class="col-xs-6 col-md-6">
+			  	
+				  	<h3><span2>Groups by "checkbox... ?"</span2></h3>
+				  	<h4><span2>When creating a new user , save the user's account CREATION TIME. (into new table... LOG ?)</span2></h4>
+				  	<h5>AJAX / Jquery @ editing user </h5>
+			 	
+				  	<h5>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</h5>	
+				  	
+				  	<h5>Print "last created user";</h5>
+				  	<h5>Print User with most details entered</h5>
 
-
-	  	<h3><span2>Groups by "checkbox... ?"</span2></h3>
-	  	<h4><span2>When creating a new user , save the user's account CREATION TIME. (into new table... LOG ?)</span2></h4>
-	  	<h5>AJAX / Jquery @ editing user </h5>
-	  	
-	  	<h5></h5>
-	  	<h5></h5>
-	  	<h5></h5>
-	  	<h5>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</h5>	
-	  	
-	  	<h5>Print "last created user";</h5>
-	  	<h5>Print User with most details entered</h5>
-
-<br /><br /><br />
+			 </div>
+			 <div class="col-xs-3 col-md-3"></div>
 	  	
 	  	</div>
-
-  		
-	  	
-	  
+  
    </div>
    <?php include_page_footer_content(); ?>
 </body>

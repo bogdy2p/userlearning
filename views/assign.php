@@ -14,35 +14,46 @@ require_once('../controllers/group.php');
 <div class ="container">
 	<div class="row"><?php print_sitewide_menu();?></div>
 
-	
-
-	<form class="form" id="assign" action="assign.php" method="post"><br /><br />
-
-		<select name="user" id="user" form="assign">
-					<option selected="null" value="0">Choose user</option>
-					 <?php 
-					 	$users = new User();
-					 	$id_array = $users->grab_all_user_ids();
-					 				// . $user->get_name_by_id($table['user_id']) .
-					 	foreach ($id_array as $id => $value) {
-					 		echo "<option value=\"{$value}\">{$users->get_name_by_id($value)}</option>";
-					 	}
-					 ?>
-		</select>
-
-		<select name="group" id="group" form="assign">
-					<option selected="0" value="0">Choose group</option>
-					 <?php 
-					 	$groups = new Group();
-					 	$id_array = $groups->grab_all_group_ids();
-					 	foreach ($id_array as $id => $value) {
-					 		echo "<option value=\"{$value}\">{$groups->get_name_by_id($value)}</option>";
-					 	}
-					 ?>
-		</select>
+			
+	<div class="row">
 		
-		<button type="submit" class="button">Assign User To Group</button>
-	</form>
+		
+			<form class="form" id="assign" action="assign.php" method="post"><br /><br />
+		<div class="col-xs-4 col-md-4">
+					<select name="user" id="user" form="assign">
+								<option selected="null" value="0">Choose user</option>
+								 <?php 
+								 	$users = new User();
+								 	$id_array = $users->grab_all_user_ids();
+								 				// . $user->get_name_by_id($table['user_id']) .
+								 	foreach ($id_array as $id => $value) {
+								 		echo "<option value=\"{$value}\">{$users->get_name_by_id($value)}</option>";
+								 	}
+								 ?>
+					</select>
+		</div>
+
+		<div class="col-xs-4 col-md-4">
+					<select name="group" id="group" form="assign">
+								<option selected="0" value="0">Choose group</option>
+								 <?php 
+								 	$groups = new Group();
+								 	$id_array = $groups->grab_all_group_ids();
+								 	foreach ($id_array as $id => $value) {
+								 		echo "<option value=\"{$value}\">{$groups->get_name_by_id($value)}</option>";
+								 	}
+								 ?>
+					</select>
+		</div>
+		<div class="col-xs-4 col-md-4">
+					<button type="submit" class="button">Assign User To Group</button>
+			</form>
+		</div>			
+	</div>
+
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
 
 
 </div>
@@ -72,10 +83,11 @@ require_once('../controllers/group.php');
 	
 		}else
 			{
-			echo "ONE OF THE SELECT VALUES IS EMPTY";
+			//Database.php - print_error_midscreen
+			print_error_midscreen("One of the selected values is empty!");
 			}
-	}else{
-		echo "Please select both dropdown values!";
+	}else{	
+			print_error_midscreen("Please select both dropdown values!");
 		 } 
 
 ?>

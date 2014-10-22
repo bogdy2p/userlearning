@@ -17,7 +17,7 @@ require_once '../models/detail_types_edit.php';
 <body>
 
 	<div class="container">
-		<div class="row"><?php print_sitewide_menu();?></div>
+		<div class="row"> <?php print_sitewide_menu();?> </div>
 		
 
 		<div class="row">
@@ -26,7 +26,7 @@ require_once '../models/detail_types_edit.php';
 			<div class="col-xs-4 col-md-4"><h3>View User Detail Types</h3></div>
 			<div class="col-xs-4 col-md-4"></div>
 
-		<div class="row">a</div>
+		<div class="row"></div>
 
 
 

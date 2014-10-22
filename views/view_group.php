@@ -17,8 +17,10 @@ require_once('../controllers/group.php');
 
 
 	<div class="row">
-
-	<form class="form" id="viewgroup" action="view_group.php" method="post"><br /><br />
+		<div class="col-xs-4 col-md-4"></div>
+		<div class="col-xs-4 col-md-4">
+			
+			<form class="form" id="viewgroup" action="view_group.php" method="post"><br /><br />
 	<select name="id" id="id" form="viewgroup">
 					 <?php 
 					 	$groups = new Group();
@@ -26,8 +28,19 @@ require_once('../controllers/group.php');
 					 	foreach ($id_array as $id => $value) { echo "<option value=\"{$value}\">{$value} - {$groups->get_name_by_id($value)}</option>";}
 					 ?>
 	</select>
+	<br /><br />
 		<button type="submit" class="button">View Group's Data</button>
 	</form>
+
+		</div>
+		<div class="col-xs-4 col-md-4"></div>
+	</div>
+
+
+
+	<div class="row">
+		<!-- <div class="col-xs-4 col-md-4"></div> -->
+	
 
 <?php 
 
@@ -35,10 +48,11 @@ require_once('../controllers/group.php');
 		$group = new Group();
 		$group->get_group_object_by_id($_POST['id']);
 		// DISPLAY (this is practically the VIEW //
-				echo '<table class="default_css_table">';
-				echo '<th>ID</th>';
-				echo '<th>Name</th>';
-				echo '<th>Special Key</th>';
+				echo '<br />';
+				echo '<table class="table table-bordered col-xs-12 col-md-12">';
+				echo '<th class="col-xs-4 col-md-4">ID</th>';
+				echo '<th class="col-xs-4 col-md-4">Name</th>';
+				echo '<th class="col-xs-4 col-md-4">Special Key</th>';
 				echo '<tr>';
                 echo '<td>'. $group->id .'</td>';
 				echo '<td>'. $group->name . '</td>';

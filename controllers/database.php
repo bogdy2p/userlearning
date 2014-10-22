@@ -3,7 +3,7 @@
 class Database{
 
     public function dbConnect(){
-        return new PDO("mysql:host=localhost;dbname=user_groups",'root','romania2007');
+        return new PDO("mysql:host=localhost;dbname=user_groups",'root','123456');
     }
 }
 
@@ -36,10 +36,10 @@ function print_sitewide_menu(){
                     <div class="col-xs-8 col-md-8 pbc_mt5">
 
                         <a class ="btn btn-primary" href="/user">Home</a>
-                        <a class ="btn btn-primary" href="/user/views/view_list.php             ">           View Tables         </a>
-                        <a class ="btn btn-primary" href="/user/views/view_group.php            ">          View Group          </a>
-                        <a class ="btn btn-primary" href="/user/views/view_user.php             ">           View User           </a>
-                        <a class ="btn btn-primary" href="/user/views/assign.php                ">              Map User            </a>
+                        <a class ="btn btn-primary" href="/user/views/view_list.php             ">   View Tables         </a>
+                        <a class ="btn btn-primary" href="/user/views/view_group.php            ">   View Group          </a>
+                        <a class ="btn btn-primary" href="/user/views/view_user.php             ">   View User           </a>
+                        <a class ="btn btn-primary" href="/user/views/assign.php                ">   Map User            </a>
                         <a class ="btn btn-primary" href="/user/views/view_detail_types.php     ">   User Details Types  </a>
 
                     </div>
@@ -56,11 +56,11 @@ function print_sitewide_menu(){
 
                         <a class ="btn btn-primary" href="/user/views/create_user.php">Add User</a>
                         <a class ="btn btn-primary" href="/user/views/create_group.php">Add Group</a>
+                        <!--<a class ="btn btn-primary" href="/user">...</a>
                         <a class ="btn btn-primary" href="/user">...</a>
                         <a class ="btn btn-primary" href="/user">...</a>
                         <a class ="btn btn-primary" href="/user">...</a>
-                        <a class ="btn btn-primary" href="/user">...</a>
-                        
+                        -->
                         
 
                     </div>
@@ -69,4 +69,16 @@ function print_sitewide_menu(){
 
             </div> <!--end of div class row below -->
 ';
+}
+
+function print_error_midscreen($error){
+    if(isset($error)){
+    $received_error = $error;
+    echo '<br />';
+    echo '<div class="row">';
+    echo '<div class="col-xs-4 col-md-4"></div>';
+    echo '<div class="col-xs-4 col-md-4">'.$received_error.'</div>';
+    echo '<div class="col-xs-4 col-md-4"></div>';
+    echo '</div>';
+    }
 }
