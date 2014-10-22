@@ -42,27 +42,13 @@
 				<div class="col-xs-6 col-md-6">
 <!-- CHECKBOXES FUNCTIONALITY -->
  
-			<?php 
-				$user = new User();
-				$groups_array = $user->get_all_groups_in_db();				
-				$group_names = $groups_array['name'];
-				$group_ids = $groups_array['id'];
-				$user_is_a_member_of_this_group = false;
-				//THIS MUST BE CHANGED / IMPLEMENTED CORRECTLY
+			<?php
 
-				//echo '<br />';
-				echo '<h3>Groups for this user: </h3><br />';
-				foreach ($group_names as $group_name) {
+			 $groups_for_curent_user = $user->get_all_groups_for_user($_GET['id']);
+			 print_all_group_checkboxes($groups_for_curent_user);
 
-					if ($user_is_a_member_of_this_group){
-						echo '<input name="'.$group_name.'" type="checkbox" value="'.$group_name.'" checked>&nbsp;';
-						echo '<label>'.$group_name.'</label><br />';
-					}else{
-						echo '<input name="'.$group_name.'" type="checkbox" value="'.$group_name.'">&nbsp;';
-						echo '<label>'.$group_name.'</label><br />';
-					}
-				} //end foreach
-			?>
+			 ?>
+
 				</div>
 				<div class="col-xs-12 col-md-12">
 					<div class="row">	
