@@ -52,7 +52,7 @@ function print_sitewide_menu(){
                              <li><a href="/user/views/view_list.php             ">   View Tables         </a></li>
                              <li><a href="/user/views/view_group.php            ">   View Group          </a></li>
                              <li><a href="/user/views/view_user.php             ">   View User           </a></li>
-                             <li><a href="/user/views/assign.php                ">   Map User            </a></li>
+                         <!--<li><a href="/user/views/assign.php                ">   Map User            </a></li>-->
                              <li><a href="/user/views/view_detail_types.php     ">   User Details Types  </a></li>
                              <li><a href="/user/views/create_user.php           ">   Add User            </a></li>
                              <li><a href="/user/views/create_group.php          ">   Add Group           </a></li>
@@ -122,9 +122,12 @@ function print_to_do_list(){
                     <li><h6><spanyel>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</spanyel></h6>  </li>
                     <li><h6><spangre>Print "last created user";</spangre></h6></li>
                     <li><h6><spangre>Print User with most details entered</spangre></h6></li>
-                
+                    <li><h5><spanred>Create a changelog for this application , that saves changes to db</spanred></h5></li>
+                    <li><h6><spanred>EMPTY EMPTY EMPTY</spanred></h6></li>
+                    <li><h6><spanred>If i remain without stuff to do , and nothing new appears : Create a changelog for this application , that saves changes to db</spanred></h6></li>
 
                 </ol>    
+
                 <!--
                     RED :
                     <li><h6><spanred></spanred></h6></li>
