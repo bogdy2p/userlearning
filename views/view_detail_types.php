@@ -49,8 +49,7 @@ require_once '../models/detail_types_edit.php';
 						<div class="col-xs-5 col-md-5"></div>
 				</div>
 
-				<!-- <div class="row"><br/><br/>1.Grab a list with all the detail types from the database. Print them in a table.</div> -->
-				<!-- <div class="row"><br/><br/><h3>echo the list as a table here</h3></div> -->
+				
 				<div class="row"></div>
 				<div class="row"></div>
 

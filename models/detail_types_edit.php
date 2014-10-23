@@ -5,18 +5,29 @@ require_once('../controllers/user.php');
 require_once('../controllers/group.php');
 ?>
 
-
 <?php
-function test(){
-echo "Included EDIT DETAIL TYPES <br />";
-}
 
+verify_and_add_to_db();//CALL THE VERIFY FUNCTION
 
+function verify_and_add_to_db(){
 
+	if(isset($_POST['detail_name'])){
+		if(!empty($_POST['detail_name'])){
+				$detail = $_POST['detail_name'];
+				$user = new User();
 
-
-
-
+				$user->add_user_detail_type($detail);
+				header("Location: /user/views/view_detail_types.php");
+				die();
+				//No need to check_detail_type_exists 
+				//$user->check_detail_type_exists($detail); is allready called into add_user_detail_type
+		}else{
+			echo "<h3>You cannot create a empty detail!<br /></h3>";
+			echo '<h3><a href="/user/views/view_detail_types.php">Go Back</a></h3>';
+			die();
+		}
+	}else{/*echo "NO POST";*/}
+} /*end_of_verify_and_add_to_db()*/
 
 
 function print_user_details_table($user_details_array){
@@ -33,7 +44,7 @@ function print_user_details_table($user_details_array){
 function print_add_new_user_detail_form(){
 
 	echo '
-			<form class="form" id="add_new_detail_form" action="detail_types_edit.php" method="post">
+			<form class="form" id="add_new_detail_form" action="../models/detail_types_edit.php" method="post">
 				<label>Add Detail Type</label><br />
 					<input name="detail_name"  type="text"  placeholder="new detail type"> <br />
 					<br />
