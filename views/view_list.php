@@ -44,7 +44,7 @@ require_once('../models/mapping_list.php');
 
 		generate_groups_table_html();
 		//Include the mapping table into list display;
-		generate_mapping_table();
+		generate_mapping_table_html();
 		//Include users_by_group table into list display;
 
 		
