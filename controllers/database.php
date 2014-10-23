@@ -95,13 +95,15 @@ function print_latest_work_list(){
                     <li><h6><spanred>50% of the FIX the responsiveness of the website...</spanred></h6></li>
                     <li><h6><spanred>View User Detail Types Page and Functionality</spanred></h6></li>
                     <li><h4><spanred>FIX TABLE VIEW USERS RESP. BUTTONS to Glyphs</spanred></h4></li>
+                    
             </ol>
             <ol>
                     <hr>
                		<h5>23 oct: From 17PM</h5>
                		<hr>
                		<li><h5><spanyel>Fixed view_detail_types.php RESPONSIVNESSS </spanyel></h5></li>
-
+                    <li><h4><spanred>CRITICAL : REMOVE user_details entries for the user when deleting a user</spanred></h4></li>
+                    <li><h4><spanred>CRITICAL2 : REMOVE user_details entries deleting a DETAIL TYPE </spanred></h4></li>
 
                     
             </ol>
@@ -111,7 +113,7 @@ function print_latest_work_list(){
 function print_to_do_list(){
     echo'
                 <ol>
-                    <li><h4><spanred>CRITICAL : REMOVE user_details entries for the user when deleting a user ! </spanred></h4></li>
+                    
                     <li><h6><spanred>THE REST of the FIX the responsiveness of the website...</spanred></h6></li>
                     <li><h6><spanyel>Remove assign.php & related stuff (mapping is now done on user edit) </spanred></h6></li>
                     <li><h6><spanred>View User Detail Types Page and Functionality</spanred></h6></li>
