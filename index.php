@@ -9,7 +9,7 @@ require_once 'controllers/database.php';
 	<title>UserLearning Pbc Project</title>
 	<?php include_page_header_content();?>
 </head>
-
+ 
 <body>
 	<div class="container">
 			<div class="row"><?php print_sitewide_menu();?></div>

@@ -410,6 +410,22 @@ abstract class Crud {
 			return $row['detail'];
 		}
 	}
+
+	function delete_user_details_for_this_user($user_id){
+		$statement = $this->db->prepare("DELETE FROM user_groups.user_details WHERE user_details.user_id = ? ");
+		$statement->bindParam(1,$user_id);
+		$statement->execute();
+		print_r($statement);
+		return $statement;
+	}
+
+	function delete_user_details_for_deleted_type($deleted_type){
+		$statement = $this->db->prepare("DELETE FROM user_groups.user_details WHERE user_details.detail_type = ? ");
+		$statement->bindParam(1,$deleted_type);
+		$statement->execute();
+		print_r($statement);
+		return $statement;
+	}
 	/* END OF USER_DETAILS TABLE FUNCTIONS */
 
 

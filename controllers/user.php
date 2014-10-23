@@ -76,7 +76,6 @@ class User extends Crud {
 		return parent::delete_mapping($id,$type);
 	}
 
-
 	function add_dynamic_user_detail_form_inputs(){
 		$detail_types = parent::get_all_user_detail_types();
 		foreach ($detail_types as $detail_type) {
