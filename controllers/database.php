@@ -100,7 +100,7 @@ function print_latest_work_list(){
                     <hr>
                		<h5>23 oct: From 17PM</h5>
                		<hr>
-               		<li></li>
+               		<li><h5><spanyel>Fixed view_detail_types.php RESPONSIVNESSS </spanyel></h5></li>
 
 
                     
@@ -113,14 +113,24 @@ function print_to_do_list(){
                 <ol>
                     <li><h4><spanred>CRITICAL : REMOVE user_details entries for the user when deleting a user ! </spanred></h4></li>
                     <li><h6><spanred>THE REST of the FIX the responsiveness of the website...</spanred></h6></li>
-                    <li><h5><spanyel>view_detail_types.php RESPONSIVNESSS </spanyel></h5></li>
+                    <li><h6><spanyel>Remove assign.php & related stuff (mapping is now done on user edit) </spanred></h6></li>
                     <li><h6><spanred>View User Detail Types Page and Functionality</spanred></h6></li>
                     <li><h6><spanyel>When creating a new user , save the user\'s account CREATION TIME. (into new table... LOG ?)</spanyel></h6></li>
-                    <li><h6><spanyel>AJAX / Jquery @ editing user </spanyel></h6></li>
+                    <li><h5><spanred>AJAX / Jquery @ editing user </spanred></h5></li>
                     <li><h6><spanyel>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</spanyel></h6>  </li>
                     <li><h6><spangre>Print "last created user";</spangre></h6></li>
-                    <li><h6><spanyel>Print User with most details entered</spanyel></h6></li>
+                    <li><h6><spangre>Print User with most details entered</spangre></h6></li>
+                
+
+                </ol>    
+                <!--
+                    RED :
                     <li><h6><spanred></spanred></h6></li>
-                </ol>
+                    YELLOW :
+                    <li><h6><spanyel></spanyel></h6></li>
+                    GREEN :
+                    <li><h6><spangre></spangre></h6></li>
+                -->                  
+                
     ';
 }

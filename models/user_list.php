@@ -19,7 +19,7 @@ function generate_users_table_header(){
 		echo "<h3>ALL USERS : </h3>";
 		echo '<table class="table table-bordered" id="users_table">';
 		echo '<th class="danger">ID</th>';
-		echo '<th class="danger">Username</th>';
+		echo '<th class="danger">User Name</th>';
 		echo '<th class="danger">Groups of Belonging</th>';
 		echo '<th class="danger">View</th>';
 		echo '<th class="danger">Edit</th>';

@@ -65,7 +65,7 @@ function generate_groups_users_table_content(){
 		{
 			$userids_array = $user->get_userids_for_a_group($group['id']);	
 			echo '<th class="info">'.$group["name"].'\'s</th>';
-			echo '<th class="info">corresponding id</th>';
+			echo '<th class="info">User ID</th>';
 								foreach ($userids_array as $key => $value) {
 									echo "<tr>";
 											print_r("<td>".$user->get_name_by_id($value)."</td>");
