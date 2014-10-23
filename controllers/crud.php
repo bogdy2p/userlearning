@@ -13,6 +13,18 @@ abstract class Crud {
 		$this->obj = $obj;
 	}
 
+
+	/**
+		*********************************************************************
+		*********************************************************************
+		********************** GENERAL TABLE FUNCTIONS **********************
+		********************* ? APPLY TO EVERY TABLE ?  *********************
+		*********************************************************************
+		*********************************************************************
+	*/
+
+
+
 	/// Add an empty row to the database specified table (only with the id of the object)
 	function create($array,$table){
 		if(isset($array['id']) && ($array['id'] != 0)){
@@ -83,23 +95,7 @@ abstract class Crud {
 	 	}
 	 }
 
-	 //Return type : BOOLEAN or DIE(error);
-	function verify_existence($uid, $name){
-		if(!empty($uid) && !empty($name)){
-			$st = $this->db->prepare("select * from users where id=? and name=?");
-			$st->bindParam(1, $uid);
-			$st->bindParam(2, $name);
-			$st->execute();
-			if($st->rowCount() >= 1){
-				return true;
-			}else{
-				return false;
-			}
-		}else{
-			die("ERR : userid and/or password empty");
-		}
-	}
-	//Function takes parameters : id of the object , name of the table.
+	 //Function takes parameters : id of the object , name of the table.
 	//Function that returns true if there already is an object with that id in the table , or false.
 	function verify_object_exists($object_id,$table_name){
 		if(!empty($object_id) && !empty($table_name)){
@@ -115,6 +111,7 @@ abstract class Crud {
 			echo("Parameters error | @verify_object_exists <br />");
 		}
 	}
+
 	//Verify that a name exists in the name column of each table.
 	function verify_name_exists_in_table($name,$table_name){
 		$statement = $this->db->prepare("SELECT name FROM ". $table_name . " WHERE name=?");
@@ -145,6 +142,62 @@ abstract class Crud {
 		$statement->execute();
 		return $statement;
 	}
+
+	function get_name_by_id($id,$table_name){
+		$statement = $this->db->prepare("SELECT name FROM ".$table_name. " WHERE id=?");
+		$statement->bindParam(1,$id);
+		$statement->execute();
+		foreach ($statement as $row) {
+			return $row['name'];
+		}
+	}
+	/* END OF GENERAL TABLE FUNCTIONS */
+
+
+
+
+
+	 /**
+		*********************************************************************
+		*********************************************************************
+		*********************** USERS TABLE FUNCTIONS ***********************
+		********************** Related to USERS table ***********************
+		*********************************************************************
+		*********************************************************************
+	*/
+
+
+	function verify_existence($uid, $name){
+		if(!empty($uid) && !empty($name)){
+			$st = $this->db->prepare("select * from users where id=? and name=?");
+			$st->bindParam(1, $uid);
+			$st->bindParam(2, $name);
+			$st->execute();
+			if($st->rowCount() >= 1){
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			die("ERR : userid and/or password empty");
+		}
+	}
+	
+	/* END OF USERS TABLE FUNCTIONS */
+
+
+
+
+
+	/**
+		*********************************************************************
+		*********************************************************************
+		********************* MAPPING TABLE FUNCTIONS ***********************
+		******************* Related to USERGROUPS table *********************
+		*********************************************************************
+		*********************************************************************
+	*/
+
 
 	function assign_user_to_group($user_id,$group_id){
 		$mapping_exists = Crud::verify_existing_mapping($user_id,$group_id);
@@ -182,14 +235,7 @@ abstract class Crud {
 		return $statement;
 	}
 
-	function get_name_by_id($id,$table_name){
-		$statement = $this->db->prepare("SELECT name FROM ".$table_name. " WHERE id=?");
-		$statement->bindParam(1,$id);
-		$statement->execute();
-		foreach ($statement as $row) {
-			return $row['name'];
-		}
-	}
+	
 
 	function delete_mapping($id,$type){
 		$statement = $this->db->prepare("DELETE FROM usergroups WHERE {$type} = ?");
@@ -238,6 +284,30 @@ abstract class Crud {
 		return $users_array;
 	}
 
+	function delete_all_mapping_for_user($user_id){
+			$statement = $this->db->prepare("DELETE FROM user_groups.usergroups WHERE usergroups.user_id = ?");
+			$statement->bindParam(1,$user_id);
+			$statement->execute();
+			return $statement;
+		}
+
+	/* END OF MAPPING TABLE FUNCTIONS */
+
+
+
+
+
+	/**
+		*********************************************************************
+		*********************************************************************
+		******************* USER_DETAILS TABLE FUNCTIONS ********************
+		****************** Related to USER_DETAILS table ********************
+		*********************************************************************
+		*********************************************************************
+	*/
+
+
+
 	function check_detail_exists($user_id,$detail){
 		$statement = $this->db->prepare("SELECT id FROM user_details WHERE detail = ? AND user_id = ?");
 		$statement->bindParam(1,$detail);
@@ -261,11 +331,10 @@ abstract class Crud {
 		return $return;
 
 	}
+	
 	//This function should get 3 parameters : the user id , the detail type , and the detail value
-	//It should return a BOOLEAN value if there exists a detail value for the user id 
-	//, and if that row also has the specified detail type
+	//It should return a BOOLEAN value if there exists a detail value for the user id 	//, and if that row also has the specified detail type
 	// (this was problematic)
-	//
 	function check_detail_exists_of_type($user_id,$detail_type,$detail){
 		$exists = Crud::check_detail_exists($user_id,$detail);
 		if($exists){
@@ -338,7 +407,16 @@ abstract class Crud {
 			return $row['detail'];
 		}
 	}
+	/* END OF USER_DETAILS TABLE FUNCTIONS */
 
+
+	/**
+		*********************************************************************
+		*********************************************************************
+		***************** USER_DETAIL_TYPES TABLE FUNCTIONS *****************
+		**************** Related to USER_DETAIL_TYPES table *****************
+		*********************************************************************
+	*/
 	function get_all_user_detail_types() {
 		$statement = $this->db->prepare("SELECT * FROM user_detail_types");
 		$statement->execute();
@@ -392,10 +470,19 @@ abstract class Crud {
 			return $statement;
 		}
 	}
+	/* END OF USER_DETAIL_TYPES TABLE FUNCTIONS */
+
+
+
+
+
 
 
 	/**
 		*********************************************************************
+		*********************************************************************
+		********************** GROUPS TABLE FUNCTIONS **********************
+		********************* Related to GROUPS table ***********************
 		*********************************************************************
 	*/
 		function get_all_groups_in_db() {
@@ -413,13 +500,7 @@ abstract class Crud {
 		return $group_ids_array;
 		}
 
-		function delete_all_mapping_for_user($user_id){
-			$statement = $this->db->prepare("DELETE FROM user_groups.usergroups WHERE usergroups.user_id = ?");
-			$statement->bindParam(1,$user_id);
-			$statement->execute();
-			return $statement;
-		}
-
+		
 		function get_groupid_by_groupname($groupname){
 			$statement = $this->db->prepare("SELECT id FROM groups WHERE name = ?");
 			$statement->bindParam(1,$groupname);
@@ -428,6 +509,8 @@ abstract class Crud {
 				return $row['id'];
 			}
 		}
+
+	/* END OF GROUPS TABLE FUNCTIONS */	
 }
 ?>
 
