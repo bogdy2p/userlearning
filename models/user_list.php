@@ -8,23 +8,30 @@ require_once('../controllers/group.php');
 
 <?php 
 
+function generate_users_table_html(){
+	generate_users_table_header();
+	generate_users_table_content();
+    generate_users_table_footer();
+}
 
-function generate_users_table(){
-	$user = new User();
-	$group = new Group();
+// MUST SIMPLIFY THIS BY BREAKING THIS IN 2 DIFERENT FUNCTIONS
+function generate_users_table_header(){
 		echo '<div class="col-xs-12 col-md-12">';
 		echo "<h3>ALL USERS : </h3>";
+		echo '<table class="table table-bordered">';
+		echo '<th class="danger">ID</th>';
+		echo '<th class="danger">Username</th>';
+		echo '<th class="danger">Password</th>';
+		echo '<th class="danger">Groups of Belonging</th>';
+		echo '<th class="danger">View User</th>';
+		echo '<th class="danger">Edit User</th>';
+		echo '<th class="danger">Delete User</th>';
+}
+function generate_users_table_content(){
+	$user = new User();
+	$group = new Group();
 	$users = $user->list_users();
-/////////////////////DISPLAY USERS TABLE AND EDIT / DELETE NEAR IT/////////////////////
-					echo '<table class="table table-bordered">';
-					echo '<th class="danger">ID</th>';
-					echo '<th class="danger">Username</th>';
-					echo '<th class="danger">Password</th>';
-					echo '<th class="danger">Groups of Belonging</th>';
-					echo '<th class="danger">View User</th>';
-					echo '<th class="danger">Edit User</th>';
-					echo '<th class="danger">Delete User</th>';
-		foreach ($users as $individual_user) {
+	foreach ($users as $individual_user) {
 					$type = 'users';
 					$userid = $individual_user['id'];
 					$groups_array = $user->get_number_of_groups_for_a_user($userid);
@@ -37,11 +44,13 @@ function generate_users_table(){
                      echo "<td><a class=\"btn btn-primary\" href=\"../views/edit_user.php?id={$individual_user['id']}&type={$type}\">Edit</td>";
                      echo "<td><a class=\"btn btn-danger\" href=\"../models/delete.php/?id={$individual_user['id']}&type={$type}\">Delete</td>";
                      echo '</tr>';
-           }
-           			echo '</table>';
-echo "</div>";
-
+    }
 }
+function generate_users_table_footer(){
+	echo '</table></div>';
+}
+
+
 
 
 

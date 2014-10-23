@@ -19,10 +19,27 @@ require_once('../models/mapping_list.php');
 	<div class ="container">
 		<div class="row"><?php print_sitewide_menu(); ?></div>
 
+
+
+      <div>
+      	
+      <?php 
+      		//$user = new User();
+      		//$group = new Group();
+      		//$users = $user->list_users();
+      		//generate_users_table_header();
+
+      ?>
+
+      </div>
+
+
 	<?php 
 
+
+
 		//Include the users table into list display;
-		generate_users_table();
+		generate_users_table_html();
 		//Include the groups table into list display;
 
 		generate_groups_table();
