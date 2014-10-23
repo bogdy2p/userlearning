@@ -34,7 +34,7 @@ require_once '../models/detail_types_edit.php';
 				<div class="row"></div>
 				<div class="row"> <!--Row split in 2 equal columns-->
 						
-						<div class="col-xs-6 col-md-6">
+						<div class="col-xs-7 col-md-7">
 							
 							<?php 
 								$user = new User();
@@ -46,11 +46,11 @@ require_once '../models/detail_types_edit.php';
 							?>
 						</div>
 
-						<div class="col-xs-6 col-md-6"></div>
+						<div class="col-xs-5 col-md-5"></div>
 				</div>
 
-				<div class="row"><br/><br/>1.Grab a list with all the detail types from the database. Print them in a table.</div>
-				<div class="row"><br/><br/><h3>echo the list as a table here</h3></div>
+				<!-- <div class="row"><br/><br/>1.Grab a list with all the detail types from the database. Print them in a table.</div> -->
+				<!-- <div class="row"><br/><br/><h3>echo the list as a table here</h3></div> -->
 				<div class="row"></div>
 				<div class="row"></div>
 
@@ -59,8 +59,24 @@ require_once '../models/detail_types_edit.php';
 
 
 			</div>
-			<div class="col-xs-4 col-md-4">2.Print a edit & delete button near each detail type in the table.</div>
-			<div class="col-xs-4 col-md-4">3.Print a form to add a new detail type into the db.</div>
+			<div class="col-xs-4 col-md-4">
+
+				<div class="row">2.Print a edit & delete button near <br />each detail type in the table.</div>
+				<div class="row"></div>
+
+			</div>
+
+			<div class="col-xs-4 col-md-4">
+				
+				<div class="row">
+					
+						<?php 
+							print_add_new_user_detail_form();
+						?>
+
+				</div>
+
+			</div>
 
 		</div>
 
