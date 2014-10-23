@@ -92,7 +92,8 @@ function print_latest_work_list(){
                     <li><h4><spangre> Reorganized CRUD</spangre></h4></li>
                     <li><h4><spanred>50% of the FIX the responsiveness of the website...</spanred></h4></li>
                     <li><h4><spanred>View User Detail Types Page and Functionality</spanred></h4></li>
-                    <li><h4><spanyel> </spanyel></h4></li>
+                    <li><h3><spanred>FIX TABLE VIEW USERS RESP. BUTTONS to Glyphs</spanred></h3></li>
+                    
             </ol>
     ';
 }
@@ -100,7 +101,7 @@ function print_latest_work_list(){
 function print_to_do_list(){
     echo'
                 <ol>
-                    <li><h3><spanred>FIX TABLE VIEW USERS RESP. BUTTONS to Glyphs</spanred></h3></li>
+                    <li><h2><spanred>CRITICAL : REMOVE user_details entries for the user when deleting a user ! </spanred></h2></li>
                     <li><h5><spanred>THE REST of the FIX the responsiveness of the website...</spanred></h5></li>
                     <li><h5><spanred>View User Detail Types Page and Functionality</spanred></h5></li>
                     <li><h5><spanyel>When creating a new user , save the user\'s account CREATION TIME. (into new table... LOG ?)</spanyel></h5></li>
@@ -108,6 +109,7 @@ function print_to_do_list(){
                     <li><h5><spanyel>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</spanyel></h5>  </li>
                     <li><h5><spangre>Print "last created user";</spangre></h5></li>
                     <li><h5><spanyel>Print User with most details entered</spanyel></h5></li>
+                    <li><h4><spanyel> </spanyel></h4></li>
                 </ol>
     ';
 }

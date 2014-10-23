@@ -52,6 +52,9 @@ abstract class Crud {
 								 }
 
 				echo "A new ". $table . " object ( ". $this->id ."  ) succesfully created. <br />";
+				//Crud::redirect('/user/views/view_list.php');
+				
+				//die();
 						}
 			else { die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table); 
 				 }
@@ -511,6 +514,22 @@ abstract class Crud {
 		}
 
 	/* END OF GROUPS TABLE FUNCTIONS */	
+
+	//SPECIAL REDIRECT FUNCTION
+
+	function redirect($url_string) {
+    if (!headers_sent())
+        header('Location: '.$url_string);
+    else {
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="'.$url_string.'";';
+        echo '</script>';
+        echo '<noscript>';
+        echo '<meta http-equiv="refresh" content="0;url='.$url_string.'" />';
+        echo '</noscript>';
+    }
+}
+
 }
 ?>
 

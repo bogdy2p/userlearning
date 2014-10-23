@@ -15,7 +15,7 @@ require_once('../controllers/group.php');
 
 <div class ="container">
 	<div class="row"><?php print_sitewide_menu();?></div>
-	
+
 	<div class="row">
 		<div class="col-xs-4 col-md-4"></div>
 		<div class="col-xs-4 col-md-4">
@@ -36,7 +36,6 @@ require_once('../controllers/group.php');
 
 		</div>
 		<div class="col-xs-4 col-md-4"></div>
-
 
 			<div class="row"></div>
 			<div class="row"></div>

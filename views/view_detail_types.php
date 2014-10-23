@@ -32,8 +32,9 @@ require_once '../models/detail_types_edit.php';
 				</div>
 			</div>
 			<div class="col-xs-4 col-md-4">
-				<div class="row">&nbsp;&nbsp;&nbsp;2.Print a edit & delete button near <br />&nbsp;&nbsp;&nbsp;each detail type in the table.</div>
-				<div class="row"></div>
+				<div class="row"><h4><spanred>&nbsp;&nbsp;&nbsp;1.WHEN REMOVING A TYPE , MAKE SURE <br />&nbsp;&nbsp;&nbsp;THAT ALL THE DATA OF THAT TYPE FOR &nbsp;&nbsp;&nbsp;EACH USER IS REMOVED</spanred></h4></div>
+				<div class="row"><h4>&nbsp;&nbsp;&nbsp;2.Print a edit & delete button near <br />&nbsp;&nbsp;&nbsp;each detail type in the table.</h4></div>
+				
 			</div>
 			<div class="col-xs-4 col-md-4">
 				<div class="row">

@@ -14,14 +14,14 @@ function generate_groups_table_html(){
 }
 
 function generate_groups_table_header(){
-	echo '<div class="col-xs-12 col-md-4">';
+	echo '<div class="col-xs-12 col-md-3">';
 	echo "<h3>ALL GROUPS :</h3>";
 	echo '<table class="table table-bordered">';
 	echo '<th class="success">Id</th>';
 	echo '<th class="success">Group Name</th>';
 	echo '<th class="success">Special Key</th>';
-	echo '<th class="success">Edit Group</th>';
-	echo '<th class="success">Delete Group</th>';
+	echo '<th class="success">Edit</th>';
+	echo '<th class="success">Delete</th>';
 }
 function generate_groups_table_content(){
 	$group = new Group();
@@ -32,8 +32,10 @@ function generate_groups_table_content(){
                 echo '<td class="warning">'. $individual_group['id'] . '</td>';
                 echo '<td>'. $individual_group['name'] . '</td>';
                 echo '<td>'. $individual_group['special_key'] . '</td>';
-                echo "<td><a class=\"btn btn-primary\" href=\"../views/edit_group.php?id={$individual_group['id']}&type={$type}\">Edit</td>";
-                echo "<td><a class=\"btn btn-danger\" href=\"../models/delete.php/?id={$individual_group['id']}&type={$type}\">Delete</td>";
+                //echo "<td><a class=\"btn btn-primary\" href=\"../views/edit_group.php?id={$individual_group['id']}&type={$type}\">Edit</td>";
+                //echo "<td><a class=\"btn btn-danger\" href=\"../models/delete.php/?id={$individual_group['id']}&type={$type}\">Delete</td>";
+                echo '<td><a href="../views/edit_group.php?id='.$individual_group["id"].'&type='.$type.'"><span class="glyphicon glyphicon-edit spangre"></td>';
+                echo '<td><a href="../models/delete.php/?id='.$individual_group["id"].'&type='.$type.'"><span class="glyphicon glyphicon-remove spanred"></span></td>';
                 echo '</tr>';
 		}
 }
