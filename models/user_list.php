@@ -20,7 +20,6 @@ function generate_users_table_header(){
 		echo '<table class="table table-bordered">';
 		echo '<th class="danger">ID</th>';
 		echo '<th class="danger">Username</th>';
-		//echo '<th class="danger">Password</th>';
 		echo '<th class="danger">Groups of Belonging</th>';
 		echo '<th class="danger">View User</th>';
 		echo '<th class="danger">Edit User</th>';
@@ -37,7 +36,6 @@ function generate_users_table_content(){
                      echo '<tr>';
                      echo '<td class="success">'. $individual_user['id'] . '</td>';
                      echo '<td>'. $individual_user['name'] . '</td>';
-                     //echo '<td>'. $individual_user['password'] . '</td>';
                      echo '<td>'.  implode(" / ",$groups_array) . '</td>';
                      echo "<td><a class=\"btn btn-success\" href=\"../views/view_user.php?id={$individual_user['id']}\">View</td>";
                      echo "<td><a class=\"btn btn-primary\" href=\"../views/edit_user.php?id={$individual_user['id']}&type={$type}\">Edit</td>";
@@ -48,11 +46,5 @@ function generate_users_table_content(){
 function generate_users_table_footer(){
 	echo '</table></div>';
 }
-
-
-
-
-
-
 
 ?>

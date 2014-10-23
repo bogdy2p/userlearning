@@ -71,9 +71,9 @@ function print_error_midscreen($error){
     $received_error = $error;
     echo '<br />';
     echo '<div class="row">';
-    echo '<div class="col-xs-4 col-md-4"></div>';
-    echo '<div class="col-xs-4 col-md-4">'.$received_error.'</div>';
-    echo '<div class="col-xs-4 col-md-4"></div>';
+    echo '<div class="col-xs-12 col-md-4"></div>';
+    echo '<div class="col-xs-12 col-md-4">'.$received_error.'</div>';
+    echo '<div class="col-xs-12 col-md-4"></div>';
     echo '</div>';
     }
 }
@@ -89,9 +89,9 @@ function print_latest_work_list(){
                     <li><h4><spanyel>Implemented print user_details_table & formatted</spanyel></h4></li>
                     <li><h4><spanred>Implemented Add New Detail Form & Functionality</spanred></h4></li>
                     <li><h4><spanred>Added options to delete and edit each detail type + Functionality </spanred></h4></li>
-
                     <li><h4><spangre> Reorganized CRUD</spangre></h4></li>
-                    <li><h4><spanyel> </spanyel></h4></li>
+                    <li><h4><spanred>50% of the FIX the responsiveness of the website...</spanred></h4></li>
+                    <li><h4><spanred>View User Detail Types Page and Functionality</spanred></h4></li>
                     <li><h4><spanyel> </spanyel></h4></li>
             </ol>
     ';
@@ -100,7 +100,8 @@ function print_latest_work_list(){
 function print_to_do_list(){
     echo'
                 <ol>
-                    <li><h5><spanred>FIX the responsiveness of the website...</spanred></h5></li>
+                    <li><h3><spanred>FIX TABLE VIEW USERS RESP. BUTTONS to Glyphs</spanred></h3></li>
+                    <li><h5><spanred>THE REST of the FIX the responsiveness of the website...</spanred></h5></li>
                     <li><h5><spanred>View User Detail Types Page and Functionality</spanred></h5></li>
                     <li><h5><spanyel>When creating a new user , save the user\'s account CREATION TIME. (into new table... LOG ?)</spanyel></h5></li>
                     <li><h5><spanyel>AJAX / Jquery @ editing user </spanyel></h5></li>

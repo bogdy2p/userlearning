@@ -12,7 +12,6 @@ require_once 'controllers/database.php';
 
 <body>
 	<div class="container">
-
 			<div class="row"><?php print_sitewide_menu();?></div>
 
 			<div class="row">
@@ -20,32 +19,29 @@ require_once 'controllers/database.php';
 	  			 <div class="col-xs-12 col-md-4 "><h1>Users-Groups Administration</h1></div>
 	  			 <div class="col-xs-12 col-md-4 "></div>
 	  		</div>
-
 			<div class="row">
-			<hr>
-				 <div class="col-xs-12 col-md-3 ">
+				<hr>
+				<div class="col-xs-12 col-md-3 ">
 				 	<h2>Latest Changes:</h2>
-				 </div>
-				 <div class="col-xs-12 col-md-7 ">
+				</div>
+				<div class="col-xs-12 col-md-7 ">
 				  	<?php print_latest_work_list();?>
-				 </div>
-				 <div class="col-xs-12 col-md-2 "></div>
-		  	
+				</div>
+				<div class="col-xs-12 col-md-2 "></div>
 		  	</div>
 		  	<div class="row">
-		  	<hr>
+		  		<hr>
 			  	<div class="col-xs-12 col-md-3">
 			  		<h2>To do (to change/add):</h2>
 			  	</div>
 
-			  	 <div class="col-xs-12 col-md-6">
+			  	<div class="col-xs-12 col-md-6">
 			  	 	<?php print_to_do_list();?>
 				</div>
 				<div class="col-xs-12 col-md-3">
 					///////// ////////// //////?DATABASE STATISTICS Block?/// / // ///// //////////////
 				</div>	
 		  	</div>
-
 		  	<div class="row">
 		  	<hr>
 		  		<div class="col-xs-12 col-md-2"><h1>Colours meaning</h1></div>
@@ -57,18 +53,7 @@ require_once 'controllers/database.php';
 		  			</ul>
 		  		</div>
 		  		<div class="col-xs-12 col-md-3"></div>
-		  		 
-
 		  	</div>
-
-
-		  	<br />
-					  	
-					  	
-				  	
-				  	
-				  	
-  
    </div>
    <?php include_page_footer_content(); ?>
 </body>

@@ -38,6 +38,7 @@
 <body>
 	<div class ="container">
 	<?php print_sitewide_menu();?>
+
 		
 
 			<form class="form" id="editgroup" action="edit_group.php?id=<?php echo $group_id;?>&type=groups" method="post">

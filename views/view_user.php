@@ -12,10 +12,10 @@ require_once('../controllers/group.php');
 </head>
 
 <body>
+
 <div class ="container">
 	<div class="row"><?php print_sitewide_menu();?></div>
-
-
+	
 	<div class="row">
 		<div class="col-xs-4 col-md-4"></div>
 		<div class="col-xs-4 col-md-4">
