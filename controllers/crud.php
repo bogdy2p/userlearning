@@ -349,6 +349,16 @@ abstract class Crud {
 		return $detail_types_array;
 	}
 
+	function get_all_user_detail_types_full_tabledata() {
+		$statement = $this->db->prepare("SELECT * FROM user_detail_types");
+		$statement->execute();
+		$detail_types_array = array();
+		foreach ($statement as $row) {
+			$detail_types_array[] = $row;
+		}
+		return $detail_types_array;
+	}
+
 	function check_detail_type_exists($user_detail_type) {
 		$statement = $this->db->prepare("SELECT id FROM user_detail_types WHERE name = ?");
 		$statement->bindParam(1,$user_detail_type);

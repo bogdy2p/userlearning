@@ -21,18 +21,12 @@ echo "Included EDIT DETAIL TYPES <br />";
 
 function print_user_details_table($user_details_array){
 	echo '<table class="table table-bordered">';
-
-		echo '<th> Detail ID</th>';
-		echo '<th> Detail Name</th>';
-
-		//Foreach detail , do :
+	echo '<th> Current User Details</th>';	
+	foreach ($user_details_array as $key => $value) {
 		echo '<tr>';
-		echo '<td>';
-		echo '</td>';
-		echo '<td>';
-		echo '</td>';
+		echo '<td>'.$value.'</td>';
 		echo '</tr>';
-
+	}
 	echo '</table>';
 }
 
