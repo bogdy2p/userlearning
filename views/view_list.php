@@ -42,7 +42,7 @@ require_once('../models/mapping_list.php');
 		generate_users_table_html();
 		//Include the groups table into list display;
 
-		generate_groups_table();
+		generate_groups_table_html();
 		//Include the mapping table into list display;
 		generate_mapping_table();
 		//Include users_by_group table into list display;
@@ -52,7 +52,7 @@ require_once('../models/mapping_list.php');
 	?>
 
 		<div class="row">
-			<?php generate_groups_users_table(); ?>
+			<?php generate_groups_users_table_html(); ?>
 		</div>
 	</div>
 

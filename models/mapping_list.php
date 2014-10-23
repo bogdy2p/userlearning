@@ -13,7 +13,7 @@ function generate_mapping_table(){
 	$user = new User();
 	$group = new Group();
 		
-	echo '<div class="col-xs-6 col-md-6">';
+	echo '<div class="col-xs-12 col-md-6">';
 	echo "<h3>MAPPING TABLE :</h3>";
 
 $mapping_table = $user->get_mapping_table_data();

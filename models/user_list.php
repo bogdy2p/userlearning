@@ -16,7 +16,7 @@ function generate_users_table_html(){
 
 // MUST SIMPLIFY THIS BY BREAKING THIS IN 2 DIFERENT FUNCTIONS
 function generate_users_table_header(){
-		echo '<div class="col-xs-12 col-md-12">';
+		echo '<div class="col-xs-12 col-md-8">';
 		echo "<h3>ALL USERS : </h3>";
 		echo '<table class="table table-bordered">';
 		echo '<th class="danger">ID</th>';

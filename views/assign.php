@@ -16,9 +16,9 @@ require_once('../controllers/group.php');
 
 	<div class="row">
 
-			<div class="col-xs-4 col-md-4"></div>
-			<div class="col-xs-4 col-md-4"><h3>Assign a user to a group</h3></div>
-			<div class="col-xs-4 col-md-4"></div>
+			<div class="col-xs-12 col-md-4"></div>
+			<div class="col-xs-12 col-md-4"><h3>Assign a user to a group</h3></div>
+			<div class="col-xs-12 col-md-4"></div>
 			
 	</div>		
 
@@ -26,7 +26,7 @@ require_once('../controllers/group.php');
 		<div class="col-xs-12 col-md-12">
 		
 			<form class="form" id="assign" action="assign.php" method="post"><br /><br />
-				<div class="col-xs-4 col-md-4">
+				<div class="col-xs-12 col-md-4">
 							<select name="user" id="user" form="assign">
 										<option selected="null" value="0">Choose user</option>
 										 <?php 
@@ -40,7 +40,7 @@ require_once('../controllers/group.php');
 							</select>
 				</div>
 
-				<div class="col-xs-4 col-md-4">
+				<div class="col-xs-12 col-md-4">
 							<select name="group" id="group" form="assign">
 										<option selected="0" value="0">Choose group</option>
 										 <?php 
@@ -52,7 +52,7 @@ require_once('../controllers/group.php');
 										 ?>
 							</select>
 				</div>
-				<div class="col-xs-4 col-md-4">
+				<div class="col-xs-12 col-md-4">
 							<button type="submit" class="button">Assign User To Group</button>
 					
 				</div>	
