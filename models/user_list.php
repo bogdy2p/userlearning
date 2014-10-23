@@ -17,13 +17,13 @@ function generate_users_table_html(){
 function generate_users_table_header(){
 		echo '<div class="col-xs-12 col-md-5">';
 		echo "<h3>ALL USERS : </h3>";
-		echo '<table class="table table-bordered">';
+		echo '<table class="table table-bordered" id="users_table">';
 		echo '<th class="danger">ID</th>';
 		echo '<th class="danger">Username</th>';
 		echo '<th class="danger">Groups of Belonging</th>';
-		echo '<th class="danger">View User</th>';
-		echo '<th class="danger">Edit User</th>';
-		echo '<th class="danger">Delete User</th>';
+		echo '<th class="danger">View</th>';
+		echo '<th class="danger">Edit</th>';
+		echo '<th class="danger">Delete</th>';
 }
 function generate_users_table_content(){
 	$user = new User();
