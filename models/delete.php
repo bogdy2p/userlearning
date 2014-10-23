@@ -6,6 +6,8 @@ require_once('../controllers/group.php');
 
 
 $id_to_delete = $_GET['id'];
+$name = $id_to_delete;
+echo $name;
 $type_of_object = $_GET['type'];
 
 if ($type_of_object == 'users'){
@@ -30,7 +32,9 @@ if ($type_of_object == 'users'){
 	die();
 
 } elseif ($type_of_object == 'detail'){
-	header("Location: http://www.reea.net");
+	$user = new User();
+	$user->delete_detail_type($name);
+	header("Location: /user/views/view_detail_types.php");
 	die();
 
 }else {

@@ -382,6 +382,17 @@ abstract class Crud {
 		}
 	}
 
+	function delete_detail_type($user_detail_type) {
+		$detail_type_exists = Crud::check_detail_type_exists($user_detail_type);
+		if($detail_type_exists){
+			$statement = $this->db->prepare("DELETE FROM user_groups.user_detail_types WHERE user_detail_types.name = ?");
+			$statement->bindParam(1,$user_detail_type);
+			$statement->execute();
+			print_r($statement);
+			return $statement;
+		}
+	}
+
 
 	/**
 		*********************************************************************
