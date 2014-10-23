@@ -13,7 +13,7 @@ require_once('../controllers/group.php');
 
 <body>
 <div class ="container">
-<?php print_sitewide_menu();?>
+	<div class="row"><?php print_sitewide_menu();?></div>
 
 
 	<div class="row">

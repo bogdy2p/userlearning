@@ -26,17 +26,18 @@ require_once 'controllers/database.php';
 			 <div class="col-xs-3 col-md-3">
 			 		<h2>Latest Changes:</h2>
 			 </div>
-			 <div class="col-xs-6 col-md-6">
+			 <div class="col-xs-7 col-md-7">
 			  	
 
 			  	<ol>
-			  	<li><h4><spanred>Added Map Groups to user by "checkbox..." [DONE]</spanred></h4></li>
-			  	<li><h4><spanora>Fixed adding groups by checkbox without changing the user's password</spanora></h4></li>
-			  	<li>?</li>
+			  	<li><h4><spanred>Added Map Groups to user by "checkbox..."</spanred></h4></li>
+			  	<li><h4><spanora>Fixed map groups by checkbox without changing the user password</spanora></h4></li>
+			  	<li><h4><spanyel>Fixed the bootstrap javascript including (wasn't working)</spanyel></h4></li>
+			  	<li><h4><spanora>Removed the old menu ,added a responsive navigation menu </spanora></h4></li>
 			  	</ol>
 			 	
 			 </div>
-			 <div class="col-xs-3 col-md-3"></div>
+			 <div class="col-xs-2 col-md-2"></div>
 	  	
 	  	</div>
 	  	<div class="row">
@@ -47,6 +48,7 @@ require_once 'controllers/database.php';
 
 		  	 <div class="col-xs-6 col-md-6">
 		  		<ol>
+		  		<li><h5><spanora>Find out what is wrong with the page template (the menu has different width across some pages)</spanora></h5></li>
 		  		<li><h5><spanred>FIX the responsiveness of the website...</spanred></h5></li>
 		  		<li><h5><spanred>View User Detail Types Page and Functionality</spanred></h5></li>
 		  		<li><h5><spanyel>When creating a new user , save the user's account CREATION TIME. (into new table... LOG ?)</spanyel></h5></li>
