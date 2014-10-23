@@ -3,7 +3,7 @@
 class Database{
 
     public function dbConnect(){
-        return new PDO("mysql:host=localhost;dbname=user_groups",'root','123456');
+        return new PDO("mysql:host=localhost;dbname=user_groups",'root','romania2007');
     }
 }
 
@@ -80,19 +80,29 @@ function print_error_midscreen($error){
 
 
 function print_latest_work_list(){
-    echo '  <ol>
-                    <li><h4><spanred>Added Map Groups to user by "checkbox..."</spanred></h4></li>
-                    <li><h4><spanyel>Fixed map groups by checkbox without changing the user password</spanyel></h4></li>
-                    <li><h4><spanyel>Fixed the bootstrap javascript including (wasn\'t working)</spanyel></h4></li>
-                    <li><h4><spanyel>Removed the old menu ,added a responsive navigation menu </spanyel></h4></li>
-                    <li><h4><spangre>Fixed the site template (The menu and the content have now the same width across all pages)</spangre></h4></li>
-                    <li><h4><spanyel>Implemented print user_details_table & formatted</spanyel></h4></li>
-                    <li><h4><spanred>Implemented Add New Detail Form & Functionality</spanred></h4></li>
-                    <li><h4><spanred>Added options to delete and edit each detail type + Functionality </spanred></h4></li>
-                    <li><h4><spangre> Reorganized CRUD</spangre></h4></li>
-                    <li><h4><spanred>50% of the FIX the responsiveness of the website...</spanred></h4></li>
-                    <li><h4><spanred>View User Detail Types Page and Functionality</spanred></h4></li>
-                    <li><h3><spanred>FIX TABLE VIEW USERS RESP. BUTTONS to Glyphs</spanred></h3></li>
+    echo '  <ol>	<hr>
+    				<h5>23 oct: 08AM to 17PM</h5>
+    				<hr>
+                    <li><h6><spanred>Added Map Groups to user by "checkbox..."</spanred></h6></li>
+                    <li><h6><spanyel>Fixed map groups by checkbox without changing the user password</spanyel></h6></li>
+                    <li><h6><spanyel>Fixed the bootstrap javascript including (wasn\'t working)</spanyel></h6></li>
+                    <li><h6><spanyel>Removed the old menu ,added a responsive navigation menu </spanyel></h6></li>
+                    <li><h6><spangre>Fixed the site template (The menu and the content have now the same width across all pages)</spangre></h6></li>
+                    <li><h6><spanyel>Implemented print user_details_table & formatted</spanyel></h6></li>
+                    <li><h6><spanred>Implemented Add New Detail Form & Functionality</spanred></h6></li>
+                    <li><h6><spanred>Added options to delete and edit each detail type + Functionality </spanred></h6></li>
+                    <li><h6><spangre> Reorganized CRUD</spangre></h6></li>
+                    <li><h6><spanred>50% of the FIX the responsiveness of the website...</spanred></h6></li>
+                    <li><h6><spanred>View User Detail Types Page and Functionality</spanred></h6></li>
+                    <li><h4><spanred>FIX TABLE VIEW USERS RESP. BUTTONS to Glyphs</spanred></h4></li>
+            </ol>
+            <ol>
+                    <hr>
+               		<h5>23 oct: From 17PM</h5>
+               		<hr>
+               		<li></li>
+
+
                     
             </ol>
     ';
@@ -101,16 +111,16 @@ function print_latest_work_list(){
 function print_to_do_list(){
     echo'
                 <ol>
-                    <li><h2><spanred>CRITICAL : REMOVE user_details entries for the user when deleting a user ! </spanred></h2></li>
-                    <li><h5><spanred>THE REST of the FIX the responsiveness of the website...</spanred></h5></li>
-                    <li><h3><spanyel>view_detail_types.php RESPONSIVNESSS </spanyel></h3></li>
-                    <li><h5><spanred>View User Detail Types Page and Functionality</spanred></h5></li>
-                    <li><h5><spanyel>When creating a new user , save the user\'s account CREATION TIME. (into new table... LOG ?)</spanyel></h5></li>
-                    <li><h5><spanyel>AJAX / Jquery @ editing user </spanyel></h5></li>
-                    <li><h5><spanyel>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</spanyel></h5>  </li>
-                    <li><h5><spangre>Print "last created user";</spangre></h5></li>
-                    <li><h5><spanyel>Print User with most details entered</spanyel></h5></li>
-                    <li><h4><spanred></spanred></h4></li>
+                    <li><h4><spanred>CRITICAL : REMOVE user_details entries for the user when deleting a user ! </spanred></h4></li>
+                    <li><h6><spanred>THE REST of the FIX the responsiveness of the website...</spanred></h6></li>
+                    <li><h5><spanyel>view_detail_types.php RESPONSIVNESSS </spanyel></h5></li>
+                    <li><h6><spanred>View User Detail Types Page and Functionality</spanred></h6></li>
+                    <li><h6><spanyel>When creating a new user , save the user\'s account CREATION TIME. (into new table... LOG ?)</spanyel></h6></li>
+                    <li><h6><spanyel>AJAX / Jquery @ editing user </spanyel></h6></li>
+                    <li><h6><spanyel>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</spanyel></h6>  </li>
+                    <li><h6><spangre>Print "last created user";</spangre></h6></li>
+                    <li><h6><spanyel>Print User with most details entered</spanyel></h6></li>
+                    <li><h6><spanred></spanred></h6></li>
                 </ol>
     ';
 }
