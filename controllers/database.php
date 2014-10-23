@@ -104,7 +104,7 @@ function print_latest_work_list(){
                		<li><h5><spanyel>Fixed view_detail_types.php RESPONSIVNESSS </spanyel></h5></li>
                     <li><h4><spanred>CRITICAL : REMOVE user_details entries for the user when deleting a user</spanred></h4></li>
                     <li><h4><spanred>CRITICAL2 : REMOVE user_details entries deleting a DETAIL TYPE </spanred></h4></li>
-
+                    <li><h6><spanyel>Remove assign.php & related stuff (mapping is now done on user edit) </spanred></h6></li>
                     
             </ol>
     ';
@@ -115,8 +115,9 @@ function print_to_do_list(){
                 <ol>
                     
                     <li><h6><spanred>THE REST of the FIX the responsiveness of the website...</spanred></h6></li>
-                    <li><h6><spanyel>Remove assign.php & related stuff (mapping is now done on user edit) </spanred></h6></li>
+                    <li><h5><spanred><b>Jquery CHECK USERNAME exists already (when creating a new user) in the database. (front-end validation)</b></spanred></h5></li>
                     <li><h6><spanred>View User Detail Types Page and Functionality</spanred></h6></li>
+                    <li><h5><spanyel>@ create_group_view - display group entries from groups table for the user to see what groups already exist</spanyel></h5></li>
                     <li><h6><spanyel>When creating a new user , save the user\'s account CREATION TIME. (into new table... LOG ?)</spanyel></h6></li>
                     <li><h5><spanred>AJAX / Jquery @ editing user </spanred></h5></li>
                     <li><h6><spanyel>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</spanyel></h6>  </li>
@@ -135,6 +136,8 @@ function print_to_do_list(){
                     <li><h6><spanyel></spanyel></h6></li>
                     GREEN :
                     <li><h6><spangre></spangre></h6></li>
+                    
+                    
                 -->                  
                 
     ';

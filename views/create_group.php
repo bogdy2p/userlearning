@@ -18,6 +18,7 @@
 					<div class="col-xs-4 col-md-4">
 
 						<br /><br />
+						<h4>LIST A GROUPS TABLE HERE FOR THE USER TO SEE WHAT GROUPS ALREADY EXIST </h4>
 						<form class="form" id="asd" action="create_group.php" method="post">
 
 							

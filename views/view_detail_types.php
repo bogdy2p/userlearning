@@ -22,7 +22,10 @@ require_once '../models/detail_types_edit.php';
 
 		<div class="row"> <!--THIRD ROW -->
 			<hr>
-			<div class="col-xs-12 col-md-4"> <!--FIRST COLUMN -->
+			<div class="col-xs-12 col-md-3"> <!--FIRST COLUMN -->
+				
+			</div> <!-- END FIRST COLUMN -->
+			<div class="col-xs-12 col-md-3"> <!--SECOND COLUMN -->
 				<div class="row">
 							<?php 
 								$user = new User();
@@ -30,17 +33,8 @@ require_once '../models/detail_types_edit.php';
 								print_user_details_table_html($detail_types_array); 
 							?>
 				</div>
-			</div> <!-- END FIRST COLUMN -->
-			<div class="col-xs-12 col-md-4"> <!--SECOND COLUMN -->
-					<div class="col-xs-12 col-md-1"></div>
-					<div class="col-xs-12 col-md-10">
-							<div class="row"><h4><spanred>&nbsp;&nbsp;&nbsp;1.WHEN REMOVING A TYPE , MAKE SURE <br />&nbsp;&nbsp;&nbsp;THAT ALL THE DATA OF THAT TYPE FOR &nbsp;&nbsp;&nbsp;EACH USER IS REMOVED</spanred></h4></div>
-							<div class="row"><h4>&nbsp;&nbsp;&nbsp;2.Print a edit & delete button near <br />&nbsp;&nbsp;&nbsp;each detail type in the table.</h4></div>
-					</div>
-					<div class="col-xs-12 col-md-1"></div>
-
 			</div> <!--END SECOND COLUMN -->
-			<div class="col-xs-12 col-md-4"> <!--THIRD COLUMN -->
+			<div class="col-xs-12 col-md-3"> <!--3rd COLUMN -->
 				<div class="row"> 
 						<div class="col-xs-3 col-md-1"></div>
 						<div class="col-xs-6 col-md-10">
@@ -49,9 +43,11 @@ require_once '../models/detail_types_edit.php';
 							?>
 						</div>
 						<div class="col-xs-3 col-md-1"></div>
-						
-				</div>
+				</div>	
 			</div> <!--END THIRD COLUMN -->
+			<div class="col-xs-12 col-md-3"> <!--4th COLUMN -->
+
+			</div> <!--END FOURTH COLUMN -->
 		</div><!--END THIRD ROW -->
 	</div>
  <?php include_page_footer_content(); ?>
