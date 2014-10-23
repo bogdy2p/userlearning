@@ -29,6 +29,10 @@ if ($type_of_object == 'users'){
 	header("Location: /user/views/view_list.php");
 	die();
 
+} elseif ($type_of_object == 'detail'){
+	header("Location: http://www.reea.net");
+	die();
+
 }else {
 	echo "Something went wrong while trying to delete.";
 	echo '<a href="/user"><h4 align="center">Go back.</h4></a>';

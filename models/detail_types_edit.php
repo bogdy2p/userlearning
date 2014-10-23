@@ -38,10 +38,10 @@ function print_user_details_table($user_details_array){
 	foreach ($user_details_array as $key => $value) {
 		echo '<tr>';
 		echo '<td>'.$value.'</td>';
-		echo '<td> <a href=""><span class="glyphicon glyphicon-edit"></span></a>  </td>';
-		echo '<td> <a href=""><span class="glyphicon glyphicon-remove spanred"></span></a> </td>';
+		echo '<td> <a href="../views/edit_detail_types.php?name='.$value.'"><span class="glyphicon glyphicon-edit"></span></a>  </td>';
+		echo '<td> <a href="../models/delete.php/?id='.$value.'&type=detail"><span class="glyphicon glyphicon-remove spanred"></span></a> </td>';
 		echo '</tr>';
-	
+	//\"../views/view_user.php?id={$individual_user['id']}\"
 	}
 	echo '</table>';
 }
