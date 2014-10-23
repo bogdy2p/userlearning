@@ -30,17 +30,14 @@ text-align: center;
 	color:red;
 }
 
-span {
-	color:green;
-}
-
-span2{
+spanblue{
 	color:blue;
 }
 
 spanred{
 	color:red;
 }
+
 spanyel{
 	/*color:yellow;*/
 	color:#f39c12;
@@ -50,6 +47,26 @@ spanora{
 	color:#e74c3c;
 }
 spangre{
+	color:#2ecc71;
+}
+
+.spanblue{
+	color:blue;
+}
+
+.spanred{
+	color:red;
+}
+
+.spanyel{
+	/*color:yellow;*/
+	color:#f39c12;
+
+}
+.spanora{
+	color:#e74c3c;
+}
+.spangre{
 	color:#2ecc71;
 }
 

@@ -34,19 +34,12 @@ require_once '../models/detail_types_edit.php';
 				<div class="row"></div>
 				<div class="row"> <!--Row split in 2 equal columns-->
 						
-						<div class="col-xs-7 col-md-7">
-							
 							<?php 
 								$user = new User();
 								$detail_types_array = $user->get_all_user_detail_types();
-								// echo "<pre>";
-								// var_dump($detail_types_array);
-								// echo "</pre>";
 								print_user_details_table($detail_types_array); 
 							?>
-						</div>
-
-						<div class="col-xs-5 col-md-5"></div>
+						
 				</div>
 
 				
@@ -60,7 +53,7 @@ require_once '../models/detail_types_edit.php';
 			</div>
 			<div class="col-xs-4 col-md-4">
 
-				<div class="row">2.Print a edit & delete button near <br />each detail type in the table.</div>
+				<div class="row">&nbsp;&nbsp;&nbsp;2.Print a edit & delete button near <br />&nbsp;&nbsp;&nbsp;each detail type in the table.</div>
 				<div class="row"></div>
 
 			</div>

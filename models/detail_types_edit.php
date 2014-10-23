@@ -32,11 +32,16 @@ function verify_and_add_to_db(){
 
 function print_user_details_table($user_details_array){
 	echo '<table class="table table-bordered">';
-	echo '<th> Current User Details Set</th>';	
+	echo '<th> Current User Details Set</th>';
+	echo '<th> Edit</th>';
+	echo '<th> Delete</th>';	
 	foreach ($user_details_array as $key => $value) {
 		echo '<tr>';
 		echo '<td>'.$value.'</td>';
+		echo '<td> <a href=""><span class="glyphicon glyphicon-edit"></span></a>  </td>';
+		echo '<td> <a href=""><span class="glyphicon glyphicon-remove spanred"></span></a> </td>';
 		echo '</tr>';
+	
 	}
 	echo '</table>';
 }
