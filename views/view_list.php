@@ -18,16 +18,24 @@ require_once('../models/mapping_list.php');
 			<div class="row"><?php print_sitewide_menu();?></div>
 	</div>
 	<div class ="container-fluid">
-	<?php 
-		//Include the users table into list display;
-		generate_users_table_html();
-		//Include the groups table into list display;
-		generate_groups_table_html();
-		//Include the mapping table into list display;
-		generate_mapping_table_html();
-		//Include users_by_group table into list display;
-		generate_groups_users_table_html();		
-	?>
+		<div class="row">
+				<?php 
+				//Include the users table into list display;
+				generate_users_table_html();
+				//Include the groups table into list display;
+				generate_groups_table_html();
+				?>
+		</div>
+		<div class="row">
+			<?php
+				//Include the mapping table into list display;
+				generate_mapping_table_html();
+				//Include users_by_group table into list display;
+				generate_groups_users_table_html();		
+			?>
+		</div>
+	
+	
 
 	</div>
 <?php include_page_footer_content(); ?>

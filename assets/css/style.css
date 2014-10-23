@@ -81,11 +81,6 @@ spangre{
 	margin-top: 5px;
 }
 
-.pbc_break th {
-    word-wrap: break-word;
-    padding: 3px;
-}
-
 #users_table th {
 	max-width: 50px;
 	word-wrap: break-word;

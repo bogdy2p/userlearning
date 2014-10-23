@@ -14,7 +14,7 @@ function generate_groups_table_html(){
 }
 
 function generate_groups_table_header(){
-	echo '<div class="col-xs-12 col-md-3">';
+	echo '<div class="col-xs-12 col-md-4">';
 	echo "<h3>ALL GROUPS :</h3>";
 	echo '<table class="table table-bordered">';
 	echo '<th class="success">Id</th>';
@@ -50,7 +50,7 @@ function generate_groups_users_table_html(){
 }
 
 function generate_groups_users_table_header(){
-	echo '<div class="col-xs-12 col-md-4">
+	echo '<div class="col-xs-12 col-md-3">
 			<h3>Users by group</h3>';
 	echo '<table class="table table-bordered" name="groups_users">';
 }
