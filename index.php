@@ -22,23 +22,68 @@ require_once 'controllers/database.php';
   		</div>
 
 		<div class="row">
-		<br /><br /><br /><br />
+		<hr>
 			 <div class="col-xs-3 col-md-3">
-			 		<h2>todo:</h2>
+			 		<h2>Latest Changes:</h2>
 			 </div>
 			 <div class="col-xs-6 col-md-6">
 			  	
-				  	<h3><span2>Groups by "checkbox... ? [FIXED]"</span2></h3>
-				  	<h4><span2>When creating a new user , save the user's account CREATION TIME. (into new table... LOG ?)</span2></h4>
-				  	<h5>AJAX / Jquery @ editing user </h5>
-				  	<h5>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</h5>	
-				  	<h5>Print "last created user";</h5>
-				  	<h5>Print User with most details entered</h5>
 
+			  	<ol>
+			  	<li><h4><spanred>Added Map Groups to user by "checkbox..." [DONE]</spanred></h4></li>
+			  	<li><h4><spanora>Fixed adding groups by checkbox without changing the user's password</spanora></h4></li>
+			  	<li>?</li>
+			  	</ol>
+			 	
 			 </div>
 			 <div class="col-xs-3 col-md-3"></div>
 	  	
 	  	</div>
+	  	<div class="row">
+	  	<hr>
+		  	<div class="col-xs-3 col-md-3">
+		  		<h2>To do (to change/add):</h2>
+		  	</div>
+
+		  	 <div class="col-xs-6 col-md-6">
+		  		<ol>
+		  		<li><h5><spanred>FIX the responsiveness of the website...</spanred></h5></li>
+		  		<li><h5><spanred>View User Detail Types Page and Functionality</spanred></h5></li>
+		  		<li><h5><spanyel>When creating a new user , save the user's account CREATION TIME. (into new table... LOG ?)</spanyel></h5></li>
+		  		<li><h5><spanora>AJAX / Jquery @ editing user </spanora></h5></li>
+		  		<li><h5><spanyel>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</spanyel></h5>	</li>
+		  		<li><h5><spangre>Print "last created user";</spangre></h5></li>
+		  		<li><h5><spanora>Print User with most details entered</spanora></h5></li>
+		  		</ol>
+			</div>
+			<div class="col-xs-3 col-md-3">
+				?DATABASE STATISTICS Block?
+			</div>	
+	  	</div>
+
+	  	<div class="row">
+	  	<hr>
+	  		<div class="col-xs-2 col-md-2"><h1>Colours meaning</h1></div>
+	  		<div class="col-xs-7 col-md-7">
+	  			<ul>
+	  				<li><spanred><h5><b>RED</b></h5></spanred> = HIGH PRIORITY / HIGH DIFFICULTY</li>
+	  				<li><spanora><h5><b>ORANGE</b></h5></spanora> = MEDIUM PRIORITY / MEDIUM DIFFICULTY</li>
+	  				<li><spanyel><h5><b>YELLOW</b></h5></spanyel> = NORMAL PRIORITY / NORMAL DIFFICULTY</li>
+	  				<li><spangre><h5><b>GREEN</b></h5></spangre> = LOW PRIORITY / LOW DIFFICULTY</li>
+	  			</ul>
+	  		</div>
+	  		<div class="col-xs-3 col-md-3"></div>
+	  		 
+
+	  	</div>
+
+
+	  	<br />
+				  	
+				  	
+				  	
+				  	
+				  	
   
    </div>
    <?php include_page_footer_content(); ?>
