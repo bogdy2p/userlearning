@@ -16,7 +16,6 @@ class Database{
     echo '<link rel="stylesheet" type="text/css" href="../assets/css/style.css">';
     echo '<link href="../assets/css/bootstrap.min.css" rel="stylesheet">';
     echo '<link href="assets/css/bootstrap.min.css" rel="stylesheet">'; 
-	
 }
 
 function include_page_footer_content(){
@@ -29,15 +28,6 @@ function include_page_footer_content(){
 
 function print_sitewide_menu(){
     echo'   
-
-            <div class="row">
-                <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo">
-                        simple collapsible
-                </button>
-                <div id="demo" class="collapse in">...</div>
-
-             </div>
-
             <nav class="navbar navbar-default" role="navigation">
 
                 <div class="container-fluid">
@@ -51,7 +41,6 @@ function print_sitewide_menu(){
                             </button>        
 
                             <a class="navbar-brand" href="/user">Home</a>
-                            <a class="navbar-brand" href="/user">Homedsa</a>
                     </div>                            
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
