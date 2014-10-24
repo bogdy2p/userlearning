@@ -38,10 +38,6 @@ require_once('../controllers/group.php');
 		<div class="col-xs-4 col-md-4"></div>
 
 			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
 
 	<div class="row">
 
@@ -50,11 +46,9 @@ require_once('../controllers/group.php');
 			$_POST['id'] = $_GET['id'];
 	}
 	if(isset($_POST['id']) && ($_POST['id'] > 0)){
-
 		print_user_information_table_html($_POST['id']);
 		print_user_details_information_table_html($_POST['id']);
 	}
-
 ?>
 
 

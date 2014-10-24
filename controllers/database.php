@@ -113,7 +113,11 @@ function print_latest_work_list(){
                     <li>Commits...</li>
                     <li><h6><spanred>Edit User Detail Types Page and Functionality - done 70%</spanred></h6></li>
                     <li><h6><spanred>Complete Edit User Detail Types Page and Functionality</spanred></h6></li>
-                    <li></li>
+                    <li><h6><spanyel>Modified view_user.php , broken the functionality into multiple functions | 12:10 AM</spanyel></h6></li>
+                    
+
+                    <li><h6><spanred></spanred></h6></li>
+                    
             </ol>
     ';
 }

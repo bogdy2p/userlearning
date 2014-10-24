@@ -39,27 +39,16 @@ require_once('../controllers/group.php');
 
 
 	<div class="row">
-		<!-- <div class="col-xs-4 col-md-4"></div> -->
-	
-
 <?php 
 
-		if(isset($_POST['id']) && ($_POST['id'] > 0)){
-		$group = new Group();
-		$group->get_group_object_by_id($_POST['id']);
-		// DISPLAY (this is practically the VIEW //
-				echo '<br />';
-				echo '<table class="table table-bordered col-xs-12 col-md-12">';
-				echo '<th class="col-xs-4 col-md-4">ID</th>';
-				echo '<th class="col-xs-4 col-md-4">Name</th>';
-				echo '<th class="col-xs-4 col-md-4">Special Key</th>';
-				echo '<tr>';
-                echo '<td>'. $group->id .'</td>';
-				echo '<td>'. $group->name . '</td>';
-				echo '<td>'. $group->special_key . '</td>';
-                echo '</tr>';
-            	echo '</table>';
-		}
+	if(isset($_POST['id']) && ($_POST['id'] > 0)){
+
+	$group = new Group();
+	$group->get_group_object_by_id($_POST['id']);
+	print_view_group_table_html($group);
+
+	}
+
 ?>
 	</div>
 </div>
@@ -68,3 +57,27 @@ require_once('../controllers/group.php');
 
 <html>
 
+<?php 
+function print_view_group_table_html($group){
+		print_view_group_table_header();
+		print_view_group_table_content($group);
+		print_view_group_table_footer();
+	}
+	function print_view_group_table_header(){
+		echo '<br />';
+		echo '<table class="table table-bordered col-xs-12 col-md-12">';
+		echo '<th class="col-xs-4 col-md-4">ID</th>';
+		echo '<th class="col-xs-4 col-md-4">Name</th>';
+		echo '<th class="col-xs-4 col-md-4">Special Key</th>';
+	}
+	function print_view_group_table_content($group){
+		echo '<tr>';
+        echo '<td>'. $group->id .'</td>';
+		echo '<td>'. $group->name . '</td>';
+		echo '<td>'. $group->special_key . '</td>';
+        echo '</tr>';
+	}
+	function print_view_group_table_footer(){
+		echo '</table>';
+	}
+?>
