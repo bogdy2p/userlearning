@@ -35,6 +35,22 @@ class Log extends Crud { //CRUD IS THE CONTROLLER :| Rest are models... ?
 		$statement->execute();
 	}
 
+	function grab_logs_array(){
+		$this->db = new Database();
+		$this->db = $this->db->dbConnect();
+		$statement = $this->db->prepare("SELECT * FROM function_call_log ");
+		$statement->execute();
+		$log_array = array();
+		foreach ($statement as $row) {
+			$log_array['id'][] 	= $row['id'];
+			$log_array['name'][] 	= $row['name'];
+			$log_array['text'][] 	= $row['text'];
+			$log_array['date_created'][]		= $row['date_created'];
+		}
+		return $log_array;
+		//return $statement;
+	}
+
 
 }
 
