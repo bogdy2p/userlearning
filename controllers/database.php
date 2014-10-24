@@ -112,7 +112,7 @@ function print_latest_work_list(){
                     <hr>
                     <li>Commits...</li>
                     <li><h6><spanred>Edit User Detail Types Page and Functionality - done 70%</spanred></h6></li>
-                    <li>Functionality to update a detail_type\'s name into table user_detail_types</li>
+                    <li><h6><spanred>Complete Edit User Detail Types Page and Functionality</spanred></h6></li>
                     <li></li>
             </ol>
     ';
@@ -121,10 +121,9 @@ function print_latest_work_list(){
 function print_to_do_list(){
     echo'
                 <ol>
-                    
+                    <li><h6><spanred>ADD FUNCTIONALITY TO EDIT USER CORRESPONDING DETAILS phone , etc ,, for each detail type availlable (must be DYNAMIC)</spanred></h6></li>
                     <li><h6><spanred>THE REST of the FIX the responsiveness of the website...</spanred></h6></li>
                     <li><h5><spanred><b>Jquery CHECK USERNAME exists already (when creating a new user) in the database. (front-end validation)</b></spanred></h5></li>
-                    <li><h6><spanred>Edit User Detail Types Page and Functionality</spanred></h6></li>
                     <li><h5><spanyel>@ create_group_view - display group entries from groups table for the user to see what groups already exist</spanyel></h5></li>
                     <li><h6><spanyel>When creating a new user , save the user\'s account CREATION TIME. (into new table... LOG ?)</spanyel></h6></li>
                     <li><h5><spanred>AJAX / Jquery @ editing user </spanred></h5></li>
@@ -143,9 +142,7 @@ function print_to_do_list(){
                     YELLOW :
                     <li><h6><spanyel></spanyel></h6></li>
                     GREEN :
-                    <li><h6><spangre></spangre></h6></li>
-                    
-                    
+                    <li><h6><spangre></spangre></h6></li>                  
                 -->                  
                 
     ';
