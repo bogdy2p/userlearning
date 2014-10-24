@@ -502,12 +502,20 @@ abstract class Crud {
 		}
 	}
 
-	function update_detail_type($old_name,$new_name){
+	function update_detail_type_name($old_name,$new_name){
 		//Grab the id by the old name
 		$the_id = Crud::get_detail_type_id_by_name($old_name);
 		$statement = $this->db->prepare("UPDATE user_groups.user_detail_types SET name = ? WHERE user_detail_types.id =?");
 		$statement->bindParam(1,$new_name);
 		$statement->bindParam(2,$the_id);
+		$statement->execute();
+		return $statement;
+	}
+
+	function update_detail_types_names_in_user_groups($old_name,$new_name){
+		$statement = $this->db->prepare("UPDATE user_groups.user_details SET detail_type = ? WHERE user_details.detail_type =?");
+		$statement->bindParam(1,$new_name);
+		$statement->bindParam(2,$old_name);
 		$statement->execute();
 		return $statement;
 	}

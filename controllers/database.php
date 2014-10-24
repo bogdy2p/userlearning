@@ -110,8 +110,9 @@ function print_latest_work_list(){
                     <hr>
                     <h5><b>24 oct 07:42 AM</b></h5>
                     <hr>
-                    <li></li>
-                    <li></li>
+                    <li>Commits...</li>
+                    <li><h6><spanred>Edit User Detail Types Page and Functionality - done 70%</spanred></h6></li>
+                    <li>Functionality to update a detail_type\'s name into table user_detail_types</li>
                     <li></li>
             </ol>
     ';

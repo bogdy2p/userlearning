@@ -14,16 +14,11 @@ function verify_edit_and_update(){
 	if(isset($_POST['new_detail_name'])){
 		if(!empty($_POST['new_detail_name'])){
 			$user = new User();
-			$user->update_detail_type($_POST['old_detail_name'],$_POST['new_detail_name']);
-
-			//MUST UPLOAD IN THE OTHER TABLE EVERYWHERE WHERE DETAIL TYPE OF THIS KIND IS SET !
+			$user->update_detail_type_name($_POST['old_detail_name'],$_POST['new_detail_name']);
+			//MUST UPDATE IN THE OTHER TABLE EVERYWHERE WHERE DETAIL TYPE OF THIS KIND IS SET !
+			$user->update_detail_types_names_in_user_groups($_POST['old_detail_name'],$_POST['new_detail_name']);
 			header("Location: /user/views/view_detail_types.php");
-			// echo '<br /> detail updated';
-			// echo '<br />old name : ';
-			// print_r($_POST['old_detail_name']);
-			// echo '<br />newname : ';
-			// print_r($_POST['new_detail_name']);
-
+			die();
 		}else{
 			echo '$_post is set but EMPTY';
 			header("Location: /user/views/view_detail_types.php");
@@ -39,7 +34,6 @@ function verify_and_add_to_db(){
 				$user->add_user_detail_type($detail);
 				header("Location: /user/views/view_detail_types.php");
 				die();
-				//
 		}else{
 			echo "<h3>You cannot create a empty detail!<br /></h3>";
 			echo '<h3><a href="/user/views/view_detail_types.php">Go Back</a></h3>';
