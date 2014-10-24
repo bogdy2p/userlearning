@@ -32,8 +32,6 @@ function generate_groups_table_content(){
                 echo '<td class="warning">'. $individual_group['id'] . '</td>';
                 echo '<td>'. $individual_group['name'] . '</td>';
                 echo '<td>'. $individual_group['special_key'] . '</td>';
-                //echo "<td><a class=\"btn btn-primary\" href=\"../views/edit_group.php?id={$individual_group['id']}&type={$type}\">Edit</td>";
-                //echo "<td><a class=\"btn btn-danger\" href=\"../models/delete.php/?id={$individual_group['id']}&type={$type}\">Delete</td>";
                 echo '<td><a href="../views/edit_group.php?id='.$individual_group["id"].'&type='.$type.'"><span class="glyphicon glyphicon-edit spangre"></td>';
                 echo '<td><a href="../models/delete.php/?id='.$individual_group["id"].'&type='.$type.'"><span class="glyphicon glyphicon-remove spanred"></span></td>';
                 echo '</tr>';

@@ -14,7 +14,7 @@ require_once '../models/detail_types_model.php';
 	
 		<div class="row"> <!--SECOND ROW -->
 			<div class="col-xs-2 col-md-4"></div>
-			<div class="col-xs-8 col-md-4"><h3>Editing detail type " <?php echo $_GET['name'];?> " </h3></div>
+			<div class="col-xs-8 col-md-4"><h3>Edit detail type  </h3></div>
 			<div class="col-xs-2 col-md-4"></div>
 		</div> <!--END SECOND ROW -->
 
@@ -30,9 +30,7 @@ require_once '../models/detail_types_model.php';
 			<div class="col-xs-12 col-md-4"> <!--SECOND COLUMN -->
 				<div class="row">
 							<?php 
-								//$user = new User();
-								//$detail_types_array = $user->get_all_user_detail_types();
-								//print_user_details_table_html($detail_types_array); 
+								print_edit_existing_detail_form($_GET['name']);
 							?>
 				</div>
 			</div> <!--END SECOND COLUMN -->
@@ -41,7 +39,6 @@ require_once '../models/detail_types_model.php';
 						<div class="col-xs-3 col-md-2"></div>
 						<div class="col-xs-6 col-md-8">
 							<?php 
-								print_add_new_user_detail_form();
 							?>
 						</div>
 						<div class="col-xs-3 col-md-2"></div>

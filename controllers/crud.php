@@ -463,12 +463,11 @@ abstract class Crud {
 		//RETURN THE OBJECT MOMENTARELY.
 		$detail = array();
 		foreach ($statement as $row) {
-		// 	$detail['id'] = $row[id];
-		//	$detail['name'] = $row['name'];
-		return $row;
+		 	$detail['id'] = $row['id'];
+			$detail['name'] = $row['name'];
+		//return $row;
 		}
-		//return $detail;
-		//return $statement;
+		return $detail;
 	}
 
 	function check_detail_type_exists($user_detail_type) {

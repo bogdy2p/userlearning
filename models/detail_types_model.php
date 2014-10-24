@@ -7,7 +7,20 @@ require_once('../controllers/group.php');
 
 <?php
 
-verify_and_add_to_db();//CALL THE VERIFY FUNCTION
+verify_edit_and_update();//CALL THE VERIFY FUNCTION FOR UPDATE
+verify_and_add_to_db();//CALL THE VERIFY FUNCTION FOR CREATE
+
+function verify_edit_and_update(){
+	if(isset($_POST['new_detail_name'])){
+		if(!empty($_POST['new_detail_name'])){
+				print_r($_POST);
+		}else{
+			echo '$_post is set but EMPTY';
+		}
+	}else{
+		echo '$a_POST is not set';
+	}
+}
 
 function verify_and_add_to_db(){
 	if(isset($_POST['detail_name'])){
@@ -17,6 +30,7 @@ function verify_and_add_to_db(){
 				$user->add_user_detail_type($detail);
 				header("Location: /user/views/view_detail_types.php");
 				die();
+				//
 		}else{
 			echo "<h3>You cannot create a empty detail!<br /></h3>";
 			echo '<h3><a href="/user/views/view_detail_types.php">Go Back</a></h3>';
@@ -61,37 +75,45 @@ function print_add_new_user_detail_form(){
 	';
 }
 
-
 function print_edit_detail_table_html($name){
 		print_edit_detail_table_header($name);
 		print_edit_detail_table_content($name);
 		print_edit_detail_table_footer();	
 }
 function print_edit_detail_table_header($name){
-	echo '<div class="col-xs-12 col-md-3">
-			<h3>Detail '.$name.' Table</h3>';
+	echo '<div class="col-xs-12 col-md-12">
+		  <h4>Current data for "'.$name.'" detail </h4>';
 	echo '<table class="table table-bordered" name="view_detail">';
 }
 function print_edit_detail_table_content($name){
-	// $user = new User();
-	// $group = new Group();
-	// $groups = $group->list_groups();
-	// foreach ($groups as $group) 
-	// 	{
-	// 		$userids_array = $user->get_userids_for_a_group($group['id']);	
-	// 		echo '<th class="info">'.$group["name"].'\'s</th>';
-	// 		echo '<th class="info">User ID</th>';
-	// 							foreach ($userids_array as $key => $value) {
-	// 								echo "<tr>";
-	// 										print_r("<td>".$user->get_name_by_id($value)."</td>");
-	// 										print_r("<td>".$value."</td>");
-	// 								echo "</tr>";
-	// 							}
-	// 	}
+	 $user = new User();
+	 $details = $user->get_detail_type_by_name($name);
+	 
+	 foreach ($details as $key => $value) {
+	 	# code...
+	 	echo '<tr>';
+	 	echo '<th class="info"> Detail '.$key.'</th>';
+	 	echo '<td>'.$value.'</td>';	 	
+	 	echo '</tr>';
+	 }
 }
 function print_edit_detail_table_footer(){
 	echo "</table>
 		  </div>";
 }
+
+
+function print_edit_existing_detail_form($name){
+	echo '
+			<form class="form" id="edit_existing_detail_form" action="../models/detail_types_model.php" method="post">
+				<label>Change detail name for "'.$name.'" </label><br />
+					<input name="new_detail_name"  type="text"  placeholder="change detail name"> <br />
+					<br />
+					<button type="submit" class="btn btn-success">Save </button>
+			</form>
+	';
+}
+
+
 
 ?>
