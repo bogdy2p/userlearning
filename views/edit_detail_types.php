@@ -1,17 +1,66 @@
 <?php //Require access to database , user , group and crud class.
-require_once('../controllers/database.php');
-require_once '../controllers/crud.php';
-require_once('../controllers/user.php');
-require_once('../controllers/group.php');
+require_once '../models/detail_types_model.php';
 ?>
+
+<!DOCTYPE html>
+<head>
+	<title>Edit User</title>
+	<?php include_page_header_content();?>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row"> <?php print_sitewide_menu();?> </div>
+	
+		<div class="row"> <!--SECOND ROW -->
+			<div class="col-xs-2 col-md-4"></div>
+			<div class="col-xs-8 col-md-4"><h3>Editing detail type " <?php echo $_GET['name'];?> " </h3></div>
+			<div class="col-xs-2 col-md-4"></div>
+		</div> <!--END SECOND ROW -->
+
+		<div class="row"> <!--THIRD ROW -->
+			<hr>
+			<div class="col-xs-12 col-md-4"> <!--FIRST COLUMN -->
+				<?php 
+					$user = new User();
+					$test = $user->get_detail_type_by_name($_GET['name']);	
+					print_edit_detail_table_html($test['name']);
+				?>
+			</div> <!-- END FIRST COLUMN -->
+			<div class="col-xs-12 col-md-4"> <!--SECOND COLUMN -->
+				<div class="row">
+							<?php 
+								//$user = new User();
+								//$detail_types_array = $user->get_all_user_detail_types();
+								//print_user_details_table_html($detail_types_array); 
+							?>
+				</div>
+			</div> <!--END SECOND COLUMN -->
+			<div class="col-xs-12 col-md-4"> <!--3rd COLUMN -->
+				<div class="row"> 
+						<div class="col-xs-3 col-md-2"></div>
+						<div class="col-xs-6 col-md-8">
+							<?php 
+								print_add_new_user_detail_form();
+							?>
+						</div>
+						<div class="col-xs-3 col-md-2"></div>
+				</div>	
+			</div> <!--END THIRD COLUMN -->
+			
+		</div><!--END THIRD ROW -->
+	</div>
+ <?php include_page_footer_content(); ?>
+</body>
+
+</html>
+
 
 <?php
 
 $received_parameter = $_GET['name'];
-
- echo '<h4>you are now on edit detail types , editing <b> <spanred>'.$received_parameter.' </spanred> </b>detail.</h4>';
- echo '<h2>This is not implemented yet !</h2>';
-
+ //echo '<h4>you are now on edit detail types , editing <b> <spanred>'.$received_parameter.' </spanred> </b>detail.</h4>';
+ 
 $user = new User();
 $asd = $user->get_detail_type_by_name($received_parameter);
 

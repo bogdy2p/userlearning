@@ -21,13 +21,13 @@ require_once('../controllers/group.php');
 		<div class="col-xs-4 col-md-4">
 			
 			<form class="form" id="viewgroup" action="view_group.php" method="post"><br /><br />
-	<select name="id" id="id" form="viewgroup">
+				<select name="id" id="id" form="viewgroup">
 					 <?php 
 					 	$groups = new Group();
 					 	$id_array = $groups->grab_all_group_ids();
 					 	foreach ($id_array as $id => $value) { echo "<option value=\"{$value}\">{$value} - {$groups->get_name_by_id($value)}</option>";}
 					 ?>
-	</select>
+				</select>
 	<br /><br />
 		<button type="submit" class="button">View Group's Data</button>
 	</form>
