@@ -95,6 +95,37 @@ class Group extends Crud {
 		print_r($type);
 		return parent::delete_mapping($id,$type);
 	}
+
+/******************************************************************************/
+/******************************************************************************/
+/*******This is used into view_group to display the group data. ***************/
+/******************************************************************************/
+/******************************************************************************/
+	function print_view_group_table_html($group){
+		Self::print_view_group_table_header();
+		Self::print_view_group_table_content($group);
+		Self::print_view_group_table_footer();
+	}
+	function print_view_group_table_header(){
+		echo '<br />';
+		echo '<table class="table table-bordered col-xs-12 col-md-12">';
+		echo '<th class="col-xs-4 col-md-4">ID</th>';
+		echo '<th class="col-xs-4 col-md-4">Name</th>';
+		echo '<th class="col-xs-4 col-md-4">Special Key</th>';
+	}
+	function print_view_group_table_content($group){
+		echo '<tr>';
+        echo '<td>'. $group->id .'</td>';
+		echo '<td>'. $group->name . '</td>';
+		echo '<td>'. $group->special_key . '</td>';
+        echo '</tr>';
+	}
+	function print_view_group_table_footer(){
+		echo '</table>';
+	}
+/******************************************************************************/
+/******************************************************************************/
+
 }
 
 ?>
