@@ -45,13 +45,12 @@ class Group extends Crud {
 			$update_params_array = $group;
 			Self::create($group);
 			Self::update($group['id'],'groups',$update_params_array);
+
+			//LOGGING OF THE ACTION !
 			$log_message = 'Group '.$group['id'].' named '.$group['name'].' succesfully created.';
 			$log = new Log();
 			$log->log('group.php | create_group_with_data',$log_message);
-			//echo "Group succesfully created and updated.";
-			/////////////
-			//A LOGGING FUNCTION SHOULD BE CREATED HERE  that adds a log into the db 
-			/////////////
+			
 			header("Location: /user/views/view_list.php");
 			die();
 		}
