@@ -5,10 +5,33 @@ class User extends Crud {
 	function __construct(){
 		parent::__construct('user');
 	}
-	//USER CREATE
+
 	function create($array,$table = 'users'){
-		return parent::create($array,$table);
+		$this->db = new Database();
+		$this->db = $this->db->dbConnect();
+		if(isset($array['id']) && ($array['id'] != 0)){
+			$exists = Self::verify_object_exists($array['id'],$table);
+			$already_exists = Self::verify_name_exists_in_table($array['name'],$table);
+				if(!$exists){
+							// IF THERE IS NO OBJECT WITH THAT USERNAME ALREADY
+							if(!$already_exists){
+								$object_id = $array['id'];
+								$this->id = $array['id'];
+								$statement = $this->db->prepare("INSERT INTO users (id) VALUES (:object_id)");
+								$statement->execute(array(':object_id' => $this->id));
+							}
+							else { 	die("There already is a username with that name!!!"); 
+								 }
+							$log_message = "A new user has been succesfully created in table ". $table . " with the id :". $this->id ."<br />";
+							$log = new Log();
+							$log->log($log_message);
+							//header("Location: /user/views/view_list.php");
+					}
+			else { die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table); 
+				 }
+		}
 	}
+
 
 	function list_users($table_name = 'users'){
 		return parent::read($table_name);

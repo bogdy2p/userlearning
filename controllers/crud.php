@@ -12,8 +12,6 @@ abstract class Crud {
 		$this->db = $this->db->dbConnect();
 		$this->obj = $obj;
 	}
-
-
 	/**
 		*********************************************************************
 		*********************************************************************
@@ -22,43 +20,44 @@ abstract class Crud {
 		*********************************************************************
 		*********************************************************************
 	*/
-
-
-
 	/// Add an empty row to the database specified table (only with the id of the object)
 	function create($array,$table){
-		if(isset($array['id']) && ($array['id'] != 0)){
-			$exists = Crud::verify_object_exists($array['id'],$table);
-			$already_exists = Crud::verify_name_exists_in_table($array['name'],$table);
+
+		//$this->db = new Database();
+		//$this->db = $this->db->dbConnect();
+
+		// if(isset($array['id']) && ($array['id'] != 0)){
+		// 	$exists = Crud::verify_object_exists($array['id'],$table);
+		// 	$already_exists = Crud::verify_name_exists_in_table($array['name'],$table);
 			
-			////IF THERE IS NO OBJECT WITH THAT ID ALREADY
-				if(!$exists){
-					// IF THERE IS NO OBJECT WITH THAT USERNAME ALREADY
-					if(!$already_exists){
+		// 	////IF THERE IS NO OBJECT WITH THAT ID ALREADY
+		// 		if(!$exists){
+		// 			// IF THERE IS NO OBJECT WITH THAT USERNAME ALREADY
+		// 			if(!$already_exists){
 
-							$object_id = $array['id'];
-							$this->id = $array['id'];
-											if ($table == 'users'){
-												$sql = $this->db->prepare("insert into users (id) VALUES (:object_id)");
-											}elseif ($table == 'groups'){
-												$sql = $this->db->prepare("insert into groups (id) VALUES (:object_id)");
-											}else{
-												die("we only have 2 tables momentarely!");
-											}
-											$sql->execute(array(':object_id' => $this->id));
-										}
+		// 					$object_id = $array['id'];
+		// 					$this->id = $array['id'];
+		// 									if ($table == 'users'){
+		// 										$sql = $this->db->prepare("insert into users (id) VALUES (:object_id)");
+		// 									}elseif ($table == 'groups'){
+		// 										$sql = $this->db->prepare("insert into groups (id) VALUES (:object_id)");
+		// 									}else{
+		// 										die("we only have 2 tables momentarely!");
+		// 									}
+		// 									$sql->execute(array(':object_id' => $this->id));
+		// 								}
 
-							else { 	die("There already is a object called {$array['name']} into table {$table}"); 
-								 }
+		// 					else { 	die("There already is a object called {$array['name']} into table {$table}"); 
+		// 						 }
 
-				echo "A new ". $table . " object ( ". $this->id ."  ) succesfully created. <br />";
-				//Crud::redirect('/user/views/view_list.php');
+		// 		echo "A new ". $table . " object ( ". $this->id ."  ) succesfully created. <br />";
+		// 		//Crud::redirect('/user/views/view_list.php');
 				
-				//die();
-						}
-			else { die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table); 
-				 }
-		}
+		// 		//die();
+		// 				}
+		// 	else { die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table); 
+		// 		 }
+		// }
 	}
 	
 	
@@ -86,7 +85,7 @@ abstract class Crud {
 		}
 	 }
 
-	 function delete($id, $table) {
+	 function delete($id,$table) {
 	 	
 	 	$exists = Crud::verify_object_exists($id,$table);
 	 	 	if($exists){
@@ -585,8 +584,8 @@ abstract class Crud {
 			}
 		}
 
-		
-		
+
+
 
 	/* END OF GROUPS TABLE FUNCTIONS */	
 

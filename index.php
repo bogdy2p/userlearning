@@ -19,17 +19,7 @@ require_once 'controllers/database.php';
 	  			 <div class="col-xs-12 col-md-4 "><h1>Users-Groups Administration CMS</h1></div>
 	  			 <div class="col-xs-12 col-md-4 "></div>
 	  		</div>
-			<div class="row">
-				<hr>
-				<div class="col-xs-12 col-md-3 ">
-				 	<h2>Latest Applied Changes:</h2>
-				</div>
-				<div class="col-xs-12 col-md-7 ">
-				  	<?php print_latest_work_list();?>
-				</div>
-				<div class="col-xs-12 col-md-2 "></div>
-		  	</div>
-		  	<div class="row">
+	  		<div class="row">
 		  		<hr>
 			  	<div class="col-xs-12 col-md-3">
 			  		<h2>To do (to change/add):</h2>
@@ -42,6 +32,17 @@ require_once 'controllers/database.php';
 					///////// ////////// //////?DATABASE STATISTICS Block?/// / // ///// //////////////
 				</div>	
 		  	</div>
+			<div class="row">
+				<hr>
+				<div class="col-xs-12 col-md-3 ">
+				 	<h2>Latest Applied Changes:</h2>
+				</div>
+				<div class="col-xs-12 col-md-7 ">
+				  	<?php print_latest_work_list();?>
+				</div>
+				<div class="col-xs-12 col-md-2 "></div>
+		  	</div>
+		  	
 		  	<div class="row">
 		  	<hr>
 		  		<div class="col-xs-12 col-md-2"><h1>Colours meaning</h1></div>

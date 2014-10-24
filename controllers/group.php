@@ -7,7 +7,27 @@ class Group extends Crud {
 	}
 	//GROUP CREATE`
 	function create($array,$table = 'groups'){
-		return parent::create($array,$table);
+		//return parent::create($array,$table);
+		$this->db = new Database();
+		$this->db = $this->db->dbConnect();
+		if(isset($array['id']) && ($array['id'] != 0)){
+			$exists = Self::verify_object_exists($array['id'],$table);
+			$already_exists = Self::verify_name_exists_in_table($array['name'],$table);
+				if(!$exists){
+							// IF THERE IS NO OBJECT WITH THAT USERNAME ALREADY
+							if(!$already_exists){
+								$object_id = $array['id'];
+								$this->id = $array['id'];
+								$sql = $this->db->prepare("insert into groups (id) VALUES (:object_id)");
+								$sql->execute(array(':object_id' => $this->id));
+							}
+							else { 	die("There already is a object called {$array['name']} into table {$table}"); 
+								 }
+							echo "A new ". $table . " object ( ". $this->id ."  ) succesfully created. <br />";
+					}
+			else { die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table); 
+				 }
+		}
 	}
 
 	function create_group_with_data(){
@@ -25,7 +45,10 @@ class Group extends Crud {
 			$update_params_array = $group;
 			Self::create($group);
 			Self::update($group['id'],'groups',$update_params_array);
-			echo "Group succesfully created and updated.";
+			$log_message = 'Group '.$group['id'].' named '.$group['name'].' succesfully created.';
+			$log = new Log();
+			$log->log('group.php | create_group_with_data',$log_message);
+			//echo "Group succesfully created and updated.";
 			/////////////
 			//A LOGGING FUNCTION SHOULD BE CREATED HERE  that adds a log into the db 
 			/////////////
