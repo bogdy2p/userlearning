@@ -44,48 +44,92 @@ require_once('../controllers/group.php');
 			<div class="row"></div>
 
 	<div class="row">
+
 <?php 
-
-		if(isset($_GET['id']) && ($_GET['id'] > 0)){
+	if(isset($_GET['id']) && ($_GET['id'] > 0)){
 			$_POST['id'] = $_GET['id'];
-		}
-		
-		if(isset($_POST['id']) && ($_POST['id'] > 0)){
+	}
+	if(isset($_POST['id']) && ($_POST['id'] > 0)){
+
+		print_user_information_table_html($_POST['id']);
+		print_user_details_information_table_html($_POST['id']);
+	}
+
+?>
+
+
+<?php 
+/**********************************************************************************/
+/*********************PRINT THE USER BASIC INFORMATION TABLE***********************/
+/**********************************************************************************/
+/**********************************************************************************/
+/**********************************************************************************/
+	function print_user_information_table_html($user_id){
+		print_user_information_table_header($user_id);
 		$user = new User();
-		$user->get_user_object_by_id($_POST['id']);
-		$groups_array = $user->get_number_of_groups_for_a_user($_POST['id']);
-		$user_details_ids = $user->get_user_details_array($_POST['id']);
-		
-					echo '<div class="col-xs-12 col-md-12">';
-						echo '<h3> Userdata for user : '.$_POST["id"].'</h3>';
-						echo '<table class="table table-bordered">';
-						echo '<th class="col-xs-1 col-md-1">ID</th>';
-						echo '<th class="col-xs-3 col-md-2">Name</th>';
-						echo '<th class="col-xs-3 col-md-3">Password</th>';
-						echo '<th class="col-xs-5 col-md-5">Is member of</th>';
-						echo '<tr>';
-		                echo '<td>'. $user->id .'</td>';
-						echo '<td>'. $user->name . '</td>';
-						echo '<td>'. $user->password . '</td>';
-						echo'<td>'.  implode(" / ",$groups_array) . '</td>';	
-		                echo '</tr>';
-		            	echo '</table>';
-	            	echo '</div>';
-            	echo '</div>';
+		$user->get_user_object_by_id($user_id);
+		$groups_array = $user->get_number_of_groups_for_a_user($user_id);
+		print_user_information_table_content($user,$groups_array);
+		print_user_information_table_footer();
+	}
 
-            echo "<h3>The details for this user are :</h3>";
+	function print_user_information_table_header($user_id){
+		echo '<div class="col-xs-12 col-md-12">';
+		echo '<h3> Userdata for user : '.$user_id.'</h3>';
+		echo '<table class="table table-bordered">';
+			echo '<th class="col-xs-1 col-md-1">ID</th>';
+			echo '<th class="col-xs-3 col-md-2">Name</th>';
+			echo '<th class="col-xs-3 col-md-3">Password</th>';
+			echo '<th class="col-xs-5 col-md-5">Is member of</th>';
+	}
 
-           	echo "<br />";
-           	echo '<div class="col-xs-2 col-md-2">';
-           		echo '<table class="table table-bordered">';
-			foreach ($user_details_ids as $user_detail_id) {
-				$detail = $user->get_detail_data_by_detail_id($user_detail_id);
-					echo '<th class="col-xs-2 col-md-2">User '.$_POST['id'] . '\'s ' . $detail['type'] .'</th>';							
-					echo '<tr><td class="col-xs-2 col-md-2">'. $detail['value'] .'</td></tr>';
-			}       
-				echo '</table>';
-				echo '</div>';     	
-		}
+	function print_user_information_table_content($user,$groups_array){
+			echo '<tr>';
+		    echo '<td>'. $user->id .'</td>';
+			echo '<td>'. $user->name . '</td>';
+			echo '<td>'. $user->password . '</td>';
+			echo'<td>'.  implode(" / ",$groups_array) . '</td>';	
+		    echo '</tr>';
+	}
+
+	function print_user_information_table_footer(){
+		echo '</table></div>';
+	}
+/**********************************************************************************/
+/*********************PRINT THE USER DETAILS ATTACHED TABLE************************/
+/**********************************************************************************/
+/**********************************************************************************/
+/**********************************************************************************/
+
+	function print_user_details_information_table_html($user_id){
+			print_user_details_information_table_header();
+			$user = new User();
+			$user_details_ids = $user->get_user_details_array($user_id);
+			print_user_details_information_table_content($user_details_ids);
+			print_user_details_information_table_footer();
+	}
+
+	function print_user_details_information_table_header(){
+		echo "<h3>The details set for this user are :</h3>";
+        echo "<br />";
+		echo '<div class="col-xs-2 col-md-2">';
+        echo '<table class="table table-bordered">';
+	}
+
+	function print_user_details_information_table_content($user_details_ids){
+			$user = new User();
+		foreach ($user_details_ids as $user_detail_id) {
+			$detail = $user->get_detail_data_by_detail_id($user_detail_id);
+			echo '<th class="col-xs-2 col-md-2">User '.$_POST['id'] . '\'s ' . $detail['type'] .'</th>';							
+			echo '<tr><td class="col-xs-2 col-md-2">'. $detail['value'] .'</td></tr>';
+		}  
+	}
+
+	function print_user_details_information_table_footer(){
+		echo '</table>';
+		echo '</div>'; 
+	}
+
 ?>
 </div>
 <?php include_page_footer_content(); ?>
