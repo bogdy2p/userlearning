@@ -92,10 +92,10 @@ require_once('../controllers/group.php');
 		}else
 			{
 			//Database.php - print_error_midscreen
-			print_error_midscreen("One of the selected values is empty!");
+			Crud::print_error_midscreen("One of the selected values is empty!");
 			}
 	}else{	
-			print_error_midscreen("Please select both dropdown values!");
+			Crud::print_error_midscreen("Please select both dropdown values!");
 		 } 
 
 ?>

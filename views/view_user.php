@@ -42,6 +42,7 @@ require_once('../controllers/group.php');
 	<div class="row">
 
 <?php 
+	 // VIEW'S FUNCTIONALITY
 	if(isset($_GET['id']) && ($_GET['id'] > 0)){
 			$_POST['id'] = $_GET['id'];
 	}
@@ -51,7 +52,6 @@ require_once('../controllers/group.php');
 		$user->print_user_details_information_table_html($_POST['id']);
 	}
 ?>
-
 </div>
 <?php include_page_footer_content(); ?>
 </body>

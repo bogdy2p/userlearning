@@ -18,7 +18,6 @@ class Database{
     echo '<link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet">';
     echo '<link href="assets/css/bootstrap.min.css" rel="stylesheet">';
     echo '<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">';
-    
 }
 
 function include_page_footer_content(){
@@ -64,18 +63,6 @@ function print_sitewide_menu(){
                 </div>
             </nav>
 ';
-}
-
-function print_error_midscreen($error){
-    if(isset($error)){
-    $received_error = $error;
-    echo '<br />';
-    echo '<div class="row">';
-    echo '<div class="col-xs-12 col-md-4"></div>';
-    echo '<div class="col-xs-12 col-md-4">'.$received_error.'</div>';
-    echo '<div class="col-xs-12 col-md-4"></div>';
-    echo '</div>';
-    }
 }
 
 
@@ -137,7 +124,6 @@ function print_to_do_list(){
                     <li><h5><spanred>Create a changelog for this application , that saves changes to db</spanred></h5></li>
                     <li><h6><spanred>EMPTY EMPTY EMPTY</spanred></h6></li>
                     <li><h6><spanred>If i remain without stuff to do , and nothing new appears : Create a changelog for this application , that saves changes to db</spanred></h6></li>
-
                 </ol>    
 
                 <!--

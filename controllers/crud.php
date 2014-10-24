@@ -154,6 +154,21 @@ abstract class Crud {
 			return $row['name'];
 		}
 	}
+
+	function print_error_midscreen($error){
+	    if(isset($error)){
+		    $received_error = $error;
+		    echo '<br />';
+		    echo '<div class="row">';
+		    echo '<div class="col-xs-12 col-md-4"></div>';
+		    echo '<div class="col-xs-12 col-md-4">'.$received_error.'</div>';
+		    echo '<div class="col-xs-12 col-md-4"></div>';
+		    echo '</div>';
+	  	}
+	}
+
+
+
 	/* END OF GENERAL TABLE FUNCTIONS */
 
 
@@ -585,6 +600,37 @@ abstract class Crud {
         echo '<meta http-equiv="refresh" content="0;url='.$url_string.'" />';
         echo '</noscript>';
     }
+}
+
+
+
+
+/*******************************************************************************************************************
+***********TTTTTTTTTTT****EEEEEEEEEEEE**MMM*******MM***PPPPPPPPP***LLL*************AA******TTTTTTTTTTT**EEEEEEEEEEEE
+/**************TTTT*******EEEEEEE*******MMMM**M**MMM***PPP****PPP**LLL************AAAA*********TTTT*****EEEEEEE*****
+/**************TTTT*******EEEE**********MMMMMMMMMMMM***PPP****PPP**LLL***********AA**AA********TTTT*****EEEE********
+/**************TTTT*******EEEE**********MM***MMM**MM***PPPPPPPPP***LLL**********AA****AA*******TTTT*****EEEE********
+/**************TTTT*******EEEE**********MM********MM***PPPPPPPP****LLL*********AA******AA******TTTT*****EEEE********
+/**************TTTT*******EEEEEEEEEEEE**MM********MM***PPP*********LLL********AAAAAAAAAAAA*****TTTT*****EEEEEEEEEEEE
+/**************TTTT*******EEEE**********MM********MM***PPP*********LLL********AA********AA*****TTTT*****EEEE********
+/**************TTTT*******EEEE**********MM********MM***PPP*********LLL********AA********AA*****TTTT*****EEEE********
+/**************TTTT*******EEEE**********MM********MM***PPP*********LLL********AA********AA*****TTTT*****EEEE********
+/**************TTTT*******EEEEEEEE******MM********MM***PPP*********LLLLLLLLL**AA********AA*****TTTT*****EEEEEEEE****
+/**************TTTT*******EEEEEEEEEEEE**MM********MM***PPP*********LLLLLLLLL**AA********AA*****TTTT*****EEEEEEEEEEEE
+/*******************************************************************************************************************/
+
+
+function include_page_header_content() {
+	// INCLUDE CSS FILES
+ 	echo '<meta charset="utf-8">';
+    echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">';
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+    echo '<link rel="stylesheet" type="text/css" href="assets/css/style.css">';
+    echo '<link rel="stylesheet" type="text/css" href="../assets/css/style.css">';
+    echo '<link href="../assets/css/bootstrap.min.css" rel="stylesheet">';
+    echo '<link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet">';
+    echo '<link href="assets/css/bootstrap.min.css" rel="stylesheet">';
+    echo '<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">';
 }
 
 }

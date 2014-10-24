@@ -7,7 +7,7 @@ require_once 'controllers/database.php';
 <!DOCTYPE html>
 <head>
 	<title>UserLearning Pbc Project</title>
-	<?php include_page_header_content();?>
+	<?php Crud::include_page_header_content();?>
 </head>
  
 <body>
@@ -16,7 +16,7 @@ require_once 'controllers/database.php';
 
 			<div class="row">
 				 <div class="col-xs-12 col-md-4 "></div>
-	  			 <div class="col-xs-12 col-md-4 "><h1>Users-Groups Administration</h1></div>
+	  			 <div class="col-xs-12 col-md-4 "><h1>Users-Groups Administration CMS</h1></div>
 	  			 <div class="col-xs-12 col-md-4 "></div>
 	  		</div>
 			<div class="row">
