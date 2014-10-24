@@ -456,6 +456,21 @@ abstract class Crud {
 		return $detail_types_array;
 	}
 
+	function get_detail_type_by_name($name){
+		$statement = $this->db->prepare("SELECT * FROM user_detail_types WHERE name = ?");
+		$statement->bindParam(1,$name);
+		$statement->execute();
+		//RETURN THE OBJECT MOMENTARELY.
+		$detail = array();
+		foreach ($statement as $row) {
+		// 	$detail['id'] = $row[id];
+		//	$detail['name'] = $row['name'];
+		return $row;
+		}
+		//return $detail;
+		//return $statement;
+	}
+
 	function check_detail_type_exists($user_detail_type) {
 		$statement = $this->db->prepare("SELECT id FROM user_detail_types WHERE name = ?");
 		$statement->bindParam(1,$user_detail_type);
