@@ -493,6 +493,25 @@ abstract class Crud {
 		}
 	}
 
+	function get_detail_type_id_by_name($name){
+		$statement = $this->db->prepare("SELECT id FROM user_detail_types WHERE name = ?");
+		$statement->bindParam(1,$name);
+		$statement->execute();
+		foreach ($statement as $row) {
+			return $row['id'];
+		}
+	}
+
+	function update_detail_type($old_name,$new_name){
+		//Grab the id by the old name
+		$the_id = Crud::get_detail_type_id_by_name($old_name);
+		$statement = $this->db->prepare("UPDATE user_groups.user_detail_types SET name = ? WHERE user_detail_types.id =?");
+		$statement->bindParam(1,$new_name);
+		$statement->bindParam(2,$the_id);
+		$statement->execute();
+		return $statement;
+	}
+
 	function delete_detail_type($user_detail_type) {
 		$detail_type_exists = Crud::check_detail_type_exists($user_detail_type);
 		if($detail_type_exists){

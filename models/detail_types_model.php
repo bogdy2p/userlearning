@@ -13,14 +13,23 @@ verify_and_add_to_db();//CALL THE VERIFY FUNCTION FOR CREATE
 function verify_edit_and_update(){
 	if(isset($_POST['new_detail_name'])){
 		if(!empty($_POST['new_detail_name'])){
-				print_r($_POST);
+			$user = new User();
+			$user->update_detail_type($_POST['old_detail_name'],$_POST['new_detail_name']);
+
+			//MUST UPLOAD IN THE OTHER TABLE EVERYWHERE WHERE DETAIL TYPE OF THIS KIND IS SET !
+			header("Location: /user/views/view_detail_types.php");
+			// echo '<br /> detail updated';
+			// echo '<br />old name : ';
+			// print_r($_POST['old_detail_name']);
+			// echo '<br />newname : ';
+			// print_r($_POST['new_detail_name']);
+
 		}else{
 			echo '$_post is set but EMPTY';
+			header("Location: /user/views/view_detail_types.php");
 		}
-	}else{
-		echo '$a_POST is not set';
-	}
-}
+	}else{/*echo "NO POST";*/}
+}/*end verify edit*/
 
 function verify_and_add_to_db(){
 	if(isset($_POST['detail_name'])){
@@ -108,6 +117,7 @@ function print_edit_existing_detail_form($name){
 			<form class="form" id="edit_existing_detail_form" action="../models/detail_types_model.php" method="post">
 				<label>Change detail name for "'.$name.'" </label><br />
 					<input name="new_detail_name"  type="text"  placeholder="change detail name"> <br />
+					<input name="old_detail_name" type="hidden" value="'.$name.'">
 					<br />
 					<button type="submit" class="btn btn-success">Save </button>
 			</form>

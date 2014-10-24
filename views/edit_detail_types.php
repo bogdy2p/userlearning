@@ -31,6 +31,7 @@ require_once '../models/detail_types_model.php';
 				<div class="row">
 							<?php 
 								print_edit_existing_detail_form($_GET['name']);
+								print_r($_GET);
 							?>
 				</div>
 			</div> <!--END SECOND COLUMN -->
