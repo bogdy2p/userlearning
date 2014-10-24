@@ -10,7 +10,7 @@ class Group extends Crud {
 		return parent::create($array,$table);
 	}
 
-	function create_group(){
+	function create_group_with_data(){
 		//Asssignments
 		$group = new Group();
 		$group = array();

@@ -34,5 +34,5 @@
 <!-- FUNCTIONALITY -->
 <?php 
 	$group = new Group();
-	$group->create_group();
+	$group->create_group_with_data();
 ?>
