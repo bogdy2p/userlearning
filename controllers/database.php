@@ -3,7 +3,7 @@
 class Database{
 
     public function dbConnect(){
-        return new PDO("mysql:host=localhost;dbname=user_groups",'root','123456');
+        return new PDO("mysql:host=localhost;dbname=user_groups",'root','romania2007');
     }
 }
 
@@ -71,9 +71,9 @@ function print_latest_work_list(){
     echo '  
             <ol>
                     <hr>
-                    <h5><b>24 oct 07:42 AM</b></h5>
+                    <h5><b>24 oct 07:42 AM to 16:40 PM</b></h5>
                     <hr>
-                    <li>Commits...</li>
+                    <li><h1><spanred>17 Commits IN TOTAL today . view them on github project link</spanred></h1></li>
                     <li><h6><spanred>Edit User Detail Types Page and Functionality - done 70%</spanred></h6></li>
                     <li><h6><spanred>Complete Edit User Detail Types Page and Functionality</spanred></h6></li>
                     <li><h6><spanyel>Modified view_user.php , broken the functionality into multiple functions | 12:10 AM</spanyel></h6></li>

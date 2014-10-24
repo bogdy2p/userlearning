@@ -27,7 +27,7 @@ class User extends Crud {
 							//LOGGING OF THE ACTION !
 							$log_message = 'User '.$this->id.' named ['.$delete_this_cuz_its_nly_for_test.'] succesfully created.';
 							$log = new Log();
-							$log->log('user.php | create',$log_message);
+							$log->create_log('user.php | create',$log_message);
 							//header("Location: /user/views/view_list.php");
 					}
 			else { die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table); 
