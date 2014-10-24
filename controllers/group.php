@@ -49,7 +49,7 @@ class Group extends Crud {
 			//LOGGING OF THE ACTION !
 			$log_message = 'Group '.$group['id'].' named '.$group['name'].' succesfully created.';
 			$log = new Log();
-			$log->log('group.php | create_group_with_data',$log_message);
+			$log->create_log('group.php | create group + update',$log_message);
 			
 			header("Location: /user/views/view_list.php");
 			die();

@@ -39,7 +39,7 @@ function generate_users_table_content(){
                      echo '<td>'.  implode(" / ",$groups_array) . '</td>';
                      echo '<td><a href="../views/view_user.php?id='.$individual_user["id"].'"><span class="glyphicon glyphicon-eye-open"></span></td>';
                      echo '<td><a href="../views/edit_user.php?id='.$individual_user["id"].'&type='.$type.'"><span class="glyphicon glyphicon-edit spangre"></span></td>';
-                     echo '<td><a href="../models/delete.php/?id='.$individual_user["id"].'&type='.$type.'"><span class="glyphicon glyphicon-remove spanred"></span></td>';
+                     echo '<td><a href="../models/delete.php?id='.$individual_user["id"].'&type='.$type.'"><span class="glyphicon glyphicon-remove spanred"></span></td>';
                      echo '</tr>';
     }
 }

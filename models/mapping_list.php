@@ -32,7 +32,7 @@ function generate_mapping_table_content(){
 	echo '<td>' . $table['user_id'] . ' - ' . $user->get_name_by_id($table['user_id']) .'</td>';
 	echo '<td>' . $table['group_id'] . ' - ' . $group->get_name_by_id($table['group_id']) .'</td>';
 	//echo "<td><a class=\"btn btn-danger\" href=\"../models/delete.php/?id={$map_id}&type={$type}\">Delete</td>";
-	echo '<td><a href="../models/delete.php/?id='.$map_id.'&type='.$type.'"><span class="glyphicon glyphicon-remove spanred"></span></td>';
+	echo '<td><a href="../models/delete.php?id='.$map_id.'&type='.$type.'"><span class="glyphicon glyphicon-remove spanred"></span></td>';
 	echo '</tr>';
 	}
 }
