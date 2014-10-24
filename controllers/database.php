@@ -3,7 +3,7 @@
 class Database{
 
     public function dbConnect(){
-        return new PDO("mysql:host=localhost;dbname=user_groups",'root','romania2007');
+        return new PDO("mysql:host=localhost;dbname=user_groups",'root','123456');
     }
 }
 
@@ -80,8 +80,9 @@ function print_error_midscreen($error){
 
 
 function print_latest_work_list(){
-    echo '  <ol>	<hr>
-    				<h5>23 oct: 08AM to 17PM</h5>
+    echo '  <ol>	
+                    <hr>
+    				<h5><b>23 oct: 08AM to 17PM</b></h5>
     				<hr>
                     <li><h6><spanred>Added Map Groups to user by "checkbox..."</spanred></h6></li>
                     <li><h6><spanyel>Fixed map groups by checkbox without changing the user password</spanyel></h6></li>
@@ -95,17 +96,23 @@ function print_latest_work_list(){
                     <li><h6><spanred>50% of the FIX the responsiveness of the website...</spanred></h6></li>
                     <li><h6><spanred>View User Detail Types Page and Functionality</spanred></h6></li>
                     <li><h4><spanred>FIX TABLE VIEW USERS RESP. BUTTONS to Glyphs</spanred></h4></li>
-                    
             </ol>
             <ol>
                     <hr>
-               		<h5>23 oct: From 17PM</h5>
+               		<h5><b>23 oct: From 17PM</b></h5>
                		<hr>
                		<li><h5><spanyel>Fixed view_detail_types.php RESPONSIVNESSS </spanyel></h5></li>
                     <li><h4><spanred>CRITICAL : REMOVE user_details entries for the user when deleting a user</spanred></h4></li>
                     <li><h4><spanred>CRITICAL2 : REMOVE user_details entries deleting a DETAIL TYPE </spanred></h4></li>
                     <li><h6><spanyel>Remove assign.php & related stuff (mapping is now done on user edit) </spanred></h6></li>
-                    
+            </ol>
+            <ol>
+                    <hr>
+                    <h5><b>24 oct 07:42 AM</b></h5>
+                    <hr>
+                    <li></li>
+                    <li></li>
+                    <li></li>
             </ol>
     ';
 }
@@ -116,7 +123,7 @@ function print_to_do_list(){
                     
                     <li><h6><spanred>THE REST of the FIX the responsiveness of the website...</spanred></h6></li>
                     <li><h5><spanred><b>Jquery CHECK USERNAME exists already (when creating a new user) in the database. (front-end validation)</b></spanred></h5></li>
-                    <li><h6><spanred>View User Detail Types Page and Functionality</spanred></h6></li>
+                    <li><h6><spanred>Edit User Detail Types Page and Functionality</spanred></h6></li>
                     <li><h5><spanyel>@ create_group_view - display group entries from groups table for the user to see what groups already exist</spanyel></h5></li>
                     <li><h6><spanyel>When creating a new user , save the user\'s account CREATION TIME. (into new table... LOG ?)</spanyel></h6></li>
                     <li><h5><spanred>AJAX / Jquery @ editing user </spanred></h5></li>
