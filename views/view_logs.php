@@ -18,9 +18,15 @@ require_once('../models/function_call_log_list.php');
 	</div>
 	<div class ="container-fluid">
 		<div class="row">
+			<div class="col-xs-12 col-md-2"></div>
+			<div class="col-xs-12 col-md-8">
+
 				<?php 
 					generate_func_call_log_table_html();
 				?>
+			</div>
+			<div class="col-xs-12 col-md-2"></div>
+				
 		</div>
 			
 
