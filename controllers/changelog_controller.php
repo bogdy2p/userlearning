@@ -12,9 +12,9 @@ class Changelog extends Crud {
 		return parent::read($table_name);
 	}
 	
-	// function list_changelog($table_name = 'app_changelog'){
-	// 	return parent::read($table_name);
-	// }
+	 function list_changelogs($table_name = 'app_changelog'){
+		return parent::read($table_name);
+	}
 
 	// function list_changelog_bydate_desc($table_name = 'app_changelog'){
 	// 	$this->db = new Database();

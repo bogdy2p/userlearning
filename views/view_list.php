@@ -1,8 +1,5 @@
 <?php
-require_once('../controllers/database.php');
-require_once('../controllers/crud.php');
-require_once('../controllers/user.php');
-require_once('../controllers/group.php');
+//VIEWS SHOULD INCLUDE ONLY THE MODELS NOT THE CONTROLLERS
 require_once('../models/user_list.php');
 require_once('../models/groups_list.php');
 require_once('../models/mapping_list.php');

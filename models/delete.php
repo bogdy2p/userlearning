@@ -3,7 +3,7 @@ require_once('../controllers/database.php');
 require_once '../controllers/crud.php';
 require_once('../controllers/user.php');
 require_once('../controllers/group.php');
-require_once('../controllers/function_call_log_model.php');
+require_once('../controllers/function_call_log.php');
 
 $id_to_delete = $_GET['id'];
 $name = $id_to_delete;

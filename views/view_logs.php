@@ -1,6 +1,6 @@
 <?php 
-
-require_once('../models/function_call_log_list.php');
+//INCLUDE / REQUIRE THE MODEL
+require_once('../models/function_call_log_model.php');
 
 ?>
 
