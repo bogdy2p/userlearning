@@ -3,6 +3,9 @@ require_once 'controllers/crud.php';
 require_once 'controllers/user.php';
 require_once 'controllers/group.php';
 require_once 'controllers/database.php';
+require_once 'controllers/changelog_controller.php';
+//require_once 'models/changelog_model.php';
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -10,6 +13,13 @@ require_once 'controllers/database.php';
 	<?php Crud::include_page_header_content();?>
 </head>
  
+<?php 
+
+	//generate_changelog_table_html();
+
+?>
+
+
 <body>
 	<div class="container">
 			<div class="row"><?php print_sitewide_menu();?></div>

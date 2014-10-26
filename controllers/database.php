@@ -56,6 +56,7 @@ function print_sitewide_menu(){
                              <li><a href="/user/views/create_user.php           ">   Add User            </a></li>
                              <li><a href="/user/views/create_group.php          ">   Add Group           </a></li>
                              <li><a href="/user/views/view_logs.php             ">   View App Logs       </a></li>
+                             <li><a href="/user/views/view_changelogs.php             ">   View CHANGELOGS       </a></li>
 
                         </ul>
                 

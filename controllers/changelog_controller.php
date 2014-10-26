@@ -12,30 +12,29 @@ class Changelog extends Crud {
 		return parent::read($table_name);
 	}
 	
-	 function list_changelogs($table_name = 'app_changelog'){
+	 function list_changelog($table_name = 'app_changelog'){
 		return parent::read($table_name);
 	}
 
-	// function list_changelog_bydate_desc($table_name = 'app_changelog'){
-	// 	$this->db = new Database();
-	// 	$this->db = $this->db->dbConnect();
-	//  	$statement = $this->db->prepare("SELECT * FROM app_changelog ORDER BY date_created DESC");
-	//  	$statement->execute();
-	//  	//print_r($statement);
-	//  	return $statement;
-	// }
+	function read_changelogs($table_name = 'app_changelog'){
+		$this->db = new Database();
+	 	$this->db = $this->db->dbConnect();
+	  	$statement = $this->db->prepare("SELECT * FROM app_changelog ORDER BY date DESC");
+	  	$statement->execute();
+	  	//print_r($statement);
+	  	return $statement;
+	 }
+
+	 function create_changelog_row($name,$colour){
+	 	$this->db = new Database();
+	 	$this->db = $this->db->dbConnect();
+	 	$date_created = time();
+	 	$statement = $this->db->prepare("INSERT INTO app_changelog (name,colour,date) VALUES (?,?,NOW())");
+	 	$statement->bindParam(1,$name);
+	 	$statement->bindParam(2,$colour);
+	 	$statement->execute();
+	}
 
 
-
-	// function create_changelog_row($name,$message){
-	// 	$this->db = new Database();
-	// 	$this->db = $this->db->dbConnect();
-	// 	$name = $name;
-	// 	$date_created = time();
-	// 	$statement = $this->db->prepare("INSERT INTO app_changelog (name,text,date_created) VALUES (?,?,NOW())");
-	// 	$statement->bindParam(1,$name);
-	// 	$statement->bindParam(2,$message);
-	// 	$statement->execute();
-	// }
 }
 ?>
