@@ -42,4 +42,12 @@ function generate_changelog_table_footer(){
 	echo '</table></div>';
 }
 
+function generate_changelog_add_new_form(){
+	echo 'THE FORM WILL BE GENERATED FROM THIS CODE';
+
+}
+
+
+
+
 ?>
