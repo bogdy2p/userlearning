@@ -37,7 +37,7 @@ require_once('../models/edit_user_model.php');
 				</div>
 				<br />
 				<br />
-
+				
 				<div class="row">
 						<div class="col-xs-1 col-md-1"></div>
 						<div class="col-xs-10 col-md-10">
