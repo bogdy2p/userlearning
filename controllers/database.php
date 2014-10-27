@@ -70,7 +70,6 @@ function print_to_do_list(){
 
                 <ol>
                     <li><h6><spanred>TO_DO_LIST implementation (view,edit,delete,update)(not hardcoded like now)</spanred></h6></li>
-                    <li><h6><spanred>ADD FUNCTIONALITY TO EDIT USER CORRESPONDING DETAILS phone , etc ,, for each detail type availlable (must be DYNAMIC)</spanred></h6></li>
                     <li><h5><spanred><b>Jquery CHECK USERNAME exists already (when creating a new user) in the database. (front-end validation)</b></spanred></h5></li>
                     <li><h5><spanyel>@ create_group_view - display group entries from groups table for the user to see what groups already exist</spanyel></h5></li>
                     <li><h5><spanred>AJAX / Jquery @ editing user </spanred></h5></li>

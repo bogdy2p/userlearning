@@ -157,60 +157,32 @@ function print_userdata_inputs(){
 function print_detail_inputs_with_value($type,$detail){
 		echo '
 			<label>'.$type.'</label></br>
-			<input name="'.$type.'" type="text" placeholder="" value="'.$detail.'"> </br>
+			<input name="'.$type.'" type="text" placeholder="" value="'.$detail.'"></br>
 			';
 }
 function print_detail_inputs_without_value($detail){
 		echo '
 			<label>'.$detail.'</label></br>
-			<input name="'.$detail.'" type="text" placeholder="" value=""> </br>
+			<input name="'.$detail.'" type="text" placeholder="" value=""></br>
 			';
 }
 
 function verify_update_details_for_user($user_id){
-	//echo "<pre>";
-	//var_dump($_POST);
 	// 1 . Grab all detail types array.
 	// 2 . For each detail type , check POST [ that detail ] is set and is not null
 	// 3 . Call the update function that UPDATES the values in the database with the values from the POST (input)
 	$user = new User();
 	$all_existing_detail_types = $user->get_all_user_detail_types();
 	foreach ($all_existing_detail_types as $detail) {
-		//print_r($detail);
+		
 		if(isset($_POST[$detail]) && (!empty($_POST[$detail]))){
-			
-			
 			$detail_pair_exists = $user->check_detail_pair_exists($user_id,$detail);
 			if (!$detail_pair_exists){
-				//echo '<h1> ISNT SET HERE </h1>';
 				$create_a_new = $user->add_user_detail_with_type($user_id,$detail,$_POST[$detail]);
-			}else{
-			//	echo '<h1>'.$user_id.' and '.$detail.' already are set here</h1>';
-			}
-			
+			}else{}
 			$user->update_user_details_for_user($user_id,$detail,$_POST[$detail]);
-		
 		}
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 	
 ?>

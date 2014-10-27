@@ -30,8 +30,8 @@ function generate_func_call_log_table_content(){
 			$type = 'logs';
 				echo '<tr>';
                 echo '<td class="warning">'. $individual_log['id'] . '</td>';
-                echo '<td>'. $individual_log['name'] . '</td>';
-                echo '<td>'. $individual_log['text'] . '</td>';
+                echo '<td id="wordwrap">'. $individual_log['name'] . '</td>';
+                echo '<td id="wordwrap">'. $individual_log['text'] . '</td>';
                 echo '<td>'. $individual_log['date_created'] . '</td>';
                 echo '</tr>';
 		}
