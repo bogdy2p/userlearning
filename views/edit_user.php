@@ -24,7 +24,6 @@ require_once('../models/edit_user_model.php');
 				
 			<form class="form" id="edituser" action="../models/edit_user_model.php?id=<?php echo $_GET['id'];?>&type=users" method="post">
 				<div class="row">
-
 					<div class="col-xs-1 col-md-1"></div>
 					<div class="col-xs-5 col-md-5">
 					<h3>Userdata : </h3>
@@ -41,17 +40,13 @@ require_once('../models/edit_user_model.php');
 				<div class="row">
 						<div class="col-xs-1 col-md-1"></div>
 						<div class="col-xs-10 col-md-10">
-							
 							<!-- <only if new password entered, validate> -->
 							<h3>ADD FUNCTIONALITY TO EDIT USER CORRESPONDING DETAILS</h3>
 							<h4>phone , etc ,, for each detail type availlable (must be DYNAMIC)</h4>
 
-
 						</div>
 						<div class="col-xs-1 col-md-1"></div>
 				</div>
-
-
 				<div class="row">	
 							<div class="col-xs-4 col-md-4"></div>
 							<div class="col-xs-2 col-md-2">
@@ -61,10 +56,7 @@ require_once('../models/edit_user_model.php');
 				</div>
 			</form>
 		</div> <!--END OF ROW -->
-
-		
 	</div>
-			
 	<?php include_page_footer_content(); ?>
 </body>
 

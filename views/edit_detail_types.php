@@ -54,13 +54,8 @@ require_once '../models/detail_types_model.php';
 
 
 <?php
-
 $received_parameter = $_GET['name'];
  //echo '<h4>you are now on edit detail types , editing <b> <spanred>'.$received_parameter.' </spanred> </b>detail.</h4>';
- 
 $user = new User();
 $asd = $user->get_detail_type_by_name($received_parameter);
-
-
-
 ?>

@@ -27,12 +27,47 @@ class User extends Crud {
 							$log_message = 'User '.$this->id.' named '.$array["name"].' succesfully created.';
 							$log = new Log();
 							$log->create_log('user.php | create',$log_message);
-							//header("Location: /user/views/view_list.php");
 					}
 			else { die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table); 
 				 }
 		}
 	}
+
+	function create_user_with_data(){
+		$users = new User();
+		$user = array();
+		$most_recent_user_id = $users->grab_latest_user_id();
+		$_POST['id'] = $most_recent_user_id + 1;
+		$user['id'] = $_POST['id'];
+		
+		if(isset($_POST['name'])){ $user['name'] = $_POST['name']; }else{ $user['name'] = NULL; }
+		if(isset($_POST['password'])){ $user['password'] = $_POST['password']; }else{ $user['password'] = NULL; }
+		if(isset($_POST['pass_conf'])){ $user['pass_conf'] = $_POST['pass_conf']; }else{ $user['pass_conf'] = NULL; }
+
+		if(isset($user['id']) && isset($user['name']) && isset($user['password'])) {
+			if($_POST['password'] === $_POST['pass_conf']){
+
+				$enc_pass = md5($_POST['password']);
+				$user['password'] = $enc_pass;
+				$update_params_array = $user;
+				$asd = $users->create($user);
+						$detail_types = $users->get_all_user_detail_types();		
+						foreach ($detail_types as $detail_type) {
+								if(isset($_POST[$detail_type])){
+									$users->add_user_detail_with_type($user['id'],$detail_type,$_POST[$detail_type]);
+								}
+						}
+				$asd2 = $users->update($user['id'],'users',$update_params_array);
+				$users->redirect('/user/views/view_list.php');
+				die();
+			}
+			else{
+				echo "ERROR : Passwords do not match ! Please re-enter !";
+			}
+		}
+		 else{}//die ("Some Last strange error into create_user.php");
+	}
+
 
 
 	function list_users($table_name = 'users'){

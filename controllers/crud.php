@@ -390,7 +390,7 @@ abstract class Crud {
 				echo "You cannot enter a detail which hasn't been predefined in the db";
 			}
 		}else{
-			echo "Unable to add {$detail} : This detail already exists for this user / Is null !";
+			//echo "Unable to add {$detail} : This detail already exists for this user / Is null !";
 		}
 	}
 
