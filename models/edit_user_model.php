@@ -136,25 +136,40 @@ function print_userdata_inputs(){
 }
 
  function get_userdata_details_availlable($user_id){
+ 		//AICI TREBUIE SA PREIAU TOATE TIPURILE DE DETALII EXISTENTE DIN BAZA DE DATE.
+ 		//DUPAIA TREBUIE VERIFICAT PENTRU FIECARE DETALIU EXISTENT DACA EXISTA VALOARE IN TABELA DE USER DETAILS
+ 		//PENTRU CELE CARE AU VALOARE , O AFISAM IN INPUT , PENTRU CELELALTE , AFISAM INPUT GOL.
+ 	
  		$user = new User();
+ 		$existing_user_details_in_db = $user->get_all_user_detail_types();
  		$user_details_ids = $user->get_user_details_array($user_id);
- 		foreach ($user_details_ids as $key => $value) {
- 			$detail = $user->get_detail_data_by_detail_id($value);
- 			print_detail_inputs($detail);
+ 		//var_dump($user_details_ids);
+ 		if(!empty($user_details_ids)){
+	 		foreach ($user_details_ids as $key => $value) {
+	 			$detail = $user->get_detail_data_by_detail_id($value);
+	 			print_valued_detail_inputs($detail);
+	 		}
+ 		}else{
+ 			foreach ($existing_user_details_in_db as $key => $value) {
+ 				$detail = $user->get_detail_type_by_name($value);
+ 				print_empty_detail_inputs($detail['name']);
+ 			}
  		}
- 		//GRAB AN ARRAY OF EACH DETAIL THAT IS SET FOR THIS USER (Already done @ add user!);
- 		//CHECK IF THE ARRAY IS SET .
- 		//IF IT IS SET , PRINT DETAIL INPUT [value_set];
- 		// else , print detail input (empty value)
  }
 
-function print_detail_inputs($detail){
+function print_valued_detail_inputs($detail){
 		echo '
 			<label>'.$detail["type"].'</label></br>
-			<input name="" type="text" placeholder="" value="'.$detail["value"].'"> </br>
+			<input name="'.$detail["type"].'" type="text" placeholder="" value="'.$detail["value"].'"> </br>
 			';
 }
 
+function print_empty_detail_inputs($detail){
+		echo '
+			<label>'.$detail.'</label></br>
+			<input name="'.$detail.'" type="text" placeholder="" value=""> </br>
+			';
+}
 
 
 ?>
