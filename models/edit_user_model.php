@@ -33,6 +33,7 @@ function verification($get) {
 												//Get an array of checked groups in the form
 												$group_ids_checked_array = get_group_ids_checked_in_form();
 												//Apply new mapping using the new values from the form !!!! (Foreach in one line)
+												$test = verify_update_details_for_user($get['id']);
 												foreach ($group_ids_checked_array as $group_id_checked) {$user->assign_user_to_group($get['id'],$group_id_checked);}
 												
 
@@ -50,6 +51,7 @@ function verification($get) {
 							 else  {//If field OLD PASSWORD IS EMPTY
 							 		$delete_current_mapping = $user->delete_all_mapping_for_user($get['id']);
 							 		$group_ids_checked_array = get_group_ids_checked_in_form();
+							 		$test = verify_update_details_for_user($get['id']);
 							 		foreach ($group_ids_checked_array as $group_id_checked) {$user->assign_user_to_group($get['id'],$group_id_checked);}
 							 		header("Location: /user/views/view_list.php");
 								 	die();
@@ -134,7 +136,6 @@ function print_userdata_inputs(){
     ';
 	}
 }
-
  function get_userdata_details_availlable($user_id){
  		$user = new User();
  		$already_set_details = array(); 
@@ -147,12 +148,12 @@ function print_userdata_inputs(){
   				if(in_array($individual_detail, $already_set_details)){
   					$detail_value = $user->grab_detail_value_by_type_and_id($user_id,$individual_detail);
   					print_detail_inputs_with_value($individual_detail,$detail_value);
+  					$_POST[$individual_detail] = $detail_value;
   				}else{
   					print_detail_inputs_without_value($individual_detail);
   				}
   		}
 }
- 
 function print_detail_inputs_with_value($type,$detail){
 		echo '
 			<label>'.$type.'</label></br>
@@ -166,6 +167,32 @@ function print_detail_inputs_without_value($detail){
 			';
 }
 
+function verify_update_details_for_user($user_id){
+	//echo "<pre>";
+	//var_dump($_POST);
+	// 1 . Grab all detail types array.
+	// 2 . For each detail type , check POST [ that detail ] is set and is not null
+	// 3 . Call the update function that UPDATES the values in the database with the values from the POST (input)
+	$user = new User();
+	$all_existing_detail_types = $user->get_all_user_detail_types();
+	foreach ($all_existing_detail_types as $detail) {
+		//print_r($detail);
+		if(isset($_POST[$detail]) && (!empty($_POST[$detail]))){
+			
+			
+			$detail_pair_exists = $user->check_detail_pair_exists($user_id,$detail);
+			if (!$detail_pair_exists){
+				//echo '<h1> ISNT SET HERE </h1>';
+				$create_a_new = $user->add_user_detail_with_type($user_id,$detail,$_POST[$detail]);
+			}else{
+			//	echo '<h1>'.$user_id.' and '.$detail.' already are set here</h1>';
+			}
+			
+			$user->update_user_details_for_user($user_id,$detail,$_POST[$detail]);
+		
+		}
+	}
+}
 
 
 
@@ -185,19 +212,5 @@ function print_detail_inputs_without_value($detail){
 
 
 
-
-
-
-
- 		// if(!empty($user_details_ids)){
-	 	// 	foreach ($user_details_ids as $key => $value) {
-	 	// 		$detail = $user->get_detail_data_by_detail_id($value);
-	 	// 		print_valued_detail_inputs($detail);
-	 	// 	}
- 		// }else{
- 		// 	foreach ($existing_user_details_in_db as $key => $value) {
- 		// 		$detail = $user->get_detail_type_by_name($value);
- 		// 		print_empty_detail_inputs($detail['name']);
- 		// 	}
- 		// }
+ 	
 ?>

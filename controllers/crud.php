@@ -316,6 +316,24 @@ abstract class Crud {
 		*********************************************************************
 		*********************************************************************
 	*/
+	
+
+
+	// function verify_pair_user_id_detail_type_exists($user_id,$detail_type,$detail){
+	// 	$statement = $this->db->prepare("SELECT user_id,detail_type,detail FROM user_details WHERE detail = ?");
+	// }
+
+	function update_user_details_for_user($user_id,$detail_type,$new_detail){
+		$statement = $this->db->prepare("UPDATE user_groups.user_details SET detail = ? WHERE user_details.user_id = ? AND user_details.detail_type = ?");
+		$statement->bindParam(1,$new_detail);
+		$statement->bindParam(2,$user_id);
+		$statement->bindParam(3,$detail_type);
+		$statement->execute();
+		print_r($statement);
+		return $statement;
+	}
+
+
 
 	function grab_detail_value_by_type_and_id($id,$type){
 		$statement = $this->db->prepare("SELECT detail FROM user_details WHERE user_id = ? AND detail_type = ?");
@@ -338,6 +356,22 @@ abstract class Crud {
 				return false;
 			}
 	}
+
+
+	function check_detail_pair_exists($user_id,$detail_type){
+		$statement = $this->db->prepare("SELECT id FROM user_details WHERE detail_type = ? AND user_id = ?");
+		$statement->bindParam(1,$detail_type);
+		$statement->bindParam(2,$user_id);
+		$statement->execute();
+		if($statement->rowCount() >= 1){
+				return true;
+			}else{
+				return false;
+			}
+	}
+
+
+
 	//Returns an array of the already set detail types disponible for the specified user.
 	function get_detail_types_set_for_user($user_id){
 		$statement = $this->db->prepare("SELECT detail_type FROM user_details WHERE user_id = ?");
@@ -367,6 +401,9 @@ abstract class Crud {
 			return false;
 		}
 	}
+
+
+
 
 	function get_all_user_details(){
 		$statement = $this->db->prepare("SELECT * FROM user_details");
