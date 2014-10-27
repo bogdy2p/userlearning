@@ -68,8 +68,6 @@ function print_sitewide_menu(){
 function print_to_do_list(){
     echo'
 
-
-        
                 <ol>
                     <li><h6><spanred>TO_DO_LIST implementation (view,edit,delete,update)(not hardcoded like now)</spanred></h6></li>
                     <li><h6><spanred>ADD FUNCTIONALITY TO EDIT USER CORRESPONDING DETAILS phone , etc ,, for each detail type availlable (must be DYNAMIC)</spanred></h6></li>
@@ -81,7 +79,6 @@ function print_to_do_list(){
                     <li><h6><spangre>Print User with most details entered</spangre></h6></li>
                     <li><h6><spanred>view_changelogs SORTING </spanred></h6></li>
                 </ol>    
-
                 <!--
                     RED :
                     <li><h6><spanred></spanred></h6></li>

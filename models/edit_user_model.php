@@ -135,4 +135,24 @@ function print_userdata_inputs(){
 	}
 }
 
+
+ function get_userdata_details_availlable(){
+ 	
+}
+
+
+
+function print_details_inputs($details_availlable = array(NULL)){
+
+	foreach ($details_availlable as $detail) {
+	
+		echo '
+			<label>'.$detail.'</label>;</br>
+			<input name="" type="text" placeholder="" value=""> </br>
+	';
+	}
+}
+
+
+
 ?>
