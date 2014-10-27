@@ -95,11 +95,16 @@ function generate_users_table_footer(){
 /**********************************************************************************/
 
 	function print_user_details_information_table_html($user_id){
-			print_user_details_information_table_header();
+			
 			$user = new User();
 			$user_details_ids = $user->get_user_details_array($user_id);
-			print_user_details_information_table_content($user_details_ids);
-			print_user_details_information_table_footer();
+			if(!empty($user_details_ids)){
+				print_user_details_information_table_header();
+				print_user_details_information_table_content($user_details_ids);
+				print_user_details_information_table_footer();
+			}else{
+				echo "<h3>This user has no details set.</h3>";
+			}
 	}
 
 	function print_user_details_information_table_header(){

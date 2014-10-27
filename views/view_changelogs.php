@@ -9,7 +9,7 @@
 		<div class="row"><?php print_sitewide_menu();?></div>
 	</div>
 
-	<div class ="container-fluid">
+	<div class ="container">
 		<div class="row">
 			<div class="col-xs-12 col-md-4">
 				<?php generate_changelog_add_new_form();?>
