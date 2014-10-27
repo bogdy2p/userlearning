@@ -7,7 +7,6 @@ class Group extends Crud {
 	}
 	//GROUP CREATE`
 	function create($array,$table = 'groups'){
-		//return parent::create($array,$table);
 		$this->db = new Database();
 		$this->db = $this->db->dbConnect();
 		if(isset($array['id']) && ($array['id'] != 0)){
@@ -49,7 +48,7 @@ class Group extends Crud {
 			//LOGGING OF THE ACTION !
 			$log_message = 'Group '.$group['id'].' named '.$group['name'].' succesfully created.';
 			$log = new Log();
-			$log->create_log('group.php | create group + update',$log_message);
+			$log->create_log('group.php | '.__FUNCTION__,$log_message);
 			
 			header("Location: /user/views/view_list.php");
 			die();

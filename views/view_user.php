@@ -30,14 +30,10 @@ require_once('../models/user_list.php');
 					<br /><br />
 				<button type="submit" class="button">View User's Data</button>
 			</form>
-
 		</div>
 		<div class="col-xs-4 col-md-4"></div>
-
 			<div class="row"></div>
-
 	<div class="row">
-
 <?php 
 	 // VIEW'S FUNCTIONALITY
 	if(isset($_GET['id']) && ($_GET['id'] > 0)){

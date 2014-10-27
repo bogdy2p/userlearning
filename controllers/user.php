@@ -22,11 +22,7 @@ class User extends Crud {
 							}
 							else { 	die("There already is a username with that name!!!"); 
 								 }
-							$delete_this_cuz_its_nly_for_test = 'UNNAMED';
-							//LOGGING OF THE ACTION !
-							$log_message = 'User '.$this->id.' named '.$array["name"].' succesfully created.';
-							$log = new Log();
-							$log->create_log('user.php | create',$log_message);
+							
 					}
 			else { die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table); 
 				 }
@@ -58,6 +54,10 @@ class User extends Crud {
 								}
 						}
 				$asd2 = $users->update($user['id'],'users',$update_params_array);
+				//LOGGING OF THE ACTION !
+					$log_message = 'User '.$user["id"].' named '.$user["name"].' succesfully created.';
+					$log = new Log();
+					$log->create_log('user.php | '.__FUNCTION__,$log_message);
 				$users->redirect('/user/views/view_list.php');
 				die();
 			}

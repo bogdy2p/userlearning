@@ -48,8 +48,8 @@ function print_sitewide_menu(){
                         <ul class="nav navbar-nav">
                          
                              <li><a href="/user/views/view_list.php             ">   View Tables         </a></li>
-                             <li><a href="/user/views/view_group.php            ">   View Group          </a></li>
-                             <li><a href="/user/views/view_user.php             ">   View User           </a></li>
+                         <!--<li><a href="/user/views/view_group.php            ">   View Group          </a></li>-->
+                         <!--<li><a href="/user/views/view_user.php             ">   View User           </a></li>-->
                          <!--<li><a href="/user/views/assign.php                ">   Map User            </a></li>-->
                              <li><a href="/user/views/view_detail_types.php     ">   User Details Types  </a></li>
                              <li><a href="/user/views/create_user.php           ">   Add User            </a></li>

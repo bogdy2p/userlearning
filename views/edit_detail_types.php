@@ -14,7 +14,7 @@ require_once '../models/detail_types_model.php';
 	
 		<div class="row"> <!--SECOND ROW -->
 			<div class="col-xs-2 col-md-4"></div>
-			<div class="col-xs-8 col-md-4"><h3>Edit detail type  </h3></div>
+			<div class="col-xs-8 col-md-4"><h3>Edit detail type</h3></div>
 			<div class="col-xs-2 col-md-4"></div>
 		</div> <!--END SECOND ROW -->
 
@@ -35,14 +35,7 @@ require_once '../models/detail_types_model.php';
 				</div>
 			</div> <!--END SECOND COLUMN -->
 			<div class="col-xs-12 col-md-4"> <!--3rd COLUMN -->
-				<div class="row"> 
-						<div class="col-xs-3 col-md-2"></div>
-						<div class="col-xs-6 col-md-8">
-							<?php 
-							?>
-						</div>
-						<div class="col-xs-3 col-md-2"></div>
-				</div>	
+				
 			</div> <!--END THIRD COLUMN -->
 			
 		</div><!--END THIRD ROW -->
