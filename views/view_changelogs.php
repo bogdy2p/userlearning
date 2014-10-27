@@ -1,21 +1,22 @@
-<?php
-require_once('../models/changelog_model.php');
- ?>
+<?php require_once('../models/changelog_model.php'); ?>
 <!DOCTYPE html>
 <head>
 	<title>UserLearning Pbc Project</title>
-	<?php Crud::include_page_header_content();?>
+	<?php include_page_header_content();?>
 </head>
 <body>
 	<div class="container">
 		<div class="row"><?php print_sitewide_menu();?></div>
+	</div>
 
+	<div class ="container-fluid">
 		<div class="row">
 			<div class="col-xs-12 col-md-4">
 				<?php generate_changelog_add_new_form();?>
-				
 			</div>
-			<div class="col-xs-12 col-md-4 "> 	<h2>Latest Applied Changes:</h2></div>
+			<div class="col-xs-12 col-md-4 "> 	
+				<h2>Latest Applied Changes:</h2>
+			</div>
 			<div class="col-xs-12 col-md-4">
 				<?php generate_select_day_list();?>
 				
@@ -37,6 +38,7 @@ require_once('../models/changelog_model.php');
 		  		<div class="col-xs-12 col-md-3"></div>
 		</div>
     </div>
+    <?php include_page_footer_content(); ?>
 </body>
 </html>
 

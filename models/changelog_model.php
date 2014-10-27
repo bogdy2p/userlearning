@@ -1,35 +1,24 @@
 <?php
-//INCLUDE THE CONTROLLERS
-require_once('../controllers/database.php');
 require_once('../controllers/crud.php');
 require_once('../controllers/user.php');
 require_once('../controllers/group.php');
 require_once('../controllers/function_call_log.php');
 require_once('../controllers/changelog_controller.php');
 ?>
-
-
 <?php
-
 validation_and_insertion_of_a_new_changelog();
 
 function validation_and_insertion_of_a_new_changelog(){
 
 	if(isset($_POST) && !empty($_POST)){
-		echo "<h1>POST IS SET / NOT NULL</h1>";
-		print_r($_POST);
 		$name_with_heading = '<'.$_POST['heading_type'].'>'.$_POST['changelog_text'].'</'.$_POST['heading_type'].'>';
 		$colour = $_POST['colour'];
 		$changelog = new Changelog;
 		$changelog->create_changelog_row($name_with_heading,$colour);
 		header("Location: /user/views/view_changelogs.php");
 		die();
-
-	}else{
-		//echo "<h1>NOT SET / NULL</h1>";
-	}
-
-
+	}else{}
+}
 
 
 function generate_changelog_table_html(){
@@ -41,7 +30,6 @@ function generate_changelog_table_header(){
 	echo '<div class="col-xs-12 col-md-12">';
 	echo "<h3>ALL CHANGE LOGS :</h3>";
 	echo '<table class="table table-bordered">';
-	//echo '<th class="success">Id</th>';
 	echo '<th class="success">Name</th>';
 	echo '<th class="success">Created</th>';
 }
@@ -51,9 +39,7 @@ function generate_changelog_table_content(){
 	foreach ($changelogs as $individual_changelog) {
 			$type = 'changelogs';
 				echo '<tr>';
-               // echo '<td class="warning">'. $individual_changelog['id'] . '</td>';
-                echo '<td><'.$individual_changelog['colour'].'>'. $individual_changelog['name'] .'</'.$individual_changelog['colour'].'></td>';
-                //echo '<td>'. $individual_changelog['colour'] . '</td>';
+                echo '<td><'.$individual_changelog['colour'].'>'. $individual_changelog['name'] .'</'.$individual_changelog['colour'].'></td>';             
                 echo '<td>'. $individual_changelog['date'] . '</td>';
                 echo '</tr>';
 		}
@@ -97,7 +83,6 @@ function generate_select_day_list(){
 
 
 
-}
 
 
 ?>

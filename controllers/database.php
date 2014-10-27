@@ -48,14 +48,11 @@ function print_sitewide_menu(){
                         <ul class="nav navbar-nav">
                          
                              <li><a href="/user/views/view_list.php             ">   View Tables         </a></li>
-                         <!--<li><a href="/user/views/view_group.php            ">   View Group          </a></li>-->
-                         <!--<li><a href="/user/views/view_user.php             ">   View User           </a></li>-->
-                         <!--<li><a href="/user/views/assign.php                ">   Map User            </a></li>-->
                              <li><a href="/user/views/view_detail_types.php     ">   User Details Types  </a></li>
                              <li><a href="/user/views/create_user.php           ">   Add User            </a></li>
                              <li><a href="/user/views/create_group.php          ">   Add Group           </a></li>
                              <li><a href="/user/views/view_logs.php             ">   View App Logs       </a></li>
-                             <li><a href="/user/views/view_changelogs.php             ">   View CHANGELOGS       </a></li>
+                             <li><a href="/user/views/view_changelogs.php       ">   View Changelogs     </a></li>
 
                         </ul>
                 
@@ -74,7 +71,7 @@ function print_to_do_list(){
 
         
                 <ol>
-                    <li><h6><spanyel>view_logs.php responsiveness fix | table wordwrap !!</spanyel></h6></li>
+                    <li><h6><spanred>Fix view changelogs responsive menu !</spanred></h6></li>
                     <li><h6><spanred>ADD FUNCTIONALITY TO EDIT USER CORRESPONDING DETAILS phone , etc ,, for each detail type availlable (must be DYNAMIC)</spanred></h6></li>
                     <li><h6><spanred>THE REST of the FIX the responsiveness of the website...</spanred></h6></li>
                     <li><h5><spanred><b>Jquery CHECK USERNAME exists already (when creating a new user) in the database. (front-end validation)</b></spanred></h5></li>
