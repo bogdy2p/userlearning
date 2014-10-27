@@ -135,22 +135,24 @@ function print_userdata_inputs(){
 	}
 }
 
+ function get_userdata_details_availlable($user_id){
+ 		$user = new User();
+ 		$user_details_ids = $user->get_user_details_array($user_id);
+ 		foreach ($user_details_ids as $key => $value) {
+ 			$detail = $user->get_detail_data_by_detail_id($value);
+ 			print_detail_inputs($detail);
+ 		}
+ 		//GRAB AN ARRAY OF EACH DETAIL THAT IS SET FOR THIS USER (Already done @ add user!);
+ 		//CHECK IF THE ARRAY IS SET .
+ 		//IF IT IS SET , PRINT DETAIL INPUT [value_set];
+ 		// else , print detail input (empty value)
+ }
 
- function get_userdata_details_availlable(){
- 	
-}
-
-
-
-function print_details_inputs($details_availlable = array(NULL)){
-
-	foreach ($details_availlable as $detail) {
-	
+function print_detail_inputs($detail){
 		echo '
-			<label>'.$detail.'</label>;</br>
-			<input name="" type="text" placeholder="" value=""> </br>
-	';
-	}
+			<label>'.$detail["type"].'</label></br>
+			<input name="" type="text" placeholder="" value="'.$detail["value"].'"> </br>
+			';
 }
 
 
