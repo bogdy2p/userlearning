@@ -1,8 +1,8 @@
 <?php
 //VIEWS SHOULD INCLUDE ONLY THE MODELS NOT THE CONTROLLERS
-require_once('../models/user_list.php');
-require_once('../models/groups_list.php');
-require_once('../models/mapping_list.php');
+require_once('../models/user_model.php');
+require_once('../models/groups_model.php');
+require_once('../models/mapping_model.php');
 ?>
 <!DOCTYPE html>
 <head>

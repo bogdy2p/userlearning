@@ -1,5 +1,5 @@
 <?php
- require_once '../models/user_list.php';
+ require_once '../models/user_model.php';
 ?>
 <!DOCTYPE html>
 <head>

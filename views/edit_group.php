@@ -1,5 +1,5 @@
 <?php
- require_once '../models/groups_list.php';
+ require_once '../models/groups_model.php';
 ?>
 <?php 
 

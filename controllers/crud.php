@@ -1,6 +1,5 @@
 <?php
 
-
 require_once 'database.php';
 require_once('function_call_log.php');
 
@@ -36,11 +35,11 @@ abstract class Crud {
 							$statement->bindParam(1, $update_params_array['name']);
 							$statement->bindParam(2, $update_params_array['password']);
 							$statement->bindParam(3, $id);
-							//LOG
-								$log_message = 'Updated user '.$id;
-								$log = new Log();
-								$log->create_log('crud.php |'.__FUNCTION__,$log_message);
-							//END LOG
+							// //LOG
+							// 	$log_message = 'Updated user '.$id;
+							// 	$log = new Log();
+							// 	$log->create_log('crud.php |'.__FUNCTION__,$log_message);
+							// //END LOG
 									  }
 				elseif ($table == 'groups'){
 
@@ -49,11 +48,11 @@ abstract class Crud {
 				$statement->bindParam(2, $update_params_array['name']);
 				$statement->bindParam(3, $update_params_array['special_key']);
 				$statement->bindParam(4, $id);
-					//LOG
-								$log_message = 'Updated group '.$id;
-								$log = new Log();
-								$log->create_log('crud.php |'.__FUNCTION__,$log_message);
-					//END LOG
+					// //LOG
+					// 			$log_message = 'Updated group '.$id;
+					// 			$log = new Log();
+					// 			$log->create_log('crud.php |'.__FUNCTION__,$log_message);
+					// //END LOG
 					}
 			$statement->execute();
 		}else{
@@ -68,11 +67,11 @@ abstract class Crud {
 	 		$statement = $this->db->prepare("DELETE FROM user_groups." . $table . " WHERE ".$table.".id=?");
 	 		$statement->bindParam(1, $id);
 	 		$statement->execute();
-	 		//LOG
-				$log_message = 'Deleted object with id '.$id.' From table '.$table;
-				$log = new Log();
-				$log->create_log('crud.php |'.__FUNCTION__,$log_message);
-			//END LOG
+	 	// 	//LOG
+			// 	$log_message = 'Deleted object with id '.$id.' From table '.$table;
+			// 	$log = new Log();
+			// 	$log->create_log('crud.php |'.__FUNCTION__,$log_message);
+			// //END LOG
 	 	 	}else{
 	 		//print_r("There is no such entry in the whole database. Nothing to delete.");
 	 	}
@@ -209,11 +208,11 @@ abstract class Crud {
 	function map_user_group($uid,$gid){
 		$statement = $this->db->prepare("INSERT INTO usergroups (user_id,group_id) VALUES ('$uid','$gid')");
 		$statement->execute();
-		//LOGGING OF THE ACTION !
-				$log_message = 'Mapped user : '.$uid.' to group : '.$gid;
-				$log = new Log();
-				$log->create_log('crud.php | '.__FUNCTION__,$log_message);
-		print_r("Mapped user {$uid} to group {$gid}. ");
+		// //LOGGING OF THE ACTION !
+		// 		$log_message = 'Mapped user : '.$uid.' to group : '.$gid;
+		// 		$log = new Log();
+		// 		$log->create_log('crud.php | '.__FUNCTION__,$log_message);
+		// print_r("Mapped user {$uid} to group {$gid}. ");
 		return $statement;
 	}
 
@@ -241,10 +240,10 @@ abstract class Crud {
 		$statement = $this->db->prepare("DELETE FROM usergroups WHERE {$type} = ?");
 		$statement->bindParam(1,$id);
 		$statement->execute();
-		//LOGGING OF THE ACTION !
-			$log_message = 'Deleted mapping : '.$id.' (by type)';
-			$log = new Log();
-			$log->create_log('crud.php | '.__FUNCTION__,$log_message);
+		// //LOGGING OF THE ACTION !
+		// 	$log_message = 'Deleted mapping : '.$id.' (by type)';
+		// 	$log = new Log();
+		// 	$log->create_log('crud.php | '.__FUNCTION__,$log_message);
 		return $statement;
 	}
 
@@ -252,10 +251,10 @@ abstract class Crud {
 		$statement = $this->db->prepare("DELETE FROM usergroups WHERE id = ?");
 		$statement->bindParam(1,$id);
 		$statement->execute();
-		//LOGGING OF THE ACTION !
-			$log_message = 'Deleted mapping '.$id;
-			$log = new Log();
-			$log->create_log('crud.php | '.__FUNCTION__,$log_message);
+		// //LOGGING OF THE ACTION !
+		// 	$log_message = 'Deleted mapping '.$id;
+		// 	$log = new Log();
+		// 	$log->create_log('crud.php | '.__FUNCTION__,$log_message);
 		return $statement;
 	}
 
@@ -296,10 +295,10 @@ abstract class Crud {
 			$statement = $this->db->prepare("DELETE FROM user_groups.usergroups WHERE usergroups.user_id = ?");
 			$statement->bindParam(1,$user_id);
 			$statement->execute();
-			//LOGGING OF THE ACTION !
-				$log_message = 'Deleted all mapping for id : '.$user_id;
-				$log = new Log();
-				$log->create_log('crud.php | '.__FUNCTION__,$log_message);
+			// //LOGGING OF THE ACTION !
+			// 	$log_message = 'Deleted all mapping for id : '.$user_id;
+			// 	$log = new Log();
+			// 	$log->create_log('crud.php | '.__FUNCTION__,$log_message);
 			return $statement;
 		}
 
@@ -428,11 +427,10 @@ abstract class Crud {
 		$statement = $this->db->prepare("DELETE FROM user_groups.user_details WHERE user_details.user_id = ? ");
 		$statement->bindParam(1,$user_id);
 		$statement->execute();
-		//LOGGING OF THE ACTION !
-				$log_message = 'Deleted all user_details for id : '.$user_id;
-				$log = new Log();
-				$log->create_log('crud.php | '.__FUNCTION__,$log_message);
-		//print_r($statement);
+		// //LOGGING OF THE ACTION !
+		// 		$log_message = 'Deleted all user_details for id : '.$user_id;
+		// 		$log = new Log();
+		// 		$log->create_log('crud.php | '.__FUNCTION__,$log_message);
 		return $statement;
 	}
 
@@ -440,11 +438,10 @@ abstract class Crud {
 		$statement = $this->db->prepare("DELETE FROM user_groups.user_details WHERE user_details.detail_type = ? ");
 		$statement->bindParam(1,$deleted_type);
 		$statement->execute();
-			//LOGGING OF THE ACTION !
-				$log_message = 'Deleted all mapping for detail type : '.$deleted_type;
-				$log = new Log();
-				$log->create_log('crud.php | '.__FUNCTION__,$log_message);
-		//print_r($statement);
+			// //LOGGING OF THE ACTION !
+			// 	$log_message = 'Deleted all mapping for detail type : '.$deleted_type;
+			// 	$log = new Log();
+			// 	$log->create_log('crud.php | '.__FUNCTION__,$log_message);
 		return $statement;
 	}
 	/* END OF USER_DETAILS TABLE FUNCTIONS */
@@ -486,7 +483,6 @@ abstract class Crud {
 		foreach ($statement as $row) {
 		 	$detail['id'] = $row['id'];
 			$detail['name'] = $row['name'];
-		//return $row;
 		}
 		return $detail;
 	}
@@ -507,10 +503,10 @@ abstract class Crud {
 		if((!$detail_type_exists) && (!is_null($user_detail_type)) && ($user_detail_type != ' ')){
 			$statement = $this->db->prepare("INSERT INTO user_detail_types (id,name) VALUES ('','$user_detail_type')");
 			$statement->execute();
-			//LOGGING OF THE ACTION !
-				$log_message = 'Added new detail type. '.$user_detail_type.' to user_detail_types table.';
-				$log = new Log();
-				$log->create_log('crud.php |'.__FUNCTION__,$log_message);
+			// //LOGGING OF THE ACTION !
+			// 	$log_message = 'Added new detail type. '.$user_detail_type.' to user_detail_types table.';
+			// 	$log = new Log();
+			// 	$log->create_log('crud.php |'.__FUNCTION__,$log_message);
 			return $statement;
 		}
 		else{
@@ -534,10 +530,6 @@ abstract class Crud {
 		$statement->bindParam(1,$new_name);
 		$statement->bindParam(2,$the_id);
 		$statement->execute();
-		//LOGGING OF THE ACTION !
-			$log_message = 'Updated detail '.$old_name.' Renamed it to '.$new_name;
-			$log = new Log();
-			$log->create_log('crud.php |'.__FUNCTION__,$log_message);
 		return $statement;
 	}
 
@@ -546,10 +538,10 @@ abstract class Crud {
 		$statement->bindParam(1,$new_name);
 		$statement->bindParam(2,$old_name);
 		$statement->execute();
-		//LOGGING OF THE ACTION !
-			$log_message = 'Updated all details named '.$old_name.' Renamed them to '.$new_name;
-			$log = new Log();
-			$log->create_log('crud.php |'.__FUNCTION__,$log_message);
+		// //LOGGING OF THE ACTION !
+		// 	$log_message = 'Updated all details named '.$old_name.' Renamed them to '.$new_name;
+		// 	$log = new Log();
+		// 	$log->create_log('crud.php |'.__FUNCTION__,$log_message);
 		return $statement;
 	}
 
@@ -559,10 +551,10 @@ abstract class Crud {
 			$statement = $this->db->prepare("DELETE FROM user_groups.user_detail_types WHERE user_detail_types.name = ?");
 			$statement->bindParam(1,$user_detail_type);
 			$statement->execute();
-			//LOGGING OF THE ACTION !
-				$log_message = 'Deleted detail '.$user_detail_type.' from user_detail_types table.';
-				$log = new Log();
-				$log->create_log('crud.php |'.__FUNCTION__,$log_message);
+			// //LOGGING OF THE ACTION !
+			// 	$log_message = 'Deleted detail '.$user_detail_type.' from user_detail_types table.';
+			// 	$log = new Log();
+			// 	$log->create_log('crud.php |'.__FUNCTION__,$log_message);
 			return $statement;
 		}
 	}

@@ -1,5 +1,5 @@
 <?php
-require_once('../models/mapping_list.php');
+require_once('../models/mapping_model.php');
 ?>
 <!DOCTYPE html>
 <head>

@@ -70,19 +70,19 @@ function print_sitewide_menu(){
 
 function print_to_do_list(){
     echo'
+
+
+        
                 <ol>
-                    <li><h3><spanred>Function CREATE in class CRUD must be modified. So as functions create USER and GROUPS from their own classes.</spanred></h3></li>
+                    <li><h6><spanyel>view_logs.php responsiveness fix | table wordwrap !!</spanyel></h6></li>
                     <li><h6><spanred>ADD FUNCTIONALITY TO EDIT USER CORRESPONDING DETAILS phone , etc ,, for each detail type availlable (must be DYNAMIC)</spanred></h6></li>
                     <li><h6><spanred>THE REST of the FIX the responsiveness of the website...</spanred></h6></li>
                     <li><h5><spanred><b>Jquery CHECK USERNAME exists already (when creating a new user) in the database. (front-end validation)</b></spanred></h5></li>
                     <li><h5><spanyel>@ create_group_view - display group entries from groups table for the user to see what groups already exist</spanyel></h5></li>
-                    <li><h6><spanyel>When creating a new user , save the user\'s account CREATION TIME. (into new table... LOG ?)</spanyel></h6></li>
                     <li><h5><spanred>AJAX / Jquery @ editing user </spanred></h5></li>
                     <li><h6><spanyel>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</spanyel></h6>  </li>
                     <li><h6><spangre>Print "last created user";</spangre></h6></li>
                     <li><h6><spangre>Print User with most details entered</spangre></h6></li>
-                    <li><h5><spanred>Create a changelog for this application , that saves changes to db</spanred></h5></li>
-                    <li><h6><spanred>EMPTY EMPTY EMPTY</spanred></h6></li>
                     <li><h6><spanred>If i remain without stuff to do , and nothing new appears : Create a changelog for this application , that saves changes to db</spanred></h6></li>
                 </ol>    
 

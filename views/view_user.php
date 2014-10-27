@@ -1,5 +1,5 @@
 <?php
-require_once('../models/user_list.php');
+require_once('../models/user_model.php');
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +40,8 @@ require_once('../models/user_list.php');
 			$_POST['id'] = $_GET['id'];
 	}
 	if(isset($_POST['id']) && ($_POST['id'] > 0)){
-		$user = new User();
-		$user->print_user_information_table_html($_POST['id']);
-		$user->print_user_details_information_table_html($_POST['id']);
+		print_user_information_table_html($_POST['id']);
+		print_user_details_information_table_html($_POST['id']);
 	}
 ?>
 </div>

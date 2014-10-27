@@ -34,6 +34,9 @@ function verification($get) {
 												$group_ids_checked_array = get_group_ids_checked_in_form();
 												//Apply new mapping using the new values from the form !!!! (Foreach in one line)
 												foreach ($group_ids_checked_array as $group_id_checked) {$user->assign_user_to_group($get['id'],$group_id_checked);}
+												
+
+												
 												header("Location: /user/views/view_list.php");		
 												die();						
 											}else{

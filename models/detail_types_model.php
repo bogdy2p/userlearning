@@ -17,6 +17,10 @@ function verify_edit_and_update(){
 			$user->update_detail_type_name($_POST['old_detail_name'],$_POST['new_detail_name']);
 			//MUST UPDATE IN THE OTHER TABLE EVERYWHERE WHERE DETAIL TYPE OF THIS KIND IS SET !
 			$user->update_detail_types_names_in_user_groups($_POST['old_detail_name'],$_POST['new_detail_name']);
+			// //LOGGING OF THE ACTION !
+			// 	$log_message = 'Detail '.$_POST["old_detail_name"].' renamed to '.$_POST["new_detail_name"].' succesfully';
+			// 	$log = new Log();
+			// 	$log->create_log('user.php | '.__FUNCTION__,$log_message);
 			header("Location: /user/views/view_detail_types.php");
 			die();
 		}else{

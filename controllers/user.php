@@ -223,6 +223,18 @@ class User extends Crud {
 /**********************************************************************************/
 /**********************************************************************************/
 
+
+	function update_detail_type_name($old_name,$new_name){
+		// //LOGGING OF THE ACTION !
+		$log_message = 'Updated detail ['.$old_name.'] renamed it to ['.$new_name.']';
+		$log = new Log();
+		$log->create_log('user.php | '.__FUNCTION__,$log_message);
+		//Grab the id by the old name
+		return Crud::update_detail_type_name($old_name,$new_name);
+		
+		
+	}
+
 }
 
 ?>
