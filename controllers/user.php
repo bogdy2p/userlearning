@@ -22,10 +22,9 @@ class User extends Crud {
 							}
 							else { 	die("There already is a username with that name!!!"); 
 								 }
-
 							$delete_this_cuz_its_nly_for_test = 'UNNAMED';
 							//LOGGING OF THE ACTION !
-							$log_message = 'User '.$this->id.' named ['.$delete_this_cuz_its_nly_for_test.'] succesfully created.';
+							$log_message = 'User '.$this->id.' named '.$array["name"].' succesfully created.';
 							$log = new Log();
 							$log->create_log('user.php | create',$log_message);
 							//header("Location: /user/views/view_list.php");

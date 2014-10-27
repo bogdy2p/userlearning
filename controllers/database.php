@@ -23,7 +23,6 @@ class Database{
 function include_page_footer_content(){
 	echo '<!-- jQuery (necessary for Bootstrap JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>';
 }
@@ -68,49 +67,6 @@ function print_sitewide_menu(){
 }
 
 
-function print_latest_work_list(){
-    echo '  
-            <ol>
-                    <hr>
-                    <h5><b>24 oct 07:42 AM to 16:40 PM</b></h5>
-                    <hr>
-                    <li><h1><spanred>17 Commits IN TOTAL today . view them on github project link</spanred></h1></li>
-                    <li><h6><spanred>Edit User Detail Types Page and Functionality - done 70%</spanred></h6></li>
-                    <li><h6><spanred>Complete Edit User Detail Types Page and Functionality</spanred></h6></li>
-                    <li><h6><spanyel>Modified view_user.php , broken the functionality into multiple functions | 12:10 AM</spanyel></h6></li>
-                    
-
-                    <li><h6><spanred></spanred></h6></li>
-                    
-            </ol>
-            <ol>    
-                    <hr>
-                    <h5><b>23 oct: 08AM to 17PM</b></h5>
-                    <hr>
-                    <li><h6><spanred>Added Map Groups to user by "checkbox..."</spanred></h6></li>
-                    <li><h6><spanyel>Fixed map groups by checkbox without changing the user password</spanyel></h6></li>
-                    <li><h6><spanyel>Fixed the bootstrap javascript including (wasn\'t working)</spanyel></h6></li>
-                    <li><h6><spanyel>Removed the old menu ,added a responsive navigation menu </spanyel></h6></li>
-                    <li><h6><spangre>Fixed the site template (The menu and the content have now the same width across all pages)</spangre></h6></li>
-                    <li><h6><spanyel>Implemented print user_details_table & formatted</spanyel></h6></li>
-                    <li><h6><spanred>Implemented Add New Detail Form & Functionality</spanred></h6></li>
-                    <li><h6><spanred>Added options to delete and edit each detail type + Functionality </spanred></h6></li>
-                    <li><h6><spangre> Reorganized CRUD</spangre></h6></li>
-                    <li><h6><spanred>50% of the FIX the responsiveness of the website...</spanred></h6></li>
-                    <li><h6><spanred>View User Detail Types Page and Functionality</spanred></h6></li>
-                    <li><h4><spanred>FIX TABLE VIEW USERS RESP. BUTTONS to Glyphs</spanred></h4></li>
-            </ol>
-            <ol>
-                    <hr>
-                    <h5><b>23 oct: From 17PM</b></h5>
-                    <hr>
-                    <li><h5><spanyel>Fixed view_detail_types.php RESPONSIVNESSS </spanyel></h5></li>
-                    <li><h4><spanred>CRITICAL : REMOVE user_details entries for the user when deleting a user</spanred></h4></li>
-                    <li><h4><spanred>CRITICAL2 : REMOVE user_details entries deleting a DETAIL TYPE </spanred></h4></li>
-                    <li><h6><spanyel>Remove assign.php & related stuff (mapping is now done on user edit) </spanred></h6></li>
-            </ol>
-    ';
-}
 
 function print_to_do_list(){
     echo'

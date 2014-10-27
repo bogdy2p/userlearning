@@ -21,7 +21,6 @@ class Log extends Crud {
 		$this->db = $this->db->dbConnect();
 	 	$statement = $this->db->prepare("SELECT * FROM function_call_log ORDER BY date_created DESC");
 	 	$statement->execute();
-	 	//print_r($statement);
 	 	return $statement;
 	}
 
