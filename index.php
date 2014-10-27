@@ -42,16 +42,7 @@ require_once 'controllers/changelog_controller.php';
 					///////// ////////// //////?DATABASE STATISTICS Block?/// / // ///// //////////////
 				</div>	
 		  	</div>
-			<div class="row">
-				<hr>
-				<div class="col-xs-12 col-md-3 ">
-				 	<h2>Latest Applied Changes:</h2>
-				</div>
-				<div class="col-xs-12 col-md-7 ">
-				  	<?php print_latest_work_list();?>
-				</div>
-				<div class="col-xs-12 col-md-2 "></div>
-		  	</div>
+			
 		  	
 		  	<div class="row">
 		  	<hr>

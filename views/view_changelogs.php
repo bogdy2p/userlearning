@@ -13,11 +13,12 @@ require_once('../models/changelog_model.php');
 		<div class="row">
 			<div class="col-xs-12 col-md-4">
 				<?php generate_changelog_add_new_form();?>
-				Add new changelog form here.<br><br><br><br>Changelog name , select list for colour code , and select list for heading type
+				
 			</div>
 			<div class="col-xs-12 col-md-4 "> 	<h2>Latest Applied Changes:</h2></div>
 			<div class="col-xs-12 col-md-4">
-				Changelog Table Sorting Options Form here<br><br><br> The table sorting options should be managed with AJAX !!!
+				<?php generate_select_day_list();?>
+				
 			</div>
 		</div>
 		  		<?php 
