@@ -137,32 +137,58 @@ function print_userdata_inputs(){
 
  function get_userdata_details_availlable($user_id){
  		$user = new User();
- 		//AICI TREBUIE SA PREIAU TOATE TIPURILE DE DETALII EXISTENTE DIN BAZA DE DATE.
- 		//DUPAIA TREBUIE VERIFICAT PENTRU FIECARE DETALIU EXISTENT DACA EXISTA VALOARE IN TABELA DE USER DETAILS
- 		//PENTRU CELE CARE AU VALOARE , O AFISAM IN INPUT , PENTRU CELELALTE , AFISAM INPUT GOL.
- 		echo "<pre>";
- 		echo "All user detail types existent :";
-		$existing_user_details_in_db = $user->get_all_user_detail_types(); // PRELUAT TOATE TIPURILE DE DETALII EXISTENTE
-		var_dump($existing_user_details_in_db);
- 		echo "</pre>";
- 		echo "<pre>";
- 		$user_details_with_value = array(); 
-		$user_details_ids = $user->get_user_details_array($user_id); //PRELUAT ID-URILE TUTUROR TIPURILOR DE DETALII SETATE PT USER
- 		foreach ($user_details_ids as $id) {
- 			var_dump($id);
- 			$user_details_with_value[] = $user->get_detail_data_by_detail_id($id)['type'];
- 		}
- 		echo "User detail types set :";
- 		var_dump($user_details_with_value);
+ 		$already_set_details = array(); 
+		$all_existing_detail_types = $user->get_all_user_detail_types();
+		$user_details_ids = $user->get_user_details_array($user_id);
+ 		foreach ($user_details_ids as $key => $value) {		
+ 			$already_set_details[$value] = $user->get_detail_data_by_detail_id($value)['type'];
+  		}
+  		foreach ($all_existing_detail_types as $individual_detail) {
+  				if(in_array($individual_detail, $already_set_details)){
+  					$detail_value = $user->grab_detail_value_by_type_and_id($user_id,$individual_detail);
+  					print_detail_inputs_with_value($individual_detail,$detail_value);
+  				}else{
+  					print_detail_inputs_without_value($individual_detail);
+  				}
+  		}
+}
  
- 		foreach ($existing_user_details_in_db as $user_detail_type) {
- 				if(in_array($user_detail_type, $user_details_with_value)){
- 					echo "<h1>This one is in array.</h1>";
- 				}else{
- 					echo "<h1>This one is not in array.</h1>";
- 				}
- 		}
- 	
+function print_detail_inputs_with_value($type,$detail){
+		echo '
+			<label>'.$type.'</label></br>
+			<input name="'.$type.'" type="text" placeholder="" value="'.$detail.'"> </br>
+			';
+}
+function print_detail_inputs_without_value($detail){
+		echo '
+			<label>'.$detail.'</label></br>
+			<input name="'.$detail.'" type="text" placeholder="" value=""> </br>
+			';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  		// if(!empty($user_details_ids)){
 	 	// 	foreach ($user_details_ids as $key => $value) {
 	 	// 		$detail = $user->get_detail_data_by_detail_id($value);
@@ -174,21 +200,4 @@ function print_userdata_inputs(){
  		// 		print_empty_detail_inputs($detail['name']);
  		// 	}
  		// }
- }
-
-function print_valued_detail_inputs($detail){
-		echo '
-			<label>'.$detail["type"].'</label></br>
-			<input name="'.$detail["type"].'" type="text" placeholder="" value="'.$detail["value"].'"> </br>
-			';
-}
-
-function print_empty_detail_inputs($detail){
-		echo '
-			<label>'.$detail.'</label></br>
-			<input name="'.$detail.'" type="text" placeholder="" value=""> </br>
-			';
-}
-
-
 ?>

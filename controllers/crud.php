@@ -317,7 +317,15 @@ abstract class Crud {
 		*********************************************************************
 	*/
 
-
+	function grab_detail_value_by_type_and_id($id,$type){
+		$statement = $this->db->prepare("SELECT detail FROM user_details WHERE user_id = ? AND detail_type = ?");
+		$statement->bindParam(1,$id);
+		$statement->bindParam(2,$type);
+		$statement->execute();
+		foreach ($statement as $row) {
+			return ($row['detail']);
+		}
+	}
 
 	function check_detail_exists($user_id,$detail){
 		$statement = $this->db->prepare("SELECT id FROM user_details WHERE detail = ? AND user_id = ?");
