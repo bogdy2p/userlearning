@@ -6,8 +6,26 @@
 	<title>Create - UserLearning Pbc Project</title>
 	<?php Crud::include_page_header_content();?>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="../assets/testuser.js"></script>
 </head>
+<script>
+	$(document).ready(function() {  
+			//console.log(document);
+  			alert("document is ready!");
+  			check_availability();
+
+  	});  
+  
+function check_availability(){  
+        //get the username  
+        //var username = document.getElementById('#name');
+        //var nume = username.val();
+
+        //alert(nume);  
+  
+        //use ajax to run the check  
+        
+}  
+</script>
 <body onload="">
 	<div class ="container">
 	<div class="row"><?php Crud::print_sitewide_menu();?></div>
@@ -18,7 +36,6 @@
 					<br /><br />
 
 					<form class="form" id="asd" action="create_user.php" method="post">
-
 						<label>name</label><br />
 						<input name="name"  type="text"  placeholder="enter desired name" value="<?php if(isset($_POST['name'])) echo $_POST['name'];?>"> <br />
 						<br />
