@@ -31,7 +31,7 @@ function generate_mapping_table_content(){
 	echo '<td class="info">'.$table['id'].'</td>';
 	echo '<td>' . $table['user_id'] . ' - ' . $user->get_name_by_id($table['user_id']) .'</td>';
 	echo '<td>' . $table['group_id'] . ' - ' . $group->get_name_by_id($table['group_id']) .'</td>';
-	echo '<td><a href="../models/delete.php?id='.$map_id.'&type='.$type.'"><span class="glyphicon glyphicon-remove spanred"></span></td>';
+	echo '<td><a><span onclick="confirm_delete_mapping('.$map_id.')" class="glyphicon glyphicon-remove spanred pointer"></span></a></td>';
 	echo '</tr>';
 	}
 }

@@ -33,7 +33,8 @@ function generate_groups_table_content(){
                 echo '<td>'. $individual_group['name'] . '</td>';
                 echo '<td>'. $individual_group['special_key'] . '</td>';
                 echo '<td><a href="../views/edit_group.php?id='.$individual_group["id"].'&type='.$type.'"><span class="glyphicon glyphicon-edit spangre"></td>';
-                echo '<td><a href="../models/delete.php/?id='.$individual_group["id"].'&type='.$type.'"><span class="glyphicon glyphicon-remove spanred"></span></td>';
+                echo '<td><a><span onclick="confirm_delete_group('.$individual_group["id"].')" class="glyphicon glyphicon-remove spanred pointer"></span></a></td>';
+               // WITHOUT JAVASCRIPT : echo '<td><a href="../models/delete.php/?id='.$individual_group["id"].'&type='.$type.'"><span class="glyphicon glyphicon-remove spanred"></span></td>';
                 echo '</tr>';
 		}
 }

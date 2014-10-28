@@ -240,10 +240,6 @@ abstract class Crud {
 		$statement = $this->db->prepare("DELETE FROM usergroups WHERE {$type} = ?");
 		$statement->bindParam(1,$id);
 		$statement->execute();
-		// //LOGGING OF THE ACTION !
-		// 	$log_message = 'Deleted mapping : '.$id.' (by type)';
-		// 	$log = new Log();
-		// 	$log->create_log('crud.php | '.__FUNCTION__,$log_message);
 		return $statement;
 	}
 
@@ -251,10 +247,6 @@ abstract class Crud {
 		$statement = $this->db->prepare("DELETE FROM usergroups WHERE id = ?");
 		$statement->bindParam(1,$id);
 		$statement->execute();
-		// //LOGGING OF THE ACTION !
-		// 	$log_message = 'Deleted mapping '.$id;
-		// 	$log = new Log();
-		// 	$log->create_log('crud.php | '.__FUNCTION__,$log_message);
 		return $statement;
 	}
 

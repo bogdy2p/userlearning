@@ -42,9 +42,9 @@ if ($type_of_object == 'users'){
 	die();
 } elseif ($type_of_object == 'usergroups'){
 	$user = new User();
-	$user->delete_map_by_id($_GET['id']);
+	$user->delete_map_by_id($id_to_delete);
 			//LOG
-			$log_message = 'Deleted mapping with id '.$name;
+			$log_message = 'Deleted mapping with id '.$id_to_delete;
 			$log = new Log();
 			$log->create_log('delete.php | usergroups',$log_message);
 			//END LOG

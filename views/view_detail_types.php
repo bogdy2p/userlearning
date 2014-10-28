@@ -5,6 +5,7 @@ require_once '../models/detail_types_model.php';
 <head>
 	<title>UserLearning Pbc Project</title>
 	<?php include_page_header_content();?>
+	<script src="../assets/testuser.js"></script>
 </head>
 <body>
 	<div class="container">

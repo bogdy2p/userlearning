@@ -63,7 +63,8 @@ function print_user_details_table_content($user_details_array){
 		echo '<tr>';
 		echo '<td>'.$value.'</td>';
 		echo '<td> <a href="../views/edit_detail_types.php?name='.$value.'"><span class="glyphicon glyphicon-edit"></span></a>  </td>';
-		echo '<td> <a href="../models/delete.php/?id='.$value.'&type=detail"><span class="glyphicon glyphicon-remove spanred"></span></a> </td>';
+		// echo '<td> <a href="../models/delete.php/?id='.$value.'&type=detail"><span class="glyphicon glyphicon-remove spanred"></span></a> </td>';
+		echo '<td><a><span onclick="confirm_detail_type_delete(\''.$value.'\')" class="glyphicon glyphicon-remove spanred pointer"></span></a></td>';
 		echo '</tr>';
 	}
 }
