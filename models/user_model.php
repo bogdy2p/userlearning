@@ -23,17 +23,15 @@ function generate_users_table_header(){
 		echo '<th class="danger">Groups of Belonging</th>';
 		echo '<th class="danger">View</th>';
 		echo '<th class="danger">Edit</th>';
-		echo '<th class="danger">Delete</th>';
+		echo '<th class="danger">del</th>';
+		echo '<th class="danger">JAVASCRIPT Del</th>';
 }
 function generate_users_table_content(){
 	$user = new User();
 	$group = new Group();
 	$users = $user->list_users();
 	foreach ($users as $individual_user) {
-					echo '<script>
 					
-					</script>';
-
 					$type = 'users';
 					$userid = $individual_user['id'];
 					$groups_array = $user->get_number_of_groups_for_a_user($userid);
@@ -43,17 +41,15 @@ function generate_users_table_content(){
                      echo '<td>'.  implode(" / ",$groups_array) . '</td>';
                      echo '<td><a href="../views/view_user.php?id='.$individual_user["id"].'"><span class="glyphicon glyphicon-eye-open"></span></td>';
                      echo '<td><a href="../views/edit_user.php?id='.$individual_user["id"].'&type='.$type.'"><span class="glyphicon glyphicon-edit spangre"></span></td>';
-            		 echo  "<script>
-                  				
-							</script>";
-                     echo '<td><a href="../models/delete.php?id='.$individual_user["id"].'&type='.$type.'">
-                     <span class="glyphicon glyphicon-remove spanred" id="'.$individual_user["id"].'" onclick=myFunction();></span></td>
-
-
-                     ';
+                     echo '<td><a href="../models/delete.php?id='.$individual_user["id"].'&type='.$type.'"><span class="glyphicon glyphicon-remove spanred"></span></a></td>';
+                     echo '<td><a>
+                     	   
+                     	   	<span class="glyphicon glyphicon-remove spanred" id="'.$individual_user["id"].'" onclick=myFunction('.$individual_user["id"].');></span>
+                     	   </td>';
                      echo '</tr>';
     }
 }
+
 function generate_users_table_footer(){
 	echo '</table></div>';
 }
