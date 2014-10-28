@@ -7,72 +7,12 @@ class Database{
     }
 }
 
- function include_page_header_content() {
-	// INCLUDE CSS FILES
- 	echo '<meta charset="utf-8">';
-    echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">';
-    echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
-    echo '<link rel="stylesheet" type="text/css" href="assets/css/style.css">';
-    echo '<link rel="stylesheet" type="text/css" href="../assets/css/style.css">';
-    echo '<link href="../assets/css/bootstrap.min.css" rel="stylesheet">';
-    echo '<link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet">';
-    echo '<link href="assets/css/bootstrap.min.css" rel="stylesheet">';
-    echo '<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">';
-}
-
-function include_page_footer_content(){
-	echo '<!-- jQuery (necessary for Bootstrap JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>';
-}
-
-function print_sitewide_menu(){
-    echo'   
-            <nav class="navbar navbar-default" role="navigation">
-
-                <div class="container-fluid">
-                    <div class="navbar-header">
-
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>        
-
-                            <a class="navbar-brand" href="/user">Home</a>
-                    </div>                            
-
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                         
-                             <li><a href="/user/views/view_list.php             ">   View Tables         </a></li>
-                             <li><a href="/user/views/view_detail_types.php     ">   User Details Types  </a></li>
-                             <li><a href="/user/views/create_user.php           ">   Add User            </a></li>
-                             <li><a href="/user/views/create_group.php          ">   Add Group           </a></li>
-                             <li><a href="/user/views/view_logs.php             ">   View App Logs       </a></li>
-                             <li><a href="/user/views/view_changelogs.php       ">   View Changelogs     </a></li>
-
-                        </ul>
-                
-                    </div><!-- /.navbar-collapse -->
-                    
-                </div>
-            </nav>
-';
-}
-
-
-
 function print_to_do_list(){
     echo'
-
                 <ol>
-                    
                     <li><h5><spanred><b>Jquery CHECK USERNAME exists already (when creating a new user) in the database. (front-end validation)</b></spanred></h5></li>
                     <li><h5><spanyel>@ create_group_view - display group entries from groups table for the user to see what groups already exist</spanyel></h5></li>
-                    <li><h5><spanred>AJAX / Jquery @ editing user </spanred></h5></li>
+                    <li><h5><spanred>AJAX / Jquery @ editing user (if changing username , not to be able to select an already existing username) </spanred></h5></li>
                     <li><h6><spanyel>TO_DO_LIST implementation (view,edit,delete,update)(not hardcoded like now)</spanyel></h6></li>
                     <li><h6><spangre>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</spangre></h6>  </li>
                     <li><h6><spangre>Print "last created user";</spangre></h6></li>
@@ -86,21 +26,5 @@ function print_to_do_list(){
                     GREEN :
                     <li><h6><spangre></spangre></h6></li>                  
                 -->                  
-                
-    ';
-}
-
-function print_color_meanings(){
-    echo '
-                <hr>
-                <div class="col-xs-12 col-md-2"><h1>Colours meaning</h1></div>
-                <div class="col-xs-12 col-md-7">
-                    <ul>
-                        <li><spanred><h5><b>RED</b></h5></spanred> = HIGH PRIORITY / HIGH DIFFICULTY</li>
-                        <li><spanyel><h5><b>YELLOW</b></h5></spanyel> = NORMAL PRIORITY / NORMAL DIFFICULTY</li>
-                        <li><spangre><h5><b>GREEN</b></h5></spangre> = LOW PRIORITY / LOW DIFFICULTY</li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-md-3"></div>
     ';
 }

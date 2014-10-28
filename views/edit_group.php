@@ -30,12 +30,12 @@
 <!DOCTYPE html>
 <head>
 	<title>Edit Group</title>
-	<?php include_page_header_content();?>
+	<?php Crud::include_page_header_content();?>
 </head>
 
 <body>
 	<div class ="container">
-	<?php print_sitewide_menu();?>
+	<?php Crud::print_sitewide_menu();?>
 
 		
 
@@ -50,7 +50,7 @@
 			</form>
 
 	</div>
-	<?php include_page_footer_content(); ?>
+	<?php Crud::include_page_footer_content(); ?>
 </body>
 
 </html>

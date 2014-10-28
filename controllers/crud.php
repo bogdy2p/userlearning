@@ -686,6 +686,60 @@ function include_page_header_content() {
     echo '<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">';
 }
 
+
+function include_page_footer_content(){
+	echo '<!-- jQuery (necessary for Bootstrap JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>';
+}
+
+function print_sitewide_menu(){
+    echo'   
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>        
+                            <a class="navbar-brand" href="/user">Home</a>
+                    </div>                            
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                             <li><a href="/user/views/view_list.php             ">   View Tables         </a></li>
+                             <li><a href="/user/views/view_detail_types.php     ">   User Details Types  </a></li>
+                             <li><a href="/user/views/create_user.php           ">   Add User            </a></li>
+                             <li><a href="/user/views/create_group.php          ">   Add Group           </a></li>
+                             <li><a href="/user/views/view_logs.php             ">   View App Logs       </a></li>
+                             <li><a href="/user/views/view_changelogs.php       ">   View Changelogs     </a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div>
+            </nav>
+';
+}
+function print_color_meanings(){
+    echo '
+                <hr>
+                <div class="col-xs-12 col-md-2"><h1>Colours meaning</h1></div>
+                <div class="col-xs-12 col-md-7">
+                    <ul>
+                        <li><spanred><h5><b>RED</b></h5></spanred> = HIGH PRIORITY / HIGH DIFFICULTY</li>
+                        <li><spanyel><h5><b>YELLOW</b></h5></spanyel> = NORMAL PRIORITY / NORMAL DIFFICULTY</li>
+                        <li><spangre><h5><b>GREEN</b></h5></spangre> = LOW PRIORITY / LOW DIFFICULTY</li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-md-3"></div>
+    ';
+}
+
+
+
+
+
 }
 ?>
 

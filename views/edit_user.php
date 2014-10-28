@@ -5,12 +5,12 @@ require_once('../models/edit_user_model.php');
 <!DOCTYPE html>
 <head>
 	<title>Edit User</title>
-	<?php include_page_header_content();?>
+	<?php Crud::include_page_header_content();?>
 </head>
 
 <body>
 	<div class ="container">
-		<div class="row"><?php print_sitewide_menu(); ?></div>
+		<div class="row"><?php Crud::print_sitewide_menu(); ?></div>
 	
 
 		<div class="row">
@@ -64,7 +64,7 @@ require_once('../models/edit_user_model.php');
 			</form>
 		</div> <!--END OF ROW -->
 	</div>
-	<?php include_page_footer_content(); ?>
+	<?php Crud::include_page_footer_content(); ?>
 </body>
 
 </html>

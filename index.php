@@ -14,7 +14,7 @@ require_once 'controllers/changelog_controller.php';
  
 <body>
 	<div class="container">
-			<div class="row"><?php print_sitewide_menu();?></div>
+			<div class="row"><?php Crud::print_sitewide_menu();?></div>
 
 			<div class="row">
 					 <div class="col-xs-12 col-md-4 "></div>
@@ -36,11 +36,11 @@ require_once 'controllers/changelog_controller.php';
 		  	</div>
 		  	
 		  	<div class="row">
-		  			<?php print_color_meanings(); ?>
+		  			<?php Crud::print_color_meanings(); ?>
 		  	</div>
 
 
    </div>
-   <?php include_page_footer_content(); ?>
+   <?php Crud::include_page_footer_content(); ?>
 </body>
 </html>

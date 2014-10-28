@@ -5,12 +5,12 @@ require_once '../models/detail_types_model.php';
 <!DOCTYPE html>
 <head>
 	<title>Edit User</title>
-	<?php include_page_header_content();?>
+	<?php Crud::include_page_header_content();?>
 </head>
 
 <body>
 	<div class="container">
-		<div class="row"> <?php print_sitewide_menu();?> </div>
+		<div class="row"> <?php Crud::print_sitewide_menu();?> </div>
 	
 		<div class="row"> <!--SECOND ROW -->
 			<div class="col-xs-2 col-md-4"></div>
@@ -40,7 +40,7 @@ require_once '../models/detail_types_model.php';
 			
 		</div><!--END THIRD ROW -->
 	</div>
- <?php include_page_footer_content(); ?>
+ <?php Crud::include_page_footer_content(); ?>
 </body>
 
 </html>

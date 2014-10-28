@@ -4,13 +4,13 @@
 <!DOCTYPE html>
 <head>
 	<title>Create - UserLearning Pbc Project</title>
-	<?php include_page_header_content();?>
+	<?php Crud::include_page_header_content();?>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="../assets/testuser.js"></script>
 </head>
 <body onload="">
 	<div class ="container">
-	<div class="row"><?php print_sitewide_menu();?></div>
+	<div class="row"><?php Crud::print_sitewide_menu();?></div>
 			
 			<div class="row">
 				<div class="col-xs-4 col-md-4"></div>
@@ -35,7 +35,7 @@
 			
 			</div> <!-- <div class="row"> -->
  	</div>
- 	<?php include_page_footer_content(); ?>
+ 	<?php Crud::include_page_footer_content(); ?>
 </body>
 </html>
 <!-- FUNCTIONALITY -->
