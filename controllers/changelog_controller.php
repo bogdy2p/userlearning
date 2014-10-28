@@ -34,6 +34,26 @@ class Changelog extends Crud {
 	 	$statement->execute();
 	}
 
+	function read_changelogs_for_last_24_hours($day,$limit){
+		$this->db = new Database();
+	 	$this->db = $this->db->dbConnect();
+	  	$statement = $this->db->prepare("SELECT * FROM app_changelog WHERE date >= NOW() - INTERVAL 1 DAY ORDER BY date DESC  ");
+	  	$statement->bindParam(1,$day);
+	  	$statement->bindParam(2,$limit);
+	  	$statement->execute();
+	  	print_r($statement);
+	  	return $statement;
+	}
+
+	function read_changelogs_for_last_x_days($days = '0'){
+		$this->db = new Database();
+	 	$this->db = $this->db->dbConnect();
+	  	$statement = $this->db->prepare("SELECT * FROM app_changelog WHERE date >= CURDATE() - ? ORDER BY date DESC");
+	  	$statement->bindParam(1,$days);
+	  	$statement->execute();
+	  	print_r($statement);
+	  	return $statement;
+	}
 
 }
 ?>

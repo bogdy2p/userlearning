@@ -23,7 +23,8 @@
 			</div>
 		</div>
 		  		<?php 
-					generate_changelog_table_html();
+		  			// $days = how long ago to generate !
+					generate_changelog_table_html($days = '0');
 				?>
 		<div class="row">
 		  		<?php print_color_meanings(); ?>

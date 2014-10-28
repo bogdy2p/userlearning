@@ -21,21 +21,29 @@ function validation_and_insertion_of_a_new_changelog(){
 }
 
 
-function generate_changelog_table_html(){
-	generate_changelog_table_header();
-	generate_changelog_table_content();
+function generate_changelog_table_html($days){
+	generate_changelog_table_header($days);
+	generate_changelog_table_content($days);
 	generate_changelog_table_footer();
 }
-function generate_changelog_table_header(){
+function generate_changelog_table_header($days){
 	echo '<div class="col-xs-12 col-md-12">';
-	echo "<h3>ALL CHANGE LOGS :</h3>";
+	if($days == 0){
+		echo "<h3>LAST DAY CHANGE LOGS: </h3>";
+	}elseif($days == 1){
+		echo '<h3>CHANGELOGS SINCE YESTERDAY:</h3>';
+	}else{
+		echo '<h3>LAST '.$days.' DAYS CHANGE LOGS :</h3>';
+	}
+
+	
 	echo '<table class="table table-bordered">';
 	echo '<th class="success">Name</th>';
 	echo '<th class="success">Created</th>';
 }
-function generate_changelog_table_content(){
+function generate_changelog_table_content($days){
 	$changelog = new Changelog();
-	$changelogs = $changelog->read_changelogs();
+	$changelogs = $changelog->read_changelogs_for_last_x_days($days);
 	foreach ($changelogs as $individual_changelog) {
 			$type = 'changelogs';
 				echo '<tr>';
