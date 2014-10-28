@@ -8,6 +8,7 @@ require_once('../models/mapping_model.php');
 <head>
 	<title>UserLearning Pbc Project</title>
 	<?php include_page_header_content();?>
+	<script src="../assets/testuser.js"></script>
 </head>
 
 <body>

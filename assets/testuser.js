@@ -1,4 +1,3 @@
-$(document).ready(function() {
-    alert("document ready function called!");
-    
-});
+function myFunction() {
+	    alert("I am an alert box!");
+	}
