@@ -28,7 +28,7 @@ require_once 'controllers/changelog_controller.php';
 				  	</div>
 
 				  	<div class="col-xs-12 col-md-6">
-				  	 	<?php print_to_do_list();?>
+				  	 	<?php Crud::print_to_do_list();?>
 					</div>
 					<div class="col-xs-12 col-md-3">
 						///////// ////////// //////?DATABASE STATISTICS Block?/// / // ///// //////////////
