@@ -737,10 +737,20 @@ function print_color_meanings(){
 }
 
 
+/**********************************************************************************************************************************************
+EEEEEEEEEEEE**NNN*******NNN***DDDDDDDDD*******TTTTTTTTTT****EEEEEEEEEEEE**MMM*******MM***PPPPPPPPP***LLL*************AA******TTTTTTTTTTT**EEEEEEEEEEEE
+EEEEEEE*******NNNN******NNN***DDD*****DDD********TTTT*******EEEEEEE*******MMMM**M**MMM***PPP****PPP**LLL************AAAA*********TTTT*****EEEEEEE*****
+EEEE**********NNNNN*****NNN***DDD******DDD*******TTTT*******EEEE**********MMMMMMMMMMMM***PPP****PPP**LLL***********AA**AA********TTTT*****EEEE********
+EEEE**********NN**NN****NNN***DDD*******DDD******TTTT*******EEEE**********MM***MMM**MM***PPPPPPPPP***LLL**********AA****AA*******TTTT*****EEEE********
+EEEE**********NN***NN***NNN***DDD********DDD*****TTTT*******EEEE**********MM********MM***PPPPPPPP****LLL*********AA******AA******TTTT*****EEEE********
+EEEEEEEEEEEE**NN****NN**NNN***DDD********DDD*****TTTT*******EEEEEEEEEEEE**MM********MM***PPP*********LLL********AAAAAAAAAAAA*****TTTT*****EEEEEEEEEEEE
+EEEE**********NN****NN**NNN***DDD********DDD*****TTTT*******EEEE**********MM********MM***PPP*********LLL********AA********AA*****TTTT*****EEEE********
+EEEE**********NN*****NN*NNN***DDD*******DDD******TTTT*******EEEE**********MM********MM***PPP*********LLL********AA********AA*****TTTT*****EEEE********
+EEEE**********NN******NNNNN***DDD******DDD*******TTTT*******EEEE**********MM********MM***PPP*********LLL********AA********AA*****TTTT*****EEEE********
+EEEEEEEE******NN*******NNNN***DDD*****DDD********TTTT*******EEEEEEEE******MM********MM***PPP*********LLLLLLLLL**AA********AA*****TTTT*****EEEEEEEE****
+EEEEEEEEEEEE**NN********NNN***DDDDDDDDD**********TTTT*******EEEEEEEEEEEE**MM********MM***PPP*********LLLLLLLLL**AA********AA*****TTTT*****EEEEEEEEEEEE
+/**********************************************************************************************************************************************/
 
-
-
-}
 ?>
 
 
