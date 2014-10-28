@@ -5,9 +5,6 @@ require_once('../controllers/user.php');
 require_once('../controllers/group.php');
 require_once('../controllers/function_call_log.php');
 
-echo '<script type="text/javascript">
-		alert("YOU ARE DELETING A USER !");
-	</script>';
 
 $id_to_delete = $_GET['id'];
 $name = $id_to_delete;

@@ -5,8 +5,9 @@
 <head>
 	<title>Create - UserLearning Pbc Project</title>
 	<?php include_page_header_content();?>
+	<script type="text/javascript" src="../assets/testuser.js"></script>
 </head>
-<body>
+<body onload="process()">
 	<div class ="container">
 	<div class="row"><?php print_sitewide_menu();?></div>
 			
@@ -15,18 +16,29 @@
 				<div class="col-xs-4 col-md-4">
 					<br /><br />
 
-
-
-
 					<form class="form" id="asd" action="create_user.php" method="post">
 						<label>name</label><br />
 						<input name="name"  type="text"  placeholder="enter desired name" value="<?php if(isset($_POST['name'])) echo $_POST['name'];?>"> <br />
+						<?php 
+						echo '<response>';
+						$name = '0';
+						if (isset($_POST['name'])){
+						$name = $_POST['name'];
+						}
+						// Grab the list of usernames from the db here instead.
+						$names_array = array('asd','asdf','asdfg','asdfgh');
 
-					<script type="text/javascript">
-						alert("Vasile has entered the building");
-					</script>
-
-
+						if(in_array($name, $names_array)){
+							echo "Username already exists in this array.";
+						}elseif($name=""){
+							echo "Enter username here please.";
+						}else{
+							echo "No username";
+						}
+						echo '</response>';
+						?>
+							
+						<br />
 						<label>password</label><br />
 						<input name="password"  type="text"  placeholder="enter password" value=""> <br />
 						<label>confirm password</label><br />
