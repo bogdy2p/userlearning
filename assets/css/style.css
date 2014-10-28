@@ -94,3 +94,8 @@ spangre{
 	/*max-width: 80px;*/
 	word-wrap: break-word;
 }
+
+.wordrwapped {
+	word-wrap: break-word;
+	max-width: 80px;
+}

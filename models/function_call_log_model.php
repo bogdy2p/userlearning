@@ -18,10 +18,10 @@ function generate_func_call_log_table_header(){
 	echo '<div class="col-xs-12 col-md-12">';
 	echo "<h3>ALL FUNCTION LOGS :</h3>";
 	echo '<table class="table table-bordered">';
-	echo '<th class="success" id="wordwrap">Id</th>';
-	echo '<th class="success" id="wordwrap">Name</th>';
-	echo '<th class="success">Text</th>';
-	echo '<th class="success">Created</th>';
+	echo '<th class="success wordrwapped">Id</th>';
+	echo '<th class="success wordrwapped">Name</th>';
+	echo '<th class="success wordrwapped">Text</th>';
+	echo '<th class="success wordrwapped">Created</th>';
 }
 function generate_func_call_log_table_content(){
 	$log = new Log();
@@ -29,10 +29,10 @@ function generate_func_call_log_table_content(){
 	foreach ($logs as $individual_log) {
 			$type = 'logs';
 				echo '<tr>';
-                echo '<td class="warning">'. $individual_log['id'] . '</td>';
-                echo '<td id="wordwrap">'. $individual_log['name'] . '</td>';
-                echo '<td id="wordwrap">'. $individual_log['text'] . '</td>';
-                echo '<td>'. $individual_log['date_created'] . '</td>';
+                echo '<td class="warning wordrwapped">'. $individual_log['id'] . '</td>';
+                echo '<td class="wordrwapped">'. $individual_log['name'] . '</td>';
+                echo '<td class="wordrwapped">'. $individual_log['text'] . '</td>';
+                echo '<td class="wordrwapped">'. $individual_log['date_created'] . '</td>';
                 echo '</tr>';
 		}
 }
