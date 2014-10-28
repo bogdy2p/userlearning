@@ -41,7 +41,7 @@ class Changelog extends Crud {
 	  	$statement->bindParam(1,$day);
 	  	$statement->bindParam(2,$limit);
 	  	$statement->execute();
-	  	print_r($statement);
+	  	// print_r($statement);
 	  	return $statement;
 	}
 
@@ -51,7 +51,7 @@ class Changelog extends Crud {
 	  	$statement = $this->db->prepare("SELECT * FROM app_changelog WHERE date >= CURDATE() - ? ORDER BY date DESC");
 	  	$statement->bindParam(1,$days);
 	  	$statement->execute();
-	  	print_r($statement);
+	  	// print_r($statement);
 	  	return $statement;
 	}
 

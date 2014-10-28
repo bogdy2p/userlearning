@@ -5,12 +5,19 @@ require_once('../controllers/user.php');
 require_once('../controllers/group.php');
 require_once('../controllers/function_call_log.php');
 
+echo '<script type="text/javascript">
+		alert("YOU ARE DELETING A USER !");
+	</script>';
+
 $id_to_delete = $_GET['id'];
 $name = $id_to_delete;
 echo $name;
 $type_of_object = $_GET['type'];
 
+
+
 if ($type_of_object == 'users'){
+	
 	$user = new User();
 	$user->delete($id_to_delete);
 	$user->delete_user_mapping($_GET['id']);
@@ -21,6 +28,7 @@ if ($type_of_object == 'users'){
 			$log = new Log();
 			$log->create_log('delete.php | users',$log_message);
 			//END LOG
+	
 	header("Location: /user/views/view_list.php");
 	die();
 

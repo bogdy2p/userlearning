@@ -14,9 +14,19 @@
 				<div class="col-xs-4 col-md-4"></div>
 				<div class="col-xs-4 col-md-4">
 					<br /><br />
+
+
+
+
 					<form class="form" id="asd" action="create_user.php" method="post">
 						<label>name</label><br />
 						<input name="name"  type="text"  placeholder="enter desired name" value="<?php if(isset($_POST['name'])) echo $_POST['name'];?>"> <br />
+
+					<script type="text/javascript">
+						alert("Vasile has entered the building");
+					</script>
+
+
 						<label>password</label><br />
 						<input name="password"  type="text"  placeholder="enter password" value=""> <br />
 						<label>confirm password</label><br />

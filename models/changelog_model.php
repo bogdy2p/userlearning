@@ -29,7 +29,7 @@ function generate_changelog_table_html($days){
 function generate_changelog_table_header($days){
 	echo '<div class="col-xs-12 col-md-12">';
 	if($days == 0){
-		echo "<h3>LAST DAY CHANGE LOGS: </h3>";
+		echo "<h3>TODAY'S CHANGE LOGS: </h3>";
 	}elseif($days == 1){
 		echo '<h3>CHANGELOGS SINCE YESTERDAY:</h3>';
 	}else{
