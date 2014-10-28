@@ -9,23 +9,23 @@ require_once('../controllers/function_call_log.php');
 
 <?php
 
-function generate_func_call_log_table_html(){
-	generate_func_call_log_table_header();
-	generate_func_call_log_table_content();
+function generate_func_call_log_table_html($limit){
+	generate_func_call_log_table_header($limit);
+	generate_func_call_log_table_content($limit);
 	generate_func_call_log_table_footer();
 }
-function generate_func_call_log_table_header(){
+function generate_func_call_log_table_header($limit){
 	echo '<div class="col-xs-12 col-md-12">';
-	echo "<h3>ALL FUNCTION LOGS :</h3>";
+	echo '<h3>LAST ' .$limit.' FUNCTION LOGS :</h3>';
 	echo '<table class="table table-bordered">';
 	echo '<th class="success wordrwapped">Id</th>';
 	echo '<th class="success wordrwapped">Name</th>';
 	echo '<th class="success wordrwapped">Text</th>';
 	echo '<th class="success wordrwapped">Created</th>';
 }
-function generate_func_call_log_table_content(){
+function generate_func_call_log_table_content($limit){
 	$log = new Log();
-	$logs = $log->list_logs_bydate_desc();
+	$logs = $log->list_logs_bydate_desc($limit);
 	foreach ($logs as $individual_log) {
 			$type = 'logs';
 				echo '<tr>';

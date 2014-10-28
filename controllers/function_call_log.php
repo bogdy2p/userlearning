@@ -16,15 +16,22 @@ class Log extends Crud {
 		return parent::read($table_name);
 	}
 
-	function list_logs_bydate_desc($table_name = 'function_call_log'){
+	function list_logs_bydate_desc($limit){
 		$this->db = new Database();
 		$this->db = $this->db->dbConnect();
-	 	$statement = $this->db->prepare("SELECT * FROM function_call_log ORDER BY date_created DESC");
+		$statement = $this->db->prepare("SELECT * FROM function_call_log ORDER BY date_created DESC LIMIT $limit");
+		$statement->bindParam(1,$limit);
 	 	$statement->execute();
 	 	return $statement;
 	}
 
-
+	function list_last10_logs_bydate_desc($table_name = 'function_call_log'){
+		$this->db = new Database();
+		$this->db = $this->db->dbConnect();
+	 	$statement = $this->db->prepare("SELECT * FROM function_call_log ORDER BY date_created DESC LIMIT 10");
+	 	$statement->execute();
+	 	return $statement;
+	}
 
 	function create_log($name,$message){
 		$this->db = new Database();

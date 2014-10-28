@@ -26,16 +26,7 @@
 					generate_changelog_table_html();
 				?>
 		<div class="row">
-		  	<hr>
-		  		<div class="col-xs-12 col-md-2"><h1>Colours meaning</h1></div>
-		  		<div class="col-xs-12 col-md-7">
-		  			<ul>
-		  				<li><spanred><h5><b>RED</b></h5></spanred> = HIGH PRIORITY / HIGH DIFFICULTY</li>
-		  				<li><spanyel><h5><b>YELLOW</b></h5></spanyel> = NORMAL PRIORITY / NORMAL DIFFICULTY</li>
-		  				<li><spangre><h5><b>GREEN</b></h5></spangre> = LOW PRIORITY / LOW DIFFICULTY</li>
-		  			</ul>
-		  		</div>
-		  		<div class="col-xs-12 col-md-3"></div>
+		  		<?php print_color_meanings(); ?>
 		</div>
     </div>
     <?php include_page_footer_content(); ?>

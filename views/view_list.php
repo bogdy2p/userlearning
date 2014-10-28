@@ -14,7 +14,7 @@ require_once('../models/mapping_model.php');
 	<div class="container">
 			<div class="row"><?php print_sitewide_menu();?></div>
 	</div>
-	<div class ="container-fluid">
+	<div class ="container">
 		<div class="row">
 				<?php 
 				//Include the users table into list display;

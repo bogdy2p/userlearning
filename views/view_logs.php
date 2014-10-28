@@ -8,7 +8,7 @@
 	<div class ="container">
 		<div class="row"><?php print_sitewide_menu();?></div>
 		<div class="row">
-					<?php generate_func_call_log_table_html();?>
+					<?php generate_func_call_log_table_html('10');?>
 		</div>
 	</div>
 <?php include_page_footer_content(); ?>

@@ -21,7 +21,6 @@ class Changelog extends Crud {
 	 	$this->db = $this->db->dbConnect();
 	  	$statement = $this->db->prepare("SELECT * FROM app_changelog ORDER BY date DESC");
 	  	$statement->execute();
-	  	//print_r($statement);
 	  	return $statement;
 	 }
 
