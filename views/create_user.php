@@ -7,25 +7,7 @@
 	<?php Crud::include_page_header_content();?>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
-<script>
-	$(document).ready(function() {  
-			//console.log(document);
-  			alert("document is ready!");
-  			check_availability();
 
-  	});  
-  
-function check_availability(){  
-        //get the username  
-        //var username = document.getElementById('#name');
-        //var nume = username.val();
-
-        //alert(nume);  
-  
-        //use ajax to run the check  
-        
-}  
-</script>
 <body onload="">
 	<div class ="container">
 	<div class="row"><?php Crud::print_sitewide_menu();?></div>
@@ -46,6 +28,14 @@ function check_availability(){
 						<?php $user = new User();	$user->add_dynamic_user_detail_form_inputs(); ?>
 						<br />
 						<button type="submit" class="btn btn-success" id="submit">Create User</button>
+
+					<script>
+						// $.post( "create_user.php", { func: "asd" }, function( data ) {
+						// 	console.log( data.name ); // John
+  				// 			console.log( data.time ); // 2pm
+						// 	}, "json");
+					</script>
+
 					</form>
 				</div>
 				<div class="col-xs-4 col-md-4"></div>

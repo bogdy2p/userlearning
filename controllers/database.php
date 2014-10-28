@@ -6,3 +6,5 @@ class Database{
         return new PDO("mysql:host=localhost;dbname=user_groups",'root','123456');
     }
 }
+
+

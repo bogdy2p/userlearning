@@ -5,6 +5,8 @@ require_once('../controllers/group.php');
 require_once('../controllers/function_call_log.php');
 require_once('../controllers/changelog_controller.php');
 ?>
+
+
 <?php
 validation_and_insertion_of_a_new_changelog();
 

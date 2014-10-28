@@ -1,10 +1,9 @@
 <?php 
-require_once 'controllers/crud.php';
-require_once 'controllers/user.php';
-require_once 'controllers/group.php';
-require_once 'controllers/database.php';
-require_once 'controllers/changelog_controller.php';
-
+		require_once 'controllers/crud.php';
+		require_once 'controllers/user.php';
+		require_once 'controllers/group.php';
+		require_once 'controllers/database.php';
+		require_once 'controllers/changelog_controller.php';
 ?>
 <!DOCTYPE html>
 <head>
@@ -15,7 +14,7 @@ require_once 'controllers/changelog_controller.php';
 <body>
 	<div class="container">
 			<div class="row"><?php Crud::print_sitewide_menu();?></div>
-
+			<h1>http://api.jquery.com/jquery.ajax/</h1>
 			<div class="row">
 					 <div class="col-xs-12 col-md-4 "></div>
 		  			 <div class="col-xs-12 col-md-4 "><h1>Users-Groups Administration CMS</h1></div>
