@@ -614,8 +614,6 @@ abstract class Crud {
 00000000000000....000........000.......000000............00000.......000.............0000000000........
 
 
-
-
 	/**
 		*********************************************************************
 		*********************************************************************
@@ -638,7 +636,6 @@ abstract class Crud {
 		return $group_ids_array;
 		}
 
-		
 		function get_groupid_by_groupname($groupname){
 			$statement = $this->db->prepare("SELECT id FROM groups WHERE name = ?");
 			$statement->bindParam(1,$groupname);
@@ -649,10 +646,7 @@ abstract class Crud {
 		}
 
 
-
-
 	/* END OF GROUPS TABLE FUNCTIONS */	
-
 	//SPECIAL REDIRECT FUNCTION
 
 	function redirect($url_string) {
@@ -667,8 +661,6 @@ abstract class Crud {
         echo '</noscript>';
     }
 }
-
-
 
 
 /*******************************************************************************************************************

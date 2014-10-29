@@ -16,10 +16,12 @@ function validation_and_insertion_of_a_new_changelog(){
 
 		if(isset($_POST['colour'])){
 			print_r($_POST);
+			if (!empty($_POST['changelog_text'])){
 		$name_with_heading = '<'.$_POST['heading_type'].'>'.$_POST['changelog_text'].'</'.$_POST['heading_type'].'>';
 		$colour = $_POST['colour'];
 		$changelog = new Changelog;
 		$changelog->create_changelog_row($name_with_heading,$colour);
+		}
 		header("Location: /user/views/view_changelogs.php");
 		die();
 		}elseif(isset($_POST['day'])){

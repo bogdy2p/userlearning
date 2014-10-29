@@ -7,7 +7,6 @@
 <body>
 	<script type="text/javascript" src="../assets/ajaxusername.js"></script>
 
-
 	<div class ="container">
 		<div class="row"><?php Crud::print_sitewide_menu();?></div>
 		
