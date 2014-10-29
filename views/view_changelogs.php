@@ -18,14 +18,15 @@
 				<h2>Latest Applied Changes:</h2>
 			</div>
 			<div class="col-xs-12 col-md-4">
-				<?php generate_select_day_list();?>
-				
+	<!-- ****************************************************************************************************************   -->
+					<?php generate_select_day_form();?>
+	<!-- *****************************************************************************************************************   -->	
 			</div>
 		</div>
-		  		<?php 
-		  			// $days = how long ago to generate !
-					generate_changelog_table_html($days = '2');
-				?>
+		<div class ="row">
+				<?php generate_changelog_table_by_post(); ?>
+		</div>
+		  		
 		<div class="row">
 		  		<?php Crud::print_color_meanings(); ?>
 		</div>
