@@ -5,11 +5,10 @@
 <head>
 	<title>Create - UserLearning Pbc Project</title>
 	<?php Crud::include_page_header_content();?>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 
-<body onload="">
-					<script type="text/javascript" src="../assets/ajaxusername.js"></script>
+<body>
+	<script type="text/javascript" src="../assets/ajaxusername.js"></script>
 
 
 	<div class ="container">

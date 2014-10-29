@@ -1,5 +1,7 @@
 
+check_group_availlability();
 check_username_availlability();
+
 check_password_matching();
 
 function check_username_availlability(){
@@ -27,6 +29,45 @@ function check_username_availlability(){
 			  				}
 		});
 }
+
+function check_group_availlability(){
+	$(document).ready(function(){
+		$('#groupname').blur(function(){
+			$.ajax({
+				url: '../models/ajax.php',
+				data: {'groupname' : $('#groupname').val()},
+				success: success,
+				dataType: 'json'
+				})
+			.done(function(data){
+				if (data==0){
+					//alert("[GROUP DOES NOT EXIST]");
+				}else{
+					alert("[ALREADY EXIST]");
+				}
+			})
+			});
+		function success(){
+				console.log("Sucecsss Called");
+			  				}
+		});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function check_password_matching(){
 	$(document).ready(function(){
 		//Grab the input for password

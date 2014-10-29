@@ -5,6 +5,9 @@
 	<?php Crud::include_page_header_content();?>
 </head>
 <body>
+	<script type="text/javascript" src="../assets/ajaxusername.js"></script>
+
+	
 	<div class ="container">
 		<div class="row"><?php Crud::print_sitewide_menu();?></div>
 		
@@ -15,7 +18,7 @@
 					<h4>LIST A GROUPS TABLE HERE FOR THE USER TO SEE WHAT GROUPS ALREADY EXIST </h4>
 					<form class="form" id="asd" action="create_group.php" method="post">
 						<label>group name</label><br />
-						<input name="name"  type="text"  placeholder="group name"> <br />
+						<input name="name" id="groupname" type="text"  placeholder="group name"> <br />
 						<label>special key</label><br />
 						<input name="special key"  type="text"  placeholder="special key"> <br />
 						<br />
