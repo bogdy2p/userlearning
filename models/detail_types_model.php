@@ -74,7 +74,7 @@ function print_add_new_user_detail_form(){
 					<div id="detail_type_error"></div>
 					<input name="detail_name" id="detail_name" type="text"  placeholder="new detail type"> <br />
 					<br />
-					<button type="submit" class="btn btn-success">Add new Detail</button>
+					<button type="submit" id="submit" class="btn btn-success">Add new Detail</button>
 			</form>
 	';
 }

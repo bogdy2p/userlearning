@@ -10,15 +10,16 @@ function check_username_availlability(){
 						url: '../models/ajax.php', 
 						data: {'name' : $('#name').val()},
 						success: success,
-						//timeout: 1000,
 						dataType: 'json'
 				  		})
 				.done(function(data){
 	   						 // alert( "Returning " + data );
 	   				 	if (data==0){
 	   				 		$('#name_error').html("");//Aici setezi textul in div-ul de langa name
+	   				 		$('#submit').show();
 	   				 	}
 	   					else{
+	   						$('#submit').hide();
 	   						$('#name_error').html("<h4><spanred><spangre>"+$('#name').val()+ "</spangre> is already taken ! Please choose another one</spanred></h4>");
 	   					}
 	  			});
@@ -41,7 +42,9 @@ function check_group_availlability(){
 			.done(function(data){
 				if (data==0){
 					$('#group_error').html("");//Aici setezi textul in div-ul de langa name
+					$('#submit').show();
 				}else{
+					$('#submit').hide();
 					$('#group_error').html("<h4><spanred><spangre>"+$('#groupname').val()+"</spangre> group already exists!</spanred></h4>");
 				}
 			})
@@ -65,7 +68,9 @@ function check_detail_type_availlability(){
 			.done(function(data){
 				if(data==0){
 					$('#detail_type_error').html("");
+					$('#submit').show();
 				}else{
+					$('#submit').hide();
 					$('#detail_type_error').html("<h4><spanred><spangre>"+$('#detail_name').val()+"</spangre> already exists!</spanred></h4>");
 				}
 			})
@@ -84,8 +89,10 @@ function check_password_matching(){
 			password = $('#password').val();
 			pass_conf = $('#pass_conf').val();
 			if (password == pass_conf){
-				//$('#password_error').html("Your password is ok!");//alert("passwords are the same!");	
+				$('#submit').show();
+				$('#password_error').html("");
 			}else{
+				$('#submit').hide();
 				$('#password_error').html("<h4><spanred>Can't you just type the same password twice !?!?</spanred></h4>");
 			}
 		});		

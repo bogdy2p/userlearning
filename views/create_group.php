@@ -25,7 +25,7 @@
 						<label>special key</label><br />
 						<input name="special key"  type="text"  placeholder="special key"> <br />
 						<br />
-						<button type="submit" class="btn btn-success">Create Group</button>
+						<button type="submit" id="submit" class="btn btn-success">Create Group</button>
 					</form>
 				</div>
 				<div class="col-xs-4 col-md-4"></div>

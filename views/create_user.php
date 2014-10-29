@@ -30,7 +30,7 @@
 						<input name="pass_conf" id="pass_conf" type="text"  placeholder="confirm password" value=""> <br />
 						<?php $user = new User();	$user->add_dynamic_user_detail_form_inputs(); ?>
 						<br />
-						<button type="submit" class="btn btn-success" id="submit">Create User</button>
+						<button type="submit" id="submit" class="btn btn-success" id="submit">Create User</button>
 
 					
 
