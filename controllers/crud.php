@@ -760,9 +760,8 @@ function print_color_meanings(){
 function print_to_do_list(){
     echo'
                 <ol>
-                	<li><h4><spanred>AJAX / Jquery Make buttons DISABLED (unable to click) when trying to insert an already existing object into the db.</spanred></h5></li>
                     <li><h5><spanred>AJAX / Jquery @ editing user (if changing username , not to be able to select an already existing username) </spanred></h5></li>
-                    <li><h4><spanred>AJAX @ view_list.php - Make buttons disabled too , and add Jquery check if the new name isnt already in the database.</spanred></h4></li>
+                    <li><h4><spanred>AJAX @ edit_user.php & edit_group.php - Make buttons disabled too , and add Jquery check if the new name isnt already in the database.</spanred></h4></li>
                     <li><h6><spanyel>TO_DO_LIST implementation (view,edit,delete,update)(not hardcoded like now)</spanyel></h6></li>
                     <li><h6><spangre>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</spangre></h6>  </li>
                     <li><h6><spangre>Print "last created user";</spangre></h6></li>

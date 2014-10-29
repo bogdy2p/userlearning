@@ -2,6 +2,34 @@ check_group_availlability();
 check_username_availlability();
 check_detail_type_availlability();
 check_password_matching();
+check_username_availlability_on_edit();
+
+
+function check_username_availlability_on_edit(){
+	$(document).ready(function(){
+		$('#edit_username').blur(function(){
+			$.ajax({
+				url: '../models/ajax.php',
+				data: {'edit_username': $('#edit_username').val()},
+				success: success,
+				dataType: 'json'
+				})
+			.done(function(data){
+				if(data==0){
+					$('#edit_username_error').html("");
+					$('#submit').show();
+				}else{
+					$('#submit').hide();
+					$('#edit_username_error').html("THAT NAME IS ALREADY TAKEN. Please choose another one");
+				}
+			})
+		});
+		function success(){
+				console.log("Ajax Success Called check_username_availlability_on_edit");
+			  	}
+	});
+}
+
 
 function check_username_availlability(){
 	$(document).ready(function(){

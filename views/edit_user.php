@@ -9,6 +9,7 @@ require_once('../models/edit_user_model.php');
 </head>
 
 <body>
+	<script type="text/javascript" src="../assets/ajaxusername.js"></script>
 	<div class ="container">
 		<div class="row"><?php Crud::print_sitewide_menu(); ?></div>
 	
@@ -57,7 +58,7 @@ require_once('../models/edit_user_model.php');
 				<div class="row">	
 							<div class="col-xs-4 col-md-4"></div>
 							<div class="col-xs-2 col-md-2">
-								<button type="submit" class="button">Save User</button>
+								<button type="submit" id="submit" class="button">Save User</button>
 							</div>
 							<div class="col-xs-6 col-md-6"></div>		
 				</div>

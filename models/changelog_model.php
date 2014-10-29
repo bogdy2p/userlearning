@@ -24,9 +24,7 @@ function validation_and_insertion_of_a_new_changelog(){
 		}
 		header("Location: /user/views/view_changelogs.php");
 		die();
-		}elseif(isset($_POST['day'])){
-			//print_r($_POST);
-		}	
+		}elseif(isset($_POST['day'])){/*print_r($_POST);*/}	
 		}else{}
 }
 

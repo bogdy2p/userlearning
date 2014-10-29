@@ -16,6 +16,9 @@ require_once('../controllers/group.php');
 	if (isset($_GET['detail_name'])){
 		return_ajax_for_detail_type();
 	}
+	if (isset($_GET['edit_username'])){
+		return_ajax_for_edit_username();
+	}
 	
 	function return_ajax_for_username(){
 		$user = new User();
@@ -46,5 +49,13 @@ require_once('../controllers/group.php');
 			echo '0';
 		}
 	}
-
+		function return_ajax_for_edit_username(){
+		$user = new User();
+		$exists = $user->verify_name_exists_in_table($_GET['edit_username'],'users');
+		if ($exists){
+			echo '1';
+		}else{
+			echo '0';
+		}
+	}
 ?>

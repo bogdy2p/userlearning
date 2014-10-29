@@ -34,6 +34,7 @@
 </head>
 
 <body>
+	<script type="text/javascript" src="../assets/ajaxusername.js"></script>
 	<div class ="container">
 	<?php Crud::print_sitewide_menu();?>
 
@@ -46,7 +47,7 @@
 				<label>Special Key</label><br />
 				<input name="special_key"   type="text"  placeholder="Special Key" value="<?php if(isset($old_special_key)) echo $old_special_key;?>"> <br/>
 				
-				<button type="submit" class="button">Save Group</button>
+				<button type="submit" id="submit" class="button">Save Group</button>
 			</form>
 
 	</div>

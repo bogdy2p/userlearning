@@ -125,8 +125,10 @@ function print_userdata_inputs(){
 			$user = new User(); //Call User Class
 			$user->get_user_object_by_id($_GET['id']); //Fetch the user object from the database
 	echo '
+		<p id="hideable_on_click">To change the password OR the username , <br /> you must know the old password !</p>
 		<label>Name</label><br />
-		<input name="name"  type="text"  placeholder="User Name" value="'.$user->name.'"> <br />
+		<div id="edit_username_error"></div>
+		<input name="name" id="edit_username" type="text"  placeholder="User Name" value="'.$user->name.'"> <br />
 		<label>Enter current Password</label><br />
 		<input name="old_password"  type="password"  placeholder="Old Password" value=""><br />
 		<label>New Password</label><br />
