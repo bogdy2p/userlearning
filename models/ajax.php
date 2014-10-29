@@ -11,11 +11,12 @@ require_once('../controllers/group.php');
 
 
 <?php
-
-	//function verify_name_exists_in_table($name,$table_name){
-	//RETURNS TRUE OR FALSE
+	if (isset($_GET['name'])){
+		return_ajax_for_username();
+	}
 	
-	function return_for_username(){
+	
+	function return_ajax_for_username(){
 		$user = new User();
 		$exists = $user->verify_name_exists_in_table($_GET['name'],'users');
 		if ($exists){
@@ -24,18 +25,19 @@ require_once('../controllers/group.php');
 			echo '0';
 		}
 	}
-
-
-
-// THIS FUNCTION SHOULD BE ABLE TO BE CALLED FOR BOTH CHECKING USER EXISTENCE AND CHECKING GROUPS EXISTENCE
-	if (isset($_GET['name'])){
-		return_for_username();
-	// $name = $_GET['name'];
-	// $database = new Database();
-	// $db = $database->dbConnect();;
-	// $statement = $db->prepare("SELECT * FROM users WHERE name = ?");
-	// $statement->bindParam(1,$name);
-	// $statement->execute();
-	//print_r($statement->rowCount()); 
+	
+	function return_ajax_for_group(){
+		$group = new Group();
+		$exists = $group->verify_name_exists_in_table($_GET['name'],'groups');
+		if ($exists){
+			echo '1';
+		}else{
+			echo '0';
+		}
 	}
+
+	function return_ajax_for_detail_type(){
+
+	}
+
 ?>
