@@ -9,6 +9,9 @@
 </head>
 
 <body onload="">
+					<script type="text/javascript" src="../assets/ajaxusername.js"></script>
+
+
 	<div class ="container">
 	<div class="row"><?php Crud::print_sitewide_menu();?></div>
 			
@@ -18,23 +21,19 @@
 					<br /><br />
 
 					<form class="form" id="asd" action="create_user.php" method="post">
+						<div id="name_error"></div>
 						<label>name</label><br />
-						<input name="name"  type="text"  placeholder="enter desired name" value="<?php if(isset($_POST['name'])) echo $_POST['name'];?>"> <br />
-						<br />
+						<input name="name" id="name" type="text"  placeholder="enter desired name" value="<?php if(isset($_POST['name'])) echo $_POST['name'];?>"> <br />
 						<label>password</label><br />
-						<input name="password"  type="text"  placeholder="enter password" value=""> <br />
+						<input name="password" id="password" type="text"  placeholder="enter password" value=""> <br />
+						<div id="password_error"></div>
 						<label>confirm password</label><br />
-						<input name="pass_conf" type="text"  placeholder="confirm password" value=""> <br />
+						<input name="pass_conf" id="pass_conf" type="text"  placeholder="confirm password" value=""> <br />
 						<?php $user = new User();	$user->add_dynamic_user_detail_form_inputs(); ?>
 						<br />
 						<button type="submit" class="btn btn-success" id="submit">Create User</button>
 
-					<script>
-						// $.post( "create_user.php", { func: "asd" }, function( data ) {
-						// 	console.log( data.name ); // John
-  				// 			console.log( data.time ); // 2pm
-						// 	}, "json");
-					</script>
+					
 
 					</form>
 				</div>

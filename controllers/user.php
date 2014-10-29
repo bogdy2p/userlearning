@@ -22,7 +22,6 @@ class User extends Crud {
 							}
 							else { 	die("There already is a username with that name!!!"); 
 								 }
-							
 					}
 			else { die ("ERR : Object with id = ". $array['id'] ." allready exists in ". $table); 
 				 }

@@ -24,7 +24,7 @@
 		</div>
 		  		<?php 
 		  			// $days = how long ago to generate !
-					generate_changelog_table_html($days = '0');
+					generate_changelog_table_html($days = '2');
 				?>
 		<div class="row">
 		  		<?php Crud::print_color_meanings(); ?>
