@@ -17,10 +17,6 @@ function verify_edit_and_update(){
 			$user->update_detail_type_name($_POST['old_detail_name'],$_POST['new_detail_name']);
 			//MUST UPDATE IN THE OTHER TABLE EVERYWHERE WHERE DETAIL TYPE OF THIS KIND IS SET !
 			$user->update_detail_types_names_in_user_groups($_POST['old_detail_name'],$_POST['new_detail_name']);
-			// //LOGGING OF THE ACTION !
-			// 	$log_message = 'Detail '.$_POST["old_detail_name"].' renamed to '.$_POST["new_detail_name"].' succesfully';
-			// 	$log = new Log();
-			// 	$log->create_log('user.php | '.__FUNCTION__,$log_message);
 			header("Location: /user/views/view_detail_types.php");
 			die();
 		}else{
@@ -63,7 +59,6 @@ function print_user_details_table_content($user_details_array){
 		echo '<tr>';
 		echo '<td>'.$value.'</td>';
 		echo '<td> <a href="../views/edit_detail_types.php?name='.$value.'"><span class="glyphicon glyphicon-edit"></span></a>  </td>';
-		// echo '<td> <a href="../models/delete.php/?id='.$value.'&type=detail"><span class="glyphicon glyphicon-remove spanred"></span></a> </td>';
 		echo '<td><a><span onclick="confirm_detail_type_delete(\''.$value.'\')" class="glyphicon glyphicon-remove spanred pointer"></span></a></td>';
 		echo '</tr>';
 	}
@@ -76,7 +71,8 @@ function print_add_new_user_detail_form(){
 	echo '
 			<form class="form" id="add_new_detail_form" action="../models/detail_types_model.php" method="post">
 				<label>Add Detail Type</label><br />
-					<input name="detail_name"  type="text"  placeholder="new detail type"> <br />
+					<div id="detail_type_error"></div>
+					<input name="detail_name" id="detail_name" type="text"  placeholder="new detail type"> <br />
 					<br />
 					<button type="submit" class="btn btn-success">Add new Detail</button>
 			</form>

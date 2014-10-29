@@ -1,5 +1,6 @@
 check_group_availlability();
 check_username_availlability();
+check_detail_type_availlability();
 check_password_matching();
 
 function check_username_availlability(){
@@ -44,12 +45,35 @@ function check_group_availlability(){
 					$('#group_error').html("<h4><spanred><spangre>"+$('#groupname').val()+"</spangre> group already exists!</spanred></h4>");
 				}
 			})
-			});
+		});
 		function success(){
 				console.log("Ajax Success Called check_group_availlability");
 			  				}
-		});
+	});
 
+}
+
+function check_detail_type_availlability(){
+	$(document).ready(function(){
+		$('#detail_name').blur(function(){
+			$.ajax({
+				url: '../models/ajax.php',
+				data: {'detail_name' : $('#detail_name').val()},
+				success: success,
+				dataType: 'json'
+			})
+			.done(function(data){
+				if(data==0){
+					$('#detail_type_error').html("");
+				}else{
+					$('#detail_type_error').html("<h4><spanred><spangre>"+$('#detail_name').val()+"</spangre> already exists!</spanred></h4>");
+				}
+			})
+		});
+		function success(){
+			console.log("Ajax Success Called check_detail_type_availlability");
+			}
+	});
 }
 
 function check_password_matching(){
@@ -66,5 +90,4 @@ function check_password_matching(){
 			}
 		});		
 	});
-
 }

@@ -13,6 +13,9 @@ require_once('../controllers/group.php');
 	if (isset($_GET['groupname'])){
 		return_ajax_for_group();
 	}
+	if (isset($_GET['detail_name'])){
+		return_ajax_for_detail_type();
+	}
 	
 	function return_ajax_for_username(){
 		$user = new User();
@@ -35,7 +38,13 @@ require_once('../controllers/group.php');
 	}
 
 	function return_ajax_for_detail_type(){
-
+		$user = new User();
+		$exists = $user->check_detail_type_exists($_GET['detail_name']);
+		if ($exists){
+			echo '1';
+		}else{
+			echo '0';
+		}
 	}
 
 ?>
