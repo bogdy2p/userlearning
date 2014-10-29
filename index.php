@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <head>
 	<title>UserLearning Pbc Project</title>
-	<?php Crud::include_page_header_content();?>
+	<?php Crud::include_page_header_content_index();?>
 </head>
  
 <body>
@@ -37,9 +37,7 @@
 		  	<div class="row">
 		  			<?php Crud::print_color_meanings(); ?>
 		  	</div>
-
-
    </div>
-   <?php Crud::include_page_footer_content(); ?>
+   <?php Crud::include_page_footer_content_index(); ?>
 </body>
 </html>

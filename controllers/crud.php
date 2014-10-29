@@ -691,21 +691,38 @@ function include_page_header_content() {
  	echo '<meta charset="utf-8">';
     echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">';
     echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
-    echo '<link rel="stylesheet" type="text/css" href="assets/css/style.css">';
+    // echo '<link rel="stylesheet" type="text/css" href="assets/css/style.css">';
     echo '<link rel="stylesheet" type="text/css" href="../assets/css/style.css">';
     echo '<link href="../assets/css/bootstrap.min.css" rel="stylesheet">';
     echo '<link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet">';
-    echo '<link href="assets/css/bootstrap.min.css" rel="stylesheet">';
-    echo '<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">';
+    // echo '<link href="assets/css/bootstrap.min.css" rel="stylesheet">';
+    // echo '<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">';
     echo '<script src="../assets/testuser.js"></script>';
     echo '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>';
+
+}
+
+function include_page_header_content_index() {
+	// INCLUDE CSS FILES
+ 	echo '<meta charset="utf-8">';
+    echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">';
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+    echo '<link rel="stylesheet" type="text/css" href="assets/css/style.css">';
+    echo '<link href="assets/css/bootstrap.min.css" rel="stylesheet">';
+    echo '<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">';
+    echo '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>';
+    
 }
 
 
 function include_page_footer_content(){
 	echo '<!-- jQuery (necessary for Bootstrap JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>';
+}
+function include_page_footer_content_index(){
+	echo '<!-- jQuery (necessary for Bootstrap JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>';
 }
 

@@ -1,7 +1,5 @@
-
 check_group_availlability();
 check_username_availlability();
-
 check_password_matching();
 
 function check_username_availlability(){
@@ -20,12 +18,12 @@ function check_username_availlability(){
 	   				 		$('#name_error').html("");//Aici setezi textul in div-ul de langa name
 	   				 	}
 	   					else{
-	   						$('#name_error').html("<h4><spanred>This name is already taken ! Please choose another one</spanred></h4>");
+	   						$('#name_error').html("<h4><spanred><spangre>"+$('#name').val()+ "</spangre> is already taken ! Please choose another one</spanred></h4>");
 	   					}
 	  			});
 			});
 			function success(){
-				console.log("Sucecsss Called");
+				console.log("Ajax Success Called check_username_availlability");
 			  				}
 		});
 }
@@ -41,34 +39,21 @@ function check_group_availlability(){
 				})
 			.done(function(data){
 				if (data==0){
-					//alert("[GROUP DOES NOT EXIST]");
+					$('#group_error').html("");//Aici setezi textul in div-ul de langa name
 				}else{
-					alert("[ALREADY EXIST]");
+					$('#group_error').html("<h4><spanred><spangre>"+$('#groupname').val()+"</spangre> group already exists!</spanred></h4>");
 				}
 			})
 			});
 		function success(){
-				console.log("Sucecsss Called");
+				console.log("Ajax Success Called check_group_availlability");
 			  				}
 		});
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function check_password_matching(){
+
 	$(document).ready(function(){
 		//Grab the input for password
 		$('#pass_conf').blur(function(){
@@ -78,10 +63,8 @@ function check_password_matching(){
 				//$('#password_error').html("Your password is ok!");//alert("passwords are the same!");	
 			}else{
 				$('#password_error').html("<h4><spanred>Can't you just type the same password twice !?!?</spanred></h4>");
-				//alert("NOT the same !");
 			}
-			//alert('you clicked out of password confirm');
-		});
-		//Grab the input for passwd confirm
+		});		
 	});
+
 }
