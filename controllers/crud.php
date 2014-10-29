@@ -99,6 +99,7 @@ abstract class Crud {
 		$statement = $this->db->prepare("SELECT name FROM ". $table_name . " WHERE name=?");
 		$statement->bindParam(1,$name);
 		$statement->execute();
+		//print_r($statement);
 		if($statement->rowCount() >= 1){
 			return true;
 		}else{
@@ -753,7 +754,6 @@ function print_color_meanings(){
 function print_to_do_list(){
     echo'
                 <ol>
-                    <li><h5><spanred><b>Jquery CHECK USERNAME exists already (when creating a new user) in the database. (front-end validation)</b></spanred></h5></li>
                     <li><h5><spanyel>@ create_group_view - display group entries from groups table for the user to see what groups already exist</spanyel></h5></li>
                     <li><h5><spanred>AJAX / Jquery @ editing user (if changing username , not to be able to select an already existing username) </spanred></h5></li>
                     <li><h6><spanyel>TO_DO_LIST implementation (view,edit,delete,update)(not hardcoded like now)</spanyel></h6></li>
