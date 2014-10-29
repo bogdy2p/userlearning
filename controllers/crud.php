@@ -691,12 +691,9 @@ function include_page_header_content() {
  	echo '<meta charset="utf-8">';
     echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">';
     echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
-    // echo '<link rel="stylesheet" type="text/css" href="assets/css/style.css">';
     echo '<link rel="stylesheet" type="text/css" href="../assets/css/style.css">';
     echo '<link href="../assets/css/bootstrap.min.css" rel="stylesheet">';
     echo '<link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet">';
-    // echo '<link href="assets/css/bootstrap.min.css" rel="stylesheet">';
-    // echo '<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">';
     echo '<script src="../assets/testuser.js"></script>';
     echo '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>';
 
@@ -771,7 +768,6 @@ function print_color_meanings(){
 function print_to_do_list(){
     echo'
                 <ol>
-                    <li><h5><spanyel>@ create_group_view - display group entries from groups table for the user to see what groups already exist</spanyel></h5></li>
                     <li><h5><spanred>AJAX / Jquery @ editing user (if changing username , not to be able to select an already existing username) </spanred></h5></li>
                     <li><h6><spanyel>TO_DO_LIST implementation (view,edit,delete,update)(not hardcoded like now)</spanyel></h6></li>
                     <li><h6><spangre>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</spangre></h6>  </li>

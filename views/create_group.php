@@ -11,11 +11,13 @@
 	<div class ="container">
 		<div class="row"><?php Crud::print_sitewide_menu();?></div>
 		
+		<div class="row"><?php generate_groups_table_list_html();?></div>
 		<div class="row">
 				<div class="col-xs-4 col-md-4"></div>
 				<div class="col-xs-4 col-md-4">
 					<br />
-					<h4>LIST A GROUPS TABLE HERE FOR THE USER TO SEE WHAT GROUPS ALREADY EXIST </h4>
+					
+					
 					<form class="form" id="asd" action="create_group.php" method="post">
 						<div id="group_error"></div>
 						<label>group name</label><br />

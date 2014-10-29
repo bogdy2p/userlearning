@@ -79,4 +79,32 @@ function generate_groups_users_table_footer(){
 		  </div>";
 }
 
+
+function generate_groups_table_list_html(){
+	generate_groups_table_list_header();
+	generate_groups_table_list_content();
+	generate_groups_table_list_footer();
+}
+
+function generate_groups_table_list_header(){
+	echo '<div class="col-xs-12 col-md-12">';
+	echo "<h4>Already Existent Groups :</h4>";
+	echo '<table class="table table-bordered">';
+	
+}
+function generate_groups_table_list_content(){
+	$group = new Group();
+	$groups = $group->list_groups();
+	$count = 0;
+	foreach ($groups as $individual_group) {
+			$count += 1;
+			$type = 'groups';
+				echo '<tr>';
+                echo ''.$count.'-'. $individual_group['name'] . ' | &nbsp;';             
+                echo '</tr>';
+		}
+}
+function generate_groups_table_list_footer(){
+	echo '</table></div>';
+}
 ?>
