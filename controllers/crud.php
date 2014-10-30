@@ -739,6 +739,7 @@ function print_sitewide_menu(){
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                              <li><a href="/user/views/view_list.php             ">   View Tables         </a></li>
+                             <li><a href="/user/views/todo_temporary_view.php       ">TODO LIST TEMP    </a></li>
                              <li><a href="/user/views/view_detail_types.php     ">   User Details Types  </a></li>
                              <li><a href="/user/views/create_user.php           ">   Add User            </a></li>
                              <li><a href="/user/views/create_group.php          ">   Add Group           </a></li>
@@ -769,7 +770,7 @@ function print_to_do_list(){
     echo'
                 <ol>
                     <li><h6><spanyel>TO_DO_LIST implementation (view,edit,delete,update)(not hardcoded like now)</spanyel></h6></li>
-                    <li><h6><spangre>Print "last created user";</spangre></h6></li>
+                    
                 </ol>    
                 <!--
                     RED :
