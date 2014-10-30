@@ -25,7 +25,7 @@
 		<div class="row">
 				<div class="col-xs-12 col-md-1"></div>
 				<div class="col-xs-12 col-md-10">
-					<?php Todo::generate_todo_list_html(); ?>
+					<?php Todo::generate_todo_list_html_admin(); ?>
 				</div>
 				<div class="col-xs-12 col-md-1"></div>
 				

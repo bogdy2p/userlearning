@@ -25,7 +25,7 @@
 	  		<div class="row">
 			  		<hr>
 				  	<div class="col-xs-12 col-md-3">
-				  		<h2>To do (to change/add):</h2>
+				  		<h2>Todo Tasks :</h2>
 				  		<?php
 				  			$test = new User();
 				  			$test->get_table_of_users_and_number_of_detail_types();

@@ -63,7 +63,34 @@ class Todo extends Crud {
 	}
 	echo "</ol>";
 }
+	
+	function generate_todo_list_html_admin(){
+	$todo = new Todo();
+	$todos = $todo->read_todo();
+	$lines = $todos->rowCount();
+	if ($lines>0){
+	echo "<ol>";
+	foreach ($todos as $individual_todo) {
+		echo '<li>';
+		echo '<'.$individual_todo["colour"].'>'. $individual_todo["name"] .'</'.$individual_todo["colour"].'/>';		
+		echo '<a><span onclick="confirm_delete_todo('.$individual_todo["id"].')" class="glyphicon glyphicon-remove spanred pointer"></span></a>';
+		echo'</li>';
+	}
+	echo "</ol>";
+	 echo '';
+	}else{
+		echo "nothing to do yet.";
+	}
+}
 
+	function delete_todo_by_id_from_db($id){
+		$this->db = new Database();
+	 	$this->db = $this->db->dbConnect();
+		$statement = $this->db->prepare("DELETE FROM user_groups.todo_list WHERE todo_list.id = ?");
+		$statement->bindParam(1,$id);
+		$statement->execute();
+		return $statement;
+	}
 
 }
 

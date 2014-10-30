@@ -4,6 +4,7 @@ require_once '../controllers/crud.php';
 require_once('../controllers/user.php');
 require_once('../controllers/group.php');
 require_once('../controllers/function_call_log.php');
+require_once('../controllers/todo_controller.php');
 
 
 $id_to_delete = $_GET['id'];
@@ -61,6 +62,15 @@ if ($type_of_object == 'users'){
 			//END LOG
 	header("Location: /user/views/view_detail_types.php");
 	die();
+}elseif ($type_of_object == 'todo') {
+	$todo = new Todo();
+	$todo->delete_todo_by_id_from_db($id_to_delete);
+			//LOG
+			$log_message = 'Deleted todo with id : '.$id_to_delete;
+			$log = new Log();
+			$log->create_log('delete.php | todo ',$log_message);
+			//END LOG
+	header("Location: /user/views/todo_temporary_view.php");
 }else {
 			//LOG
 			$log_message = 'There was an error in here ! Last else !';

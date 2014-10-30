@@ -44,3 +44,14 @@ function confirm_detail_type_delete(id){
 		return false;
 	}
 }
+
+function confirm_delete_todo(id){
+	var x;
+	if (confirm("Remove this entry ?") == true){
+		window.location.replace("../models/delete.php?id="+id+"&type=todo");
+		return true;
+	}else{
+		window.location.replace("/user/views/todo_temporary_view.php");
+		return false;
+	}
+}
