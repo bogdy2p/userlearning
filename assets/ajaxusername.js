@@ -1,8 +1,36 @@
+check_detail_type_availlability_on_edit();
 check_group_availlability();
 check_username_availlability();
 check_detail_type_availlability();
 check_password_matching();
 check_username_availlability_on_edit();
+
+
+
+function check_detail_type_availlability_on_edit(){
+	$(document).ready(function(){
+		$('#edit_detail').blur(function(){
+			$.ajax({
+				url: '../models/ajax.php',
+				data: {'edit_detail' : $('#edit_detail').val()},
+				success: success,
+				dataType: 'json'
+			})
+			.done(function(data){
+				if(data==0){
+					$('#edit_detail_type_error').html("");
+					$('#submit').show();
+				}else{
+					$('#submit').hide();
+					$('#edit_detail_type_error').html("<h5><spanred>Can't rename to : <spangre>"+$('#edit_detail').val()+"</spangre> <br /> Another group named like that already exists!</spanred></h5>");
+				}
+			})
+		});
+		function success(){
+			console.log("Ajax Success Called Detail Type on EDIT");
+			}
+	});
+}
 
 
 function check_username_availlability_on_edit(){

@@ -111,10 +111,11 @@ function print_edit_existing_detail_form($name){
 	echo '
 			<form class="form" id="edit_existing_detail_form" action="../models/detail_types_model.php" method="post">
 				<label>Change detail name for "'.$name.'" </label><br />
-					<input name="new_detail_name"  type="text"  placeholder="change detail name"> <br />
+					<div id="edit_detail_type_error"></div>
+					<input name="new_detail_name" id="edit_detail" type="text"  placeholder="change detail name"> <br />
 					<input name="old_detail_name" type="hidden" value="'.$name.'">
 					<br />
-					<button type="submit" class="btn btn-success">Save </button>
+					<button type="submit" id="submit" class="btn btn-success">Save </button>
 			</form>
 	';
 }
