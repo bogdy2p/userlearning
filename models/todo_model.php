@@ -29,49 +29,6 @@ function validate_insert_new_todo(){
 }
 
 
-function generate_todo_list_html(){
-	$todo = new Todo();
-	$todos = $todo->read_todo();
-	echo "<ol>";
-	foreach ($todos as $individual_todo) {
-		echo '<li><'.$individual_todo['colour'].'>'. $individual_todo['name'] .'</'.$individual_todo['colour'].'></li>';
-	}
-	echo "</ol>";
-}
-
-
-
-function generate_todo_table_html($days){
-	generate_todo_table_header($days);
-	generate_todo_table_content($days);
-	generate_todo_table_footer();
-}
-
-function generate_todo_table_header($days){
-echo '<br />';
-echo '<div class="col-xs-12 col-md-12">';
-echo '<table class="table table-bordered">';
-echo '<th class="success">Name</th>';
-echo '<th class="success">Created</th>';
-}
-function generate_todo_table_content($days){
-	$todo = new Todo();
-	$todos = $todo->read_todo();
-	foreach ($todos as $individual_todo) {
-			$type = 'todo';
-				echo '<tr>';
-                echo '<td><'.$individual_todo['colour'].'>'. $individual_todo['name'] .'</'.$individual_todo['colour'].'></td>';             
-                echo '<td>'. $individual_todo['date'] . '</td>';
-                echo '</tr>';
-		}
-}
-function generate_todo_table_footer(){
-echo '</table></div>';
-}
-
-
-
-
 function generate_todo_add_new_form(){
 	echo '		<form class="form" id="add_new_todo_form" action="../models/todo_model.php" method="post">
 						<label>Add New Todo</label><br />
