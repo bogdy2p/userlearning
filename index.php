@@ -4,6 +4,8 @@
 		require_once 'controllers/group.php';
 		require_once 'controllers/database.php';
 		require_once 'controllers/changelog_controller.php';
+		require_once 'controllers/todo_controller.php';
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -25,7 +27,6 @@
 				  	<div class="col-xs-12 col-md-3">
 				  		<h2>To do (to change/add):</h2>
 				  		<?php
-
 				  			$test = new User();
 				  			$test->get_table_of_users_and_number_of_detail_types();
 				  		?>
@@ -33,13 +34,16 @@
 				  	</div>
 
 				  	<div class="col-xs-12 col-md-6">
-				  	 	<?php Crud::print_to_do_list();?>
+				  	 	<?php 
+				  	 		$todo = new Todo();
+				  	 		$todo->generate_todo_list_html();
+				  	 	?>
 					</div>
 					<div class="col-xs-12 col-md-3">
-								<?php 
-										$user = new User();
-										$user->get_database_statistics(); 
-								?>
+						<?php 
+								$user = new User();
+								$user->get_database_statistics(); 
+						?>
 					</div>	
 		  	</div>
 		  	

@@ -41,7 +41,6 @@ class Todo extends Crud {
 	  	$statement->bindParam(1,$day);
 	  	$statement->bindParam(2,$limit);
 	  	$statement->execute();
-	  	// print_r($statement);
 	  	return $statement;
 	}
 
@@ -51,9 +50,20 @@ class Todo extends Crud {
 	  	$statement = $this->db->prepare("SELECT * FROM todo_list WHERE date >= CURDATE() - ? ORDER BY date DESC");
 	  	$statement->bindParam(1,$days);
 	  	$statement->execute();
-	  	// print_r($statement);
 	  	return $statement;
 	}
+
+
+	function generate_todo_list_html(){
+	$todo = new Todo();
+	$todos = $todo->read_todo();
+	echo "<ol>";
+	foreach ($todos as $individual_todo) {
+		echo '<li><'.$individual_todo['colour'].'>'. $individual_todo['name'] .'</'.$individual_todo['colour'].'></li>';
+	}
+	echo "</ol>";
+}
+
 
 }
 
