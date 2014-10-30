@@ -783,7 +783,7 @@ function print_to_do_list(){
 }
 
 function get_database_statistics(){
-
+							echo '<h4>Database Statistics</h4>';
 				  			$users_availlable = Self::get_number_of_rows('users');
 				  			echo 'Total Users : <b>'.$users_availlable->rowCount().'</b><br />';
 				  			$groups_availlable = Self::get_number_of_rows('groups');
@@ -826,17 +826,12 @@ EEEEEEEEEEEE**NN********NNN***DDDDDDDDD**********TTTT*******EEEEEEEEEEEE**MM****
 /**********************************************************************************************/
 
 
-function get_table_of_users_and_number_of_detail_types(){
-	$statement = $this->db->prepare("SELECT user_id,Count(user_id) as det_number FROM user_details GROUP BY user_id");
-	$statement->execute();
-	$contor = 0;
-	foreach ($statement as $key => $value) {
-		if ($value['det_number'] >= $contor){
-		 	$contor = $value['det_number'];
-		 	$id = $value['user_id'];	
-		}		
+	function get_table_of_users_and_number_of_detail_types(){
+		$statement = $this->db->prepare("SELECT user_id,Count(user_id) as det_number FROM user_details GROUP BY user_id ORDER BY Count(user_id) DESC");
+		$statement->execute();
+		foreach ($statement as $row) {
+			return $row['user_id'];
+		}
 	}
-	return $id;
-}
 
 }?>
