@@ -744,7 +744,7 @@ function print_sitewide_menu(){
                              <li><a href="/user/views/create_group.php          ">   Add Group           </a></li>
                              <li><a href="/user/views/view_logs.php             ">   View App Logs       </a></li>
                              <li><a href="/user/views/view_changelogs.php       ">   View Changelogs     </a></li>
-                             <li><a href="/user/views/todo_temporary_view.php       ">Add new Todo(task)    </a></li>
+                             <li><a href="/user/views/todo_temporary_view.php       ">Manage Todo\'s (tasks)    </a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div>
