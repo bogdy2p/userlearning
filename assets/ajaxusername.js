@@ -4,8 +4,32 @@ check_username_availlability();
 check_detail_type_availlability();
 check_password_matching();
 check_username_availlability_on_edit();
+check_group_availlability_on_edit();
 
-
+function check_group_availlability_on_edit(){
+$(document).ready(function(){
+		$('#edit_groupname').blur(function(){
+			$.ajax({
+				url: '../models/ajax.php',
+				data: {'edit_groupname' : $('#edit_groupname').val()},
+				success: success,
+				dataType: 'json'
+				})
+			.done(function(data){
+				if (data==0){
+					$('#edit_group_error').html("");//Aici setezi textul in div-ul de langa name
+					$('#submit').show();
+				}else{
+					$('#submit').hide();
+					$('#edit_group_error').html("<h4><spanred><spangre>"+$('#edit_groupname').val()+"</spangre> group already exists!</spanred></h4>");
+				}
+			})
+		});
+		function success(){
+				console.log("Ajax Success Called check_group_availlability");
+			  				}
+	});
+}
 
 function check_detail_type_availlability_on_edit(){
 	$(document).ready(function(){
@@ -138,7 +162,6 @@ function check_detail_type_availlability(){
 }
 
 function check_password_matching(){
-
 	$(document).ready(function(){
 		//Grab the input for password
 		$('#pass_conf').blur(function(){

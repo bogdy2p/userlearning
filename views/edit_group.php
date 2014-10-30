@@ -38,12 +38,10 @@
 	<div class ="container">
 	<?php Crud::print_sitewide_menu();?>
 
-		
-
 			<form class="form" id="editgroup" action="edit_group.php?id=<?php echo $group_id;?>&type=groups" method="post">
-
+				<div id="edit_group_error"></div>
 				<label>Name</label><br />
-				<input name="name"  type="text"  placeholder="Group Name" value="<?php if(isset($old_name)) echo $old_name;?>"> <br />
+				<input name="name" id="edit_groupname" type="text"  placeholder="Group Name" value="<?php if(isset($old_name)) echo $old_name;?>"> <br />
 				<label>Special Key</label><br />
 				<input name="special_key"   type="text"  placeholder="Special Key" value="<?php if(isset($old_special_key)) echo $old_special_key;?>"> <br/>
 				
