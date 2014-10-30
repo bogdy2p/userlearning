@@ -107,6 +107,14 @@ abstract class Crud {
 		}
 	}
 	
+	function get_number_of_rows($table_name){
+		$statement = $this->db->prepare("SELECT * FROM ". $table_name);
+		$statement->execute();
+		return $statement;
+	}
+
+
+
 	function read($table_name){
 	 	$statement = $this->db->prepare("SELECT * FROM ". $table_name);
 	 	$statement->execute();
@@ -760,12 +768,8 @@ function print_color_meanings(){
 function print_to_do_list(){
     echo'
                 <ol>
-                    <li><h5><spanred>AJAX / Jquery @ editing user (if changing username , not to be able to select an already existing username) </spanred></h5></li>
-                    <li><h4><spanred>AJAX @ edit_user.php & edit_group.php - Make buttons disabled too , and add Jquery check if the new name isnt already in the database.</spanred></h4></li>
                     <li><h6><spanyel>TO_DO_LIST implementation (view,edit,delete,update)(not hardcoded like now)</spanyel></h6></li>
-                    <li><h6><spangre>PRINT DATABASE STATISTICS as : how many programmers, how many users in total , how many designer , how many X.</spangre></h6>  </li>
                     <li><h6><spangre>Print "last created user";</spangre></h6></li>
-                    <li><h6><spangre>Print User with most details entered</spangre></h6></li>
                 </ol>    
                 <!--
                     RED :
@@ -778,7 +782,25 @@ function print_to_do_list(){
     ';
 }
 
+function get_database_statistics(){
 
+				  			$users_availlable = Self::get_number_of_rows('users');
+				  			echo 'Total Users : <b>'.$users_availlable->rowCount().'</b><br />';
+				  			$groups_availlable = Self::get_number_of_rows('groups');
+				  			echo 'Total Groups : <b>'.$groups_availlable->rowCount().'</b><br />';
+				  			$user_details_set = Self::get_number_of_rows('user_detail_types');
+				  			echo 'Total User Details Set: <b>'.$user_details_set->rowCount().'</b><br />';
+				  			$mappings_availlable = Self::get_number_of_rows('usergroups');
+				  			echo 'Total Mappings Set: <b>'.$mappings_availlable->rowCount().'</b><br />';
+				  			$app_logs_availlable = Self::get_number_of_rows('function_call_log');
+				  			echo 'Total App Logs: <b>'.$app_logs_availlable->rowCount().'</b><br />';
+				  			$change_logs_availlable = Self::get_number_of_rows('app_changelog');
+				  			echo 'Total ChangeLogs: <b>'.$change_logs_availlable->rowCount().'</b><br />';
+				  			$user_id_with_most_details_entered = Self::get_table_of_users_and_number_of_detail_types();
+				  			$username_most_detailed = Self::get_name_by_id($user_id_with_most_details_entered,'users');
+				  			echo 'Most details user :<b> '.$username_most_detailed.'</b> (userid <b>'.$user_id_with_most_details_entered.')</b>';
+
+}
 
 
 /**********************************************************************************************************************************************
@@ -795,6 +817,26 @@ EEEEEEEE******NN*******NNNN***DDD*****DDD********TTTT*******EEEEEEEE******MM****
 EEEEEEEEEEEE**NN********NNN***DDDDDDDDD**********TTTT*******EEEEEEEEEEEE**MM********MM***PPP*********LLLLLLLLL**AA********AA*****TTTT*****EEEEEEEEEEEE
 /**********************************************************************************************************************************************/
 
+
+/**********************************************************************************************/
+/********** TTTTTTTT EEEEEEEEE SSSSSSSSS TTTTTTT IIIIIIIII NNNNNNNNNN GGGGGGGGG ***************/
+/********** TTTTTTTT EEEEEEEEE SSSSSSSSS TTTTTTT IIIIIIIII NNNNNNNNNN GGGGGGGGG ***************/
+/********** TTTTTTTT EEEEEEEEE SSSSSSSSS TTTTTTT IIIIIIIII NNNNNNNNNN GGGGGGGGG ***************/
+/********** TTTTTTTT EEEEEEEEE SSSSSSSSS TTTTTTT IIIIIIIII NNNNNNNNNN GGGGGGGGG ***************/
+/**********************************************************************************************/
+
+
+function get_table_of_users_and_number_of_detail_types(){
+	$statement = $this->db->prepare("SELECT user_id,Count(user_id) as det_number FROM user_details GROUP BY user_id");
+	$statement->execute();
+	$contor = 0;
+	foreach ($statement as $key => $value) {
+		if ($value['det_number'] >= $contor){
+		 	$contor = $value['det_number'];
+		 	$id = $value['user_id'];	
+		}		
+	}
+	return $id;
+}
+
 }?>
-
-
