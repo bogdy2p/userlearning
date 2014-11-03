@@ -155,8 +155,6 @@ abstract class Crud {
 	  	}
 	}
 
-
-
 	/* END OF GENERAL TABLE FUNCTIONS */
 
 

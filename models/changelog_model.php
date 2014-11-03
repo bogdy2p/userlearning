@@ -41,7 +41,7 @@ function generate_changelog_table_header($days){
 	}elseif($days == 1){
 		echo '<h3>CHANGELOGS SINCE YESTERDAY:</h3>';
 	}elseif($days >1 && $days<=10){
-		echo '<h3>LAST '.$days.' DAYS CHANGE LOGS :</h3>';
+		echo '<h3>LAST '.$days - 1 .' DAYS CHANGE LOGS :</h3>';
 	}else{
 		echo '<h3> ALL CHANGELOGS AVAILLABLE :</h3>';
 	}
